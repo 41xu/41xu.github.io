@@ -1,1 +1,0 @@
-click index.html and see the result.
