@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dense Motion Captioning</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Dense Motion Captioning</h1>
+          
+            <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://xusy2333.com/">Shiyao Xu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://benedettaliberatori.github.io/">Benedetta Liberatori</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://gulvarol.github.io/">Gül Varol</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://paolorota.eu/">Paolo Rota</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Trento</span>
+            <span class="author-block"><sup>2</sup>LIGM, Ecole des Ponts, IP Paris, Univ Gustave Eiffel, CNRS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-centered">
+        <img src = "./static/images/teaser.png" height="120%"></img><br>
+    </div>
+    <br>
+      <center><h2 class="title is-3">Abstract</h2></center>
+      <p>
+        Recent advances in 3D human motion and language integration have primarily focused on text-to-motion generation, leaving the task of motion understanding relatively unexplored.
+        We introduce Dense Motion Captioning, a novel task that aims to temporally localize and caption actions within 3D human motion sequences. 
+        Current datasets fall short in providing detailed temporal annotations and predominantly consist of short sequences featuring few actions.
+        To overcome these limitations, we present the Complex Motion dataset (<span style="color:red;">CompMo</span>), the first large-scale dataset featuring richly annotated, complex motion sequences with precise temporal boundaries. 
+        Built through a carefully designed data generation pipeline, <span style="color:red;">CompMo</span> includes <i>60,000</i> motion sequences, each composed of multiple actions ranging from at least two to ten, accurately annotated with their temporal extents.
+        We further present <span style="color:green";>DEMO</span>, a model that integrates a large language model with a simple motion adapter, trained to generate dense, temporally grounded captions. 
+        Our experiments show that DEMO substantially outperforms existing methods on <span style="color:red;">CompMo</span> as well as on adapted benchmarks, establishing a robust baseline for future research in 3D motion understanding and captioning.
+    </p>
+  </div>
+</section>
+
+
+
+<section class="hero is-small is-light">
+  <center><h2 class="title is-2">Gallery of <span style="color:red;">CompMo</span> dataset</h2></center>
+  <div class="hero-body">
+    <p class="has-text-centered"><b>
+        In this gallery, we show some samples from our proposed <span style="color:red">CompMo</span> dataset.
+        Different colors in the motion correspond to different actions. 
+        The bottom displayed is the dense captions of the data in the format of 'start - description'.
+    </b></p>
+    <div class="container">
+      <div id="gallery-carousel" class="carousel results-carousel">
+        <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/28_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - walks forward with a big right kick<br>
+                00:06:55 - pretends to be a t-rex<br>
+                00:16:55 - swing his left leg behind him<br>
+                00:23:85 - lofts their left hand to their face<br>
+                00:27:75 - walks forward at mid pace
+            </p>
+        </div>
+       <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/39_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - walks down steps with their left hand on a railing<br>
+                00:04:70 - jump forward on the floor<br>
+                00:09:25 - punches forward with his left arm<br>
+                00:11:95 - takes off their t-shirt with one arm<br>
+                00:15:54 - looking at the damage to his left leg<br>
+                00:25:85 - takes a left handed golf swing<br>
+                00:29:65 - 3 jumping jacks in place<br>
+                00:37:00 - lifts both hands into the air
+            </p>
+        </div>
+       <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/44_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - looks at their right hand<br>
+                00:08:61 - walks in a clockwise semi-circle<br>
+                00:12:26 - waves their left hand over their head in a friendly gesture<br>
+                00:19:81 - walks backwards swiftly<br>
+                00:29:03 - hops on their left foot then their right<br>
+                00:33:34 - walking wobbly as if drunk or dizzy<br>
+                00:38:64 - waves with the left hand<br>
+                00:46:84 - lays on the ground and does a swimming motion with their arms and legs<br>
+                00:55:49 - jumping rope<br>
+                00:65:44 - putting on a garment
+            </p>
+        </div>
+       <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/56_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - kicks at something with their left leg<br>
+                00:02:55 - kicks and punches in a manner consistant with martial arts<br>
+                00:11:35 - sat down in a curtsy position<br>
+                00:17:45 - walking backwards, towards the left<br>
+                00:23:30 - bends down, the places their left hand on their stomach<br>
+                00:33:30 - walking forward with a low kick to the left<br>
+                00:38:25 - stretching his right leg<br>
+                00:42:55 - sit ups
+            </p>
+        </div>
+
+       <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/66_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - stands up from being on one knee<br>
+                00:08:95 - walked forward and a medium pace<br>
+                00:12:89 - scratching their head in confusion<br>
+                00:17:50 - walks towards the right side<br>
+                00:22:60 - jumps several times<br>
+                00:26:00 - hops on his left leg<br>
+                00:28:45 - walking in a random pattern
+            </p>
+        </div>
+
+       <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/160_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - executes a handstand with his feet up in the air and returns to his feet in a standing position<br>
+                00:06:60 - walks and stumbles to his right<br>
+                00:09:39 - kicks an object with their right foot<br>
+                00:13:34 - ran in a diagonal line from one side to the other<br>
+                00:15:24 - shrugs his arms<br>
+                00:17:95 - walking like a zombie in a half circle to the right
+            </p>
+        </div>
+        
+        <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/180_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - walks down several stairs<br>
+                00:05:65 - walking sideways to the left, then diagonally to right and back to center<br>
+                00:15:45 - jumping on one leg first on the left leg then next on the right leg
+            </p>
+        </div>        
+
+        <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/125_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - walks in a tight line (on a beam or string)<br>
+                00:08:40 - walking forward like a seesaw<br>
+                00:15:35 - taking something off the shelf<br>
+                00:19:75 - walking in an unbalanced and wobbly way<br>
+                00:21:70 - bowing over<br>
+                00:30:25 - bends his left leg in many directions above the ground<br>
+                00:40:35 - kicks an object on the ground first with his left foot and then his right<br>
+                00:44:65 - pushes an object into the ground with his left hand<br>
+                00:49:76 - walks forwards casually
+            </p>
+        </div>  
+
+        <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/166_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - jumps over something and lands on feet<br>
+                00:03:35 - doing multiple cart wheels<br>
+                00:12:25 - picks up an object on the left side with both hands<br>
+                00:21:10 - walk slowly while in a crouching position<br>
+                00:29:35 - takes four steps forward, down a ramp, toward the viewer<br>
+                00:34:75 - hits their leg once<br>
+                00:44:75 - walks in a counterclockwise circle and stops
+            </p>
+        </div>  
+
+        <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/224_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - reaches with their right arm 5 different times in 5 different locations<br>
+                00:10:00 - stretches first their left arm across their body, then their right<br>
+                00:14:70 - stirring with their right arm
+            </p>
+        </div> 
+
+        <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/253_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - standing straight with their arms out front<br>
+                00:04:00 - walked forward in left and right direction and after return<br>
+                00:13:90 - doing push ups on the ground<br>
+                00:23:65 - jumps up with his whole body<br>
+                00:27:25 - walks forward in a clockwise semi circle<br>
+                00:31:00 - push recovery stand<br>
+                00:34:70 - jogs for a second and stops<br>
+                00:40:40 - stretches arms over head<br>
+                00:44:55 - raises their right hand to their mouth<br>
+                00:48:25 - wiping the floor
+            </p>
+        </div> 
+
+        <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/265_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - opening a door<br>
+                00:04:00 - moving in a strange circle motion away from body<br>
+                00:14:00 - dancing with himself<br>
+                00:24:80 - walks forward and slightly to the right<br>
+                00:30:48 - stumbles backwards with left leg first<br>
+                00:34:28 - pushing arms in and out<br>
+                00:44:28 - walks casually in a coutercounterclockwise circle<br>
+                00:51:43 - walking in an erratic pattern<br>
+                00:61:33 - losing footing and does a slight bounce to the right<br>
+                00:63:98 - walks on a treadmill at a slow pace
+            </p>
+        </div> 
+
+        <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/266_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - takes a slight bow forward<br>
+                00:04:80 - kicks with left foot<br>
+                00:09:00 - making a simple crouch down<br>
+                00:17:25 - wipes down a window with their right hand<br>
+                00:26:46 - walked forward in left and after right direction<br>
+                00:36:46 - standing to the right side<br>
+                00:46:28 - spins around in place
+            </p>
+        </div> 
+
+        <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/315_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - squats multiple times<br>
+                00:08:80 - playing the guitar<br>
+                00:16:25 - puts their hand up to their mouth as if yawning<br>
+                00:22:35 - took one step to the left<br>
+                00:27:40 - stretches arms up together above head<br>
+                00:31:90 - crawling to the right side then the left side<br>
+                00:41:05 - stands up to a prone position<br>
+                00:45:85 - swings on tree branches like a monkey<br>
+                00:55:85 - walking backwards in a circle
+            </p>
+        </div> 
+
+        <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/364_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <p>00:00:00 - walks at a right bend<br>
+                00:03:19 - put his hands on his knees<br>
+                00:11:24 - acting like a cat<br>
+                00:21:89 - kicks the air with his right foot<br>
+                00:26:04 - stepped over the clean spots<br>
+                00:30:49 - slides to the left<br>
+                00:39:50 - walks forward in a straight line carefully<br>
+                00:47:88 - throws and catches something
+            </p>
+        </div> 
+
+        <div class="column is-centered has-text-left">
+          <video poster="" id="tree" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/video/gallery/407_mesh_caps.mp4" type="video/mp4">
+          </video>
+            <br>
+            <p>00:00:00 - stepping to the left and then back to the right<br>
+                00:07:15 - shoveling in yard<br>
+                00:16:25 - moves the right leg in a small circular motion<br>
+                00:23:10 - walks at a moderate pace forward and to the left<br>
+                00:28:65 - walking very fast around in a circle<br>
+                00:37:80 - swinging a tennis racket<br>
+                00:41:95 - doing a dance like a ballerina<br>
+                00:51:74 - walking in a random pattern then back
+            </p>
+        </div> 
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <center><h2 class="title is-2">Main Results</h2></center>
+  <div class="hero-body">
+    <p class="has-text-centered"><b>
+        Here we show DEMO's results on our proposed CompMo dataset. 
+        The bottom displays <span style="color:blue";>GT</span> dense captions and <span style="color:green";>DEMO</span> generated captions in sequence.  
+    </b></p>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/121_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - shuffles 2 steps to the left, 3 steps to the right and 1 step back to center,<br>
+              00:05:75 - adjusts something on the ground,<br>
+              00:13:01 - picks something up off the grond with his right hand,<br>
+              00:17:56 - walks backwards, his hands down by his side,<br>
+              00:23:34 - jumps in place four times,<br>
+              00:26:70 - takes one large step to their right,<br>
+              00:31:20 - walks to his left then to his right and then to his lefts again,<br>
+              00:43:20 - walks quickly five steps forward,<br>
+              00:48:60 - swimming the free style stroke,<br>
+              00:60:20 - walks briskly in counterclockwise circles.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - side-steps quickly, like a basketball shuffle -- first to the right and then to the left,<br>
+              00:05:60 - adjusts something on the ground,<br>
+              00:12:71 - picks an object up off the floor with their left hand,<br>
+              00:17:93 - walks backwards after a second or two,<br>
+              00:23:33 - takes a large step diagonally with their left leg,<br>
+              00:27:88 - takes a couple steps to the left then a couple steps to the right and back to the left again,<br>
+              00:37:48 - steps back two steps and lowers to a crouch position,<br>
+              00:46:58 - swimming on his back slowly,<br>
+              00:56:98 - walks in a counterclockwise circle and returns to his original position.
+            </p>
+        </div>
+       <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/43_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - walks at a normal pace in a clockwise circle,<br>
+              00:06:25 - approaches and squats,<br>
+              00:09:55 - raises both arms into the air above their head,<br>
+              00:11:15 - moves an object from the right to the left,<br>
+              00:21:15 - reaches forwards with their right hand then does a rowing motion with both hands,<br>
+              00:30:50 - squats up and down two times,<br>
+              00:38:40 - extends their left foot forward,<br>
+              00:39:10 - climbing up a pole,<br>
+              00:49:15 - looks around behind left and right,<br>
+              00:55:95 - sneaking sideways.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - walks in a circle,<br>
+              00:06:50 - squats with their arms above their head,<br>
+              00:08:50 - raises both arms into the air above their head,<br>
+              00:10:75 - moves an object from the right to the left,<br>
+              00:20:75 - shooting a free throw,<br>
+              00:26:55 - squats with their arms out in front of them,<br>
+              00:31:65 - squats up and down with their hands out in front of them,<br>
+              00:42:90 - bending down multiple times,<br>
+              00:53:35 - limping with his right leg.
+            </p>
+        </div>
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/64_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - walks straightforward, one foot in front of the other, like they are on a tight rope,<br>
+              00:09:35 - flaps his arms like a bird,<br>
+              00:19:04 - moves something with both hands diagnoly,<br>
+              00:24:54 - runs forward at moderate pace,<br>
+              00:28:70 - looks at their right arm,<br>
+              00:32:20 - holds his head with both hands and kicks with his right leg,<br>
+              00:41:75 - holding on to a stool to get down,<br>
+              00:46:50 - doing karate kicks,<br>
+              00:56:30 - took a step to the left.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - walks with their arms straight out and legs stiff, in a u shape,<br>
+              00:10:00 - puts both arms forward then to his sides10.0,<br>
+              00:20:40 - checks their watch on their left hand,<br>
+              00:23:95 - jogs forward at an average pace,<br>
+              00:26:20 - checks the watch on their left arm,<br>
+              00:30:20 - holds his head with both hands and kicks with his right leg,<br>
+              00:38:65 - gets down onto their knees,<br>
+              00:44:65 - kicks with their right leg 4 times while their hands are in front of their face,<br>
+              00:53:50 - kicks something with their right foot,<br>
+              00:57:80 - takes a large step to their left.
+            </p>
+        </div>
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/287_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - squats very slightly,<br>
+              00:01:40 - acting like a gorilla,<br>
+              00:12:55 - throwing something with his right hand,<br>
+              00:16:80 - thinking in a crouched over position,<br>
+              00:21:35 - balances on the right leg,<br>
+              00:26:85 - moves his left leg up,<br>
+              00:35:55 - running forward at a fast pace,<br>
+              00:36:94 - walks in a circle towards their right,<br>
+              00:46:30 - walks forward at speedy pace,<br>
+              00:48:69 - doing karate kicks.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - shakes shoulders fast,<br>
+              00:03:84 - acting like a human dinosaur,<br>
+              00:12:69 - throws something with his right arm,<br>
+              00:17:04 - crouched with knees bent and arms bent,<br>
+              00:22:18 - kicks their left foot,<br>
+              00:32:94 - runs forward and then to the left,<br>
+              00:36:29 - walks in a circle in a clockwise direction,<br>
+              00:45:69 - kicks with their right leg 4 times while their hands are in front of their face.
+            </p>
+        </div>
+
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/2_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - walks forward then right arm and shoulder stumble to the right hand side two times,<br>
+              00:05:39 - walks in a curved path forward and to the right,<br>
+              00:09:48 - rests their hands on their legs.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - walks forward then right arm and shoulder stumble to the right hand side two times,<br>
+              00:05:39 - walks forward and to the right in a semicircle,<br>
+              00:09:84 - sitting down with their hands on their thighs.
+            </p>
+        </div>      
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/315_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+                00:00:00 - squats multiple times,<br>
+                00:08:80 - playing the guitar,<br>
+                00:16:25 - puts their hand up to their mouth as if yawning,<br>
+                00:22:35 - took one step to the left,<br>
+                00:27:40 - stretches arms up together above head,<br>
+                00:31:90 - crawling to the right side then the left side,<br>
+                00:41:05 - stands up to a prone position,<br>
+                00:45:85 - swings on tree branches like a monkey,<br>
+                00:55:85 - walking backwards in a circle.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - squats up and down two times,<br>
+              00:08:55 - strums a guitar with his left arm,<br>
+              00:14:60 - moves their left arm in a circular motion in front of their stomach area,<br>
+              00:18:59 - takes a large step to their left over an object,<br>
+              00:23:34 - stretches their arms out in circles,<br>
+              00:33:34 - crawls around on the ground,<br>
+              00:42:59 - throws an object over-hand,<br>
+              00:51:89 - throws something large with both arms,<br>
+              00:61:89 - walking backwards in a strait line.
+            </p>
+        </div>     
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/125_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - walks in a tight line (on a beam or string),<br>
+              00:08:40 - walking forward like a seesaw # 8.40 # 15.35,<br>
+              00:15:35 - taking something off the shelf # 15.35 # 19.75,<br>
+              00:19:75 - walking in an unbalanced and wobbly way,<br>
+              00:21:70 - bowing over,<br>
+              00:30:25 - bends his left leg in many directions above the ground,<br>
+              00:40:35 - kicks an object on the ground first with his left foot and then his right,<br>
+              00:44:65 - pushes an object into the ground with his left hand,<br>
+              00:49:76 - walks forwards casually.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - walks straightforward, one foot in front of the other, like they are on a tight rope,<br>
+              00:08:40 - walks forward and stops in the center,<br>
+              00:16:50 - puts their hands on something in the order left-left-top-bottom,<br>
+              00:23:39 - leans to his right,<br>
+              00:28:59 - balancing on their legs with arms out,<br>
+              00:42:49 - kicks something with their left foot,<br>
+              00:47:56 - puts a golf ball on a tee,<br>
+              00:55:33 - walks forward with his right hand on a railing,<br>
+              00:59:75 - takes a diagonal step to the left.
+            </p>
+        </div>   
+
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/99_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - hops around on their right leg,<br>
+              00:10:00 - lifts his right leg.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - hops on one leg in a circle,<br>
+              00:10:00 - kicks their left leg forward one time.
+            </p>
+        </div>       
+        
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/166_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00: - jumps over something and lands on feet,<br>
+              00:03:35 - doing multiple cart wheels,<br>
+              00:12:25 - picks up an object on the left side with both hands,<br>
+              00:21:10 - walk slowly while in a crouching position,<br>
+              00:29:35 - takes four steps forward, down a ramp, toward the viewer,<br>
+              00:34:75 - hits their leg once,<br>
+              00:44:75 - walks in a counterclockwise circle and stops.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - jumps forward with his arms at his sides,<br>
+              00:03:15 - doing a cartwheel forward then back again,<br>
+              00:11:75 - moves object from right to left,<br>
+              00:17:95 - creeps forward with their knees and arms slightly bent,<br>
+              00:25:95 - walks forward with his arms at his side slowly,<br>
+              00:33:90 - sits down on something and the stands up again,<br>
+              00:41:65 - raised hands while bend on the knee,<br>
+              00:43:65 - walks in a circle in a counterclockwise direction,<br>
+              00:51:50 - steps sideways to their left.
+            </p>
+        </div>    
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/439_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - staggers around slowly in an clockwise movement,<br>
+              00:09:10 - walks in a circle with their right hand up to their face,<br>
+              00:18:54 - wipes their hands on their upper legs,<br>
+              00:27:83 - runs and stops,<br>
+              00:30:98 - kicking their left leg into the air,<br>
+              00:42:78 - falls to his right,<br>
+              00:48:12 - stretches arms up together above head,<br>
+              00:51:58 - moving both hands in an up and down motion,<br>
+              00:60:48 - moves back and right with the left foot first.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00: - walks in a circle in an anticlockwise direction and stops at original position,<br>
+              00:08:75 - walks in a circle with their left hand up to their face,<br>
+              00:17:30 - stands still while squatted and t-poses at the end,<br>
+              00:24:75 - runs forward and stops,<br>
+              00:29:55 - moving the right leg and like dancing,<br>
+              00:41:20 - falls to his left,<br>
+              00:46:20 - lifts both his arms up and stretchs,<br>
+              00:50:20 - waves their hands together in front of them.
+            </p>
+        </div>    
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/266_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+                00:00:00 - takes a slight bow forward,<br>
+                00:04:80 - kicks with left foot,<br>
+                00:09:00 - making a simple crouch down,<br>
+                00:17:25 - wipes down a window with their right hand,<br>
+                00:26:46 - walked forward in left and after right direction,<br>
+                00:36:46 - standing to the right side,<br>
+                00:46:28 - spins around in place.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - takes a bow quickly,<br>
+              00:04:90 - kicks something with their right foot,<br>
+              00:09:30 - making a simple crouch down,<br>
+              00:15:80 - doing a range of motion exercise from their wrist to their shoulders on both their right & left sides,<br>
+              00:25:50 - walks in a bend shape to the left,<br>
+              00:30:55 - walks forward and to the left in an arc shape,<br>
+              00:35:45 - gets in the swimming pool and does the breast stroke,<br>
+              00:44:30 - lifts their arms and spins slowly,<br>
+              00:49:90 - throws something with his left hand.
+            </p>
+        </div>   
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/490_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - walks forward in a side to side pattern,<br>
+              00:09:26 - takes a couple steps to the left then back again to the right and repeats,<br>
+              00:19:81 - punches with their right arm,<br>
+              00:22:36 - steps to the side with their right foot.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - walks in a s shaped pattern back and forth across the square area,<br>
+              00:08:55 - stepping to the left and then back to the right,<br>
+              00:17:30 - punches with their left hand then their right hand,<br>
+              00:21:30 - takes a step forward and to his left.
+            </p>
+        </div>    
+
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/364_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+                00:00:00 - walks at a right bend,<br>
+                00:03:19 - put his hands on his knees,<br>
+                00:11:24 - acting like a cat,<br>
+                00:21:89 - kicks the air with his right foot,<br>
+                00:26:04 - stepped over the clean spots,<br>
+                00:30:49 - slides to the left,<br>
+                00:39:50 - walks forward in a straight line carefully,<br>
+                00:47:88 - throws and catches something.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - walks in a quarter circle to their left with the right leg stiffer than the other,<br>
+              00:04:33 - put his hands on his knees,<br>
+              00:13:53 - acting like a human dinosaur,<br>
+              00:21:08 - kicks something with their right leg,<br>
+              00:23:88 - takes a big step forward and to the right,<br>
+              00:27:88 - takes a step forward and three steps more to his left,<br>
+              00:33:28 - takes a step backwards, right leg first,<br>
+              00:38:39 - walks forward in a straight line carefully,<br>
+              00:46:71 - catches a ball.
+            </p>
+        </div>    
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/407_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+                00:00:00 - stepping to the left and then back to the right,<br>
+                00:07:15 - shoveling in yard,<br>
+                00:16:25 - moves the right leg in a small circular motion,<br>
+                00:23:10 - walks at a moderate pace forward and to the left,<br>
+                00:28:65 - walking very fast around in a circle,<br>
+                00:37:80 - swinging a tennis racket,<br>
+                00:41:95 - doing a dance like a ballerina,<br>
+                00:51:74 - walking in a random pattern then back.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - shuffles to the left, then to the right, then back to the left,<br>
+              00:07:40 - digging with a shovel,<br>
+              00:16:55 - kicks their right leg out,<br>
+              00:19:30 - kicks their right leg forward one time,<br>
+              00:22:80 - walks in a bend shape to the left,<br>
+              00:27:55 - walks in a circle in an anticlockwise manner,<br>
+              00:35:20 - playing tennis with his right arm,<br>
+              00:41:40 - doing ballet leaps,<br>
+              00:46:01 - jumping jacks then two forward leg jumps,<br>
+              00:55:41 - walks in a bend shape to the left.
+            </p>
+        </div>   
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/450_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - standing completely stale,<br>
+              00:01:20 - doing some kind of left arm with,<br>
+              00:09:34 - walking backwards in a straight line,<br>
+              00:13:99 - walking in a square on uneven ground,<br>
+              00:23:99 - jogs forward 2 steps,<br>
+              00:29:99 - walks sideways and hops,<br>
+              00:33:69 - claps their hands in front of them,<br>
+              00:37:69 - walks forward at a brisk pace.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - moving around both arms,<br>
+              00:10:00 - walks backwards with his hands down at his sides,<br>
+              00:15:55 - walks forward and upward,<br>
+              00:23:30 - takes a step forward and three steps more to his left,<br>
+              00:28:55 - jumps up and down 2 times,<br>
+              00:33:05 - claps his hands 5 times,<br>
+              00:36:65 - walks forward and to the left in an arc.
+            </p>
+        </div>   
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/270_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - bouncing to do boxing,<br>
+              00:08:35 - took four steps forward.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - boxing with his left hand and then does 3 upper cut punches,<br>
+              00:08:55 - walks forward with a slight arc to the left.
+            </p>
+        </div>  
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/results/265_mesh_gt_ours_caps.mp4"
+                      type="video/mp4">
+            </video>
+            <p style="font-size: 14px;">
+              <b><span style="color:blue">GT: </span></b><br>
+              00:00:00 - opening a door,<br>
+              00:04:00 - moving in a strange circle motion away from body,<br>
+              00:14:00 - dancing with himself,<br>
+              00:24:80 - walks forward and slightly to the right,<br>
+              00:30:48 - stumbles backwards with left leg first,<br>
+              00:34:28 - pushing arms in and out,<br>
+              00:44:28 - walks casually in a coutercounterclockwise circle,<br>
+              00:51:43 - walking in an erratic pattern,<br>
+              00:61:33 - losing footing and does a slight bounce to the right,<br>
+              00:63:98 - walks on a treadmill at a slow pace.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green";>DEMO: </span></b><br>
+              00:00:00 - raises their right arm in a salute,<br>
+              00:04:60 - waving with both of their arms,<br>
+              00:14:60 - dances sporadically around the space,<br>
+              00:22:65 - walks forward with his hands stiff at his sides,<br>
+              00:28:25 - takes a quick step backwards and to their left,<br>
+              00:32:50 - pushing arms in and out,<br>
+              00:42:50 - walks in a circle in an anticlockwise manner,<br>
+              00:48:90 - walks in a s shaped pattern back and forth across the square area,<br>
+              00:59:50 - walks forward and stumbles to his right,<br>
+              00:61:50 - walks in a circle with exaggerated hip and arm movements, either drunk or flirty.
+            </p>
+        </div>    
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small is-light">
+  <center><h2 class="title is-2">Comparison Result with UniMotion</h2></center>
+  <div class="hero-body">
+    <p class="has-text-centered"><b>
+        Here we show comparison results with <span style="color:chocolate">UniMotion</span> on <span style="color:red;">CompMo</span> and <span style="color: yellowgreen">H3D+BABEL</span> dataset.
+        The bottom displays <span style="color:blue";>GT</span> dense captions, <span style="color:green";>DEMO</span>, and <span style="color:chocolate">UniMotion</span> generated captions in sequence.  
+    </b></p>
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/comparison/43_mesh_gt_ours_uni_cap.mp4"
+                      type="video/mp4">
+            </video>
+                <center><p stype="font-size: 14px;"><span style="color:red;">CompMo</span></p></center>
+            <p style="font-size: 14px;">
+                <b><span style="color:blue">GT: </span></b><br>
+                00:00:00 - walks at a normal pace in a clockwise circle,<br>
+                00:06:25 - approaches and squats,<br>
+                00:09:55 - raises both arms into the air above their head,<br>
+                00:11:15 - moves an object from the right to the left,<br>
+                00:21:15 - reaches forwards with their right hand then does a rowing motion with both hands,<br>
+                00:30:50 - squats up and down two times,<br>
+                00:38:40 - extends their left foot forward,<br>
+                00:39:10 - climbing up a pole,<br>
+                00:49:15 - looks around behind left and right,<br>
+                00:55:95 - sneaking sideways.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green">DEMO: </span></b><br>
+              00:00:00 - walks in a circle,<br>
+              00:06:50 - squats with their arms above their head,<br>
+              00:08:50 - raises both arms into the air above their head,<br>
+              00:10:75 - moves an object from the right to the left,<br>
+              00:20:75 - shooting a free throw,<br>
+              00:26:55 - squats with their arms out in front of them,<br>
+              00:31:65 - squats up and down with their hands out in front of them,<br>
+              00:42:90 - bending down multiple times,<br>
+              00:53:35 - limping with his right leg.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:chocolate">UniMotion</span></b><br>
+              00:00:00 - moving in a right angle triangular path,<br>
+              00:03:80 - turn on flashlight.
+
+            </p>
+        </div>
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/comparison/000749_mesh_gt_ours_uni_cap.mp4"
+                      type="video/mp4">
+            </video>
+                <center><p stype="font-size: 14px;"><span style="color:yellowgreen;">H3D+BABEL</span></p></center>
+            <p style="font-size: 14px;">
+                <b><span style="color:blue">GT: </span></b><br>
+                00:00:000 - transition,<br>
+                00:00:303 - extend arms,<br>
+                00:01:211 - lift arms,<br>
+                00:01:731 - transition,<br>
+                00:01:981 - lift arms,<br>
+                00:02:475 - move arms to the right,<br>
+                00:02:981 - extend arms,<br>
+                00:03:475 - transition.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green">DEMO: </span></b><br>
+              00:00:000 - stand,<br>
+              00:00:419 - transition,<br>
+              00:00:586 - lift object,<br>
+              00:01:336 - move object to the right,<br>
+              00:02:294 - transition,<br>
+              00:03:480 - stand.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:chocolate">UniMotion</span></b><br>
+              00:00:000 - transition,<br>
+              00:00:150 - hands on chest,<br>
+              00:00:800 - transition.
+            </p>
+        </div>
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/comparison/99_mesh_gt_ours_uni_cap.mp4"
+                      type="video/mp4">
+            </video>
+                <center><p stype="font-size: 14px;"><span style="color:red;">CompMo</span></p></center>
+            <p style="font-size: 14px;">
+                <b><span style="color:blue">GT: </span></b><br>
+                00:00:00 - hops around on their right leg,<br>
+                00:10:00 - lifts his right leg.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green">DEMO: </span></b><br>
+              00:00:00 - hops on one leg in a circle,<br>
+              00:10:00 - kicks their left leg forward one time.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:chocolate">UniMotion</span></b><br>
+              00:00:00 - moving in a right angle triangular path,<br>
+              00:02:15 - smooth out object on the wall,<br>
+              00:02:25 - moving in a right angle triangular path,<br>
+              00:02:30 - smooth out object on the wall,<br>
+              00:02:35 - moving in a right angle triangular path,<br>
+              00:10:05 - smooth out object on the wall.
+            </p>
+        </div>        
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/comparison/004124_mesh_gt_ours_uni_cap.mp4"
+                      type="video/mp4">
+            </video>
+                <center><p stype="font-size: 14px;"><span style="color:yellowgreen;">H3D+BABEL</span></p></center>
+            <p style="font-size: 14px;">
+                <b><span style="color:blue">GT: </span></b><br>
+                00:00:000 - stand,<br>
+                00:01:398 - walk forward,<br>
+                00:03:898 - walk up stairs,<br>
+                00:07:273 - stand.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green">DEMO: </span></b><br>
+              00:00:000 - stand,<br>
+              00:01:169 - transition,<br>
+              00:01:669 - walk,<br>
+              00:07:730 - transition,<br>
+              00:08:189 - stand.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:chocolate">UniMotion</span></b><br>
+              00:00:000 - walking forward carefully,<br>
+              00:01:650 - looking down.
+            </p>
+        </div>
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/comparison/121_mesh_gt_ours_uni_cap.mp4"
+                      type="video/mp4">
+            </video>
+                <center><p stype="font-size: 14px;"><span style="color:red;">CompMo</span></p></center>
+            <p style="font-size: 14px;">
+                <b><span style="color:blue">GT: </span></b><br>
+                00:00:00 - shuffles 2 steps to the left, 3 steps to the right and 1 step back to center,<br>
+                00:05:75 - adjusts something on the ground,<br>
+                00:13:01 - picks something up off the grond with his right hand,<br>
+                00:17:56 - walks backwards, his hands down by his side,<br>
+                00:23:34 - jumps in place four times,<br>
+                00:26:70 - takes one large step to their right,<br>
+                00:31:20 - walks to his left then to his right and then to his lefts again,<br>
+                00:43:20 - walks quickly five steps forward,<br>
+                00:48:60 - swimming the free style stroke,<br>
+                00:60:20 - walks briskly in counterclockwise circles.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green">DEMO: </span></b><br>
+                00:00:00 - side-steps quickly, like a basketball shuffle -- first to the right and then to the left,<br>
+                00:05:60 - adjusts something on the ground,<br>
+                00:12:71 - picks an object up off the floor with their left hand,<br>
+                00:17:93 - walks backwards after a second or two,<br>
+                00:23:33 - takes a large step diagonally with their left leg,<br>
+                00:27:88 - takes a couple steps to the left then a couple steps to the right and back to the left again,<br>
+                00:37:48 - steps back two steps and lowers to a crouch position,<br>
+                00:46:58 - swimming on his back slowly,<br>
+                00:56:98 - walks in a counterclockwise circle and returns to his original position.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:chocolate">UniMotion</span></b><br>
+              00:00:00 - moving in a right angle triangular path,<br>
+              00:58:55 - turn on flashlight,<br>
+              00:58:70 - moving in a right angle triangular path,<br>
+              00:60:75 - turn on flashlight.
+            </p>
+        </div>    
+        
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/comparison/006658_mesh_gt_ours_uni_cap.mp4"
+                      type="video/mp4">
+            </video>
+                <center><p stype="font-size: 14px;"><span style="color:yellowgreen;">H3D+BABEL</span></p></center>
+            <p style="font-size: 14px;">
+                <b><span style="color:blue">GT: </span></b><br>
+                00:00:000 - walk backwards.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green">DEMO: </span></b><br>
+              00:00:000 - walk backwards.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:chocolate">UniMotion</span></b><br>
+              00:00:000 - transition,<br>
+              00:01:700 - walk backwards,<br>
+              00:02:000 - transition,<br>
+              00:04:050 - stand.
+            </p>
+        </div>
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/comparison/160_mesh_gt_ours_uni_cap.mp4"
+                      type="video/mp4">
+            </video>
+                <center><p stype="font-size: 14px;"><span style="color:red;">CompMo</span></p></center>
+            <p style="font-size: 14px;">
+                <b><span style="color:blue">GT: </span></b><br>
+                00:00:00 - executes a handstand with his feet up in the air and returns to his feet in a standing position<br>
+                00:06:60 - walks and stumbles to his right<br>
+                00:09:39 - kicks an object with their right foot<br>
+                00:13:34 - ran in a diagonal line from one side to the other<br>
+                00:15:24 - shrugs his arms<br>
+                00:17:95 - walking like a zombie in a half circle to the right
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green">DEMO: </span></b><br>
+              00:00:00 - steps forward and does a handstand,<br>
+              00:07:35 - walks forward at a fast pace,<br>
+              00:11:95 - runs forward and does a summersalt and lands perfectly,<br>
+              00:15:45 - walks around like a zombie,<br>
+              00:25:45 - walks with his left hand in the air.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:chocolate">UniMotion</span></b><br>
+              00:00:00 - smooth out object on the wall.
+            </p>
+        </div>        
+
+        <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/comparison/008463_mesh_gt_ours_uni_cap.mp4"
+                      type="video/mp4">
+            </video>
+                <center><p stype="font-size: 14px;"><span style="color:yellowgreen;">H3D+BABEL</span></p></center>
+            <p style="font-size: 14px;">
+                <b><span style="color:blue">GT: </span></b><br>
+                00:00:000 - standing,<br>
+                00:00:586 - transition,<br>
+                00:00:877 - walking,<br>
+                00:03:856 - transition,<br>
+                00:04:023 - bending over,<br>
+                00:04:544 - picking up,<br>
+                00:05:169 - carrying.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green">DEMO: </span></b><br>
+              00:00:000 - stand,<br>
+              00:00:419 - transition,<br>
+              00:00:773 - walk,<br>
+              00:03:001 - transition,<br>
+              00:03:419 - turn around,<br>
+              00:04:336 - transition,<br>
+              00:04:626 - walk,<br>
+              00:06:336 - transition,<br>
+              00:06:565 - stand.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:chocolate">UniMotion</span></b><br>
+              00:00:000 - transition,<br>
+              00:00:450 - walking,<br>
+              00:00:700 - transition,<br>
+              00:03:450 - walking,<br>
+              00:03:500 - transition.
+            </p>
+        </div>
+
+        <!-- <div class="column is-centered has-text-left">
+          <video id="video" controls muted loop playsinline autoplay height="100%">
+              <source src="./static/video/comparison/407_mesh_gt_ours_uni_cap.mp4"
+                      type="video/mp4">
+            </video>
+                <center><p stype="font-size: 14px;"><span style="color:red;">CompMo</span></p></center>
+            <p style="font-size: 14px;">
+                <b><span style="color:blue">GT: </span></b><br>
+                00:00:00 - stepping to the left and then back to the right,<br>
+                00:07:15 - shoveling in yard,<br>
+                00:16:25 - moves the right leg in a small circular motion,<br>
+                00:23:10 - walks at a moderate pace forward and to the left,<br>
+                00:28:65 - walking very fast around in a circle,<br>
+                00:37:80 - swinging a tennis racket,<br>
+                00:41:95 - doing a dance like a ballerina,<br>
+                00:51:74 - walking in a random pattern then back.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:green">DEMO: </span></b><br>
+              00:00:00 - shuffles to the left, then to the right, then back to the left,<br>
+              00:07:40 - digging with a shovel,<br>
+              00:16:55 - kicks their right leg out,<br>
+              00:19:30 - kicks their right leg forward one time,<br>
+              00:22:80 - walks in a bend shape to the left,<br>
+              00:27:55 - walks in a circle in an anticlockwise manner,<br>
+              00:35:20 - playing tennis with his right arm,<br>
+              00:41:40 - doing ballet leaps,<br>
+              00:46:01 - jumping jacks then two forward leg jumps,<br>
+              00:55:41 - walks in a bend shape to the left.
+            </p>
+            <p style="font-size: 14px;">
+              <b><span style="color:chocolate">UniMotion</span></b><br>
+              00:00:00 - smooth out object on the wall,<br>
+              00:47:50 - moving in a right angle triangular path,<br>
+              00:47:65 - smooth out object on the wall,<br>
+              00:49:25 - moving in a right angle triangular path,<br>
+              00:49:35 - smooth out object on the wall,<br>
+              00:49:65 - moving in a right angle triangular path.
+
+            </p>
+        </div>         -->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<script>
+      var videoContainer = document.getElementById('video-container');
+      var video = document.getElementById('video');
+
+      var videoOffset = videoContainer.offsetTop;
+
+      window.addEventListener('scroll', function() {
+        var scrollPosition = window.scrollY || window.pageYOffset;
+
+        if (scrollPosition >= videoOffset) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    </script>
+
+<script>
+  bulmaCarousel.attach('#gallery-carousel', {
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    breakpoints: [] 
+  });
+
+  bulmaCarousel.attach('#results-carousel', {
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    breakpoints: [] 
+  });
+</script>
+
+</body>
+</html>
