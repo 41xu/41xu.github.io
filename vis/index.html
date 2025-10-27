@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow">
+<title>Motion Diff Visualization</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; }
+  header { text-align: center; margin-bottom: 20px; }
+  select { padding: 6px 10px; font-size: 16px; }
+  
+  .container {
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    gap: 20px;
+  }
+  .column { width: 45%; text-align: center; }
+  .col-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 8px;
+  }
+  video { width: 100%; border-radius: 8px; background: #000; }
+  .caption { font-style: italic; color: #555; margin-top: 6px; }
+
+  /* 夹在中间的文字 */
+  .middle-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-align: center;
+    margin: 5px 0;
+  }
+  .text-box {
+    background: rgba(255,255,255,0.85); 
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+    min-width: 300px;
+    max-width: 420px;
+  }
+  .label { font-weight: 700; color: #333; margin-right: 8px; white-space: nowrap; }
+</style>
+</head>
+<body>
+  <header>
+    <h2>Motion Diff Visualization</h2>
+    <label for="dataSelect">Select data ID:</label>
+    <select id="dataSelect" onchange="loadData(this.value)"></select>
+  </header>
+
+  <div class="container">
+    <!-- 左列：motions -->
+    <div class="column">
+      <div class="col-title">Source</div>
+      <video id="motions" autoplay muted loop controls></video>
+      <div class="caption" id="captions"></div>
+    </div>
+
+    <!-- 中间文本 -->
+    <div class="middle-section">
+      <div class="text-box">
+        <span class="label">GT in MotionFix:</span>
+        <span id="text1"></span>
+      </div>
+      <div class="text-box">
+        <span class="label">Our Generated:</span>
+        <span id="text2"></span>
+      </div>
+    </div>
+
+    <!-- 右列：motiont -->
+    <div class="column">
+      <div class="col-title">Target</div>
+      <video id="motiont" autoplay muted loop controls></video>
+      <div class="caption" id="captiont"></div>
+    </div>
+  </div>
+
+  <script>
+    let DATA = {};
+
+    fetch('data.json')
+      .then(r => {
+        if (!r.ok) throw new Error('Failed to load data.json');
+        return r.json();
+      })
+      .then(json => {
+        DATA = json;
+        const select = document.getElementById('dataSelect');
+        select.innerHTML = '';
+        Object.keys(DATA).forEach((key) => {
+          const opt = document.createElement('option');
+          opt.value = key;
+          opt.textContent = key;
+          select.appendChild(opt);
+        });
+        const firstKey = Object.keys(DATA)[0];
+        if (firstKey) {
+          select.value = firstKey;
+          loadData(firstKey);
+        }
+      })
+      .catch(err => console.error(err));
+
+    function loadData(id) {
+      const d = DATA[id];
+      if (!d) return;
+
+      const vids = [
+        { el: "motions", src: d.motions },
+        { el: "motiont", src: d.motiont },
+      ];
+
+      vids.forEach(v => {
+        const elem = document.getElementById(v.el);
+        elem.pause();
+        elem.src = v.src || "";
+        elem.loop = true;   // ✅ 自动循环播放
+        elem.autoplay = true;
+        elem.muted = true;
+        elem.load();
+        elem.onloadeddata = () => {
+          elem.play().catch(() => {});
+        };
+      });
+
+      document.getElementById("captions").textContent = d.captions || "";
+      document.getElementById("captiont").textContent = d.captiont || "";
+      document.getElementById("text1").textContent = d.text1 || "";
+      document.getElementById("text2").textContent = d.text2 || "";
+    }
+  </script>
+</body>
+</html>
