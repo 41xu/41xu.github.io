@@ -36,6 +36,13 @@
     text-align: center;
     margin: 5px 0;
   }
+  #overlap {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 8px;
+    background: #000;
+    margin-bottom: 8px;  
+  }
   .text-box {
     background: rgba(255,255,255,0.85); 
     padding: 6px 12px;
@@ -65,6 +72,9 @@
 
     <!-- 中间文本 -->
     <div class="middle-section">
+      <div class="col-title">Overlap Comparison</div>
+      <video id="overlap" autoplay muted loop controls></video>
+
       <div class="text-box">
         <span class="label">GT in MotionFix:</span>
         <span id="text1"></span>
@@ -116,6 +126,7 @@
       const vids = [
         { el: "motions", src: d.motions },
         { el: "motiont", src: d.motiont },
+        { el: "overlap", src: d.overlap }
       ];
 
       vids.forEach(v => {

@@ -32,6 +32,7 @@ for id in test_ids:
     results[f"{id}_test"] = {
         "motions": datas[id]["motion_a"],
         "motiont": datas[id]["motion_b"],
+        "overlap": datas[id]["motion_overlaid"], 
         "captions": captions[f"{id}_s"],
         "captiont": captions[f"{id}_t"],
         "text1": datas[id]["annotation"],
