@@ -16,7 +16,7 @@
     align-items: flex-start; 
     gap: 20px;
   }
-  .column { width: 45%; text-align: center; }
+  .column { width: 48%; text-align: center; }
   .col-title {
     font-weight: bold;
     font-size: 18px;
@@ -26,22 +26,19 @@
   video { width: 100%; border-radius: 8px; background: #000; }
   .caption { font-style: italic; color: #555; margin-top: 6px; }
 
-  /* 夹在中间的文字 */
-  .middle-section {
+  .text-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    text-align: center;
-    margin: 5px 0;
+    align-items: stretch;
+    gap: 8px;
+    text-align: left;
+    margin-top: 6px;
+    width: 100%;
   }
   #overlap {
     width: 100%;
-    max-width: 380px;
     border-radius: 8px;
     background: #000;
-    margin-bottom: 8px;  
   }
   .text-box {
     background: rgba(255,255,255,0.85); 
@@ -49,8 +46,8 @@
     border-radius: 8px;
     font-weight: 500;
     box-shadow: 0 1px 4px rgba(0,0,0,0.10);
-    min-width: 300px;
-    max-width: 420px;
+    width: 100%; /* 填满父容器 */
+    box-sizing: border-box; /* 确保 padding 不会撑破宽度 */
   }
   .label { font-weight: 700; color: #333; margin-right: 8px; white-space: nowrap; }
 </style>
@@ -58,94 +55,243 @@
 <body>
   <header>
     <h2>Motion Diff Visualization</h2>
+    <div style="margin-bottom: 10px;">
+      <label for="datasetSelect">Select Dataset:</label>
+      <select id="datasetSelect" onchange="changeDataset(this.value)">
+        <option value="motionfix">MotionFix</option>
+        <option value="stance">Stance</option>
+      </select>
+    </div>
     <label for="dataSelect">Select data ID:</label>
     <select id="dataSelect" onchange="loadData(this.value)"></select>
   </header>
 
   <div class="container">
-    <!-- 左列：motions -->
+    <!-- 左列：overlap 视频 -->
     <div class="column">
-      <div class="col-title">Source</div>
-      <video id="motions" autoplay muted loop controls></video>
-      <div class="caption" id="captions"></div>
-    </div>
-
-    <!-- 中间文本 -->
-    <div class="middle-section">
       <div class="col-title">Overlap Comparison</div>
+      <div style="font-weight: bold; margin-bottom: 5px; font-size: 16px;">
+        <span style="color: red;">Source</span> to <span style="color: green;">Target</span>
+      </div>
       <video id="overlap" autoplay muted loop controls></video>
-
-      <div class="text-box">
-        <span class="label">GT in MotionFix:</span>
-        <span id="text1"></span>
-      </div>
-      <div class="text-box">
-        <span class="label">Our Generated:</span>
-        <span id="text2"></span>
-      </div>
     </div>
 
-    <!-- 右列：motiont -->
+    <!-- 右列：文本（从上到下） -->
     <div class="column">
-      <div class="col-title">Target</div>
-      <video id="motiont" autoplay muted loop controls></video>
-      <div class="caption" id="captiont"></div>
+      <div class="col-title">Text Comparison</div>
+      <div id="textSection" class="text-section"></div>
     </div>
   </div>
 
   <script>
     let DATA = {};
+    let STANCE_DATA_MAP = {}; 
+    let CURRENT_DS = 'motionfix';
 
-    fetch('data.json')
-      .then(r => {
-        if (!r.ok) throw new Error('Failed to load data.json');
-        return r.json();
-      })
-      .then(json => {
-        DATA = json;
-        const select = document.getElementById('dataSelect');
-        select.innerHTML = '';
-        Object.keys(DATA).forEach((key) => {
-          const opt = document.createElement('option');
-          opt.value = key;
-          opt.textContent = key;
-          select.appendChild(opt);
+    // Initialize
+    changeDataset('motionfix');
+
+    function updateTextSection(ds) {
+      const container = document.getElementById('textSection');
+      container.innerHTML = ''; // Clear previous content
+
+      if (ds === 'motionfix') {
+        container.appendChild(createTextBox('GT:', 'text1', 'blue'));
+        container.appendChild(createTextBox('DEMO:', 'text2'));
+        container.appendChild(createTextBox('Ours:', 'text3', 'green'));
+      } else {
+        container.appendChild(createTextBox('GT:', 'text1', 'red')); 
+        container.appendChild(createTextBox('DEMO (inf):', 'text2'));
+        container.appendChild(createTextBox('Ours (inf):', 'text3', 'green')); 
+
+      }
+    }
+
+    function createTextBox(labelText, id, color) {
+      const box = document.createElement('div');
+      box.className = 'text-box';
+      
+      const labelSpan = document.createElement('span');
+      labelSpan.className = 'label';
+      labelSpan.textContent = labelText;
+      if (color) labelSpan.style.color = color;
+      
+      const textSpan = document.createElement('span');
+      textSpan.id = id;
+      
+      box.appendChild(labelSpan);
+      box.appendChild(textSpan);
+      return box;
+    }
+
+    function changeDataset(ds) {
+      CURRENT_DS = ds;
+      updateTextSection(ds); // Update text UI structure based on dataset
+      const select = document.getElementById('dataSelect');
+      const dataLabel = document.querySelector('label[for="dataSelect"]'); // Assuming there is one
+
+      // Clear current data while loading
+      select.innerHTML = '<option>Loading...</option>';
+      loadData(null); 
+
+      if (ds === 'motionfix') {
+        fetch('data.json')
+          .then(r => r.json())
+          .then(json => {
+            DATA = json;
+            populateSelect(Object.keys(DATA));
+          })
+          .catch(err => {
+             console.error(err);
+             select.innerHTML = '<option>Error loading data.json</option>';
+          });
+      } else if (ds === 'stance') {
+        Promise.all([
+          fetch('stance/adjustment_all_map.json').then(r => r.json()),
+          fetch('stance/adjustments.json').then(r => r.json()),
+          fetch('stance/adjust_test.json').then(r => r.json()),
+          fetch('stance/data.json').then(r => r.json()).catch(() => ({})) // Load extra data, default to empty if missing
+        ]).then(([allMap, adjustments, testIds, extraData]) => {
+          STANCE_DATA_MAP = {};
+          
+          const filenameToId = allMap; // The file provides Filename -> ID
+          const idToFilename = {};
+          
+          // Build reverse map
+          // We need mapping from ID in adjust_test.json -> filename
+          // adjustment_all_map.json format: { "filename.pkl": "ID" }
+          // So reverse map is { "ID": "filename.pkl" }
+          
+          for (const [file, id] of Object.entries(filenameToId)) {
+             idToFilename[String(id).trim()] = file.trim();
+          }
+
+          const validIds = testIds.map(String).map(s => s.trim()).filter(id => {
+             const has = Object.prototype.hasOwnProperty.call(idToFilename, id);
+             if (!has) console.warn(`ID ${id} from test set not found in map`);
+             return has;
+          });
+          
+          console.log(`Found ${validIds.length} valid IDs out of ${testIds.length} test IDs`);
+
+          // Build Data Map
+          STANCE_DATA_MAP = {}; 
+          validIds.forEach(id => {
+            const fname = idToFilename[id];
+            // fname e.g. "paired_data_seed0_15_batch0_id108.pkl"
+            const stem = fname.replace('.pkl', '');
+            
+            // Construct video path
+            const videoPath = `stance/comparison_renders/compare_${stem}.mp4`;
+            
+            // Construct text
+            // text1 mainly comes from adjustments structure as Source/Demo
+            let textContent = (adjustments[id] && adjustments[id].text) ? adjustments[id].text : "No text found for ID " + id;
+            if (adjustments[id] && adjustments[id].body_part) {
+                textContent += ` (Body Part: ${adjustments[id].body_part})`;
+            }
+
+            // Retrieve extra texts from stance/data.json if available
+            // Assumed format: { "ID": { "text2": "...", "text7": "..." } }
+            const extra = (extraData && extraData[id]) ? extraData[id] : {};
+
+            STANCE_DATA_MAP[id] = {
+              overlap: videoPath,
+              text1: textContent,
+              text2: extra.text2 || "", 
+              text3: extra.text3 || "", 
+              text4: extra.text4 || "", 
+              text5: extra.text5 || "", 
+              text6: extra.text6 || "", 
+              text7: extra.text7 || ""
+            };
+          });
+          
+          if (validIds.length === 0) {
+            console.error("No valid IDs found for Stance data!");
+             select.innerHTML = '<option>No valid IDs found</option>';
+             return;
+          }
+
+          populateSelect(validIds); 
+        }).catch(err => {
+          console.error(err);
+          select.innerHTML = '<option>Error loading Stance data</option>';
         });
-        const firstKey = Object.keys(DATA)[0];
-        if (firstKey) {
-          select.value = firstKey;
-          loadData(firstKey);
-        }
-      })
-      .catch(err => console.error(err));
+      }
+    }
+
+    function populateSelect(keys) {
+      const select = document.getElementById('dataSelect');
+      select.innerHTML = '';
+      
+      if (!keys || keys.length === 0) {
+        select.innerHTML = '<option>No Data Found</option>';
+        return;
+      }
+
+      keys.forEach((key) => {
+        const opt = document.createElement('option');
+        opt.value = key;
+        opt.textContent = key;
+        select.appendChild(opt);
+      });
+      
+      select.value = keys[0];
+      loadData(keys[0]);
+    }
 
     function loadData(id) {
-      const d = DATA[id];
+      if (!id) {
+         const ov = document.getElementById("overlap");
+         if(ov) { ov.src=""; ov.load(); }
+         for(let i=1; i<=7; i++) {
+             const t = document.getElementById("text"+i)
+             if(t) t.textContent = "";
+         }
+         return;
+      }
+      
+      let d = null;
+      if (CURRENT_DS === 'motionfix') {
+        d = DATA[id];
+      } else {
+        d = STANCE_DATA_MAP[id];
+      }
+      
       if (!d) return;
 
       const vids = [
-        { el: "motions", src: d.motions },
-        { el: "motiont", src: d.motiont },
         { el: "overlap", src: d.overlap }
       ];
 
       vids.forEach(v => {
         const elem = document.getElementById(v.el);
+        if(!elem) return;
+        
+        console.log(`Loading video for ${v.el}: ${v.src}`); // Debugging
+        
         elem.pause();
         elem.src = v.src || "";
-        elem.loop = true;   // ✅ 自动循环播放
+        elem.loop = true;
         elem.autoplay = true;
         elem.muted = true;
+        
+        elem.onerror = (e) => {
+            console.error(`Error loading video ${v.src}:`, elem.error);
+            // alert(`Failed to load video: ${v.src}\nCheck console for details.`);
+        };
+        
         elem.load();
         elem.onloadeddata = () => {
-          elem.play().catch(() => {});
+          console.log(`Video loaded successfully: ${v.src}`);
+          elem.play().catch(e => console.warn("Auto-play failed:", e));
         };
       });
 
-      document.getElementById("captions").textContent = d.captions || "";
-      document.getElementById("captiont").textContent = d.captiont || "";
-      document.getElementById("text1").textContent = d.text1 || "";
-      document.getElementById("text2").textContent = d.text2 || "";
+      if(document.getElementById("text1")) document.getElementById("text1").textContent = d.text1 || "";
+      if(document.getElementById("text2")) document.getElementById("text2").textContent = d.text2 || "";
+      if(document.getElementById("text3")) document.getElementById("text3").textContent = d.text3 || "";
     }
   </script>
 </body>
