@@ -49,8 +49,29 @@
     width: 100%; /* 填满父容器 */
     box-sizing: border-box; /* 确保 padding 不会撑破宽度 */
   }
-  .label { font-weight: 700; color: #333; margin-right: 8px; white-space: nowrap; }
-</style>
+    /* Style for metrics display */
+    .metrics-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+    .metric-item {
+      background: #f0f0f0;
+      padding: 3px 6px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+    }
+    .metric-label {
+      font-weight: bold;
+      color: #666;
+    }
+    .metric-value {
+      font-family: monospace;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -86,42 +107,138 @@
   <script>
     let DATA = {};
     let STANCE_DATA_MAP = {}; 
+    let DATASET_METRICS = {}; // Store dataset-level metrics here
     let CURRENT_DS = 'motionfix';
 
     // Initialize
     changeDataset('motionfix');
 
     function updateTextSection(ds) {
-      const container = document.getElementById('textSection');
-      container.innerHTML = ''; // Clear previous content
+      const mainContainer = document.getElementById('textSection');
+      mainContainer.innerHTML = ''; 
 
+      // 1. Per-sample Text & Metrics
       if (ds === 'motionfix') {
-        container.appendChild(createTextBox('GT:', 'text1', 'blue'));
-        container.appendChild(createTextBox('DEMO:', 'text2'));
-        container.appendChild(createTextBox('Ours:', 'text3', 'green'));
-      } else {
-        container.appendChild(createTextBox('GT:', 'text1', 'red')); 
-        container.appendChild(createTextBox('DEMO (inf):', 'text2'));
-        container.appendChild(createTextBox('Ours (inf):', 'text3', 'green')); 
+        mainContainer.appendChild(createTextBox('GT (Source):', 'text1', 'blue'));
+        
+        mainContainer.appendChild(createTextBox('DEMO:', 'text2'));
+        mainContainer.appendChild(createMetricsBox('DEMO Metrics:', 'metrics_base')); 
 
+        mainContainer.appendChild(createTextBox('Ours:', 'text3', 'green'));
+        mainContainer.appendChild(createMetricsBox('Ours Metrics:', 'metrics_ours')); 
+      } else {
+        mainContainer.appendChild(createTextBox('GT:', 'text1', 'red')); 
+        
+        mainContainer.appendChild(createTextBox('DEMO (inf):', 'text2'));
+        mainContainer.appendChild(createMetricsBox('DEMO Metrics:', 'metrics_base')); 
+        
+        mainContainer.appendChild(createTextBox('Ours (inf):', 'text3', 'green')); 
+        mainContainer.appendChild(createMetricsBox('Ours Metrics:', 'metrics_ours')); 
       }
+      
+      // 2. Dataset Metrics
+      const dsBox = document.createElement('div');
+      dsBox.className = 'text-box';
+      dsBox.style.marginTop = '20px';
+      dsBox.style.border = '1px solid #ddd';
+      
+      const dsTitle = document.createElement('div');
+      dsTitle.className = 'label';
+      dsTitle.textContent = 'Dataset Average Metrics';
+      
+      const dsContent = document.createElement('div');
+      dsContent.id = 'datasetMetrics';
+      
+      dsBox.appendChild(dsTitle);
+      dsBox.appendChild(dsContent);
+      mainContainer.appendChild(dsBox);
+      
+      renderDatasetMetrics(); // Call render
+    }
+    
+    function renderDatasetMetrics() {
+        const container = document.getElementById('datasetMetrics');
+        if(!container) return;
+        
+        const metrics = DATASET_METRICS[CURRENT_DS];
+        if (!metrics) {
+            container.innerHTML = "<em>Not available</em>";
+            return;
+        }
+        
+        container.innerHTML = "";
+        
+        // Helper to render a row
+        const renderRow = (label, data) => {
+            if(!data) return;
+            const row = document.createElement('div');
+            row.style.marginBottom = "5px";
+            row.innerHTML = `<div style="font-weight:bold; color:#555; font-size:0.9em;">${label}</div>`;
+            
+            const wrapper = document.createElement('div');
+            wrapper.className = 'metrics-container';
+            
+            const keys = ["BERT", "BLEURT", "CIDEr", "METEOR"];
+            keys.forEach(key => {
+                if (data[key] !== undefined) {
+                    const item = document.createElement('div');
+                    item.className = 'metric-item';
+                    const img = document.createElement('span');
+                    const lbl = document.createElement('span');
+                    lbl.className = 'metric-label';
+                    lbl.textContent = key + ": ";
+                    const val = document.createElement('span');
+                    val.className = 'metric-value';
+                    val.textContent = (Number(data[key]) * 100).toFixed(4); // Scale for display * 100
+                    item.appendChild(lbl);
+                    item.appendChild(val);
+                    wrapper.appendChild(item);
+                }
+            });
+            row.appendChild(wrapper);
+            container.appendChild(row);
+        };
+        
+        renderRow("DEMO (Avg):", metrics.demo);
+        renderRow("Ours (Avg):", metrics.ours);
     }
 
-    function createTextBox(labelText, id, color) {
-      const box = document.createElement('div');
-      box.className = 'text-box';
-      
-      const labelSpan = document.createElement('span');
-      labelSpan.className = 'label';
-      labelSpan.textContent = labelText;
-      if (color) labelSpan.style.color = color;
-      
-      const textSpan = document.createElement('span');
-      textSpan.id = id;
-      
-      box.appendChild(labelSpan);
-      box.appendChild(textSpan);
-      return box;
+    function createTextBox(label, id, color) {
+       const box = document.createElement('div');
+       box.className = 'text-box';
+       
+       const labelSpan = document.createElement('span');
+       labelSpan.className = 'label';
+       labelSpan.textContent = label;
+       if (color) labelSpan.style.color = color;
+       
+       const textSpan = document.createElement('span');
+       textSpan.id = id;
+       
+       box.appendChild(labelSpan);
+       box.appendChild(textSpan);
+       return box;
+    }
+    
+    function createMetricsBox(label, id) {
+        const box = document.createElement('div');
+        box.className = 'text-box';
+        // Distinct style
+        box.style.backgroundColor = '#f8f9fa';
+        box.style.fontSize = '0.9em';
+        box.style.marginBottom = '8px';
+        
+        const labelSpan = document.createElement('span');
+        labelSpan.className = 'label';
+        labelSpan.textContent = label;
+        labelSpan.style.color = '#555';
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.id = id;
+        
+        box.appendChild(labelSpan);
+        box.appendChild(contentDiv);
+        return box;
     }
 
     function changeDataset(ds) {
@@ -138,8 +255,17 @@
         fetch('data.json')
           .then(r => r.json())
           .then(json => {
+            // Check for Dataset Metrics
+            if (json['DATASET_METRICS']) {
+                DATASET_METRICS['motionfix'] = json['DATASET_METRICS'];
+                delete json['DATASET_METRICS']; // Remove from main data
+            }
+            
             DATA = json;
             populateSelect(Object.keys(DATA));
+            
+            // Render metrics now that data is loaded
+            renderDatasetMetrics();
           })
           .catch(err => {
              console.error(err);
@@ -152,6 +278,13 @@
           fetch('stance/adjust_test.json').then(r => r.json()),
           fetch('stance/data.json').then(r => r.json()).catch(() => ({})) // Load extra data, default to empty if missing
         ]).then(([allMap, adjustments, testIds, extraData]) => {
+          
+          // Check for Dataset Metrics in stance/data.json (extraData)
+          if (extraData && extraData['DATASET_METRICS']) {
+              DATASET_METRICS['stance'] = extraData['DATASET_METRICS'];
+              delete extraData['DATASET_METRICS'];
+          }
+          
           STANCE_DATA_MAP = {};
           
           const filenameToId = allMap; // The file provides Filename -> ID
@@ -203,7 +336,8 @@
               text4: extra.text4 || "", 
               text5: extra.text5 || "", 
               text6: extra.text6 || "", 
-              text7: extra.text7 || ""
+              text7: extra.text7 || "",
+              metrics: extra.metrics || null // Also map metrics if present
             };
           });
           
@@ -214,6 +348,7 @@
           }
 
           populateSelect(validIds); 
+          renderDatasetMetrics(); // Render after loading
         }).catch(err => {
           console.error(err);
           select.innerHTML = '<option>Error loading Stance data</option>';
@@ -241,6 +376,42 @@
       loadData(keys[0]);
     }
 
+    function renderMetrics(containerId, metrics) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        container.innerHTML = ""; // Clear existing
+        if (!metrics) {
+            container.textContent = "N/A";
+            return;
+        }
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'metrics-container';
+        
+        // Define order if needed, or just iterate
+        const keys = ["BERT", "BLEURT", "CIDEr", "METEOR"];
+        keys.forEach(key => {
+            if (metrics[key] !== undefined) {
+                const item = document.createElement('div');
+                item.className = 'metric-item';
+                // item.innerHTML = `<span class="metric-label">${key}:</span> <span class="metric-value">${Number(metrics[key]).toFixed(4)}</span>`;
+                // Use textContent for safety, though innerHTML is fine for simple trusted content
+                const lbl = document.createElement('span');
+                lbl.className = 'metric-label';
+                lbl.textContent = key + ": ";
+                const val = document.createElement('span');
+                val.className = 'metric-value';
+                val.textContent = (Number(metrics[key]) * 100).toFixed(4);
+                
+                item.appendChild(lbl);
+                item.appendChild(val);
+                wrapper.appendChild(item);
+            }
+        });
+        container.appendChild(wrapper);
+    }
+    
     function loadData(id) {
       if (!id) {
          const ov = document.getElementById("overlap");
@@ -292,7 +463,9 @@
       if(document.getElementById("text1")) document.getElementById("text1").textContent = d.text1 || "";
       if(document.getElementById("text2")) document.getElementById("text2").textContent = d.text2 || "";
       if(document.getElementById("text3")) document.getElementById("text3").textContent = d.text3 || "";
-    }
+      // Load metrics if available
+      renderMetrics("metrics_base", d.metrics ? d.metrics.demo : null); 
+      renderMetrics("metrics_ours", d.metrics ? d.metrics.ours : null);    }
   </script>
 </body>
 </html>
