@@ -126,6 +126,12 @@
 
         mainContainer.appendChild(createTextBox('Ours:', 'text3', 'green'));
         mainContainer.appendChild(createMetricsBox('Ours Metrics:', 'metrics_ours')); 
+
+        mainContainer.appendChild(createTextBox('Ours MARDM:', 'text4', 'green'));
+        mainContainer.appendChild(createMetricsBox('Ours MARDM Metrics:', 'metrics_mardm'));
+
+        mainContainer.appendChild(createTextBox('Ours simple_h3d:', 'text5', 'green'));
+        mainContainer.appendChild(createMetricsBox('Ours simple_h3d Metrics:', 'metrics_simple_h3d'));
       } else {
         mainContainer.appendChild(createTextBox('GT:', 'text1', 'red')); 
         
@@ -463,9 +469,15 @@
       if(document.getElementById("text1")) document.getElementById("text1").textContent = d.text1 || "";
       if(document.getElementById("text2")) document.getElementById("text2").textContent = d.text2 || "";
       if(document.getElementById("text3")) document.getElementById("text3").textContent = d.text3 || "";
+      if(document.getElementById("text4")) document.getElementById("text4").textContent = d.text4 || "";
+      if(document.getElementById("text5")) document.getElementById("text5").textContent = d.text5 || "";
       // Load metrics if available
       renderMetrics("metrics_base", d.metrics ? d.metrics.demo : null); 
-      renderMetrics("metrics_ours", d.metrics ? d.metrics.ours : null);    }
+      renderMetrics("metrics_ours", d.metrics ? d.metrics.ours : null);
+      renderMetrics("metrics_mardm", d.metrics ? d.metrics.mardm : null);
+      renderMetrics("metrics_simple_h3d", d.metrics ? d.metrics.simple_h3d : null);
+    
+    }
   </script>
 </body>
 </html>
