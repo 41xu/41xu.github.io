@@ -6,14 +6,14 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Motion Diff Visualization</title>
 <style>
-  body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; }
+  body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; font-size: 16px; }
   header { text-align: center; margin-bottom: 20px; }
   select { padding: 6px 10px; font-size: 16px; }
-  
+
   .container {
-    display: flex; 
-    justify-content: center; 
-    align-items: flex-start; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     gap: 20px;
   }
   .column { width: 48%; text-align: center; }
@@ -24,13 +24,12 @@
     margin-bottom: 8px;
   }
   video { width: 100%; border-radius: 8px; background: #000; }
-  .caption { font-style: italic; color: #555; margin-top: 6px; }
 
   .text-section {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 8px;
+    gap: 0;
     text-align: left;
     margin-top: 6px;
     width: 100%;
@@ -40,38 +39,130 @@
     border-radius: 8px;
     background: #000;
   }
+
+  /* Each model block (text + metrics) separated by a line */
+  .model-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 14px 0;
+    border-bottom: 2px solid #d0d0d0;
+  }
+  .model-group:last-of-type {
+    border-bottom: none;
+  }
+
   .text-box {
-    background: rgba(255,255,255,0.85); 
-    padding: 6px 12px;
+    background: #fff;
+    padding: 10px 14px;
     border-radius: 8px;
     font-weight: 500;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
-    width: 100%; /* 填满父容器 */
-    box-sizing: border-box; /* 确保 padding 不会撑破宽度 */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.05em;
   }
-    /* Style for metrics display */
-    .metrics-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 0.9em;
-      margin-top: 5px;
-    }
-    .metric-item {
-      background: #f0f0f0;
-      padding: 3px 6px;
-      border-radius: 4px;
-      border: 1px solid #ddd;
-    }
-    .metric-label {
-      font-weight: bold;
-      color: #666;
-    }
-    .metric-value {
-      font-family: monospace;
-      color: #000;
-    }
-  </style>
+  .text-box-label {
+    font-weight: bold;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .text-box-content {
+    color: #111;
+    font-weight: normal;
+    line-height: 1.4;
+  }
+
+  /* Metrics row */
+  .metrics-box {
+    background: #f6f7f9;
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .metrics-label {
+    font-size: 0.85em;
+    font-weight: bold;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .metrics-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .metric-item {
+    background: #ececec;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+  }
+  .metric-label {
+    font-weight: bold;
+    color: #777;
+  }
+  .metric-value {
+    font-family: monospace;
+    color: #111;
+  }
+  .metric-value.best {
+    font-weight: bold;
+    background-color: #ffe066;
+    border-radius: 3px;
+    padding: 0 3px;
+  }
+
+  /* Dataset average section — full width below main container */
+  #datasetMetricsOuter {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 3px solid #ccc;
+  }
+  .dataset-metrics-title {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: #333;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .dataset-metrics-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .dataset-col {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .dataset-col-title {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: #444;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #e0e0e0;
+    text-align: center;
+  }
+  .dataset-metric-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-size: 1em;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .dataset-metric-row:last-child { border-bottom: none; }
+  .dataset-metric-row .metric-label { color: #777; font-weight: bold; }
+  .dataset-metric-row .metric-value { font-family: monospace; }
+</style>
 </head>
 <body>
   <header>
@@ -88,318 +179,289 @@
   </header>
 
   <div class="container">
-    <!-- 左列：overlap 视频 -->
+    <!-- Left column: overlap video -->
     <div class="column">
       <div class="col-title">Overlap Comparison</div>
       <div style="font-weight: bold; margin-bottom: 5px; font-size: 16px;">
         <span style="color: red;">Source</span> to <span style="color: green;">Target</span>
       </div>
       <video id="overlap" autoplay muted loop controls></video>
+      <div style="margin-top: 10px; background:#fff; padding:10px 14px; border-radius:8px; box-shadow:0 1px 4px rgba(0,0,0,0.08);">
+        <div style="font-weight:bold; color:blue; font-size:1.15em; text-align:center; margin-bottom:6px;">GT</div>
+        <div id="text1" style="color:#111; font-size:1.05em; line-height:1.4;"></div>
+      </div>
     </div>
 
-    <!-- 右列：文本（从上到下） -->
+    <!-- Right column: text comparison -->
     <div class="column">
       <div class="col-title">Text Comparison</div>
       <div id="textSection" class="text-section"></div>
     </div>
   </div>
 
+  <!-- Dataset average metrics — full width below -->
+  <div id="datasetMetricsOuter"></div>
+
   <script>
     let DATA = {};
-    let STANCE_DATA_MAP = {}; 
-    let DATASET_METRICS = {}; // Store dataset-level metrics here
+    let STANCE_DATA_MAP = {};
+    let DATASET_METRICS = {};
     let CURRENT_DS = 'motionfix';
 
-    // Initialize
     changeDataset('motionfix');
 
+    /* ── Build the right-column UI structure ── */
     function updateTextSection(ds) {
-      const mainContainer = document.getElementById('textSection');
-      mainContainer.innerHTML = ''; 
+      const main = document.getElementById('textSection');
+      main.innerHTML = '';
 
-      // 1. Per-sample Text & Metrics
       if (ds === 'motionfix') {
-        mainContainer.appendChild(createTextBox('GT: ', 'text1', 'blue'));
-        
-        mainContainer.appendChild(createTextBox('DEMO: ', 'text2'));
-        mainContainer.appendChild(createMetricsBox('DEMO Metrics:', 'metrics_base')); 
-
-        // mainContainer.appendChild(createTextBox('Ours:', 'text3', 'green'));
-        // mainContainer.appendChild(createMetricsBox('Ours Metrics:', 'metrics_ours')); 
-
-        mainContainer.appendChild(createTextBox('Ours STMC: ', 'text6', 'green'));
-        mainContainer.appendChild(createMetricsBox('Ours STMC Metrics:', 'metrics_stmc'));
-
-
-        mainContainer.appendChild(createTextBox('Ours MARDM: ', 'text4', 'green'));
-        mainContainer.appendChild(createMetricsBox('Ours MARDM Metrics:', 'metrics_mardm'));
-
-        // mainContainer.appendChild(createTextBox('Ours simple_h3d:', 'text5', 'green'));
-        // mainContainer.appendChild(createMetricsBox('Ours simple_h3d Metrics:', 'metrics_simple_h3d'));
-
+        main.appendChild(makeGroup([
+          createTextBox('DEMO', 'text2'),
+          createMetricsBox('DEMO Metrics', 'metrics_base')
+        ]));
+        main.appendChild(makeGroup([
+          createTextBox('Ours STMC', 'text6'),
+          createMetricsBox('Ours STMC Metrics', 'metrics_stmc')
+        ]));
+        main.appendChild(makeGroup([
+          createTextBox('Ours MARDM', 'text4'),
+          createMetricsBox('Ours MARDM Metrics', 'metrics_mardm')
+        ]));
       } else {
-        mainContainer.appendChild(createTextBox('GT:', 'text1', 'red')); 
-        
-        mainContainer.appendChild(createTextBox('DEMO (inf):', 'text2'));
-        mainContainer.appendChild(createMetricsBox('DEMO Metrics:', 'metrics_base')); 
-        
-        mainContainer.appendChild(createTextBox('Ours (inf):', 'text3', 'green')); 
-        mainContainer.appendChild(createMetricsBox('Ours Metrics:', 'metrics_ours')); 
+        main.appendChild(makeGroup([
+          createTextBox('DEMO (inf)', 'text2'),
+          createMetricsBox('DEMO Metrics', 'metrics_base')
+        ]));
+        main.appendChild(makeGroup([
+          createTextBox('Ours (inf)', 'text3'),
+          createMetricsBox('Ours Metrics', 'metrics_ours')
+        ]));
       }
-      
-      // 2. Dataset Metrics
-      const dsBox = document.createElement('div');
-      dsBox.className = 'text-box';
-      dsBox.style.marginTop = '20px';
-      dsBox.style.border = '1px solid #ddd';
-      
-      const dsTitle = document.createElement('div');
-      dsTitle.className = 'label';
-      dsTitle.textContent = 'Dataset Average Metrics';
-      
-      const dsContent = document.createElement('div');
-      dsContent.id = 'datasetMetrics';
-      
-      dsBox.appendChild(dsTitle);
-      dsBox.appendChild(dsContent);
-      mainContainer.appendChild(dsBox);
-      
-      renderDatasetMetrics(); // Call render
+
+      renderDatasetMetrics();
     }
-    
-    function renderDatasetMetrics() {
-        const container = document.getElementById('datasetMetrics');
-        if(!container) return;
-        
-        const metrics = DATASET_METRICS[CURRENT_DS];
-        if (!metrics) {
-            container.innerHTML = "<em>Not available</em>";
-            return;
-        }
-        
-        container.innerHTML = "";
-        
-        // --- Calculate Best Dataset Metrics ---
-        const bestDatasetMetrics = {};
-        const metricKeys = ["BERT", "BLEURT", "CIDEr", "METEOR"];
-        // We only compare Demo, STMC, MARDM
-        const compareKeys = ["demo", "stmc", "mardm"];
 
-        metricKeys.forEach(mKey => {
-            let maxVal = -Infinity;
-            compareKeys.forEach(model => {
-                const modelMetrics = metrics[model];
-                if (modelMetrics && modelMetrics[mKey] !== undefined) {
-                    const val = Number(modelMetrics[mKey]);
-                    if (val > maxVal) maxVal = val;
-                }
-            });
-            if (maxVal !== -Infinity) bestDatasetMetrics[mKey] = maxVal;
-        });
-        // --------------------------------------
-
-        // Helper to render a row
-        const renderRow = (label, data) => {
-            if(!data) return;
-            const row = document.createElement('div');
-            row.style.marginBottom = "5px";
-            row.innerHTML = `<div style="font-weight:bold; color:#555; font-size:0.9em;">${label}</div>`;
-            
-            const wrapper = document.createElement('div');
-            wrapper.className = 'metrics-container';
-            
-            const keys = ["BERT", "BLEURT", "CIDEr", "METEOR"];
-            keys.forEach(key => {
-                if (data[key] !== undefined) {
-                    const item = document.createElement('div');
-                    item.className = 'metric-item';
-                    const img = document.createElement('span');
-                    const lbl = document.createElement('span');
-                    lbl.className = 'metric-label';
-                    lbl.textContent = key + ": ";
-                    
-                    const val = document.createElement('span');
-                    val.className = 'metric-value';
-                    const numVal = Number(data[key]);
-                    val.textContent = (numVal * 100).toFixed(4); // Scale for display * 100
-                    
-                    // HIGHLIGHT LOGIC
-                    if (bestDatasetMetrics[key] !== undefined) {
-                        if (Math.abs(numVal - bestDatasetMetrics[key]) < 0.0001) {
-                             val.style.fontWeight = "bold";
-                             val.style.color = "#2e7d32"; // Dark green
-                             val.style.backgroundColor = "#e8f5e9";
-                             val.style.padding = "0 4px";
-                             val.style.borderRadius = "4px";
-                        }
-                    }
-
-                    item.appendChild(lbl);
-                    item.appendChild(val);
-                    wrapper.appendChild(item);
-                }
-            });
-            row.appendChild(wrapper);
-            container.appendChild(row);
-        };
-        
-        renderRow("DEMO (Avg):", metrics.demo);
-        /* renderRow("Ours (Avg):", metrics.ours); */
-        if (metrics.stmc) renderRow("Ours STMC (Avg):", metrics.stmc);
-        if (metrics.mardm) renderRow("Ours MARDM (Avg):", metrics.mardm);
-        // if (metrics.simple_h3d) renderRow("Simple H3D (Avg):", metrics.simple_h3d);
+    function makeGroup(children) {
+      const g = document.createElement('div');
+      g.className = 'model-group';
+      children.forEach(c => g.appendChild(c));
+      return g;
     }
 
     function createTextBox(label, id, color) {
-       const box = document.createElement('div');
-       box.className = 'text-box';
-       
-       const labelSpan = document.createElement('span');
-       labelSpan.className = 'label';
-       labelSpan.textContent = label;
-       labelSpan.style.fontWeight = 'bold'; // Increased weight
-       labelSpan.style.marginRight = '8px'; // Add some spacing
+      const box = document.createElement('div');
+      box.className = 'text-box';
 
-       if (color) labelSpan.style.color = color;
-       
-       const textSpan = document.createElement('span');
-       textSpan.id = id;
-       
-       box.appendChild(labelSpan);
-       box.appendChild(textSpan);
-       return box;
+      const lbl = document.createElement('div');
+      lbl.className = 'text-box-label';
+      lbl.textContent = label;
+      if (color) lbl.style.color = color;
+
+      const txt = document.createElement('div');
+      txt.className = 'text-box-content';
+      txt.id = id;
+
+      box.appendChild(lbl);
+      box.appendChild(txt);
+      return box;
     }
-    
+
     function createMetricsBox(label, id) {
-        const box = document.createElement('div');
-        box.className = 'text-box';
-        // Distinct style
-        box.style.backgroundColor = '#f8f9fa';
-        box.style.fontSize = '0.9em';
-        box.style.marginBottom = '8px';
-        
-        const labelSpan = document.createElement('span');
-        labelSpan.className = 'label';
-        labelSpan.textContent = label;
-        labelSpan.style.color = '#555';
-        labelSpan.style.fontWeight = 'bold'; // Increased weight
-        
-        const contentDiv = document.createElement('div');
-        contentDiv.id = id;
-        
-        box.appendChild(labelSpan);
-        box.appendChild(contentDiv);
-        return box;
+      const box = document.createElement('div');
+      box.className = 'metrics-box';
+
+      const lbl = document.createElement('span');
+      lbl.className = 'metrics-label';
+      lbl.textContent = label;
+
+      const content = document.createElement('div');
+      content.id = id;
+
+      box.appendChild(lbl);
+      box.appendChild(content);
+      return box;
     }
 
+    /* ── Render per-sample metrics ── */
+    function renderMetrics(containerId, metrics, bestMetrics) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      container.innerHTML = '';
+      if (!metrics) { container.textContent = 'N/A'; return; }
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'metrics-container';
+
+      ['BERT', 'BLEURT', 'CIDEr', 'METEOR'].forEach(key => {
+        if (metrics[key] === undefined) return;
+        const item = document.createElement('div');
+        item.className = 'metric-item';
+
+        const lbl = document.createElement('span');
+        lbl.className = 'metric-label';
+        lbl.textContent = key + ': ';
+
+        const val = document.createElement('span');
+        val.className = 'metric-value';
+        const numVal = Number(metrics[key]);
+        val.textContent = (numVal * 100).toFixed(4);
+
+        if (bestMetrics && bestMetrics[key] !== undefined &&
+            Math.abs(numVal - bestMetrics[key]) < 0.000001) {
+          val.classList.add('best');
+        }
+
+        item.appendChild(lbl);
+        item.appendChild(val);
+        wrapper.appendChild(item);
+      });
+      container.appendChild(wrapper);
+    }
+
+    /* ── Render dataset-level average metrics ── */
+    function renderDatasetMetrics() {
+      const outer = document.getElementById('datasetMetricsOuter');
+      if (!outer) return;
+      outer.innerHTML = '';
+
+      const metrics = DATASET_METRICS[CURRENT_DS];
+      if (!metrics) return;
+
+      const metricKeys = ['BERT', 'BLEURT', 'CIDEr', 'METEOR'];
+      const compareKeys = ['demo', 'stmc', 'mardm'];
+      const best = {};
+
+      metricKeys.forEach(mk => {
+        let max = -Infinity;
+        compareKeys.forEach(model => {
+          const v = metrics[model] && metrics[model][mk];
+          if (v !== undefined && Number(v) > max) max = Number(v);
+        });
+        if (max !== -Infinity) best[mk] = max;
+      });
+
+      const title = document.createElement('div');
+      title.className = 'dataset-metrics-title';
+      title.textContent = 'Dataset Average Metrics';
+      outer.appendChild(title);
+
+      const grid = document.createElement('div');
+      grid.className = 'dataset-metrics-columns';
+
+      const renderCol = (label, data) => {
+        if (!data) return;
+        const col = document.createElement('div');
+        col.className = 'dataset-col';
+
+        const colTitle = document.createElement('div');
+        colTitle.className = 'dataset-col-title';
+        colTitle.textContent = label;
+        col.appendChild(colTitle);
+
+        metricKeys.forEach(key => {
+          if (data[key] === undefined) return;
+          const row = document.createElement('div');
+          row.className = 'dataset-metric-row';
+
+          const lbl = document.createElement('span');
+          lbl.className = 'metric-label';
+          lbl.textContent = key;
+
+          const val = document.createElement('span');
+          val.className = 'metric-value';
+          const numVal = Number(data[key]);
+          val.textContent = (numVal * 100).toFixed(4);
+          if (best[key] !== undefined && Math.abs(numVal - best[key]) < 0.0001) {
+            val.classList.add('best');
+          }
+
+          row.appendChild(lbl);
+          row.appendChild(val);
+          col.appendChild(row);
+        });
+
+        grid.appendChild(col);
+      };
+
+      renderCol('DEMO', metrics.demo);
+      if (metrics.stmc)  renderCol('Ours STMC', metrics.stmc);
+      if (metrics.mardm) renderCol('Ours MARDM', metrics.mardm);
+
+      outer.appendChild(grid);
+    }
+
+    /* ── Dataset switching ── */
     function changeDataset(ds) {
       CURRENT_DS = ds;
-      updateTextSection(ds); // Update text UI structure based on dataset
+      updateTextSection(ds);
       const select = document.getElementById('dataSelect');
-      const dataLabel = document.querySelector('label[for="dataSelect"]'); // Assuming there is one
-
-      // Clear current data while loading
       select.innerHTML = '<option>Loading...</option>';
-      loadData(null); 
+      loadData(null);
 
       if (ds === 'motionfix') {
         fetch('data.json')
           .then(r => r.json())
           .then(json => {
-            // Check for Dataset Metrics
             if (json['DATASET_METRICS']) {
-                DATASET_METRICS['motionfix'] = json['DATASET_METRICS'];
-                delete json['DATASET_METRICS']; // Remove from main data
+              DATASET_METRICS['motionfix'] = json['DATASET_METRICS'];
+              delete json['DATASET_METRICS'];
             }
-            
             DATA = json;
             populateSelect(Object.keys(DATA));
-            
-            // Render metrics now that data is loaded
             renderDatasetMetrics();
           })
           .catch(err => {
-             console.error(err);
-             select.innerHTML = '<option>Error loading data.json</option>';
+            console.error(err);
+            select.innerHTML = '<option>Error loading data.json</option>';
           });
+
       } else if (ds === 'stance') {
         Promise.all([
           fetch('stance/adjustment_all_map.json').then(r => r.json()),
           fetch('stance/adjustments.json').then(r => r.json()),
           fetch('stance/adjust_test.json').then(r => r.json()),
-          fetch('stance/data.json').then(r => r.json()).catch(() => ({})) // Load extra data, default to empty if missing
+          fetch('stance/data.json').then(r => r.json()).catch(() => ({}))
         ]).then(([allMap, adjustments, testIds, extraData]) => {
-          
-          // Check for Dataset Metrics in stance/data.json (extraData)
-          if (extraData && extraData['DATASET_METRICS']) {
-              DATASET_METRICS['stance'] = extraData['DATASET_METRICS'];
-              delete extraData['DATASET_METRICS'];
+          if (extraData['DATASET_METRICS']) {
+            DATASET_METRICS['stance'] = extraData['DATASET_METRICS'];
+            delete extraData['DATASET_METRICS'];
           }
-          
-          STANCE_DATA_MAP = {};
-          
-          const filenameToId = allMap; // The file provides Filename -> ID
+
           const idToFilename = {};
-          
-          // Build reverse map
-          // We need mapping from ID in adjust_test.json -> filename
-          // adjustment_all_map.json format: { "filename.pkl": "ID" }
-          // So reverse map is { "ID": "filename.pkl" }
-          
-          for (const [file, id] of Object.entries(filenameToId)) {
-             idToFilename[String(id).trim()] = file.trim();
+          for (const [file, id] of Object.entries(allMap)) {
+            idToFilename[String(id).trim()] = file.trim();
           }
 
           const validIds = testIds.map(String).map(s => s.trim()).filter(id => {
-             const has = Object.prototype.hasOwnProperty.call(idToFilename, id);
-             if (!has) console.warn(`ID ${id} from test set not found in map`);
-             return has;
+            const has = Object.prototype.hasOwnProperty.call(idToFilename, id);
+            if (!has) console.warn(`ID ${id} not found in map`);
+            return has;
           });
-          
-          console.log(`Found ${validIds.length} valid IDs out of ${testIds.length} test IDs`);
 
-          // Build Data Map
-          STANCE_DATA_MAP = {}; 
+          STANCE_DATA_MAP = {};
           validIds.forEach(id => {
-            const fname = idToFilename[id];
-            // fname e.g. "paired_data_seed0_15_batch0_id108.pkl"
-            const stem = fname.replace('.pkl', '');
-            
-            // Construct video path
-            const videoPath = `stance/comparison_renders/compare_${stem}.mp4`;
-            
-            // Construct text
-            // text1 mainly comes from adjustments structure as Source/Demo
-            let textContent = (adjustments[id] && adjustments[id].text) ? adjustments[id].text : "No text found for ID " + id;
-            if (adjustments[id] && adjustments[id].body_part) {
-                textContent += ` (Body Part: ${adjustments[id].body_part})`;
-            }
-
-            // Retrieve extra texts from stance/data.json if available
-            // Assumed format: { "ID": { "text2": "...", "text7": "..." } }
-            const extra = (extraData && extraData[id]) ? extraData[id] : {};
-
+            const stem = idToFilename[id].replace('.pkl', '');
+            let text = (adjustments[id] && adjustments[id].text) || ('No text for ' + id);
+            if (adjustments[id] && adjustments[id].body_part)
+              text += ` (Body Part: ${adjustments[id].body_part})`;
+            const extra = (extraData && extraData[id]) || {};
             STANCE_DATA_MAP[id] = {
-              overlap: videoPath,
-              text1: textContent,
-              text2: extra.text2 || "", 
-              text3: extra.text3 || "", 
-              text4: extra.text4 || "", 
-              text5: extra.text5 || "", 
-              text6: extra.text6 || "", 
-              text7: extra.text7 || "",
-              metrics: extra.metrics || null // Also map metrics if present
+              overlap: `stance/comparison_renders/compare_${stem}.mp4`,
+              text1: text,
+              text2: extra.text2 || '', text3: extra.text3 || '',
+              text4: extra.text4 || '', text5: extra.text5 || '',
+              text6: extra.text6 || '', text7: extra.text7 || '',
+              metrics: extra.metrics || null
             };
           });
-          
-          if (validIds.length === 0) {
-            console.error("No valid IDs found for Stance data!");
-             select.innerHTML = '<option>No valid IDs found</option>';
-             return;
-          }
 
-          populateSelect(validIds); 
-          renderDatasetMetrics(); // Render after loading
+          if (!validIds.length) {
+            select.innerHTML = '<option>No valid IDs found</option>';
+            return;
+          }
+          populateSelect(validIds);
+          renderDatasetMetrics();
         }).catch(err => {
           console.error(err);
           select.innerHTML = '<option>Error loading Stance data</option>';
@@ -410,147 +472,61 @@
     function populateSelect(keys) {
       const select = document.getElementById('dataSelect');
       select.innerHTML = '';
-      
-      if (!keys || keys.length === 0) {
+      if (!keys || !keys.length) {
         select.innerHTML = '<option>No Data Found</option>';
         return;
       }
-
-      keys.forEach((key) => {
+      keys.forEach(key => {
         const opt = document.createElement('option');
-        opt.value = key;
-        opt.textContent = key;
+        opt.value = opt.textContent = key;
         select.appendChild(opt);
       });
-      
       select.value = keys[0];
       loadData(keys[0]);
     }
 
-    function renderMetrics(containerId, metrics, bestMetrics) {
-        const container = document.getElementById(containerId);
-        if (!container) return;
-        
-        container.innerHTML = ""; // Clear existing
-        if (!metrics) {
-            container.textContent = "N/A";
-            return;
-        }
-
-        const wrapper = document.createElement('div');
-        wrapper.className = 'metrics-container';
-        
-        const keys = ["BERT", "BLEURT", "CIDEr", "METEOR"];
-        keys.forEach(key => {
-            if (metrics[key] !== undefined) {
-                const item = document.createElement('div');
-                item.className = 'metric-item';
-                
-                const lbl = document.createElement('span');
-                lbl.className = 'metric-label';
-                lbl.textContent = key + ": ";
-                
-                const val = document.createElement('span');
-                val.className = 'metric-value';
-                const numVal = Number(metrics[key]);
-                val.textContent = (numVal * 100).toFixed(4);
-                
-                // Highlight if best
-                if (bestMetrics && bestMetrics[key] !== undefined) {
-                    // Check if current value is close to max (allow tiny float diff)
-                    if (Math.abs(numVal - bestMetrics[key]) < 0.000001) {
-                         val.style.fontWeight = "bold";
-                         val.style.color = "#2e7d32"; // Dark green
-                         val.style.backgroundColor = "#e8f5e9"; // Light green bg
-                         val.style.padding = "0 4px";
-                         val.style.borderRadius = "4px";
-                    }
-                }
-                
-                item.appendChild(lbl);
-                item.appendChild(val);
-                wrapper.appendChild(item);
-            }
-        });
-        container.appendChild(wrapper);
-    }
-    
+    /* ── Load a single sample ── */
     function loadData(id) {
       if (!id) {
-         const ov = document.getElementById("overlap");
-         if(ov) { ov.src=""; ov.load(); }
-         for(let i=1; i<=7; i++) {
-             const t = document.getElementById("text"+i)
-             if(t) t.textContent = "";
-         }
-         return;
+        const ov = document.getElementById('overlap');
+        if (ov) { ov.src = ''; ov.load(); }
+        for (let i = 1; i <= 7; i++) {
+          const t = document.getElementById('text' + i);
+          if (t) t.textContent = '';
+        }
+        return;
       }
-      
-      let d = null;
-      if (CURRENT_DS === 'motionfix') {
-        d = DATA[id];
-      } else {
-        d = STANCE_DATA_MAP[id];
-      }
-      
+
+      const d = CURRENT_DS === 'motionfix' ? DATA[id] : STANCE_DATA_MAP[id];
       if (!d) return;
 
-      const vids = [
-        { el: "overlap", src: d.overlap }
-      ];
+      const ov = document.getElementById('overlap');
+      if (ov) {
+        ov.pause();
+        ov.src = d.overlap || '';
+        ov.loop = ov.autoplay = ov.muted = true;
+        ov.onerror = () => console.error('Error loading video', d.overlap);
+        ov.load();
+        ov.onloadeddata = () => ov.play().catch(e => console.warn('Auto-play failed:', e));
+      }
 
-      vids.forEach(v => {
-        const elem = document.getElementById(v.el);
-        if(!elem) return;
-        
-        console.log(`Loading video for ${v.el}: ${v.src}`); // Debugging
-        
-        elem.pause();
-        elem.src = v.src || "";
-        elem.loop = true;
-        elem.autoplay = true;
-        elem.muted = true;
-        
-        elem.onerror = (e) => {
-            console.error(`Error loading video ${v.src}:`, elem.error);
-            // alert(`Failed to load video: ${v.src}\nCheck console for details.`);
-        };
-        
-        elem.load();
-        elem.onloadeddata = () => {
-          console.log(`Video loaded successfully: ${v.src}`);
-          elem.play().catch(e => console.warn("Auto-play failed:", e));
-        };
-      });
+      for (let i = 1; i <= 6; i++) {
+        const t = document.getElementById('text' + i);
+        if (t) t.textContent = d['text' + i] || '';
+      }
 
-      if(document.getElementById("text1")) document.getElementById("text1").textContent = d.text1 || "";
-      if(document.getElementById("text2")) document.getElementById("text2").textContent = d.text2 || "";
-      if(document.getElementById("text3")) document.getElementById("text3").textContent = d.text3 || "";
-      if(document.getElementById("text4")) document.getElementById("text4").textContent = d.text4 || "";
-      if(document.getElementById("text5")) document.getElementById("text5").textContent = d.text5 || "";
-      if(document.getElementById("text6")) document.getElementById("text6").textContent = d.text6 || "";
-      // Calculate Best Metrics for Demo, MARDM, STMC
       const m = d.metrics || {};
-      const inputs = [m.demo, m.mardm, m.stmc].filter(x => x);
+      const inputs = [m.demo, m.mardm, m.stmc].filter(Boolean);
       const bestMetrics = {};
-      ["BERT", "BLEURT", "CIDEr", "METEOR"].forEach(key => {
-          let maxVal = -Infinity;
-          inputs.forEach(obj => {
-              if (obj[key] !== undefined) {
-                  const val = Number(obj[key]);
-                  if (val > maxVal) maxVal = val;
-              }
-          });
-          if (maxVal !== -Infinity) bestMetrics[key] = maxVal;
+      ['BERT', 'BLEURT', 'CIDEr', 'METEOR'].forEach(key => {
+        let max = -Infinity;
+        inputs.forEach(obj => { if (obj[key] !== undefined && Number(obj[key]) > max) max = Number(obj[key]); });
+        if (max !== -Infinity) bestMetrics[key] = max;
       });
 
-      // Load metrics if available
-      renderMetrics("metrics_base", m.demo, bestMetrics); 
-      // renderMetrics("metrics_ours", m.ours, bestMetrics);
-      renderMetrics("metrics_mardm", m.mardm, bestMetrics);
-      // renderMetrics("metrics_simple_h3d", m.simple_h3d, bestMetrics);
-      renderMetrics("metrics_stmc", m.stmc, bestMetrics);
-    
+      renderMetrics('metrics_base',  m.demo,  bestMetrics);
+      renderMetrics('metrics_stmc',  m.stmc,  bestMetrics);
+      renderMetrics('metrics_mardm', m.mardm, bestMetrics);
     }
   </script>
 </body>
