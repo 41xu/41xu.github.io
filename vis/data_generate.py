@@ -36,8 +36,9 @@ def main():
     results_files = {
         "text2": "base.json",
         "text3": "base+bp+cont_poe+difftok+sep.json",
-        # "text4": "demo_poe.json",
-        # "text5": "demo_contrastive.json",
+        "text4": "mardm.json",
+        "text5": "simple_h3d.json",
+        "text6": "stmc.json"
         # "text6": "demo_contrastive_poe.json",
         # "text7": "demo_simple_h3d.json",
     }
@@ -53,7 +54,10 @@ def main():
     # Matches the structure requested: metrics: { demo: {...}, ours: {...} }
     metrics_files_map = {
         "demo": "metrics/base.json",
-        "ours": "metrics/base+bp+cont_poe+difftok+sep.json"
+        "ours": "metrics/base+bp+cont_poe+difftok+sep.json",
+        "mardm": "metrics/mardm.json",
+        "simple_h3d": "metrics/simple_h3d.json",
+        "stmc": "metrics/stmc_metrics.json"
     }
     
     loaded_metrics = {} # Stores { "demo": { average_metrics:..., per_sample_metrics:... }, ... }

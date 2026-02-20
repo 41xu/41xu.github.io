@@ -119,19 +119,24 @@
 
       // 1. Per-sample Text & Metrics
       if (ds === 'motionfix') {
-        mainContainer.appendChild(createTextBox('GT (Source):', 'text1', 'blue'));
+        mainContainer.appendChild(createTextBox('GT: ', 'text1', 'blue'));
         
-        mainContainer.appendChild(createTextBox('DEMO:', 'text2'));
+        mainContainer.appendChild(createTextBox('DEMO: ', 'text2'));
         mainContainer.appendChild(createMetricsBox('DEMO Metrics:', 'metrics_base')); 
 
-        mainContainer.appendChild(createTextBox('Ours:', 'text3', 'green'));
-        mainContainer.appendChild(createMetricsBox('Ours Metrics:', 'metrics_ours')); 
+        // mainContainer.appendChild(createTextBox('Ours:', 'text3', 'green'));
+        // mainContainer.appendChild(createMetricsBox('Ours Metrics:', 'metrics_ours')); 
 
-        mainContainer.appendChild(createTextBox('Ours MARDM:', 'text4', 'green'));
+        mainContainer.appendChild(createTextBox('Ours STMC: ', 'text6', 'green'));
+        mainContainer.appendChild(createMetricsBox('Ours STMC Metrics:', 'metrics_stmc'));
+
+
+        mainContainer.appendChild(createTextBox('Ours MARDM: ', 'text4', 'green'));
         mainContainer.appendChild(createMetricsBox('Ours MARDM Metrics:', 'metrics_mardm'));
 
-        mainContainer.appendChild(createTextBox('Ours simple_h3d:', 'text5', 'green'));
-        mainContainer.appendChild(createMetricsBox('Ours simple_h3d Metrics:', 'metrics_simple_h3d'));
+        // mainContainer.appendChild(createTextBox('Ours simple_h3d:', 'text5', 'green'));
+        // mainContainer.appendChild(createMetricsBox('Ours simple_h3d Metrics:', 'metrics_simple_h3d'));
+
       } else {
         mainContainer.appendChild(createTextBox('GT:', 'text1', 'red')); 
         
@@ -174,6 +179,25 @@
         
         container.innerHTML = "";
         
+        // --- Calculate Best Dataset Metrics ---
+        const bestDatasetMetrics = {};
+        const metricKeys = ["BERT", "BLEURT", "CIDEr", "METEOR"];
+        // We only compare Demo, STMC, MARDM
+        const compareKeys = ["demo", "stmc", "mardm"];
+
+        metricKeys.forEach(mKey => {
+            let maxVal = -Infinity;
+            compareKeys.forEach(model => {
+                const modelMetrics = metrics[model];
+                if (modelMetrics && modelMetrics[mKey] !== undefined) {
+                    const val = Number(modelMetrics[mKey]);
+                    if (val > maxVal) maxVal = val;
+                }
+            });
+            if (maxVal !== -Infinity) bestDatasetMetrics[mKey] = maxVal;
+        });
+        // --------------------------------------
+
         // Helper to render a row
         const renderRow = (label, data) => {
             if(!data) return;
@@ -193,9 +217,23 @@
                     const lbl = document.createElement('span');
                     lbl.className = 'metric-label';
                     lbl.textContent = key + ": ";
+                    
                     const val = document.createElement('span');
                     val.className = 'metric-value';
-                    val.textContent = (Number(data[key]) * 100).toFixed(4); // Scale for display * 100
+                    const numVal = Number(data[key]);
+                    val.textContent = (numVal * 100).toFixed(4); // Scale for display * 100
+                    
+                    // HIGHLIGHT LOGIC
+                    if (bestDatasetMetrics[key] !== undefined) {
+                        if (Math.abs(numVal - bestDatasetMetrics[key]) < 0.0001) {
+                             val.style.fontWeight = "bold";
+                             val.style.color = "#2e7d32"; // Dark green
+                             val.style.backgroundColor = "#e8f5e9";
+                             val.style.padding = "0 4px";
+                             val.style.borderRadius = "4px";
+                        }
+                    }
+
                     item.appendChild(lbl);
                     item.appendChild(val);
                     wrapper.appendChild(item);
@@ -206,7 +244,10 @@
         };
         
         renderRow("DEMO (Avg):", metrics.demo);
-        renderRow("Ours (Avg):", metrics.ours);
+        /* renderRow("Ours (Avg):", metrics.ours); */
+        if (metrics.stmc) renderRow("Ours STMC (Avg):", metrics.stmc);
+        if (metrics.mardm) renderRow("Ours MARDM (Avg):", metrics.mardm);
+        // if (metrics.simple_h3d) renderRow("Simple H3D (Avg):", metrics.simple_h3d);
     }
 
     function createTextBox(label, id, color) {
@@ -216,6 +257,9 @@
        const labelSpan = document.createElement('span');
        labelSpan.className = 'label';
        labelSpan.textContent = label;
+       labelSpan.style.fontWeight = 'bold'; // Increased weight
+       labelSpan.style.marginRight = '8px'; // Add some spacing
+
        if (color) labelSpan.style.color = color;
        
        const textSpan = document.createElement('span');
@@ -238,6 +282,7 @@
         labelSpan.className = 'label';
         labelSpan.textContent = label;
         labelSpan.style.color = '#555';
+        labelSpan.style.fontWeight = 'bold'; // Increased weight
         
         const contentDiv = document.createElement('div');
         contentDiv.id = id;
@@ -382,7 +427,7 @@
       loadData(keys[0]);
     }
 
-    function renderMetrics(containerId, metrics) {
+    function renderMetrics(containerId, metrics, bestMetrics) {
         const container = document.getElementById(containerId);
         if (!container) return;
         
@@ -395,20 +440,32 @@
         const wrapper = document.createElement('div');
         wrapper.className = 'metrics-container';
         
-        // Define order if needed, or just iterate
         const keys = ["BERT", "BLEURT", "CIDEr", "METEOR"];
         keys.forEach(key => {
             if (metrics[key] !== undefined) {
                 const item = document.createElement('div');
                 item.className = 'metric-item';
-                // item.innerHTML = `<span class="metric-label">${key}:</span> <span class="metric-value">${Number(metrics[key]).toFixed(4)}</span>`;
-                // Use textContent for safety, though innerHTML is fine for simple trusted content
+                
                 const lbl = document.createElement('span');
                 lbl.className = 'metric-label';
                 lbl.textContent = key + ": ";
+                
                 const val = document.createElement('span');
                 val.className = 'metric-value';
-                val.textContent = (Number(metrics[key]) * 100).toFixed(4);
+                const numVal = Number(metrics[key]);
+                val.textContent = (numVal * 100).toFixed(4);
+                
+                // Highlight if best
+                if (bestMetrics && bestMetrics[key] !== undefined) {
+                    // Check if current value is close to max (allow tiny float diff)
+                    if (Math.abs(numVal - bestMetrics[key]) < 0.000001) {
+                         val.style.fontWeight = "bold";
+                         val.style.color = "#2e7d32"; // Dark green
+                         val.style.backgroundColor = "#e8f5e9"; // Light green bg
+                         val.style.padding = "0 4px";
+                         val.style.borderRadius = "4px";
+                    }
+                }
                 
                 item.appendChild(lbl);
                 item.appendChild(val);
@@ -471,11 +528,28 @@
       if(document.getElementById("text3")) document.getElementById("text3").textContent = d.text3 || "";
       if(document.getElementById("text4")) document.getElementById("text4").textContent = d.text4 || "";
       if(document.getElementById("text5")) document.getElementById("text5").textContent = d.text5 || "";
+      if(document.getElementById("text6")) document.getElementById("text6").textContent = d.text6 || "";
+      // Calculate Best Metrics for Demo, MARDM, STMC
+      const m = d.metrics || {};
+      const inputs = [m.demo, m.mardm, m.stmc].filter(x => x);
+      const bestMetrics = {};
+      ["BERT", "BLEURT", "CIDEr", "METEOR"].forEach(key => {
+          let maxVal = -Infinity;
+          inputs.forEach(obj => {
+              if (obj[key] !== undefined) {
+                  const val = Number(obj[key]);
+                  if (val > maxVal) maxVal = val;
+              }
+          });
+          if (maxVal !== -Infinity) bestMetrics[key] = maxVal;
+      });
+
       // Load metrics if available
-      renderMetrics("metrics_base", d.metrics ? d.metrics.demo : null); 
-      renderMetrics("metrics_ours", d.metrics ? d.metrics.ours : null);
-      renderMetrics("metrics_mardm", d.metrics ? d.metrics.mardm : null);
-      renderMetrics("metrics_simple_h3d", d.metrics ? d.metrics.simple_h3d : null);
+      renderMetrics("metrics_base", m.demo, bestMetrics); 
+      // renderMetrics("metrics_ours", m.ours, bestMetrics);
+      renderMetrics("metrics_mardm", m.mardm, bestMetrics);
+      // renderMetrics("metrics_simple_h3d", m.simple_h3d, bestMetrics);
+      renderMetrics("metrics_stmc", m.stmc, bestMetrics);
     
     }
   </script>
