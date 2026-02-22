@@ -1,46 +1,91 @@
 {
-    "002943_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/004890_120_240.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/013789_120_240.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/004890_120_240-013789_120_240.mp4",
-        "captions": "a person does arm stretches.",
-        "captiont": "person is doing hand circles with arms out",
-        "text1": "do it a bit faster",
-        "text2": "do the same wave with the right hand and don't move the left hand at all and keep the right hand raised all the time",
-        "text3": "start with arms already up",
-        "text4": "keep the left hand fixed and rotate the right hand in the same direction",
-        "text5": "raise arms a bit later",
-        "text6": "raise arms a bit later",
+    "005454_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/013235_120_240.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/009849_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/013235_120_240-009849_90_180.mp4",
+        "captions": "a person places her hands on her thighs, then drops to her right knee, then kneels and sits back on her heels for a moment before leaning forward, placing her right foot forward and then raising herself to a standing position while her left hand stays on her thigh and her right drops to her side. l",
+        "captiont": "a person is crouched and stands then resumes the crouched position.",
+        "text1": "get into the squat position instead of laying the knees on the floor",
+        "text2": "keep the hands closer to the ground",
+        "text3": "sit down with the left leg in front instead of the right one",
+        "text4": "sit on both knees instead of just one",
+        "text5": "kneel down a bit faster, look down",
+        "text6": "start by already being seated, don't get up",
         "metrics": {
             "demo": {
-                "BERT": 0.48595067858695984,
-                "BLEURT": 0.36206138134002686,
-                "CIDEr": 8.812371199102051e-05,
-                "METEOR": 0.1363209926848458
+                "BERT": 0.7029100656509399,
+                "BLEURT": 0.37278246879577637,
+                "CIDEr": 0.06254792499183479,
+                "METEOR": 0.031746031746031744
             },
             "ours": {
-                "BERT": 0.5421538949012756,
-                "BLEURT": 0.07941904664039612,
+                "BERT": 0.6696282625198364,
+                "BLEURT": 0.3410540819168091,
+                "CIDEr": 0.28180997661999346,
+                "METEOR": 0.09634388738290196
+            },
+            "mardm": {
+                "BERT": 0.6787902116775513,
+                "BLEURT": 0.3450559973716736,
+                "CIDEr": 0.5024738158675395,
+                "METEOR": 0.13521949106372208
+            },
+            "simple_h3d": {
+                "BERT": 0.5464869737625122,
+                "BLEURT": 0.19315478205680847,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
             },
+            "stmc": {
+                "BERT": 0.4969937205314636,
+                "BLEURT": 0.23169830441474915,
+                "CIDEr": 0.1336150424468888,
+                "METEOR": 0.04519774011299435
+            }
+        }
+    },
+    "005790_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/006286_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/009849_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/006286_0_120-009849_90_180.mp4",
+        "captions": "a figure is kneeling and seems to be brushing something off",
+        "captiont": "a person get up and bend on the knee",
+        "text1": "start from the standing position. don't move your arms, just rest them on your thighs. don't put your right knee down",
+        "text2": "start with standing up and then perform the action",
+        "text3": "start from a squat and don't get up",
+        "text4": "don't go all the way down and move the right hand to the left knee",
+        "text5": "don't get up",
+        "text6": "don't move your right hand and stay in the crouching position with your back straight",
+        "metrics": {
+            "demo": {
+                "BERT": 0.5356881022453308,
+                "BLEURT": 0.3485868275165558,
+                "CIDEr": 0.02384832055282446,
+                "METEOR": 0.04819277108433736
+            },
+            "ours": {
+                "BERT": 0.657037615776062,
+                "BLEURT": 0.2988557815551758,
+                "CIDEr": 0.045904521292856715,
+                "METEOR": 0.09450899280940152
+            },
             "mardm": {
-                "BERT": 0.5200140476226807,
-                "BLEURT": 0.29519838094711304,
-                "CIDEr": 0.0,
-                "METEOR": 0.08259417787129547
+                "BERT": 0.666157066822052,
+                "BLEURT": 0.39939364790916443,
+                "CIDEr": 0.30013276047872994,
+                "METEOR": 0.14261430698126937
             },
             "simple_h3d": {
-                "BERT": 0.6070264577865601,
-                "BLEURT": 0.4150541424751282,
-                "CIDEr": 1.3032947420433763,
-                "METEOR": 0.16908660602560197
+                "BERT": 0.5565653443336487,
+                "BLEURT": 0.23890328407287598,
+                "CIDEr": 0.0024866655118278725,
+                "METEOR": 0.0789120355537761
             },
             "stmc": {
-                "BERT": 0.6070264577865601,
-                "BLEURT": 0.4150540828704834,
-                "CIDEr": 1.3032947420433763,
-                "METEOR": 0.16908660602560197
+                "BERT": 0.7038173079490662,
+                "BLEURT": 0.38964712619781494,
+                "CIDEr": 0.7403837895136094,
+                "METEOR": 0.18923142133664517
             }
         }
     },
@@ -55,7 +100,7 @@
         "text3": "don't extend leg and don't turn left",
         "text4": "do the motion to the left not forward",
         "text5": "don't turn and make a small step back",
-        "text6": "shift body facing forward and take a step forward when lowering your arm",
+        "text6": "don't shift weight onto right leg",
         "metrics": {
             "demo": {
                 "BERT": 0.577215850353241,
@@ -82,10 +127,100 @@
                 "METEOR": 0.2328805000441255
             },
             "stmc": {
-                "BERT": 0.5127281546592712,
-                "BLEURT": 0.2802722454071045,
-                "CIDEr": 0.21194310609747577,
-                "METEOR": 0.061855670103092786
+                "BERT": 0.8550041913986206,
+                "BLEURT": 0.5063825249671936,
+                "CIDEr": 3.951710303501449,
+                "METEOR": 0.41389964075008306
+            }
+        }
+    },
+    "002930_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/010800_120_240.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/008740_120_240.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/010800_120_240-008740_120_240.mp4",
+        "captions": "puts arms straight out, then back down, then makes his head go side to side, and then he does circles with his head.",
+        "captiont": "the man lowers his arms and looks around in a circle motion.",
+        "text1": "don't just move head from left to right rotate it clockwise and keep hands on the side",
+        "text2": "turn right sooner",
+        "text3": "keep hands fixed",
+        "text4": "start with arms already relaxed. don't raise arms",
+        "text5": "don't raise hands at the end",
+        "text6": "rotate hands in the opposite direction",
+        "metrics": {
+            "demo": {
+                "BERT": 0.46240776777267456,
+                "BLEURT": 0.2032560110092163,
+                "CIDEr": 0.00559790374746542,
+                "METEOR": 0.0316622691292876
+            },
+            "ours": {
+                "BERT": 0.5570390820503235,
+                "BLEURT": 0.2517527639865875,
+                "CIDEr": 0.029361300613531392,
+                "METEOR": 0.0756205269692336
+            },
+            "mardm": {
+                "BERT": 0.49904748797416687,
+                "BLEURT": 0.25831085443496704,
+                "CIDEr": 0.03688097608247479,
+                "METEOR": 0.08970297751809721
+            },
+            "simple_h3d": {
+                "BERT": 0.5788185596466064,
+                "BLEURT": 0.3504168391227722,
+                "CIDEr": 0.08692024119545613,
+                "METEOR": 0.12843284128527221
+            },
+            "stmc": {
+                "BERT": 0.6188789010047913,
+                "BLEURT": 0.32613492012023926,
+                "CIDEr": 0.08686550665775493,
+                "METEOR": 0.07244501940491592
+            }
+        }
+    },
+    "003001_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/007964_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/008740_120_240.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/007964_0_120-008740_120_240.mp4",
+        "captions": "a person does neck exercises by rolling their head from right to left, then around in a circle.",
+        "captiont": "the man is moving his arms",
+        "text1": "keeping hands fixed tilt head left then right then return to center and rotate neck anticlockwise",
+        "text2": "don't tilt head",
+        "text3": "don't move the arms at all instead stay still",
+        "text4": "look straight and keep arms down",
+        "text5": "look up, start with arms to the sides, don't do the final arm movement",
+        "text6": "don't move head and keep the hands closer to the hips",
+        "metrics": {
+            "demo": {
+                "BERT": 0.4906230568885803,
+                "BLEURT": 0.19764100015163422,
+                "CIDEr": 0.1491904606224577,
+                "METEOR": 0.07283400183313732
+            },
+            "ours": {
+                "BERT": 0.5127241611480713,
+                "BLEURT": 0.20549842715263367,
+                "CIDEr": 0.0,
+                "METEOR": 0.0
+            },
+            "mardm": {
+                "BERT": 0.5487032532691956,
+                "BLEURT": 0.23472151160240173,
+                "CIDEr": 0.011154445852825101,
+                "METEOR": 0.010050251256281409
+            },
+            "simple_h3d": {
+                "BERT": 0.5235406756401062,
+                "BLEURT": 0.2304639220237732,
+                "CIDEr": 0.0431793242282846,
+                "METEOR": 0.009345794392523366
+            },
+            "stmc": {
+                "BERT": 0.5688128471374512,
+                "BLEURT": 0.35493141412734985,
+                "CIDEr": 0.28104920952799434,
+                "METEOR": 0.07664670658682636
             }
         }
     },
@@ -100,7 +235,7 @@
         "text3": "don't turn head",
         "text4": "keep looking in the same direction and don't move head",
         "text5": "don't lean your head back as much",
-        "text6": "don't move the head",
+        "text6": "don't move the head instead just relax the head and do a very mild clockwise circular motion",
         "metrics": {
             "demo": {
                 "BERT": 0.5231966376304626,
@@ -127,10 +262,10 @@
                 "METEOR": 0.0854724940615093
             },
             "stmc": {
-                "BERT": 0.5623928904533386,
-                "BLEURT": 0.2430497258901596,
-                "CIDEr": 0.16593799437239898,
-                "METEOR": 0.056239015817223195
+                "BERT": 0.6159193515777588,
+                "BLEURT": 0.40574008226394653,
+                "CIDEr": 0.0864960080565935,
+                "METEOR": 0.081437125748503
             }
         }
     },
@@ -145,7 +280,7 @@
         "text3": "don't lean your head down as much",
         "text4": "don't tilt head up",
         "text5": "don't lean your head and upper body so much forward",
-        "text6": "don't move head",
+        "text6": "don't move head but slightly tilt it to the left then to the right",
         "metrics": {
             "demo": {
                 "BERT": 0.510071337223053,
@@ -172,10 +307,10 @@
                 "METEOR": 0.05517241379310346
             },
             "stmc": {
-                "BERT": 0.4860611855983734,
-                "BLEURT": 0.14499780535697937,
-                "CIDEr": 0.0,
-                "METEOR": 0.0
+                "BERT": 0.6350156664848328,
+                "BLEURT": 0.39503973722457886,
+                "CIDEr": 0.826925117738392,
+                "METEOR": 0.15257357379128458
             }
         }
     },
@@ -190,7 +325,7 @@
         "text3": "don't step forward",
         "text4": "don't lean your upper body and do the jumping jacks on the spot with the legs not in place",
         "text5": "do the first sidestep later and keep head up",
-        "text6": "take a step to the left and start later",
+        "text6": "move two steps to the left before turning",
         "metrics": {
             "demo": {
                 "BERT": 0.49499955773353577,
@@ -217,100 +352,100 @@
                 "METEOR": 0.07691137951826536
             },
             "stmc": {
-                "BERT": 0.6989644765853882,
-                "BLEURT": 0.4870948791503906,
-                "CIDEr": 1.2595027567346855,
-                "METEOR": 0.18477132178174774
+                "BERT": 0.7530996203422546,
+                "BLEURT": 0.49828559160232544,
+                "CIDEr": 0.19710001163725122,
+                "METEOR": 0.11485418304295475
             }
         }
     },
-    "002072_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_009780_0_120.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_007871_0_120.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_009780_0_120-007871_0_120.mp4",
-        "captions": "a figure walks counter clockwise.",
-        "captiont": "a person walks in a clockwise direction, completing one and a half circles",
-        "text1": "turn on a more open arc",
-        "text2": "turn in a tighter arc",
-        "text3": "don't turn, stay in the same position and raise right hand",
-        "text4": "take a long left turn and don't step back",
-        "text5": "keep hands lower when walking",
-        "text6": "keep the left arm closer to the body and walk faster",
+    "003873_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/004743_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/000436_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/004743_0_120-000436_0_120.mp4",
+        "captions": "a man sits down before standing back up.",
+        "captiont": "a person sits down on the ground and crosses their legs, then stands up",
+        "text1": "look to the left instead of right while sitting down",
+        "text2": "start putting butt on the floor a little earlier",
+        "text3": "don't lean back",
+        "text4": "don't turn to the side",
+        "text5": "don't lean back",
+        "text6": "look to the opposite side",
         "metrics": {
             "demo": {
-                "BERT": 0.8137937784194946,
-                "BLEURT": 0.5692370533943176,
-                "CIDEr": 1.1112256477229907,
-                "METEOR": 0.23628691983122363
+                "BERT": 0.5575154423713684,
+                "BLEURT": 0.1931677907705307,
+                "CIDEr": 0.01802757450651571,
+                "METEOR": 0.01698513800424628
             },
             "ours": {
-                "BERT": 0.5307865142822266,
-                "BLEURT": 0.236450657248497,
-                "CIDEr": 0.14114893090256905,
-                "METEOR": 0.08080808080808081
+                "BERT": 0.5692700147628784,
+                "BLEURT": 0.13262997567653656,
+                "CIDEr": 0.0,
+                "METEOR": 0.0
             },
             "mardm": {
-                "BERT": 0.5657069087028503,
-                "BLEURT": 0.2787725329399109,
-                "CIDEr": 0.25220662526236637,
-                "METEOR": 0.11228070175438597
+                "BERT": 0.6154469847679138,
+                "BLEURT": 0.2574862837791443,
+                "CIDEr": 0.27758522453057605,
+                "METEOR": 0.07781047302468562
             },
             "simple_h3d": {
-                "BERT": 0.5175939202308655,
-                "BLEURT": 0.144427090883255,
+                "BERT": 0.5692700147628784,
+                "BLEURT": 0.13262996077537537,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
             },
             "stmc": {
-                "BERT": 0.5556309223175049,
-                "BLEURT": 0.3227728009223938,
-                "CIDEr": 0.0,
-                "METEOR": 0.0
+                "BERT": 0.6300272345542908,
+                "BLEURT": 0.3843340277671814,
+                "CIDEr": 1.4723817753265698,
+                "METEOR": 0.11754083059951509
             }
         }
     },
-    "002074_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_008648_0_120.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_007871_0_120.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_008648_0_120-007871_0_120.mp4",
-        "captions": "the man is walking around in circular motion",
-        "captiont": "a person walks in a counterclockwise circle twice",
-        "text1": "turn on a more open arc",
-        "text2": "turn more",
-        "text3": "take the first step with the right leg not the left and keep the right hand more straight and keep it lower",
-        "text4": "do longer steps and look forward",
-        "text5": "keep hands lower and turn wider.",
-        "text6": "walk with more energy and take a more closed turn",
+    "002858_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/005850_120_240.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/008079_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/005850_120_240-008079_0_120.mp4",
+        "captions": "a person with hands by their head bends down to tie their left shoe.",
+        "captiont": "a person squats, pauses then starts to stand back up.",
+        "text1": "don't get up right knee at the level of left knees hands on the knees",
+        "text2": "get up a bit later",
+        "text3": "don't get up",
+        "text4": "start by getting into the crawling position, keep the crawling position and then get up",
+        "text5": "keep the left hand closer to the body and get up slower",
+        "text6": "don't get up at the end",
         "metrics": {
             "demo": {
-                "BERT": 0.4912663698196411,
-                "BLEURT": 0.32187074422836304,
-                "CIDEr": 0.8812460138644449,
-                "METEOR": 0.14814814814814814
+                "BERT": 0.4945078492164612,
+                "BLEURT": 0.2482973337173462,
+                "CIDEr": 0.11781597738623514,
+                "METEOR": 0.05772443045587016
             },
             "ours": {
-                "BERT": 0.533282995223999,
-                "BLEURT": 0.2909221053123474,
-                "CIDEr": 0.004565753496029104,
-                "METEOR": 0.023809523809523808
+                "BERT": 0.5994214415550232,
+                "BLEURT": 0.29482531547546387,
+                "CIDEr": 0.37989736902691285,
+                "METEOR": 0.1878082845839036
             },
             "mardm": {
-                "BERT": 0.5694528222084045,
-                "BLEURT": 0.24864354729652405,
-                "CIDEr": 0.0,
-                "METEOR": 0.0
+                "BERT": 0.49590304493904114,
+                "BLEURT": 0.30087655782699585,
+                "CIDEr": 0.26081290983402494,
+                "METEOR": 0.07146387250929541
             },
             "simple_h3d": {
-                "BERT": 0.5869786143302917,
-                "BLEURT": 0.27509307861328125,
-                "CIDEr": 0.30376784967863,
-                "METEOR": 0.09523809523809523
+                "BERT": 0.6471855044364929,
+                "BLEURT": 0.3619261384010315,
+                "CIDEr": 0.48323166217346725,
+                "METEOR": 0.1085062659443791
             },
             "stmc": {
-                "BERT": 0.6813664436340332,
-                "BLEURT": 0.4765506982803345,
-                "CIDEr": 0.5704804779591833,
-                "METEOR": 0.16921789890566796
+                "BERT": 0.6162130832672119,
+                "BLEURT": 0.33580338954925537,
+                "CIDEr": 0.7346051930480162,
+                "METEOR": 0.20468861967210839
             }
         }
     },
@@ -325,7 +460,7 @@
         "text3": "start with arms spread to the sides and bring them together",
         "text4": "move hands up and down",
         "text5": "move the hands more actively",
-        "text6": "move the hands up and down with the palms facing each other",
+        "text6": "don't clap instead just keep the hands in front of the chin",
         "metrics": {
             "demo": {
                 "BERT": 0.4940517842769623,
@@ -352,235 +487,145 @@
                 "METEOR": 0.0
             },
             "stmc": {
-                "BERT": 0.563337504863739,
-                "BLEURT": 0.3067134618759155,
-                "CIDEr": 0.0,
-                "METEOR": 0.0
+                "BERT": 0.7065007090568542,
+                "BLEURT": 0.38132768869400024,
+                "CIDEr": 0.18563083067880734,
+                "METEOR": 0.12511720431303733
             }
         }
     },
-    "001466_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_013768_120_240.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_003291_120_240.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_013768_120_240-003291_120_240.mp4",
-        "captions": "moving the hands and work some thing.",
-        "captiont": "a man is playing a violin.",
-        "text1": "keep making the movement",
-        "text2": "keep your palm facing away and do the motion only once",
-        "text3": "start with both arms extended to the front, not with the right arm",
-        "text4": "keep the hands higher",
-        "text5": "do it slower and raise your arms higher",
-        "text6": "keep hands lower when they are out in front of body",
+    "004127_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/013529_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/011655_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/013529_90_180-011655_90_180.mp4",
+        "captions": "a person energetically bounces up and down to loosen their muscles.",
+        "captiont": "a person stands still with their weight resting on their left leg",
+        "text1": "stand still instead of jumping",
+        "text2": "start jumping a bit later and slower",
+        "text3": "don't jump and look straight ahead",
+        "text4": "don't jump and swing to the side",
+        "text5": "don't jump on the spot instead just look down",
+        "text6": "don't alternate legs and keep the head up",
         "metrics": {
             "demo": {
-                "BERT": 0.5593803524971008,
-                "BLEURT": 0.29007530212402344,
-                "CIDEr": 0.07704736212986778,
-                "METEOR": 0.3271200798285187
+                "BERT": 0.6286798119544983,
+                "BLEURT": 0.35185766220092773,
+                "CIDEr": 0.7475257523681893,
+                "METEOR": 0.08823529411764706
             },
             "ours": {
-                "BERT": 0.42986518144607544,
-                "BLEURT": 0.1887930929660797,
-                "CIDEr": 0.007654699437370908,
-                "METEOR": 0.12940851401401648
-            },
-            "mardm": {
-                "BERT": 0.5494912266731262,
-                "BLEURT": 0.2456132173538208,
-                "CIDEr": 0.37303569075838283,
-                "METEOR": 0.16000000000000003
-            },
-            "simple_h3d": {
-                "BERT": 0.4928090274333954,
-                "BLEURT": 0.222126767039299,
+                "BERT": 0.6387583613395691,
+                "BLEURT": 0.34404027462005615,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
             },
-            "stmc": {
-                "BERT": 0.45249760150909424,
-                "BLEURT": 0.23442360758781433,
-                "CIDEr": 0.058676924250526466,
-                "METEOR": 0.18540772532188843
-            }
-        }
-    },
-    "001431_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_000364_0_120.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_010675_0_120.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_000364_0_120-010675_0_120.mp4",
-        "captions": "a man stomps his left leg.",
-        "captiont": "the person is stomping with the right foot.",
-        "text1": "lift your right leg",
-        "text2": "don't lift your left leg and don't step to the side",
-        "text3": "dont move the right leg instead keep it in the same position",
-        "text4": "don't step back and kick once with the right foot",
-        "text5": "lift your right leg higher",
-        "text6": "raise your right leg",
-        "metrics": {
-            "demo": {
-                "BERT": 0.6693759560585022,
-                "BLEURT": 0.5020658373832703,
-                "CIDEr": 0.7456074543020742,
-                "METEOR": 0.2602341280258039
-            },
-            "ours": {
-                "BERT": 0.6499176621437073,
-                "BLEURT": 0.4285959005355835,
-                "CIDEr": 0.36688106378906454,
-                "METEOR": 0.19902902584263563
-            },
             "mardm": {
-                "BERT": 0.6001763939857483,
-                "BLEURT": 0.3231174945831299,
-                "CIDEr": 0.055086955251480656,
-                "METEOR": 0.08333333333333333
-            },
-            "simple_h3d": {
-                "BERT": 0.9096310138702393,
-                "BLEURT": 0.7075608372688293,
-                "CIDEr": 7.800450393642315,
-                "METEOR": 0.5255759325753065
-            },
-            "stmc": {
-                "BERT": 0.9747107625007629,
-                "BLEURT": 0.7958970665931702,
-                "CIDEr": 3.933769879095413,
-                "METEOR": 0.9500000000000001
-            }
-        }
-    },
-    "001218_test": {
-        "motions": "https://download.is.tue.mpg.de/amass/motion-edit/source_motion/006921_90_180.mp4",
-        "motiont": "https://download.is.tue.mpg.de/amass/motion-edit/target_motion/012087_90_180.mp4",
-        "overlap": "https://download.is.tue.mpg.de/amass/motion-edit/source_target_motions/006921_90_180-012087_90_180.mp4",
-        "captions": "a person runs forward while holding their right arm steady, then they turn around and run back while holding their left arm steady.",
-        "captiont": "a person walks forward then turns around and takes long jumps.",
-        "text1": "take a jump at the end",
-        "text2": "don't look back at the end instead look forward and continue to do the same action",
-        "text3": "turn right faster and keep the right arm on the side",
-        "text4": "take a smaller step back and don't bend down",
-        "text5": "jump slightly later and extend right arm forward while doing so",
-        "text6": "do a step forward before turning around",
-        "metrics": {
-            "demo": {
-                "BERT": 0.618777871131897,
-                "BLEURT": 0.40141165256500244,
-                "CIDEr": 0.1316410161353976,
-                "METEOR": 0.15707729180117014
-            },
-            "ours": {
-                "BERT": 0.5989038944244385,
-                "BLEURT": 0.2967674136161804,
-                "CIDEr": 0.0266447211925523,
-                "METEOR": 0.08028673835125448
-            },
-            "mardm": {
-                "BERT": 0.5706748366355896,
-                "BLEURT": 0.38677898049354553,
-                "CIDEr": 0.8707615395022796,
-                "METEOR": 0.13408271214661768
-            },
-            "simple_h3d": {
-                "BERT": 0.5594485402107239,
-                "BLEURT": 0.3543317914009094,
-                "CIDEr": 0.2276659861653109,
-                "METEOR": 0.08247422680412372
-            },
-            "stmc": {
-                "BERT": 0.6015256643295288,
-                "BLEURT": 0.46093273162841797,
-                "CIDEr": 0.15462608562511576,
-                "METEOR": 0.09998739310787967
-            }
-        }
-    },
-    "003576_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/011851_90_180.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/008790_90_180.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/011851_90_180-008790_90_180.mp4",
-        "captions": "someone crouches, bending their knees and their hands meeting in front of them continuously.",
-        "captiont": "person squats and jumps out moving to the sides.",
-        "text1": "instead of squatting on the spot shifting to the right",
-        "text2": "don't step to the side",
-        "text3": "begin by standing and then squat down and slide to the right",
-        "text4": "keep both knees bent when crouching and stand up earlier",
-        "text5": "don't stand up completely",
-        "text6": "begin the motion by already being in a half-squat position, then stand up at the end",
-        "metrics": {
-            "demo": {
-                "BERT": 0.6409121751785278,
-                "BLEURT": 0.29790371656417847,
-                "CIDEr": 0.2384138087559948,
-                "METEOR": 0.04962801683348837
-            },
-            "ours": {
-                "BERT": 0.6515172719955444,
-                "BLEURT": 0.47838807106018066,
-                "CIDEr": 0.30187318966560517,
-                "METEOR": 0.12400838826408173
-            },
-            "mardm": {
-                "BERT": 0.49060332775115967,
-                "BLEURT": 0.25066643953323364,
+                "BERT": 0.6446422338485718,
+                "BLEURT": 0.2779335379600525,
                 "CIDEr": 0.0,
-                "METEOR": 0.046601941747572824
+                "METEOR": 0.0
             },
             "simple_h3d": {
-                "BERT": 0.49441903829574585,
-                "BLEURT": 0.14209774136543274,
+                "BERT": 0.7095255851745605,
+                "BLEURT": 0.35257089138031006,
+                "CIDEr": 0.09991481172128223,
+                "METEOR": 0.0794701986754967
+            },
+            "stmc": {
+                "BERT": 0.5827348828315735,
+                "BLEURT": 0.19217754900455475,
+                "CIDEr": 0.0,
+                "METEOR": 0.06689895470383277
+            }
+        }
+    },
+    "004419_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/011276_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/013110_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/011276_0_120-013110_0_120.mp4",
+        "captions": "a person puts their right hand in the air and makes a slapping motion",
+        "captiont": "a person waves with their right hand.",
+        "text1": "when performing the clap keep your elbow up make the motion more gentle",
+        "text2": "do it slower",
+        "text3": "start with your right arm up",
+        "text4": "do a counterclockwise circle with right arm instead",
+        "text5": "wave right hand faster and slower",
+        "text6": "wave slower and in a bigger motion",
+        "metrics": {
+            "demo": {
+                "BERT": 0.5819443464279175,
+                "BLEURT": 0.08436304330825806,
+                "CIDEr": 0.0,
+                "METEOR": 0.0
+            },
+            "ours": {
+                "BERT": 0.5584021210670471,
+                "BLEURT": 0.2302984595298767,
+                "CIDEr": 0.19096326600186808,
+                "METEOR": 0.05981308411214953
+            },
+            "mardm": {
+                "BERT": 0.5142425894737244,
+                "BLEURT": 0.18245084583759308,
+                "CIDEr": 0.0,
+                "METEOR": 0.029893065263930634
+            },
+            "simple_h3d": {
+                "BERT": 0.4689257740974426,
+                "BLEURT": 0.14082518219947815,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
             },
             "stmc": {
-                "BERT": 0.5635131001472473,
-                "BLEURT": 0.26731497049331665,
-                "CIDEr": 0.027328691039091194,
-                "METEOR": 0.07804878048780489
+                "BERT": 0.5164737105369568,
+                "BLEURT": 0.2702183425426483,
+                "CIDEr": 0.08656522412139712,
+                "METEOR": 0.0446096654275093
             }
         }
     },
-    "003863_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/010871_0_120.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/002432_0_120.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/010871_0_120-002432_0_120.mp4",
-        "captions": "this person has his hands in front as if to direct a crowd.",
-        "captiont": "a person raises both hands out in front of them and then makes various motions.",
-        "text1": "don't move the upright hands left and right just keep them straight",
-        "text2": "do the hand motion faster and higher",
-        "text3": "move the hands up and down instead of sideways",
-        "text4": "reach further with both arms",
-        "text5": "do a milling motion with arms instead of just raising arms",
-        "text6": "start by having your arms higher",
+    "000219_test": {
+        "motions": "https://download.is.tue.mpg.de/amass/motion-edit/source_motion/007214_0_120.mp4",
+        "motiont": "https://download.is.tue.mpg.de/amass/motion-edit/target_motion/006733_0_120.mp4",
+        "overlap": "https://download.is.tue.mpg.de/amass/motion-edit/source_target_motions/007214_0_120-006733_0_120.mp4",
+        "captions": "a person quickly walks across the room.",
+        "captiont": "a person is walking in a circle.",
+        "text1": "Take smaller careless steps instead of hasty.",
+        "text2": "move faster",
+        "text3": "take a smaller step",
+        "text4": "step over the rope",
+        "text5": "shorter steps",
+        "text6": "take a shorter step when turning",
         "metrics": {
             "demo": {
-                "BERT": 0.5968546867370605,
-                "BLEURT": 0.301391065120697,
-                "CIDEr": 0.1026867404092002,
-                "METEOR": 0.08929110105580695
-            },
-            "ours": {
-                "BERT": 0.6409338116645813,
-                "BLEURT": 0.4141871929168701,
-                "CIDEr": 0.4757686592970002,
-                "METEOR": 0.10368848866321287
-            },
-            "mardm": {
-                "BERT": 0.5611852407455444,
-                "BLEURT": 0.14243581891059875,
-                "CIDEr": 0.0,
-                "METEOR": 0.029493087557603694
-            },
-            "simple_h3d": {
-                "BERT": 0.5593838691711426,
-                "BLEURT": 0.2870434522628784,
-                "CIDEr": 0.2698285882952815,
-                "METEOR": 0.09696969696969698
-            },
-            "stmc": {
-                "BERT": 0.49745818972587585,
-                "BLEURT": 0.15959252417087555,
+                "BERT": 0.5240767002105713,
+                "BLEURT": 0.1467723250389099,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
+            },
+            "ours": {
+                "BERT": 0.7242605090141296,
+                "BLEURT": 0.3343956470489502,
+                "CIDEr": 0.9048025216328036,
+                "METEOR": 0.13597733711048157
+            },
+            "mardm": {
+                "BERT": 0.5583149194717407,
+                "BLEURT": 0.11661006510257721,
+                "CIDEr": 0.0,
+                "METEOR": 0.0
+            },
+            "simple_h3d": {
+                "BERT": 0.6253363490104675,
+                "BLEURT": 0.20575650036334991,
+                "CIDEr": 0.33939258511069537,
+                "METEOR": 0.07038123167155425
+            },
+            "stmc": {
+                "BERT": 0.6567865014076233,
+                "BLEURT": 0.3327229619026184,
+                "CIDEr": 0.2744422622051659,
+                "METEOR": 0.06575342465753424
             }
         }
     },
@@ -595,7 +640,7 @@
         "text3": "turn back a bit later and keep crawling in the forward direction instead of turning back",
         "text4": "turn back slightly later",
         "text5": "crawl a bit slower",
-        "text6": "raise up at the end",
+        "text6": "turn more to the right and get up",
         "metrics": {
             "demo": {
                 "BERT": 0.5382941365242004,
@@ -622,100 +667,280 @@
                 "METEOR": 0.11059907834101385
             },
             "stmc": {
-                "BERT": 0.6306106448173523,
-                "BLEURT": 0.1514374017715454,
-                "CIDEr": 0.04880147882942959,
-                "METEOR": 0.03738317757009346
+                "BERT": 0.6664862036705017,
+                "BLEURT": 0.33324193954467773,
+                "CIDEr": 0.29370160457157674,
+                "METEOR": 0.08343574882486036
             }
         }
     },
-    "003842_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/002745_90_180.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/001629_90_180.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/002745_90_180-001629_90_180.mp4",
-        "captions": "a person kneels down and gets on all-fours, possibly looking for something on the ground.",
-        "captiont": "someone crouches and crawls and goes around",
-        "text1": "take turn right after moving forward once",
-        "text2": "start getting up later",
-        "text3": "crawl a little further before turning back",
-        "text4": "turn left instead of right",
-        "text5": "bend more the elbows and knees and touch the knees to the ground and also touch the chest to the ground",
-        "text6": "keep crawling in the same direction without getting up",
+    "004008_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/005488_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/008206_120_240.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/005488_0_120-008206_120_240.mp4",
+        "captions": "a person raised the hands and bend the body",
+        "captiont": "a person bends down to touch their toes twice",
+        "text1": "do it faster and keep legs closer",
+        "text2": "move slightly slower",
+        "text3": "start with your arms relaxed and bring them closer together. don't bend down at the end",
+        "text4": "start from a more forward bend position and don't step back",
+        "text5": "bend more from the back and keep hands straight and bring them closer",
+        "text6": "bend more from back and keep hands closer",
         "metrics": {
             "demo": {
-                "BERT": 0.4195665717124939,
-                "BLEURT": 0.24757301807403564,
+                "BERT": 0.5690106153488159,
+                "BLEURT": 0.29525917768478394,
                 "CIDEr": 0.0,
-                "METEOR": 0.07463556851311953
+                "METEOR": 0.0
             },
             "ours": {
-                "BERT": 0.5262567400932312,
-                "BLEURT": 0.45280998945236206,
+                "BERT": 0.5835057497024536,
+                "BLEURT": 0.33606386184692383,
+                "CIDEr": 0.13097787369982372,
+                "METEOR": 0.13301662707838477
+            },
+            "mardm": {
+                "BERT": 0.5658522844314575,
+                "BLEURT": 0.2910653352737427,
+                "CIDEr": 0.08828026076940727,
+                "METEOR": 0.12340425531914895
+            },
+            "simple_h3d": {
+                "BERT": 0.6628884077072144,
+                "BLEURT": 0.4638950824737549,
+                "CIDEr": 0.5636886496180666,
+                "METEOR": 0.22359005456364173
+            },
+            "stmc": {
+                "BERT": 0.7252479195594788,
+                "BLEURT": 0.49002063274383545,
+                "CIDEr": 1.2242782798120109,
+                "METEOR": 0.27979640025729147
+            }
+        }
+    },
+    "003304_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/009899_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/004555_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/009899_0_120-004555_0_120.mp4",
+        "captions": "the sim appears to pick up a phone, bringing it to their right ear.",
+        "captiont": "a person pouring something down and putting the object back",
+        "text1": "don't look in the right direction instead look forward and use only the left hand to pick up something instead of the both",
+        "text2": "keep the hand at the same level",
+        "text3": "face straight and move hand more actively",
+        "text4": "don't turn right, keep looking down and move right arm up to the left",
+        "text5": "bend your back more and reach with your right hand instead of left",
+        "text6": "do the up and down motion with the left hand instead of the right hand",
+        "metrics": {
+            "demo": {
+                "BERT": 0.6080610156059265,
+                "BLEURT": 0.26738446950912476,
+                "CIDEr": 0.004035271478933098,
+                "METEOR": 0.03944773175542407
+            },
+            "ours": {
+                "BERT": 0.5697806477546692,
+                "BLEURT": 0.26882630586624146,
+                "CIDEr": 0.0023834597887964198,
+                "METEOR": 0.03137254901960784
+            },
+            "mardm": {
+                "BERT": 0.6784452199935913,
+                "BLEURT": 0.404257595539093,
+                "CIDEr": 0.15343633284611888,
+                "METEOR": 0.14024929460547328
+            },
+            "simple_h3d": {
+                "BERT": 0.6819571256637573,
+                "BLEURT": 0.3806220591068268,
+                "CIDEr": 0.07879078341810537,
+                "METEOR": 0.11112585624063899
+            },
+            "stmc": {
+                "BERT": 0.6816607117652893,
+                "BLEURT": 0.39864444732666016,
+                "CIDEr": 0.3886386267807297,
+                "METEOR": 0.1787012826682124
+            }
+        }
+    },
+    "002924_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/014384_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/008660_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/014384_90_180-008660_90_180.mp4",
+        "captions": "the person did an ankle twist with his left foot and then did an ankle twist with his right foot.",
+        "captiont": "a person bends down and jumps up 3 times with arms swaying.",
+        "text1": "don't just lift left legs jump with both legs up",
+        "text2": "don't tilt head",
+        "text3": "don't step forward, keep looking at your hands",
+        "text4": "keep the left leg lower, turn body to the right",
+        "text5": "don't jump on the spot instead just raise left leg and right leg twice",
+        "text6": "keep left leg lower and do a kick with each jump and lean left",
+        "metrics": {
+            "demo": {
+                "BERT": 0.5686393976211548,
+                "BLEURT": 0.19964240491390228,
+                "CIDEr": 0.1179324958964457,
+                "METEOR": 0.13218526195289731
+            },
+            "ours": {
+                "BERT": 0.5309796333312988,
+                "BLEURT": 0.28762102127075195,
+                "CIDEr": 0.13817516103362432,
+                "METEOR": 0.12341787212949085
+            },
+            "mardm": {
+                "BERT": 0.5580544471740723,
+                "BLEURT": 0.3625074028968811,
+                "CIDEr": 0.1222320518958249,
+                "METEOR": 0.07879087208615679
+            },
+            "simple_h3d": {
+                "BERT": 0.6642419099807739,
+                "BLEURT": 0.4388548731803894,
+                "CIDEr": 0.48821524034124353,
+                "METEOR": 0.32504329882938454
+            },
+            "stmc": {
+                "BERT": 0.5693787932395935,
+                "BLEURT": 0.3722624182701111,
+                "CIDEr": 0.3667721459814226,
+                "METEOR": 0.16434719939498493
+            }
+        }
+    },
+    "001137_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/source_motion_005388_120_240.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/target_motion_007453_120_240.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/source_target_motions_005388_120_240-007453_120_240.mp4",
+        "captions": "a person turns and does a small jog to their left and then their right before ending up in the space place they started.",
+        "captiont": "a person jogs back and forth dancing.",
+        "text1": "Jog a little big faster and take one more step before turning",
+        "text2": "walk with your legs wider apart and lose your balance in the end",
+        "text3": "turn right",
+        "text4": "don't move the right hand and take a step on the left side",
+        "text5": "don't turn",
+        "text6": "keep hands at back of the body and take one step front and make a 180 degree turn",
+        "metrics": {
+            "demo": {
+                "BERT": 0.6055234670639038,
+                "BLEURT": 0.3059571385383606,
+                "CIDEr": 0.021900055726149878,
+                "METEOR": 0.014059753954305799
+            },
+            "ours": {
+                "BERT": 0.5101927518844604,
+                "BLEURT": 0.0797678679227829,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
             },
             "mardm": {
-                "BERT": 0.5542665123939514,
-                "BLEURT": 0.36785149574279785,
-                "CIDEr": 0.5599385045033691,
-                "METEOR": 0.1325966850828729
+                "BERT": 0.5888658165931702,
+                "BLEURT": 0.3304089903831482,
+                "CIDEr": 0.9848135481327024,
+                "METEOR": 0.12063930246206855
             },
             "simple_h3d": {
-                "BERT": 0.41771307587623596,
-                "BLEURT": 0.3337686061859131,
-                "CIDEr": 0.0,
-                "METEOR": 0.04363636363636365
-            },
-            "stmc": {
-                "BERT": 0.5097729563713074,
-                "BLEURT": 0.30334389209747314,
+                "BERT": 0.4919836223125458,
+                "BLEURT": 0.06620703637599945,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
+            },
+            "stmc": {
+                "BERT": 0.6158809065818787,
+                "BLEURT": 0.38737136125564575,
+                "CIDEr": 0.6698762859880656,
+                "METEOR": 0.17311517952486966
             }
         }
     },
-    "002084_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_000805_0_120.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_006274_0_120.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_000805_0_120-006274_0_120.mp4",
-        "captions": "a person walks in a clockwise circle.",
-        "captiont": "a person walks in a small clockwise circle twice.",
-        "text1": "turn on a more closed arc",
-        "text2": "make a smaller circle",
-        "text3": "walk with an injured leg",
-        "text4": "don't walk",
-        "text5": "don't walk ahead take a u turn",
-        "text6": "keep the hands on the sides and bring them in front at the end",
+    "002680_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/009779_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/013536_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/009779_90_180-013536_90_180.mp4",
+        "captions": "a person is waving with his right hand and then the left one.",
+        "captiont": "a person waves with their left hand twice and waves a big wave with both in the end",
+        "text1": "delay wave slightly and move arm much slower",
+        "text2": "don't swing arm so much",
+        "text3": "keep the hand raised longer and move it in a leftward direction instead of forward",
+        "text4": "keep the hand raised at the end",
+        "text5": "start with the arm already extended forward",
+        "text6": "wave in a slower and wider motion",
         "metrics": {
             "demo": {
-                "BERT": 0.719616711139679,
-                "BLEURT": 0.2447420209646225,
-                "CIDEr": 0.11264115533541236,
-                "METEOR": 0.034188034188034185
+                "BERT": 0.6158134341239929,
+                "BLEURT": 0.3671987056732178,
+                "CIDEr": 0.6647161579178184,
+                "METEOR": 0.11294117647058824
             },
             "ours": {
-                "BERT": 0.5649029612541199,
-                "BLEURT": 0.14314216375350952,
+                "BERT": 0.6199411749839783,
+                "BLEURT": 0.4130570888519287,
+                "CIDEr": 0.12929934438659246,
+                "METEOR": 0.08078979484521362
+            },
+            "mardm": {
+                "BERT": 0.5492956638336182,
+                "BLEURT": 0.17467771470546722,
+                "CIDEr": 0.0,
+                "METEOR": 0.0
+            },
+            "simple_h3d": {
+                "BERT": 0.5397219657897949,
+                "BLEURT": 0.3695986270904541,
+                "CIDEr": 0.14431402550818684,
+                "METEOR": 0.05647058823529412
+            },
+            "stmc": {
+                "BERT": 0.6035839915275574,
+                "BLEURT": 0.44822949171066284,
+                "CIDEr": 0.941376940645601,
+                "METEOR": 0.17947494033412892
+            }
+        }
+    },
+    "000524_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/source_motion_001106_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/target_motion_010552_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/source_target_motions_001106_0_120-010552_0_120.mp4",
+        "captions": "a man takes a step backward, sits down, stands back up and take a step forward to his original position.",
+        "captiont": "walking to the side then sitting down and walking back.",
+        "text1": "keep hands placed outside of the hips.",
+        "text2": "sit more to the left",
+        "text3": "don't extend your arm forward",
+        "text4": "don't lift hands",
+        "text5": "do a high-five at the end",
+        "text6": "don't move the hands at all and keep them on the side",
+        "metrics": {
+            "demo": {
+                "BERT": 0.6270918846130371,
+                "BLEURT": 0.18102094531059265,
+                "CIDEr": 0.02934979989826607,
+                "METEOR": 0.025316455696202535
+            },
+            "ours": {
+                "BERT": 0.6413893103599548,
+                "BLEURT": 0.23613518476486206,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
             },
             "mardm": {
-                "BERT": 0.44385308027267456,
-                "BLEURT": 0.06087206304073334,
-                "CIDEr": 0.0,
-                "METEOR": 0.0
+                "BERT": 0.6045711040496826,
+                "BLEURT": 0.2275925576686859,
+                "CIDEr": 0.22724094648132165,
+                "METEOR": 0.07317073170731707
             },
             "simple_h3d": {
-                "BERT": 0.5459346771240234,
-                "BLEURT": 0.21147771179676056,
-                "CIDEr": 0.2392642286973708,
-                "METEOR": 0.1172161172161172
+                "BERT": 0.5657902956008911,
+                "BLEURT": 0.05660657584667206,
+                "CIDEr": 0.019069427283950058,
+                "METEOR": 0.023952095808383235
             },
             "stmc": {
-                "BERT": 0.5184789896011353,
-                "BLEURT": 0.2550639510154724,
-                "CIDEr": 0.05601953174262854,
-                "METEOR": 0.09444444444444447
+                "BERT": 0.6655187606811523,
+                "BLEURT": 0.4005410075187683,
+                "CIDEr": 0.1770068927018409,
+                "METEOR": 0.15013404825737264
             }
         }
     },
@@ -730,7 +955,7 @@
         "text3": "straighten legs slightly faster",
         "text4": "don't keep the left leg on the right one after standing up",
         "text5": "raise the left leg and right leg in turn instead of keeping them fixed in the air",
-        "text6": "don't switch legs",
+        "text6": "start by already sitting down and don't get up",
         "metrics": {
             "demo": {
                 "BERT": 0.6181234121322632,
@@ -757,10 +982,145 @@
                 "METEOR": 0.2512659520288205
             },
             "stmc": {
-                "BERT": 0.5782136917114258,
-                "BLEURT": 0.27965548634529114,
-                "CIDEr": 0.09367675570863736,
-                "METEOR": 0.06994535519125683
+                "BERT": 0.4576602578163147,
+                "BLEURT": 0.19123749434947968,
+                "CIDEr": 0.0,
+                "METEOR": 0.0
+            }
+        }
+    },
+    "004621_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/009316_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/006464_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/009316_90_180-006464_90_180.mp4",
+        "captions": "a person sits in a chair",
+        "captiont": "a person sits down with hands by his side",
+        "text1": "sit straight instead of swinging on the chair",
+        "text2": "keep the right knee lower, on the same level as the left knee",
+        "text3": "keep the body straight and don't move the legs",
+        "text4": "don't swing to the side",
+        "text5": "don't move your head and twitch your leg slightly in the end",
+        "text6": "keep the left leg at the same level as the right leg and lean on the back of the chair",
+        "metrics": {
+            "demo": {
+                "BERT": 0.5881550312042236,
+                "BLEURT": 0.32383808493614197,
+                "CIDEr": 0.1368197466858388,
+                "METEOR": 0.08639155021993185
+            },
+            "ours": {
+                "BERT": 0.6617035269737244,
+                "BLEURT": 0.43313074111938477,
+                "CIDEr": 0.40955927638216205,
+                "METEOR": 0.08398950131233596
+            },
+            "mardm": {
+                "BERT": 0.7082212567329407,
+                "BLEURT": 0.3699284493923187,
+                "CIDEr": 0.025206365471730944,
+                "METEOR": 0.022792022792022793
+            },
+            "simple_h3d": {
+                "BERT": 0.5598819851875305,
+                "BLEURT": 0.3389486074447632,
+                "CIDEr": 0.01081279664558697,
+                "METEOR": 0.0196078431372549
+            },
+            "stmc": {
+                "BERT": 0.6387374997138977,
+                "BLEURT": 0.3812101483345032,
+                "CIDEr": 0.16240303582085958,
+                "METEOR": 0.15606902821514682
+            }
+        }
+    },
+    "004977_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/005574_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/006464_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/005574_90_180-006464_90_180.mp4",
+        "captions": "the toon appears to be grabbing a office chair, taking a seat and raising their legs before reclining.",
+        "captiont": "a person sits down with hands by his side",
+        "text1": "sit straight, don't cross legs",
+        "text2": "start the motion by already sitting down",
+        "text3": "bring legs closer together and look straight ahead",
+        "text4": "keep sitting in the same position, don't get up",
+        "text5": "start from a seated position with legs crossed and then do the previous motion but with the other leg",
+        "text6": "don't cross legs, look forward",
+        "metrics": {
+            "demo": {
+                "BERT": 0.4880054295063019,
+                "BLEURT": 0.2015201896429062,
+                "CIDEr": 0.0,
+                "METEOR": 0.0
+            },
+            "ours": {
+                "BERT": 0.5738703012466431,
+                "BLEURT": 0.4319149851799011,
+                "CIDEr": 0.6555941498233165,
+                "METEOR": 0.12339331619537273
+            },
+            "mardm": {
+                "BERT": 0.6533129811286926,
+                "BLEURT": 0.3319668769836426,
+                "CIDEr": 0.15566946444401622,
+                "METEOR": 0.18233595178929804
+            },
+            "simple_h3d": {
+                "BERT": 0.51628178358078,
+                "BLEURT": 0.31018954515457153,
+                "CIDEr": 0.023921815621938597,
+                "METEOR": 0.15272727272727274
+            },
+            "stmc": {
+                "BERT": 0.6904544830322266,
+                "BLEURT": 0.5933972597122192,
+                "CIDEr": 4.894286774494195,
+                "METEOR": 0.38666940122705123
+            }
+        }
+    },
+    "002078_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_002806_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_012945_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_002806_0_120-012945_0_120.mp4",
+        "captions": "a person walks backwards and stops.",
+        "captiont": "a person takes four steps backwards and then stops.",
+        "text1": "skip the first step",
+        "text2": "walk faster",
+        "text3": "take one step back",
+        "text4": "don't step back",
+        "text5": "take one step less",
+        "text6": "don't walk backwards as much",
+        "metrics": {
+            "demo": {
+                "BERT": 0.4557201862335205,
+                "BLEURT": 0.11050516366958618,
+                "CIDEr": 0.0,
+                "METEOR": 0.0
+            },
+            "ours": {
+                "BERT": 0.5543525218963623,
+                "BLEURT": 0.35159701108932495,
+                "CIDEr": 0.5303738679487937,
+                "METEOR": 0.14457831325301204
+            },
+            "mardm": {
+                "BERT": 0.516758382320404,
+                "BLEURT": 0.19433686137199402,
+                "CIDEr": 0.7373841424237668,
+                "METEOR": 0.13714285714285715
+            },
+            "simple_h3d": {
+                "BERT": 0.5658318400382996,
+                "BLEURT": 0.2815926671028137,
+                "CIDEr": 0.4803675025079295,
+                "METEOR": 0.14457831325301204
+            },
+            "stmc": {
+                "BERT": 0.4962572753429413,
+                "BLEURT": 0.10592945665121078,
+                "CIDEr": 0.0,
+                "METEOR": 0.0
             }
         }
     },
@@ -775,7 +1135,7 @@
         "text3": "don't squat, keep looking up",
         "text4": "don't squat as deep, keep head up",
         "text5": "bend more on the knees and keep the back straight",
-        "text6": "bend more on the knees and don't go back",
+        "text6": "don't squat down as low",
         "metrics": {
             "demo": {
                 "BERT": 0.4330480396747589,
@@ -802,100 +1162,145 @@
                 "METEOR": 0.0
             },
             "stmc": {
-                "BERT": 0.4070722460746765,
-                "BLEURT": 0.15451613068580627,
+                "BERT": 0.4718596637248993,
+                "BLEURT": 0.15402162075042725,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
             }
         }
     },
-    "002279_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_005596_0_120.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_006118_0_120.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_005596_0_120-006118_0_120.mp4",
-        "captions": "a person stands with arms out partway to each side, lifts his right leg, swings it forward briefly, then sweeps it in a semicircle behind him before moving it forward and standing again; he then repeats the action.",
-        "captiont": "person is lifting his right knee.",
+    "004034_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/013669_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/014202_120_240.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/013669_0_120-014202_120_240.mp4",
+        "captions": "a person with their hands up turns their torso to the left and then stretches their body to the right and then to the left before bending down to touch their toes",
+        "captiont": "a person swing the upper core body while raised the hands",
+        "text1": "continue upper body turns instead of tilting move slower",
+        "text2": "move faster",
+        "text3": "raise both arms up at the end instead of just right arm",
+        "text4": "don't lean to the right and rotate the right arm in a way that it faces downwards instead of keeping it straight",
+        "text5": "do the action with the opposite side first",
+        "text6": "don't bend to the left at the end",
+        "metrics": {
+            "demo": {
+                "BERT": 0.5361862182617188,
+                "BLEURT": 0.24614812433719635,
+                "CIDEr": 0.12063316425336042,
+                "METEOR": 0.054176072234762986
+            },
+            "ours": {
+                "BERT": 0.5510771870613098,
+                "BLEURT": 0.3257541060447693,
+                "CIDEr": 0.19936028328960947,
+                "METEOR": 0.10180999874434529
+            },
+            "mardm": {
+                "BERT": 0.5457937121391296,
+                "BLEURT": 0.3862001895904541,
+                "CIDEr": 0.007640994606868713,
+                "METEOR": 0.15713384700296923
+            },
+            "simple_h3d": {
+                "BERT": 0.5085622668266296,
+                "BLEURT": 0.12399927526712418,
+                "CIDEr": 0.0,
+                "METEOR": 0.0
+            },
+            "stmc": {
+                "BERT": 0.5637519955635071,
+                "BLEURT": 0.19655708968639374,
+                "CIDEr": 0.0,
+                "METEOR": 0.03958762886597939
+            }
+        }
+    },
+    "002332_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/009999_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/007163_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/009999_90_180-007163_90_180.mp4",
+        "captions": "person practicing boxing punching techniques",
+        "captiont": "a person uses hands to eat soup.",
+        "text1": "don't throw punches just slowly raise hands in front instead",
+        "text2": "move the hands faster",
+        "text3": "keep the hands closer to the body",
+        "text4": "keep the left hand parallel to the ground and right hand above the left shoulder and do the whole motion in reverse",
+        "text5": "don't swing so wide, swing down and to the right at the end",
+        "text6": "don't swing arms so widely",
+        "metrics": {
+            "demo": {
+                "BERT": 0.532029390335083,
+                "BLEURT": 0.3004304766654968,
+                "CIDEr": 0.15771676032290427,
+                "METEOR": 0.041811846689895474
+            },
+            "ours": {
+                "BERT": 0.573601484298706,
+                "BLEURT": 0.3046601414680481,
+                "CIDEr": 0.16280461649640313,
+                "METEOR": 0.04074702886247878
+            },
+            "mardm": {
+                "BERT": 0.546936571598053,
+                "BLEURT": 0.35953956842422485,
+                "CIDEr": 0.015292742375249545,
+                "METEOR": 0.046109510086455335
+            },
+            "simple_h3d": {
+                "BERT": 0.6450430154800415,
+                "BLEURT": 0.30853915214538574,
+                "CIDEr": 0.07331346308333918,
+                "METEOR": 0.1407426519531545
+            },
+            "stmc": {
+                "BERT": 0.635236918926239,
+                "BLEURT": 0.3766182065010071,
+                "CIDEr": 0.0827708717674989,
+                "METEOR": 0.12196589716326155
+            }
+        }
+    },
+    "002081_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_000212_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_000412_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_000212_0_120-000412_0_120.mp4",
+        "captions": "a person slowly walks in a counterclockwise circle.",
+        "captiont": "person walks around in a circle at normal speed",
         "text1": "move slower",
-        "text2": "do the motion only with your left leg, and make it in front of your body, not to the side",
-        "text3": "don't kick with left foot instead stay on the same position and rotate the upper body from left to right",
-        "text4": "don't move to the right and lift the right leg lower",
-        "text5": "raise right leg a bit more and look in the left back side",
-        "text6": "raise the leg a bit higher and rotate it counterclockwise",
+        "text2": "turn on a slightly more open arc",
+        "text3": "turn right instead of left",
+        "text4": "take one step back before turning",
+        "text5": "don't swing shoulders",
+        "text6": "don't walk so far right",
         "metrics": {
             "demo": {
-                "BERT": 0.4490547776222229,
-                "BLEURT": 0.17844632267951965,
+                "BERT": 0.5504360795021057,
+                "BLEURT": 0.2093636691570282,
                 "CIDEr": 0.0,
-                "METEOR": 0.08421052631578947
+                "METEOR": 0.0
             },
             "ours": {
-                "BERT": 0.441008061170578,
-                "BLEURT": 0.26723629236221313,
+                "BERT": 0.5323895812034607,
+                "BLEURT": 0.21935711801052094,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
             },
             "mardm": {
-                "BERT": 0.5181544423103333,
-                "BLEURT": 0.23973575234413147,
-                "CIDEr": 0.09513425990073807,
-                "METEOR": 0.20317460317460317
+                "BERT": 0.49056458473205566,
+                "BLEURT": 0.21347792446613312,
+                "CIDEr": 0.0,
+                "METEOR": 0.0
             },
             "simple_h3d": {
-                "BERT": 0.44391104578971863,
-                "BLEURT": 0.16188189387321472,
+                "BERT": 0.5191335082054138,
+                "BLEURT": 0.17460188269615173,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
             },
             "stmc": {
-                "BERT": 0.4930863678455353,
-                "BLEURT": 0.3430606722831726,
+                "BERT": 0.49934130907058716,
+                "BLEURT": 0.1439555287361145,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
-            }
-        }
-    },
-    "000883_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/source_motion_000426_0_120.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/target_motion_004883_0_120.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/source_target_motions_000426_0_120-004883_0_120.mp4",
-        "captions": "person gets on hands and knees, crawls forward, turns around, crawls back to where it started and stands up.",
-        "captiont": "a person bends down and crawls, turns and then gets up and walks back to where he started.",
-        "text1": "Turn at a 45 degree angle to the right keep head higher.",
-        "text2": "keep crawling forward instead of to the side",
-        "text3": "don't get up at the end",
-        "text4": "start with getting into the crawling position instead of already being in that position",
-        "text5": "crawl a bit faster and don't look back",
-        "text6": "don't get up at the end",
-        "metrics": {
-            "demo": {
-                "BERT": 0.63658607006073,
-                "BLEURT": 0.2307383418083191,
-                "CIDEr": 0.20992451917104993,
-                "METEOR": 0.08428967039829499
-            },
-            "ours": {
-                "BERT": 0.5589329600334167,
-                "BLEURT": 0.11028725653886795,
-                "CIDEr": 0.16128631503777438,
-                "METEOR": 0.030534351145038163
-            },
-            "mardm": {
-                "BERT": 0.5701932311058044,
-                "BLEURT": 0.20571330189704895,
-                "CIDEr": 0.008329775856603716,
-                "METEOR": 0.01413427561837456
-            },
-            "simple_h3d": {
-                "BERT": 0.583099901676178,
-                "BLEURT": 0.11758788675069809,
-                "CIDEr": 0.07420666653315444,
-                "METEOR": 0.04963503649635037
-            },
-            "stmc": {
-                "BERT": 0.5589329600334167,
-                "BLEURT": 0.11028720438480377,
-                "CIDEr": 0.16128631503777438,
-                "METEOR": 0.030534351145038163
             }
         }
     },
@@ -910,7 +1315,7 @@
         "text3": "take a step back",
         "text4": "keep the left knee at the same level as the right one and get up at the end",
         "text5": "sit higher",
-        "text6": "don't get up at the end",
+        "text6": "don't squat as low and look forward",
         "metrics": {
             "demo": {
                 "BERT": 0.5497941374778748,
@@ -937,55 +1342,10 @@
                 "METEOR": 0.1340782122905028
             },
             "stmc": {
-                "BERT": 0.5044953227043152,
-                "BLEURT": 0.11216920614242554,
-                "CIDEr": 0.0,
-                "METEOR": 0.04948453608247424
-            }
-        }
-    },
-    "003737_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/007648_0_120.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/008393_0_120.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/007648_0_120-008393_0_120.mp4",
-        "captions": "a person sits down on the ground then stands back up",
-        "captiont": "person crosses legs and sits down on the floor, before getting back up.",
-        "text1": "move a bit slower",
-        "text2": "Sit down on the floor with legs straight and then get up.",
-        "text3": "keep legs closer and look forward",
-        "text4": "bend more and start by crossing legs with left leg in front",
-        "text5": "don't start getting up at the end",
-        "text6": "bend down a bit more while sitting down",
-        "metrics": {
-            "demo": {
-                "BERT": 0.5331305861473083,
-                "BLEURT": 0.20133809745311737,
+                "BERT": 0.5603422522544861,
+                "BLEURT": 0.19170372188091278,
                 "CIDEr": 0.0,
                 "METEOR": 0.0
-            },
-            "ours": {
-                "BERT": 0.5410258769989014,
-                "BLEURT": 0.20199520885944366,
-                "CIDEr": 0.0,
-                "METEOR": 0.0
-            },
-            "mardm": {
-                "BERT": 0.520496666431427,
-                "BLEURT": 0.2099313884973526,
-                "CIDEr": 0.0,
-                "METEOR": 0.0
-            },
-            "simple_h3d": {
-                "BERT": 0.5742149353027344,
-                "BLEURT": 0.1378321349620819,
-                "CIDEr": 0.0,
-                "METEOR": 0.0
-            },
-            "stmc": {
-                "BERT": 0.6688053607940674,
-                "BLEURT": 0.3638516664505005,
-                "CIDEr": 0.7119783450396122,
-                "METEOR": 0.16614596939906975
             }
         }
     },
@@ -1000,7 +1360,7 @@
         "text3": "keep your head straight and do a smaller turn",
         "text4": "step over the object instead of around it",
         "text5": "take more steps and turn on a more closed arc",
-        "text6": "take a step forward before turning",
+        "text6": "take a wider turn",
         "metrics": {
             "demo": {
                 "BERT": 0.41708746552467346,
@@ -1027,10 +1387,10 @@
                 "METEOR": 0.1391304347826087
             },
             "stmc": {
-                "BERT": 0.6003432869911194,
-                "BLEURT": 0.11954296380281448,
-                "CIDEr": 0.14320402752046765,
-                "METEOR": 0.10517497145445699
+                "BERT": 0.8230725526809692,
+                "BLEURT": 0.12124816328287125,
+                "CIDEr": 4.92676985783035,
+                "METEOR": 0.84
             }
         }
     },
@@ -1045,7 +1405,7 @@
         "text3": "kick from a higher position and don't turn to the side",
         "text4": "don't rotate the left and do a roundhouse kick to the left",
         "text5": "kick in the opposite direction and don't turn around",
-        "text6": "don't go back and face left kick with left foot first",
+        "text6": "start the motion with your opposite leg in the front and kick twice before turning around",
         "metrics": {
             "demo": {
                 "BERT": 0.7186203002929688,
@@ -1072,10 +1432,10 @@
                 "METEOR": 0.15714305385812782
             },
             "stmc": {
-                "BERT": 0.5590776205062866,
-                "BLEURT": 0.34417611360549927,
-                "CIDEr": 0.765184920255787,
-                "METEOR": 0.13745700095721952
+                "BERT": 0.6548545956611633,
+                "BLEURT": 0.4920285940170288,
+                "CIDEr": 0.5161439673241479,
+                "METEOR": 0.21967963386727685
             }
         }
     },
@@ -1090,7 +1450,7 @@
         "text3": "jump to the left side",
         "text4": "jump sooner and land earlier",
         "text5": "do the jump to the left",
-        "text6": "jump on the same place don't go back",
+        "text6": "jump on the right side",
         "metrics": {
             "demo": {
                 "BERT": 0.6861463189125061,
@@ -1117,100 +1477,10 @@
                 "METEOR": 0.23244621656675407
             },
             "stmc": {
-                "BERT": 0.5991491079330444,
-                "BLEURT": 0.3868095278739929,
-                "CIDEr": 0.37586811655864216,
-                "METEOR": 0.12355212355212356
-            }
-        }
-    },
-    "003829_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/011649_90_180.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/014207_90_180.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/011649_90_180-014207_90_180.mp4",
-        "captions": "a person gets on the ground and crawls on the floor then turns around continues to crawl. then gets back up in standing position.",
-        "captiont": "user slowly bends to ground an crawls on the floor in a circle",
-        "text1": "turn through the opposite side",
-        "text2": "turn back a bit slower",
-        "text3": "start getting up a bit later",
-        "text4": "turn back earlier while crawling",
-        "text5": "keep crawling a bit further before turning back",
-        "text6": "keep the crawling position and turn back at the end without getting up",
-        "metrics": {
-            "demo": {
-                "BERT": 0.6374878883361816,
-                "BLEURT": 0.3299521207809448,
-                "CIDEr": 0.36342126220217186,
-                "METEOR": 0.09230769230769231
-            },
-            "ours": {
-                "BERT": 0.5250746607780457,
-                "BLEURT": 0.15919004380702972,
-                "CIDEr": 0.0,
-                "METEOR": 0.07300380228136885
-            },
-            "mardm": {
-                "BERT": 0.4959825277328491,
-                "BLEURT": 0.28573721647262573,
-                "CIDEr": 0.2647763031868067,
-                "METEOR": 0.09022556390977443
-            },
-            "simple_h3d": {
-                "BERT": 0.5331321954727173,
-                "BLEURT": 0.36237335205078125,
-                "CIDEr": 0.0,
-                "METEOR": 0.0
-            },
-            "stmc": {
-                "BERT": 0.5744662284851074,
-                "BLEURT": 0.313421368598938,
-                "CIDEr": 0.08681409681852652,
-                "METEOR": 0.16623376623376626
-            }
-        }
-    },
-    "006474_test": {
-        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/007681_0_120.mp4",
-        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/000894_0_120.mp4",
-        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/007681_0_120-000894_0_120.mp4",
-        "captions": "this person has arms raised then lowers them to his sides.",
-        "captiont": "a man crouches and doesn't move",
-        "text1": "initially hold arms slightly higher",
-        "text2": "lower arms slightly slower",
-        "text3": "lower arms sooner",
-        "text4": "hold arms higher",
-        "text5": "raise arms slightly higher",
-        "text6": "lower arms slightly later",
-        "metrics": {
-            "demo": {
-                "BERT": 0.5973073244094849,
-                "BLEURT": 0.37821337580680847,
-                "CIDEr": 1.51577117249265,
-                "METEOR": 0.19697718021539198
-            },
-            "ours": {
-                "BERT": 0.5055984854698181,
-                "BLEURT": 0.35487985610961914,
-                "CIDEr": 0.20838308419696344,
-                "METEOR": 0.08510638297872342
-            },
-            "mardm": {
-                "BERT": 0.7935013175010681,
-                "BLEURT": 0.561613142490387,
-                "CIDEr": 2.2698447045356214,
-                "METEOR": 0.28515016156018935
-            },
-            "simple_h3d": {
-                "BERT": 0.8232616186141968,
-                "BLEURT": 0.6476941704750061,
-                "CIDEr": 3.877405274154513,
-                "METEOR": 0.320631997697234
-            },
-            "stmc": {
-                "BERT": 0.5912986993789673,
-                "BLEURT": 0.36506837606430054,
-                "CIDEr": 1.5247991842420432,
-                "METEOR": 0.19697718021539198
+                "BERT": 0.7768199443817139,
+                "BLEURT": 0.6240610480308533,
+                "CIDEr": 1.5470768490018023,
+                "METEOR": 0.2545454545454546
             }
         }
     },
@@ -1240,10 +1510,10 @@
             "METEOR": 0.08971892990434617
         },
         "stmc": {
-            "BERT": 0.5872906446456909,
-            "BLEURT": 0.30460425754613724,
-            "CIDEr": 0.32846641914374014,
-            "METEOR": 0.09159697266609547
+            "BERT": 0.5890485048294067,
+            "BLEURT": 0.30957383438871267,
+            "CIDEr": 0.3549087285048347,
+            "METEOR": 0.09940862201672634
         }
     }
 }
