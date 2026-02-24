@@ -216,18 +216,20 @@
       main.innerHTML = '';
 
       if (ds === 'motionfix') {
-        main.appendChild(makeGroup([
-          createTextBox('DEMO', 'text2'),
-          createMetricsBox('DEMO Metrics', 'metrics_base')
-        ]));
-        main.appendChild(makeGroup([
-          createTextBox('Ours STMC', 'text6'),
-          createMetricsBox('Ours STMC Metrics', 'metrics_stmc')
-        ]));
-        main.appendChild(makeGroup([
-          createTextBox('Ours MARDM', 'text4'),
-          createMetricsBox('Ours MARDM Metrics', 'metrics_mardm')
-        ]));
+        const layout = [
+          { label: 'DEMO', textId: 'text2', metricsTitle: 'DEMO Metrics', metricsId: 'metrics_base' },
+          { label: 'Ours STMC', textId: 'text4', metricsTitle: 'Ours STMC Metrics', metricsId: 'metrics_stmc' },
+          { label: 'Ours MARDM', textId: 'text3', metricsTitle: 'Ours MARDM Metrics', metricsId: 'metrics_mardm' },
+          { label: 'Ours w/o Ctr1', textId: 'text5', metricsTitle: 'Ours w/o Ctr1 Metrics', metricsId: 'metrics_woctr1' },
+          { label: 'Ours w/o Ctr2', textId: 'text6', metricsTitle: 'Ours w/o Ctr2 Metrics', metricsId: 'metrics_woctr2' }
+        ];
+
+        layout.forEach(item => {
+             main.appendChild(makeGroup([
+                createTextBox(item.label, item.textId),
+                createMetricsBox(item.metricsTitle, item.metricsId)
+             ]));
+        });
       } else {
         main.appendChild(makeGroup([
           createTextBox('DEMO (inf)', 'text2'),
@@ -293,14 +295,15 @@
       const wrapper = document.createElement('div');
       wrapper.className = 'metrics-container';
 
-      ['BERT', 'BLEURT', 'CIDEr', 'METEOR'].forEach(key => {
+      ['BERT', 'BLEURT', 'METEOR', 'score'].forEach(key => {
         if (metrics[key] === undefined) return;
         const item = document.createElement('div');
         item.className = 'metric-item';
 
         const lbl = document.createElement('span');
         lbl.className = 'metric-label';
-        lbl.textContent = key + ': ';
+        // Display 'score' as 'ROBERTO'
+        lbl.textContent = (key === 'score' ? 'ROBERTO' : key) + ': ';
 
         const val = document.createElement('span');
         val.className = 'metric-value';
@@ -327,8 +330,7 @@
 
       const metrics = DATASET_METRICS[CURRENT_DS];
       if (!metrics) return;
-
-      const metricKeys = ['BERT', 'BLEURT', 'CIDEr', 'METEOR'];
+      const metricKeys = ['BERT', 'BLEURT', 'METEOR', 'score'];
       const compareKeys = ['demo', 'stmc', 'mardm'];
       const best = {};
 
@@ -366,7 +368,8 @@
 
           const lbl = document.createElement('span');
           lbl.className = 'metric-label';
-          lbl.textContent = key;
+          // Display 'score' as 'ROBERTO'
+          lbl.textContent = (key === 'score' ? 'ROBERTO' : key);
 
           const val = document.createElement('span');
           val.className = 'metric-value';
@@ -387,7 +390,8 @@
       renderCol('DEMO', metrics.demo);
       if (metrics.stmc)  renderCol('Ours STMC', metrics.stmc);
       if (metrics.mardm) renderCol('Ours MARDM', metrics.mardm);
-
+      if (metrics.wo_ctr1) renderCol('Ours w/o Ctr1', metrics.wo_ctr1);
+      if (metrics.wo_ctr2) renderCol('Ours w/o Ctr2', metrics.wo_ctr2);
       outer.appendChild(grid);
     }
 
@@ -516,9 +520,9 @@
       }
 
       const m = d.metrics || {};
-      const inputs = [m.demo, m.mardm, m.stmc].filter(Boolean);
+      const inputs = [m.demo, m.mardm, m.stmc, m.wo_ctr1, m.wo_ctr2].filter(Boolean);
       const bestMetrics = {};
-      ['BERT', 'BLEURT', 'CIDEr', 'METEOR'].forEach(key => {
+      ['BERT', 'BLEURT', 'METEOR', 'score'].forEach(key => {
         let max = -Infinity;
         inputs.forEach(obj => { if (obj[key] !== undefined && Number(obj[key]) > max) max = Number(obj[key]); });
         if (max !== -Infinity) bestMetrics[key] = max;
@@ -527,6 +531,8 @@
       renderMetrics('metrics_base',  m.demo,  bestMetrics);
       renderMetrics('metrics_stmc',  m.stmc,  bestMetrics);
       renderMetrics('metrics_mardm', m.mardm, bestMetrics);
+      renderMetrics('metrics_woctr1', m.wo_ctr1, bestMetrics);
+      renderMetrics('metrics_woctr2', m.wo_ctr2, bestMetrics);
     }
   </script>
 </body>
