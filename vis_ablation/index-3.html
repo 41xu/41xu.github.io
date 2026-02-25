@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Motion Diff Visualization</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f2f3f5; font-size: 15px; color: #222; }
+
+  /* ── Header ── */
+  .page-header { text-align: center; margin-bottom: 18px; }
+  .page-header h2 { margin: 0 0 10px; font-size: 1.5em; color: #1a1a2e; }
+  .page-header label { font-weight: bold; margin-right: 6px; }
+  select { padding: 5px 10px; font-size: 15px; border-radius: 6px; border: 1px solid #ccc; }
+
+  /* ── Main two-column layout ── */
+  .main { display: flex; gap: 20px; align-items: flex-start; }
+
+  /* ── Left: sticky video + GT ── */
+  .left-panel {
+    width: 42%;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+  }
+  .left-panel video {
+    width: 100%;
+    border-radius: 10px;
+    background: #000;
+    display: block;
+  }
+  .video-label {
+    text-align: center;
+    font-size: 0.88em;
+    color: #777;
+    margin: 4px 0 8px;
+  }
+  .video-label span.src { color: #c0392b; font-weight: bold; }
+  .video-label span.tgt { color: #27ae60; font-weight: bold; }
+  .gt-box {
+    background: #fff;
+    border-radius: 10px;
+    padding: 12px 16px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  }
+  .gt-label {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: #1a73e8;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  #gtText { line-height: 1.55; color: #111; }
+
+  /* ── Right: model cards ── */
+  .right-panel { flex: 1; min-width: 0; }
+
+  .model-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  }
+  .model-name {
+    font-weight: bold;
+    font-size: 1.05em;
+    color: #333;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #eee;
+  }
+  .generated-text {
+    color: #222;
+    line-height: 1.55;
+    margin-bottom: 10px;
+    min-height: 1.55em;
+  }
+  .gen-empty { color: #bbb; font-style: italic; }
+
+  /* ── Metrics chips ── */
+  .metrics-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+  .metric-chip {
+    background: #f0f1f3;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 3px 9px;
+    font-size: 0.88em;
+    white-space: nowrap;
+  }
+  .m-label { font-weight: bold; color: #666; }
+  .m-value { font-family: monospace; color: #222; }
+  .m-value.best {
+    background: #ffe066;
+    font-weight: bold;
+    border-radius: 3px;
+    padding: 0 2px;
+  }
+
+  /* ── Retrieval section ── */
+  .retrieval-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 0.87em;
+    font-weight: bold;
+    color: #555;
+    user-select: none;
+    padding: 3px 0;
+  }
+  .retrieval-toggle:hover { color: #111; }
+  .toggle-arrow { font-size: 0.75em; transition: transform 0.15s; display: inline-block; }
+
+  .retrieval-list {
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+  }
+  .retrieval-item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9em;
+  }
+  .retrieval-item:last-child { border-bottom: none; }
+  .r-rank { font-weight: bold; color: #aaa; min-width: 18px; flex-shrink: 0; }
+  .r-text { color: #333; flex: 1; line-height: 1.4; }
+  .r-score { font-family: monospace; color: #888; flex-shrink: 0; font-size: 0.92em; }
+
+  /* ── Dataset metrics table ── */
+  #datasetSection {
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 3px solid #d0d0d0;
+  }
+  .ds-title {
+    font-weight: bold;
+    font-size: 1.08em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .ds-table-wrap { overflow-x: auto; }
+  table.ds-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    font-size: 0.94em;
+  }
+  .ds-table th, .ds-table td {
+    padding: 10px 16px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+  .ds-table thead th {
+    background: #f4f5f7;
+    font-weight: bold;
+    color: #444;
+    white-space: nowrap;
+  }
+  .ds-table td:first-child {
+    font-weight: bold;
+    color: #666;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .ds-table tr:last-child td { border-bottom: none; }
+  .ds-table .best-cell {
+    background: #ffe066;
+    font-weight: bold;
+  }
+  .ds-table .section-sep td {
+    background: #f9f9f9;
+    border-top: 2px solid #ddd;
+  }
+  .unit-note {
+    text-align: center;
+    font-size: 0.82em;
+    color: #999;
+    margin-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h2>Motion Diff Visualization</h2>
+  <label for="dataSelect">Sample:</label>
+  <select id="dataSelect" onchange="loadSample(this.value)"></select>
+</div>
+
+<div class="main">
+  <!-- Left: overlap video + ground truth -->
+  <div class="left-panel">
+    <video id="overlapVideo" autoplay muted loop controls></video>
+    <div class="video-label">
+      <span class="src">Source</span> &rarr; <span class="tgt">Target</span> (overlaid)
+    </div>
+    <div class="gt-box">
+      <div class="gt-label">Ground Truth</div>
+      <div id="gtText"></div>
+    </div>
+  </div>
+
+  <!-- Right: one card per model, built dynamically -->
+  <div class="right-panel" id="rightPanel"></div>
+</div>
+
+<!-- Dataset average metrics, full-width below -->
+<div id="datasetSection"></div>
+
+<script>
+  let DATA = {};
+  let DATASET_METRICS = {};
+  let MODELS = [];
+
+  const SAMPLE_METRICS = ['BERT', 'CIDEr', 'BLEU@1', 'BLEURT', 'ROBERTA'];
+  const TABLE_METRICS  = ['BERT', 'CIDEr', 'BLEU@1', 'BLEURT', 'ROBERTA', 'R@3', 'R@5', 'MedR'];
+  // metrics where LOWER is better (for best-highlight logic)
+  const LOWER_BETTER   = new Set(['MedR']);
+
+  /* ─── Init ─── */
+  fetch('data.json')
+    .then(r => r.json())
+    .then(json => {
+      DATASET_METRICS = json['DATASET_METRICS'] || {};
+      MODELS = DATASET_METRICS['_models'] ||
+               Object.keys(DATASET_METRICS).filter(k => k !== '_models');
+      delete json['DATASET_METRICS'];
+
+      // Display order: stmc_wo_ctr2* first, stmc-leonardo last
+      const leonardoIdx = MODELS.indexOf('stmc-leonardo');
+      if (leonardoIdx > -1) {
+        MODELS.splice(leonardoIdx, 1);
+        MODELS.push('stmc-leonardo');
+      }
+      DATA = json;
+
+      buildModelCards();
+      renderDatasetTable();
+      populateSelect(Object.keys(DATA));
+    })
+    .catch(err => {
+      document.getElementById('rightPanel').innerHTML =
+        `<p style="color:red">Error loading data.json: ${err}</p>`;
+    });
+
+  /* ─── Build static card shells (filled per sample) ─── */
+  function buildModelCards() {
+    const panel = document.getElementById('rightPanel');
+    panel.innerHTML = '';
+
+    MODELS.forEach(model => {
+      const card = document.createElement('div');
+      card.className = 'model-card';
+
+      // Model name header
+      const nameEl = document.createElement('div');
+      nameEl.className = 'model-name';
+      nameEl.textContent = model;
+
+      // Generated text
+      const genEl = document.createElement('div');
+      genEl.className = 'generated-text';
+      genEl.id = `gen_${model}`;
+
+      // Metrics chips row
+      const metricsEl = document.createElement('div');
+      metricsEl.className = 'metrics-row';
+      metricsEl.id = `metrics_${model}`;
+
+      // Retrieval toggle
+      const toggle = document.createElement('div');
+      toggle.className = 'retrieval-toggle';
+      toggle.innerHTML = '<span class="toggle-arrow">&#9654;</span> Top-5 Retrieval';
+
+      const retList = document.createElement('ul');
+      retList.className = 'retrieval-list';
+      retList.id = `ret_${model}`;
+
+      toggle.addEventListener('click', () => {
+        const open = retList.style.display !== 'none';
+        retList.style.display = open ? 'none' : 'block';
+        toggle.querySelector('.toggle-arrow').style.transform =
+          open ? '' : 'rotate(90deg)';
+      });
+
+      card.appendChild(nameEl);
+      card.appendChild(genEl);
+      card.appendChild(metricsEl);
+      card.appendChild(toggle);
+      card.appendChild(retList);
+      panel.appendChild(card);
+    });
+  }
+
+  /* ─── Populate sample selector ─── */
+  function populateSelect(keys) {
+    const sel = document.getElementById('dataSelect');
+    sel.innerHTML = '';
+    keys.forEach(k => {
+      const opt = document.createElement('option');
+      opt.value = opt.textContent = k;
+      sel.appendChild(opt);
+    });
+    if (keys.length) loadSample(keys[0]);
+  }
+
+  /* ─── Load a sample ─── */
+  function loadSample(id) {
+    const d = DATA[id];
+    if (!d) return;
+
+    // Video
+    const video = document.getElementById('overlapVideo');
+    video.pause();
+    video.src = d.overlap || '';
+    video.loop = video.autoplay = video.muted = true;
+    video.onerror = () => console.warn('Video load error:', d.overlap);
+    video.load();
+    video.onloadeddata = () => video.play().catch(() => {});
+
+    // GT text
+    document.getElementById('gtText').textContent = d.text1 || '';
+
+    // Compute best metric values across models (for highlight)
+    const best = {};
+    SAMPLE_METRICS.forEach(mk => {
+      let max = -Infinity;
+      MODELS.forEach(m => {
+        const v = d.metrics?.[m]?.[mk];
+        if (v !== undefined && Number(v) > max) max = Number(v);
+      });
+      if (max !== -Infinity) best[mk] = max;
+    });
+
+    MODELS.forEach(model => {
+      // Generated text
+      const genEl = document.getElementById(`gen_${model}`);
+      if (genEl) {
+        const txt = d.texts?.[model] || '';
+        genEl.textContent = txt;
+        genEl.className = 'generated-text' + (txt ? '' : ' gen-empty');
+        if (!txt) genEl.textContent = '(no prediction)';
+      }
+
+      // Metrics chips
+      const metricsEl = document.getElementById(`metrics_${model}`);
+      if (metricsEl) {
+        metricsEl.innerHTML = '';
+        const mData = d.metrics?.[model] || {};
+        SAMPLE_METRICS.forEach(mk => {
+          if (mData[mk] === undefined) return;
+          const chip = document.createElement('div');
+          chip.className = 'metric-chip';
+
+          const lbl = document.createElement('span');
+          lbl.className = 'm-label';
+          lbl.textContent = mk + ': ';
+
+          const val = document.createElement('span');
+          val.className = 'm-value';
+          const numVal = Number(mData[mk]);
+          val.textContent = (numVal * 100).toFixed(2);
+          if (best[mk] !== undefined && Math.abs(numVal - best[mk]) < 1e-6) {
+            val.classList.add('best');
+          }
+
+          chip.appendChild(lbl);
+          chip.appendChild(val);
+          metricsEl.appendChild(chip);
+        });
+      }
+
+      // Retrieval list
+      const retEl = document.getElementById(`ret_${model}`);
+      if (retEl) {
+        retEl.innerHTML = '';
+        const top5 = d.retrieval?.[model] || [];
+        if (top5.length === 0) {
+          retEl.innerHTML = '<li style="color:#bbb;padding:6px 0;">No retrieval data</li>';
+        } else {
+          top5.forEach(item => {
+            const li = document.createElement('li');
+            li.className = 'retrieval-item';
+
+            const rank = document.createElement('span');
+            rank.className = 'r-rank';
+            rank.textContent = item.rank + '.';
+
+            const text = document.createElement('span');
+            text.className = 'r-text';
+            text.textContent = item.text;
+
+            const score = document.createElement('span');
+            score.className = 'r-score';
+            score.textContent = Number(item.score).toFixed(4);
+
+            li.appendChild(rank);
+            li.appendChild(text);
+            li.appendChild(score);
+            retEl.appendChild(li);
+          });
+        }
+      }
+    });
+  }
+
+  /* ─── Dataset metrics table ─── */
+  function renderDatasetTable() {
+    const section = document.getElementById('datasetSection');
+    section.innerHTML = '';
+
+    const title = document.createElement('div');
+    title.className = 'ds-title';
+    title.textContent = 'Dataset Average Metrics';
+    section.appendChild(title);
+
+    // Compute best per metric row
+    const best = {};
+    TABLE_METRICS.forEach(mk => {
+      const lowerBetter = LOWER_BETTER.has(mk);
+      let extreme = lowerBetter ? Infinity : -Infinity;
+      MODELS.forEach(m => {
+        const v = DATASET_METRICS[m]?.[mk];
+        if (v === undefined) return;
+        const n = Number(v);
+        if (lowerBetter ? n < extreme : n > extreme) extreme = n;
+      });
+      if (extreme !== Infinity && extreme !== -Infinity) best[mk] = extreme;
+    });
+
+    const wrap = document.createElement('div');
+    wrap.className = 'ds-table-wrap';
+
+    const table = document.createElement('table');
+    table.className = 'ds-table';
+
+    // Header
+    const thead = document.createElement('thead');
+    const hrow = document.createElement('tr');
+    const thMetric = document.createElement('th');
+    thMetric.textContent = 'Metric';
+    hrow.appendChild(thMetric);
+    MODELS.forEach(m => {
+      const th = document.createElement('th');
+      th.textContent = m;
+      hrow.appendChild(th);
+    });
+    thead.appendChild(hrow);
+    table.appendChild(thead);
+
+    // Body
+    const tbody = document.createElement('tbody');
+    TABLE_METRICS.forEach((mk, idx) => {
+      // Visual separator before retrieval metrics
+      const needsSep = mk === 'R@3';
+
+      const row = document.createElement('tr');
+      if (needsSep) row.className = 'section-sep';
+
+      const labelCell = document.createElement('td');
+      labelCell.textContent = mk;
+      row.appendChild(labelCell);
+
+      MODELS.forEach(m => {
+        const td = document.createElement('td');
+        const v = DATASET_METRICS[m]?.[mk];
+
+        if (v === undefined) {
+          td.textContent = '—';
+        } else {
+          const numVal = Number(v);
+          if (mk === 'MedR') {
+            td.textContent = Number.isInteger(numVal) ? numVal.toString() : numVal.toFixed(1);
+          } else {
+            // R@3, R@5, and other metrics all shown as ×100
+            td.textContent = (numVal * 100).toFixed(2);
+          }
+
+          if (best[mk] !== undefined && Math.abs(numVal - best[mk]) < 1e-9) {
+            td.classList.add('best-cell');
+          }
+        }
+
+        row.appendChild(td);
+      });
+
+      tbody.appendChild(row);
+    });
+    table.appendChild(tbody);
+
+    wrap.appendChild(table);
+    section.appendChild(wrap);
+
+    const note = document.createElement('div');
+    note.className = 'unit-note';
+    note.textContent = 'Values ×100 except MedR (raw rank; lower is better). Best per row highlighted.';
+    section.appendChild(note);
+  }
+</script>
+</body>
+</html>

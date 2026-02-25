@@ -1,0 +1,4208 @@
+{
+    "002943_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/004890_120_240.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/013789_120_240.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/004890_120_240-013789_120_240.mp4",
+        "captions": "a person does arm stretches.",
+        "captiont": "person is doing hand circles with arms out",
+        "text1": "do it a bit faster",
+        "texts": {
+            "stmc-leonardo": "do the waving motion only once and don't take the arms behind the neck",
+            "stmc_wo_ctr2_simclr": "do the motions only with the right arm and drop it to your side at the end",
+            "stmc_wo_ctr2_st": "do it only with left arm and raise it higher",
+            "stmc_woctr2": "do the motion only with the right hand and keep the left hand on the side"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.5600724816322327,
+                "BLEURT": 0.261749267578125,
+                "CIDEr": 0.013824563420907536,
+                "BLEU@1": 0.06666666666222229,
+                "ROBERTA": 0.2591293156147003
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.559603750705719,
+                "BLEURT": 0.27605289220809937,
+                "CIDEr": 0.04385271201545631,
+                "BLEU@1": 0.11764705881660904,
+                "ROBERTA": 0.35207170248031616
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.6681808829307556,
+                "BLEURT": 0.43511056900024414,
+                "CIDEr": 0.4173566342311361,
+                "BLEU@1": 0.1999999999800001,
+                "ROBERTA": 0.35756242275238037
+            },
+            "stmc_woctr2": {
+                "BERT": 0.544775128364563,
+                "BLEURT": 0.30825167894363403,
+                "CIDEr": 0.0140504797197156,
+                "BLEU@1": 0.06249999999609382,
+                "ROBERTA": 0.3575144410133362
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "wave hands horizontally away twice after raising them",
+                    "score": 0.6716597080230713
+                },
+                {
+                    "rank": 2,
+                    "text": "raise your hands slower",
+                    "score": 0.6375523805618286
+                },
+                {
+                    "rank": 3,
+                    "text": "instead wave with raised forearms",
+                    "score": 0.6325955390930176
+                },
+                {
+                    "rank": 4,
+                    "text": "wave to the side",
+                    "score": 0.6161158680915833
+                },
+                {
+                    "rank": 5,
+                    "text": "waddle",
+                    "score": 0.6115735769271851
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "don't swinging arm to the right.",
+                    "score": 0.6334547996520996
+                },
+                {
+                    "rank": 2,
+                    "text": "start with hand down, and move it higher than before. additionaly move it left-right quickly with small amplitude",
+                    "score": 0.5812763571739197
+                },
+                {
+                    "rank": 3,
+                    "text": "make the motion slightly slower. make a single sweeping arm motion instead of tapping",
+                    "score": 0.5654733777046204
+                },
+                {
+                    "rank": 4,
+                    "text": "instead of reaching down with right arm, slightly shake it",
+                    "score": 0.5616177320480347
+                },
+                {
+                    "rank": 5,
+                    "text": "raise right arm more upward to wipe the top of the table",
+                    "score": 0.5575510263442993
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "don't raise left hand",
+                    "score": 0.6760535836219788
+                },
+                {
+                    "rank": 2,
+                    "text": "wave the right hand instead of just keeping it on the head",
+                    "score": 0.6296413540840149
+                },
+                {
+                    "rank": 3,
+                    "text": "reach downwards with left hand at the end.",
+                    "score": 0.6284992098808289
+                },
+                {
+                    "rank": 4,
+                    "text": "swing the left hand instead of keeping it constant",
+                    "score": 0.6137096881866455
+                },
+                {
+                    "rank": 5,
+                    "text": "face 10 o'clock. extend your left leg forward. don't shake your hand and raise it higher",
+                    "score": 0.6006432771682739
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "drop only the left arm",
+                    "score": 0.5989023447036743
+                },
+                {
+                    "rank": 2,
+                    "text": "Lower the left elbow and raise the opposite hand while gesturing.",
+                    "score": 0.5868544578552246
+                },
+                {
+                    "rank": 3,
+                    "text": "don't raise left arm as much",
+                    "score": 0.5741081237792969
+                },
+                {
+                    "rank": 4,
+                    "text": "just move the left arm towards the right side and dont move the right hand at all",
+                    "score": 0.5712403655052185
+                },
+                {
+                    "rank": 5,
+                    "text": "move the opposite arm",
+                    "score": 0.5540629029273987
+                }
+            ]
+        }
+    },
+    "002681_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/009779_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/009017_120_240.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/009779_0_120-009017_120_240.mp4",
+        "captions": "a person is waving with his right hand and then the left one.",
+        "captiont": "a man moves his right arm side to side than shakes his left hand and moves it side to side.",
+        "text1": "don't shift weight on feet",
+        "texts": {
+            "stmc-leonardo": "don't shift weight onto right leg",
+            "stmc_wo_ctr2_simclr": "don't shift weight onto left foot",
+            "stmc_wo_ctr2_st": "don't shift weight on the feet",
+            "stmc_woctr2": "shift slightly to the right and make a small step back"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.8550040125846863,
+                "BLEURT": 0.5063825249671936,
+                "CIDEr": 3.951710303501449,
+                "BLEU@1": 0.5714285713469389,
+                "ROBERTA": 0.8372855186462402
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.8660652041435242,
+                "BLEURT": 0.6810912489891052,
+                "CIDEr": 3.7718033815418064,
+                "BLEU@1": 0.5714285713469389,
+                "ROBERTA": 0.8808889389038086
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.9641578793525696,
+                "BLEURT": 0.8539482355117798,
+                "CIDEr": 7.046100982375996,
+                "BLEU@1": 0.8571428570204083,
+                "ROBERTA": 0.9726002812385559
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5512363910675049,
+                "BLEURT": 0.2314307987689972,
+                "CIDEr": 0.40876228574751367,
+                "BLEU@1": 0.09090909090082655,
+                "ROBERTA": 0.30100736021995544
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "don't shift weight on feet or lean to right",
+                    "score": 0.7224027514457703
+                },
+                {
+                    "rank": 2,
+                    "text": "add a small circle motion with your right knee without lifting the foot and keep looking straight",
+                    "score": 0.7129340171813965
+                },
+                {
+                    "rank": 3,
+                    "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion",
+                    "score": 0.6761384606361389
+                },
+                {
+                    "rank": 4,
+                    "text": "don't jump balance on left foot only",
+                    "score": 0.6434835195541382
+                },
+                {
+                    "rank": 5,
+                    "text": "keep your weight on your left leg and extend your right leg forward. keep looking at your arms",
+                    "score": 0.6420401930809021
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "don't shift weight on feet or lean to right",
+                    "score": 0.7357891798019409
+                },
+                {
+                    "rank": 2,
+                    "text": "don't jitter the hand and hold it vertically. stand straight",
+                    "score": 0.6423473358154297
+                },
+                {
+                    "rank": 3,
+                    "text": "don't shift weight on feet",
+                    "score": 0.6374087333679199
+                },
+                {
+                    "rank": 4,
+                    "text": "don't jump balance on left foot only",
+                    "score": 0.6009183526039124
+                },
+                {
+                    "rank": 5,
+                    "text": "not standing up sway body side to side",
+                    "score": 0.5459721684455872
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "don't shift weight on feet",
+                    "score": 0.8199606537818909
+                },
+                {
+                    "rank": 2,
+                    "text": "don't lean so far right",
+                    "score": 0.5469046831130981
+                },
+                {
+                    "rank": 3,
+                    "text": "don't shake hands",
+                    "score": 0.5373846888542175
+                },
+                {
+                    "rank": 4,
+                    "text": "not standing up sway body side to side",
+                    "score": 0.5153602957725525
+                },
+                {
+                    "rank": 5,
+                    "text": "don't shift weight on feet or lean to right",
+                    "score": 0.5059822201728821
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "take a step to the left instead of backwards",
+                    "score": 0.8346878886222839
+                },
+                {
+                    "rank": 2,
+                    "text": "don't step back",
+                    "score": 0.7572502493858337
+                },
+                {
+                    "rank": 3,
+                    "text": "delay your movement a little",
+                    "score": 0.7469643354415894
+                },
+                {
+                    "rank": 4,
+                    "text": "the same exact movement but step back to the left instead",
+                    "score": 0.701251208782196
+                },
+                {
+                    "rank": 5,
+                    "text": "just take a single step",
+                    "score": 0.6893052458763123
+                }
+            ]
+        }
+    },
+    "003007_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/007964_120_240.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/008740_120_240.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/007964_120_240-008740_120_240.mp4",
+        "captions": "a person stands still, swinging their head around.",
+        "captiont": "a man puts both arms down and moves his head side to side and in a circular motion.",
+        "text1": "start by tilting head to the right and then rotate neck anticlockwise once",
+        "texts": {
+            "stmc-leonardo": "don't move the head instead just relax the head and do a very mild clockwise circular motion",
+            "stmc_wo_ctr2_simclr": "don't move the head from the right side to the center instead keep it still and just move it from the center to the right side",
+            "stmc_wo_ctr2_st": "don't move the head and look forward instead of up",
+            "stmc_woctr2": "don't tilt head"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.6159193515777588,
+                "BLEURT": 0.40574008226394653,
+                "CIDEr": 0.0864960080565935,
+                "BLEU@1": 0.16666666665740745,
+                "ROBERTA": 0.8358328342437744
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.4850260019302368,
+                "BLEURT": 0.4116327166557312,
+                "CIDEr": 0.01794459347771063,
+                "BLEU@1": 0.1851851851783265,
+                "ROBERTA": 0.5685290098190308
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.5950053334236145,
+                "BLEURT": 0.342079758644104,
+                "CIDEr": 0.2754422883328213,
+                "BLEU@1": 0.22738715943370624,
+                "ROBERTA": 0.7006600499153137
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5437713265419006,
+                "BLEURT": 0.19766896963119507,
+                "CIDEr": 0.09265435070417477,
+                "BLEU@1": 0.026349806127291233,
+                "ROBERTA": 0.5971684455871582
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "rotate wrists clockwise instead of keeping them fixed",
+                    "score": 0.4773501753807068
+                },
+                {
+                    "rank": 2,
+                    "text": "instead of clockwise do counterclockwise motion 4 times and then counterclockwise",
+                    "score": 0.45221561193466187
+                },
+                {
+                    "rank": 3,
+                    "text": "only do the final motion, look up more and spread arms apart more",
+                    "score": 0.45091453194618225
+                },
+                {
+                    "rank": 4,
+                    "text": "rotate wrists in clockwise direction",
+                    "score": 0.4477088153362274
+                },
+                {
+                    "rank": 5,
+                    "text": "rotate the head instead of the hips",
+                    "score": 0.43614354729652405
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "in the end raise right arm bent in elbow, move from left to right",
+                    "score": 0.6757959127426147
+                },
+                {
+                    "rank": 2,
+                    "text": "place the hand as if talking over the phone",
+                    "score": 0.6558965444564819
+                },
+                {
+                    "rank": 3,
+                    "text": "to the same pose with left hand as with the right one. shake your head left right chaotically",
+                    "score": 0.6188488006591797
+                },
+                {
+                    "rank": 4,
+                    "text": "move  right hand slowly from right to left without moving it quickly",
+                    "score": 0.6165557503700256
+                },
+                {
+                    "rank": 5,
+                    "text": "keeping hands fixed tilt head left then right then return to center and rotate neck anticlockwise",
+                    "score": 0.6137683391571045
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "don't tilt the head sideways instead look down and then look towards the left side",
+                    "score": 0.7508751153945923
+                },
+                {
+                    "rank": 2,
+                    "text": "don't turn head instead look down and slowly look up",
+                    "score": 0.6991636753082275
+                },
+                {
+                    "rank": 3,
+                    "text": "keep your arms behind you and keep looking down almost until the end",
+                    "score": 0.6255451440811157
+                },
+                {
+                    "rank": 4,
+                    "text": "don't turn right so much, hold right elbow higher",
+                    "score": 0.6100691556930542
+                },
+                {
+                    "rank": 5,
+                    "text": "look back a few times, straighten up",
+                    "score": 0.6099788546562195
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "don't move head",
+                    "score": 0.7736464738845825
+                },
+                {
+                    "rank": 2,
+                    "text": "keep the body fixed and slightly shift to the right",
+                    "score": 0.7506314516067505
+                },
+                {
+                    "rank": 3,
+                    "text": "bring arms down a bit later",
+                    "score": 0.7491273880004883
+                },
+                {
+                    "rank": 4,
+                    "text": "tilt shoulders a little more to the right",
+                    "score": 0.7464688420295715
+                },
+                {
+                    "rank": 5,
+                    "text": "don't turn head so much, look mostly forward",
+                    "score": 0.7426901459693909
+                }
+            ]
+        }
+    },
+    "003026_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/011932_120_240.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/008740_120_240.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/011932_120_240-008740_120_240.mp4",
+        "captions": "a person standing upright, arms at sides; their leans toward right then left two times, next they do two neck rolls in a counterclockwise direction.",
+        "captiont": "the man is moving his arms",
+        "text1": "first tilt neck on the left return to center then rotate anticlockwise from the left",
+        "texts": {
+            "stmc-leonardo": "don't move head but slightly tilt it to the left then to the right",
+            "stmc_wo_ctr2_simclr": "don't move head but instead just move it slightly to the left and then to the right",
+            "stmc_wo_ctr2_st": "tilt head to the left and then to the right instead of just tilting to the left",
+            "stmc_woctr2": "don't move head from side to side instead just keep it still and slightly bend it backwards"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.6350156664848328,
+                "BLEURT": 0.39503973722457886,
+                "CIDEr": 0.826925117738392,
+                "BLEU@1": 0.39999999994666674,
+                "ROBERTA": 0.7307868599891663
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.5965942144393921,
+                "BLEURT": 0.3512890040874481,
+                "CIDEr": 0.43974144992578246,
+                "BLEU@1": 0.27777777776234575,
+                "ROBERTA": 0.6730241179466248
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.6244428753852844,
+                "BLEURT": 0.4087679982185364,
+                "CIDEr": 0.8246287408135295,
+                "BLEU@1": 0.4117647058581315,
+                "ROBERTA": 0.738161027431488
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5962644219398499,
+                "BLEURT": 0.37352097034454346,
+                "CIDEr": 0.15202913151310443,
+                "BLEU@1": 0.11111111110493832,
+                "ROBERTA": 0.6503282785415649
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "first tilt neck on the left return to center then rotate anticlockwise from the left",
+                    "score": 0.6883669495582581
+                },
+                {
+                    "rank": 2,
+                    "text": "don't tilt the head sideways instead look down and then look towards the left side",
+                    "score": 0.6518238186836243
+                },
+                {
+                    "rank": 3,
+                    "text": "don't tilt head just sway body from right to left",
+                    "score": 0.5257103443145752
+                },
+                {
+                    "rank": 4,
+                    "text": "dont bend on the left side and just bend slightly on the back with hands bent in elbows",
+                    "score": 0.5237877368927002
+                },
+                {
+                    "rank": 5,
+                    "text": "start by tilting head to the right and then rotate neck anticlockwise once",
+                    "score": 0.5191048979759216
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "do not turn head left and put right arm to face earlier",
+                    "score": 0.7007260322570801
+                },
+                {
+                    "rank": 2,
+                    "text": "shake the head while doing the action and don't tilt the head on the left side",
+                    "score": 0.690281867980957
+                },
+                {
+                    "rank": 3,
+                    "text": "don't move much the right hand instead keep in bend in elbows",
+                    "score": 0.6581547260284424
+                },
+                {
+                    "rank": 4,
+                    "text": "do this kind of motion only with your head and neck",
+                    "score": 0.6380890011787415
+                },
+                {
+                    "rank": 5,
+                    "text": "don't sway body, keep hand closer to cheek with fingers closer",
+                    "score": 0.6343017816543579
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "first tilt neck on the left return to center then rotate anticlockwise from the left",
+                    "score": 0.6815195083618164
+                },
+                {
+                    "rank": 2,
+                    "text": "tilt  body slightly to the right",
+                    "score": 0.6781082153320312
+                },
+                {
+                    "rank": 3,
+                    "text": "don't just move head from left to right rotate it clockwise and keep hands on the side",
+                    "score": 0.6475246548652649
+                },
+                {
+                    "rank": 4,
+                    "text": "don't rotate your upper body",
+                    "score": 0.6309581398963928
+                },
+                {
+                    "rank": 5,
+                    "text": "don't tilt head just sway body from right to left",
+                    "score": 0.6305218935012817
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "stay in the same position, dont stumble",
+                    "score": 0.8046282529830933
+                },
+                {
+                    "rank": 2,
+                    "text": "stand still on the spot and slightly move hip to the side",
+                    "score": 0.7676221132278442
+                },
+                {
+                    "rank": 3,
+                    "text": "turn body slightly towards the centre, move hands gently",
+                    "score": 0.7504790425300598
+                },
+                {
+                    "rank": 4,
+                    "text": "sway body very slightly towards the left",
+                    "score": 0.7496211528778076
+                },
+                {
+                    "rank": 5,
+                    "text": "just delayed a bit",
+                    "score": 0.7321913242340088
+                }
+            ]
+        }
+    },
+    "002649_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/005774_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/006193_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/005774_90_180-006193_90_180.mp4",
+        "captions": "a person grabbed something and start dancing with someone",
+        "captiont": "the person is doing a fancy dance.",
+        "text1": "turn around after the first step to the right",
+        "texts": {
+            "stmc-leonardo": "move two steps to the left before turning",
+            "stmc_wo_ctr2_simclr": "take one step forward before turning",
+            "stmc_wo_ctr2_st": "move two steps to the left before turning around",
+            "stmc_woctr2": "turn to the opposite side"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.7530996203422546,
+                "BLEURT": 0.49828559160232544,
+                "CIDEr": 0.19710001163725122,
+                "BLEU@1": 0.22062422559099293,
+                "ROBERTA": 0.7685526609420776
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.6670185923576355,
+                "BLEURT": 0.4256519675254822,
+                "CIDEr": 0.3001500463670106,
+                "BLEU@1": 0.10108844325174288,
+                "ROBERTA": 0.7929245829582214
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.7774285078048706,
+                "BLEURT": 0.5972684621810913,
+                "CIDEr": 0.6746826651347032,
+                "BLEU@1": 0.3333333332592594,
+                "ROBERTA": 0.8191531300544739
+            },
+            "stmc_woctr2": {
+                "BERT": 0.692447304725647,
+                "BLEURT": 0.3970906138420105,
+                "CIDEr": 0.5879167681184637,
+                "BLEU@1": 0.2695973783624942,
+                "ROBERTA": 0.751067042350769
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "after the first two steps turn 45 degrees to the left",
+                    "score": 0.6054913401603699
+                },
+                {
+                    "rank": 2,
+                    "text": "turn more to the right",
+                    "score": 0.6015335917472839
+                },
+                {
+                    "rank": 3,
+                    "text": "start earlier do last tilt to the opposite side",
+                    "score": 0.5683605074882507
+                },
+                {
+                    "rank": 4,
+                    "text": "walk slower and keep hands close to sides",
+                    "score": 0.5604968070983887
+                },
+                {
+                    "rank": 5,
+                    "text": "turn through the opposite side",
+                    "score": 0.5480098128318787
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "walk longer steps",
+                    "score": 0.6469451785087585
+                },
+                {
+                    "rank": 2,
+                    "text": "walk shorter steps",
+                    "score": 0.6274940371513367
+                },
+                {
+                    "rank": 3,
+                    "text": "not on the spot taking a step forward",
+                    "score": 0.5105956792831421
+                },
+                {
+                    "rank": 4,
+                    "text": "skip the first step forward",
+                    "score": 0.5103335976600647
+                },
+                {
+                    "rank": 5,
+                    "text": "skip the first step",
+                    "score": 0.48350492119789124
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "first turn right",
+                    "score": 0.5146771669387817
+                },
+                {
+                    "rank": 2,
+                    "text": "MAKE A WIDER TURN",
+                    "score": 0.4819898009300232
+                },
+                {
+                    "rank": 3,
+                    "text": "dont bend and turn back 180 degrees",
+                    "score": 0.48126885294914246
+                },
+                {
+                    "rank": 4,
+                    "text": "turn on a more closed arc",
+                    "score": 0.46497488021850586
+                },
+                {
+                    "rank": 5,
+                    "text": "turn right later, at the end straighten up",
+                    "score": 0.4630851447582245
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "turn back faster",
+                    "score": 0.8097900748252869
+                },
+                {
+                    "rank": 2,
+                    "text": "turn faster back ",
+                    "score": 0.8091170191764832
+                },
+                {
+                    "rank": 3,
+                    "text": "start turning to the right sooner",
+                    "score": 0.7345938682556152
+                },
+                {
+                    "rank": 4,
+                    "text": "turn body 90 degrees to the right",
+                    "score": 0.70148104429245
+                },
+                {
+                    "rank": 5,
+                    "text": "turn more to the right",
+                    "score": 0.6986275911331177
+                }
+            ]
+        }
+    },
+    "002072_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_009780_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_007871_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_009780_0_120-007871_0_120.mp4",
+        "captions": "a figure walks counter clockwise.",
+        "captiont": "a person walks in a clockwise direction, completing one and a half circles",
+        "text1": "turn on a more open arc",
+        "texts": {
+            "stmc-leonardo": "turn to the opposite side",
+            "stmc_wo_ctr2_simclr": "walk with your arms more open",
+            "stmc_wo_ctr2_st": "walk with your arms more open",
+            "stmc_woctr2": "keep your arms lower and your body straighter"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.6925234198570251,
+                "BLEURT": 0.2733011245727539,
+                "CIDEr": 0.3819379659537666,
+                "BLEU@1": 0.16374615055009814,
+                "ROBERTA": 0.4525301456451416
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.6399287581443787,
+                "BLEURT": 0.3328235149383545,
+                "CIDEr": 1.6108004158461817,
+                "BLEU@1": 0.33333333322222236,
+                "ROBERTA": 0.506645917892456
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.6399287581443787,
+                "BLEURT": 0.3328235149383545,
+                "CIDEr": 1.6108004158461817,
+                "BLEU@1": 0.33333333322222236,
+                "ROBERTA": 0.506645917892456
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5065589547157288,
+                "BLEURT": 0.16446125507354736,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.2499999998437502e-16,
+                "ROBERTA": 0.40228450298309326
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "turn back faster",
+                    "score": 0.8097900748252869
+                },
+                {
+                    "rank": 2,
+                    "text": "turn faster back ",
+                    "score": 0.8091170191764832
+                },
+                {
+                    "rank": 3,
+                    "text": "start turning to the right sooner",
+                    "score": 0.7345938682556152
+                },
+                {
+                    "rank": 4,
+                    "text": "turn body 90 degrees to the right",
+                    "score": 0.70148104429245
+                },
+                {
+                    "rank": 5,
+                    "text": "turn more to the right",
+                    "score": 0.6986275911331177
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "after the first two steps turn 45 degrees to the left",
+                    "score": 0.525482714176178
+                },
+                {
+                    "rank": 2,
+                    "text": "turn right later, at the end straighten up",
+                    "score": 0.49985629320144653
+                },
+                {
+                    "rank": 3,
+                    "text": "don't walk ahead",
+                    "score": 0.42863738536834717
+                },
+                {
+                    "rank": 4,
+                    "text": "more energy",
+                    "score": 0.4208563268184662
+                },
+                {
+                    "rank": 5,
+                    "text": "more energy",
+                    "score": 0.4208563268184662
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "after the first two steps turn 45 degrees to the left",
+                    "score": 0.525482714176178
+                },
+                {
+                    "rank": 2,
+                    "text": "turn right later, at the end straighten up",
+                    "score": 0.49985629320144653
+                },
+                {
+                    "rank": 3,
+                    "text": "don't walk ahead",
+                    "score": 0.42863738536834717
+                },
+                {
+                    "rank": 4,
+                    "text": "more energy",
+                    "score": 0.4208563268184662
+                },
+                {
+                    "rank": 5,
+                    "text": "more energy",
+                    "score": 0.4208563268184662
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "stand still",
+                    "score": 0.8144165873527527
+                },
+                {
+                    "rank": 2,
+                    "text": "stand still on the spot and slightly move hip to the side",
+                    "score": 0.7726425528526306
+                },
+                {
+                    "rank": 3,
+                    "text": "don't shift body",
+                    "score": 0.7362062335014343
+                },
+                {
+                    "rank": 4,
+                    "text": "don't spread your legs, stand normally. don't tilt your head back too much. shift your weight from one leg to the other at the end",
+                    "score": 0.7264225482940674
+                },
+                {
+                    "rank": 5,
+                    "text": "keep the body fixed and slightly shift to the right",
+                    "score": 0.7176095247268677
+                }
+            ]
+        }
+    },
+    "002074_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_008648_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_007871_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_008648_0_120-007871_0_120.mp4",
+        "captions": "the man is walking around in circular motion",
+        "captiont": "a person walks in a counterclockwise circle twice",
+        "text1": "turn on a more open arc",
+        "texts": {
+            "stmc-leonardo": "keep arms straight and walk faster",
+            "stmc_wo_ctr2_simclr": "keep walking ahead instead of turning left",
+            "stmc_wo_ctr2_st": "walk with your hands lower and your body more upright",
+            "stmc_woctr2": "walk with your arms more freely and turn more sharply"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.5337823033332825,
+                "BLEURT": 0.21408534049987793,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.666666666111111e-16,
+                "ROBERTA": 0.41143566370010376
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.5641505122184753,
+                "BLEURT": 0.24710020422935486,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.428571428367347e-16,
+                "ROBERTA": 0.3303498923778534
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.5842824578285217,
+                "BLEURT": 0.2608599066734314,
+                "CIDEr": 0.14668564231774311,
+                "BLEU@1": 0.09999999999000012,
+                "ROBERTA": 0.3556717336177826
+            },
+            "stmc_woctr2": {
+                "BERT": 0.6386476755142212,
+                "BLEURT": 0.3674306869506836,
+                "CIDEr": 0.2537730783641333,
+                "BLEU@1": 0.1999999999800001,
+                "ROBERTA": 0.44727325439453125
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "do it faster, keep forearm parallel to ground at the end",
+                    "score": 0.48514533042907715
+                },
+                {
+                    "rank": 2,
+                    "text": "move faster",
+                    "score": 0.3633485734462738
+                },
+                {
+                    "rank": 3,
+                    "text": "move faster",
+                    "score": 0.3633485734462738
+                },
+                {
+                    "rank": 4,
+                    "text": "stand straighter",
+                    "score": 0.3498823940753937
+                },
+                {
+                    "rank": 5,
+                    "text": "don't walk ahead",
+                    "score": 0.3372563421726227
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "not going straight ahead but turn right",
+                    "score": 0.7709985375404358
+                },
+                {
+                    "rank": 2,
+                    "text": "turn from the right side instead of left",
+                    "score": 0.7662568092346191
+                },
+                {
+                    "rank": 3,
+                    "text": "after the first two steps turn 45 degrees to the left",
+                    "score": 0.7546849250793457
+                },
+                {
+                    "rank": 4,
+                    "text": "make an early move to turn to the right",
+                    "score": 0.7489321231842041
+                },
+                {
+                    "rank": 5,
+                    "text": "do a long sidestep to the left before you turn",
+                    "score": 0.6779449582099915
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "raise both hands in forward direction and dont move the body from the position",
+                    "score": 0.6691954135894775
+                },
+                {
+                    "rank": 2,
+                    "text": "not going straight ahead but turn right",
+                    "score": 0.5646003484725952
+                },
+                {
+                    "rank": 3,
+                    "text": "walk two steps ahead before doing the sidestep",
+                    "score": 0.5034530162811279
+                },
+                {
+                    "rank": 4,
+                    "text": "push left, forward, right up",
+                    "score": 0.4942014515399933
+                },
+                {
+                    "rank": 5,
+                    "text": "turn right later, at the end straighten up",
+                    "score": 0.47728511691093445
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "MAKE A WIDER TURN",
+                    "score": 0.5443544983863831
+                },
+                {
+                    "rank": 2,
+                    "text": "do it in a wider arc",
+                    "score": 0.5072821974754333
+                },
+                {
+                    "rank": 3,
+                    "text": "take a sidestep on the opposite direction",
+                    "score": 0.5035669207572937
+                },
+                {
+                    "rank": 4,
+                    "text": "take shorter steps in the same direction",
+                    "score": 0.4720570743083954
+                },
+                {
+                    "rank": 5,
+                    "text": "walk a few steps forward before stepping to the opposite side",
+                    "score": 0.4699513614177704
+                }
+            ]
+        }
+    },
+    "004538_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/003155_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/012672_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/003155_0_120-012672_0_120.mp4",
+        "captions": "a person lifts both arms and claps his hands together and then repeats the action several times.",
+        "captiont": "a person holds their hands up to their face shaking slightly, as if crying.",
+        "text1": "not clapping just right hand to face",
+        "texts": {
+            "stmc-leonardo": "don't clap instead just keep the hands in front of the chin",
+            "stmc_wo_ctr2_simclr": "move hands as if rubbing them together",
+            "stmc_wo_ctr2_st": "do the clapping action with forearms instead of the whole arms",
+            "stmc_woctr2": "put hands down a bit later"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.7065007090568542,
+                "BLEURT": 0.38132768869400024,
+                "CIDEr": 0.18563083067880734,
+                "BLEU@1": 0.07692307691715985,
+                "ROBERTA": 0.7221174240112305
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.5549524426460266,
+                "BLEURT": 0.3260807991027832,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.4285714281632656e-16,
+                "ROBERTA": 0.5461583137512207
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.5831127762794495,
+                "BLEURT": 0.33409780263900757,
+                "CIDEr": 0.521482452517041,
+                "BLEU@1": 0.09090909090082655,
+                "ROBERTA": 0.6601483225822449
+            },
+            "stmc_woctr2": {
+                "BERT": 0.49621903896331787,
+                "BLEURT": 0.2150648832321167,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.4108028743474226e-16,
+                "ROBERTA": 0.4199862480163574
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "don't do continuous clapping instead clap once and then keep hands down and then do continuous clapping",
+                    "score": 0.6536620259284973
+                },
+                {
+                    "rank": 2,
+                    "text": "clap the hands a bit faster and clap a bit higher near the chest",
+                    "score": 0.6507288217544556
+                },
+                {
+                    "rank": 3,
+                    "text": "move the arms to get into the clapping position and clap slowly",
+                    "score": 0.637278139591217
+                },
+                {
+                    "rank": 4,
+                    "text": "look a bit up and clap hands",
+                    "score": 0.5852545499801636
+                },
+                {
+                    "rank": 5,
+                    "text": "start slower",
+                    "score": 0.5768229961395264
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "stay still and rub hands together",
+                    "score": 0.797118067741394
+                },
+                {
+                    "rank": 2,
+                    "text": "cross arms tighter and higher",
+                    "score": 0.579746663570404
+                },
+                {
+                    "rank": 3,
+                    "text": "keep your hands together during the whole motion",
+                    "score": 0.577536404132843
+                },
+                {
+                    "rank": 4,
+                    "text": "cross arms fully",
+                    "score": 0.48878633975982666
+                },
+                {
+                    "rank": 5,
+                    "text": "keep both the hands still",
+                    "score": 0.44929856061935425
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "start with arms already in cross position over the body",
+                    "score": 0.6023120284080505
+                },
+                {
+                    "rank": 2,
+                    "text": "cross the arms instead of keeping them separate",
+                    "score": 0.5785008072853088
+                },
+                {
+                    "rank": 3,
+                    "text": "not pray cross arms as if thinking",
+                    "score": 0.5766362547874451
+                },
+                {
+                    "rank": 4,
+                    "text": "look a bit up and clap hands",
+                    "score": 0.5569313764572144
+                },
+                {
+                    "rank": 5,
+                    "text": "cross arms with palms laying on upper shoulders, look high-up",
+                    "score": 0.5322346091270447
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "bring arms down a bit later",
+                    "score": 0.7955198287963867
+                },
+                {
+                    "rank": 2,
+                    "text": "delay lowering arms a little",
+                    "score": 0.7884894013404846
+                },
+                {
+                    "rank": 3,
+                    "text": "turn your head instead of your arms",
+                    "score": 0.7486947774887085
+                },
+                {
+                    "rank": 4,
+                    "text": "keep both palms down at the same level",
+                    "score": 0.7236835360527039
+                },
+                {
+                    "rank": 5,
+                    "text": "put both the hands down a bit later",
+                    "score": 0.723313570022583
+                }
+            ]
+        }
+    },
+    "001466_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_013768_120_240.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_003291_120_240.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_013768_120_240-003291_120_240.mp4",
+        "captions": "moving the hands and work some thing.",
+        "captiont": "a man is playing a violin.",
+        "text1": "keep making the movement",
+        "texts": {
+            "stmc-leonardo": "do the same moves but with other hands",
+            "stmc_wo_ctr2_simclr": "start moving the other way",
+            "stmc_wo_ctr2_st": "move the left arm and right arm in opposite directions",
+            "stmc_woctr2": "keep left arm stationary and only move right arm"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.5115017890930176,
+                "BLEURT": 0.2818702459335327,
+                "CIDEr": 0.019674967494044106,
+                "BLEU@1": 0.12499999998437514,
+                "ROBERTA": 0.4777648448944092
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.5908776521682739,
+                "BLEURT": 0.44816410541534424,
+                "CIDEr": 0.029660534332978633,
+                "BLEU@1": 0.19999999996000023,
+                "ROBERTA": 0.6465744376182556
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.4628688097000122,
+                "BLEURT": 0.33398786187171936,
+                "CIDEr": 0.015018399176941538,
+                "BLEU@1": 0.09999999999000012,
+                "ROBERTA": 0.4573177993297577
+            },
+            "stmc_woctr2": {
+                "BERT": 0.42756545543670654,
+                "BLEURT": 0.3292383551597595,
+                "CIDEr": 0.11151736310646623,
+                "BLEU@1": 0.11111111109876555,
+                "ROBERTA": 0.3982402980327606
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "swap the in and out rhythm of the arms",
+                    "score": 0.5119485855102539
+                },
+                {
+                    "rank": 2,
+                    "text": "dont move and raise both hands and move them around",
+                    "score": 0.5014482736587524
+                },
+                {
+                    "rank": 3,
+                    "text": "lower hand when waving and don't move closer to face",
+                    "score": 0.48887699842453003
+                },
+                {
+                    "rank": 4,
+                    "text": "in stead of dancing macarena make waves with arms",
+                    "score": 0.48559296131134033
+                },
+                {
+                    "rank": 5,
+                    "text": "raise forearms higher, start by having hands in the center",
+                    "score": 0.47706297039985657
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "MAKE A WIDER TURN",
+                    "score": 0.7215802073478699
+                },
+                {
+                    "rank": 2,
+                    "text": "turn back faster",
+                    "score": 0.6690419912338257
+                },
+                {
+                    "rank": 3,
+                    "text": "first turn right",
+                    "score": 0.654289186000824
+                },
+                {
+                    "rank": 4,
+                    "text": "turn more to the right",
+                    "score": 0.653963565826416
+                },
+                {
+                    "rank": 5,
+                    "text": "start turning to the right sooner",
+                    "score": 0.64644455909729
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "left arm down first, then forward, left and up",
+                    "score": 0.5829179883003235
+                },
+                {
+                    "rank": 2,
+                    "text": "swap the in and out rhythm of the arms",
+                    "score": 0.5752653479576111
+                },
+                {
+                    "rank": 3,
+                    "text": "bigger arm motions",
+                    "score": 0.519085705280304
+                },
+                {
+                    "rank": 4,
+                    "text": "do it with your left hand and rotate the hand two times",
+                    "score": 0.4926537275314331
+                },
+                {
+                    "rank": 5,
+                    "text": "drop hands slower, don't join both hands, instead lift left hand across chest",
+                    "score": 0.4705120325088501
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "don't raise left hand",
+                    "score": 0.6917362213134766
+                },
+                {
+                    "rank": 2,
+                    "text": "raise your left hand faster",
+                    "score": 0.6339171528816223
+                },
+                {
+                    "rank": 3,
+                    "text": "look left",
+                    "score": 0.6012523174285889
+                },
+                {
+                    "rank": 4,
+                    "text": "hold left arm slightly lower than right one",
+                    "score": 0.599702000617981
+                },
+                {
+                    "rank": 5,
+                    "text": "swing the left hand instead of keeping it constant",
+                    "score": 0.5775096416473389
+                }
+            ]
+        }
+    },
+    "001431_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_000364_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_010675_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_000364_0_120-010675_0_120.mp4",
+        "captions": "a man stomps his left leg.",
+        "captiont": "the person is stomping with the right foot.",
+        "text1": "lift your right leg",
+        "texts": {
+            "stmc-leonardo": "don't lift your right leg",
+            "stmc_wo_ctr2_simclr": "raise the right leg",
+            "stmc_wo_ctr2_st": "do it with the right leg only",
+            "stmc_woctr2": "raise your right leg a bit more"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.7528113722801208,
+                "BLEURT": 0.6588908433914185,
+                "CIDEr": 7.235309426139112,
+                "BLEU@1": 0.6666666665555557,
+                "ROBERTA": 0.8372906446456909
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.8649134635925293,
+                "BLEURT": 0.679307758808136,
+                "CIDEr": 1.8879016848932433,
+                "BLEU@1": 0.4999999997500003,
+                "ROBERTA": 0.9387632608413696
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.657869815826416,
+                "BLEURT": 0.3828086853027344,
+                "CIDEr": 1.1241962922927273,
+                "BLEU@1": 0.2857142856734695,
+                "ROBERTA": 0.7747213840484619
+            },
+            "stmc_woctr2": {
+                "BERT": 0.8507582545280457,
+                "BLEURT": 0.6291658878326416,
+                "CIDEr": 2.3945254964545644,
+                "BLEU@1": 0.4285714285102042,
+                "ROBERTA": 0.8682234883308411
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "do this motion only with right knee",
+                    "score": 0.8112548589706421
+                },
+                {
+                    "rank": 2,
+                    "text": "dont lift right leg backwards and just stay on the same position",
+                    "score": 0.8002232909202576
+                },
+                {
+                    "rank": 3,
+                    "text": "move circularly the right leg and don't lift the right leg at all",
+                    "score": 0.7484191060066223
+                },
+                {
+                    "rank": 4,
+                    "text": "keep your weight on your left leg and extend your right leg forward. keep looking at your arms",
+                    "score": 0.709770679473877
+                },
+                {
+                    "rank": 5,
+                    "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion",
+                    "score": 0.7067976593971252
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "lift your right leg",
+                    "score": 0.9617756605148315
+                },
+                {
+                    "rank": 2,
+                    "text": "dont lift right leg backwards and just stay on the same position",
+                    "score": 0.6855283975601196
+                },
+                {
+                    "rank": 3,
+                    "text": "do this motion only with right knee",
+                    "score": 0.6239803433418274
+                },
+                {
+                    "rank": 4,
+                    "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion",
+                    "score": 0.6119841933250427
+                },
+                {
+                    "rank": 5,
+                    "text": "put legs closer, stretch right leg out in the end",
+                    "score": 0.5861640572547913
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "move circularly the right leg and don't lift the right leg at all",
+                    "score": 0.8320598602294922
+                },
+                {
+                    "rank": 2,
+                    "text": "do this motion only with right knee",
+                    "score": 0.8005655407905579
+                },
+                {
+                    "rank": 3,
+                    "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion",
+                    "score": 0.7651246786117554
+                },
+                {
+                    "rank": 4,
+                    "text": "keep your weight on your left leg and extend your right leg forward. keep looking at your arms",
+                    "score": 0.764194667339325
+                },
+                {
+                    "rank": 5,
+                    "text": "dont lift right leg backwards and just stay on the same position",
+                    "score": 0.7584266066551208
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "lift your right leg",
+                    "score": 0.6935800909996033
+                },
+                {
+                    "rank": 2,
+                    "text": "wait some more before moving the leg sideways",
+                    "score": 0.6626542210578918
+                },
+                {
+                    "rank": 3,
+                    "text": "upturn a little earlier",
+                    "score": 0.6192286610603333
+                },
+                {
+                    "rank": 4,
+                    "text": "don't do the last step to the left",
+                    "score": 0.607727587223053
+                },
+                {
+                    "rank": 5,
+                    "text": "step less",
+                    "score": 0.6031221747398376
+                }
+            ]
+        }
+    },
+    "001218_test": {
+        "motions": "https://download.is.tue.mpg.de/amass/motion-edit/source_motion/006921_90_180.mp4",
+        "motiont": "https://download.is.tue.mpg.de/amass/motion-edit/target_motion/012087_90_180.mp4",
+        "overlap": "https://download.is.tue.mpg.de/amass/motion-edit/source_target_motions/006921_90_180-012087_90_180.mp4",
+        "captions": "a person runs forward while holding their right arm steady, then they turn around and run back while holding their left arm steady.",
+        "captiont": "a person walks forward then turns around and takes long jumps.",
+        "text1": "take a jump at the end",
+        "texts": {
+            "stmc-leonardo": "don't turn",
+            "stmc_wo_ctr2_simclr": "do a step forward and bend more in the hips",
+            "stmc_wo_ctr2_st": "turn to the left after the first step",
+            "stmc_woctr2": "don't step back, do a cutting motion with the right hand"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.48539915680885315,
+                "BLEURT": 0.07304468750953674,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.2262648030872984e-16,
+                "ROBERTA": 0.3830960690975189
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.6358006596565247,
+                "BLEURT": 0.3533092737197876,
+                "CIDEr": 0.16193581201166293,
+                "BLEU@1": 0.1999999999800001,
+                "ROBERTA": 0.4248131811618805
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.6671538949012756,
+                "BLEURT": 0.3365500569343567,
+                "CIDEr": 0.03389246294779651,
+                "BLEU@1": 0.12499999998437514,
+                "ROBERTA": 0.570340096950531
+            },
+            "stmc_woctr2": {
+                "BERT": 0.6177310943603516,
+                "BLEURT": 0.2328627109527588,
+                "CIDEr": 0.10127289946826969,
+                "BLEU@1": 0.16666666665277785,
+                "ROBERTA": 0.42103078961372375
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "don't turn head",
+                    "score": 0.7948543429374695
+                },
+                {
+                    "rank": 2,
+                    "text": "don't turn head",
+                    "score": 0.7948543429374695
+                },
+                {
+                    "rank": 3,
+                    "text": "dont bend and turn back 180 degrees",
+                    "score": 0.7499459981918335
+                },
+                {
+                    "rank": 4,
+                    "text": "turn 90 degrees more",
+                    "score": 0.7341486811637878
+                },
+                {
+                    "rank": 5,
+                    "text": "don't turn back",
+                    "score": 0.7339151501655579
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "skip the first step forward",
+                    "score": 0.7578151822090149
+                },
+                {
+                    "rank": 2,
+                    "text": "step forwards",
+                    "score": 0.7514362931251526
+                },
+                {
+                    "rank": 3,
+                    "text": "do one step forward before start",
+                    "score": 0.7086121439933777
+                },
+                {
+                    "rank": 4,
+                    "text": "skip the first step",
+                    "score": 0.6984187364578247
+                },
+                {
+                    "rank": 5,
+                    "text": "skip the first step",
+                    "score": 0.6984187364578247
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "side shift to the left after the third step",
+                    "score": 0.8139759302139282
+                },
+                {
+                    "rank": 2,
+                    "text": "don't take a step out to the side at the end",
+                    "score": 0.7777508497238159
+                },
+                {
+                    "rank": 3,
+                    "text": "delay the movement to the left a bit",
+                    "score": 0.7311685681343079
+                },
+                {
+                    "rank": 4,
+                    "text": "don't do the last step to the left",
+                    "score": 0.7121519446372986
+                },
+                {
+                    "rank": 5,
+                    "text": "move to the right slightly faster",
+                    "score": 0.6708661913871765
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "not head rotate right leg",
+                    "score": 0.5107892751693726
+                },
+                {
+                    "rank": 2,
+                    "text": "keep right arm down and just turn around with head",
+                    "score": 0.47894901037216187
+                },
+                {
+                    "rank": 3,
+                    "text": "spin around faster and raise the right arm",
+                    "score": 0.46360936760902405
+                },
+                {
+                    "rank": 4,
+                    "text": "walk slower and keep hands close to sides",
+                    "score": 0.45553237199783325
+                },
+                {
+                    "rank": 5,
+                    "text": "turn back faster",
+                    "score": 0.4523831903934479
+                }
+            ]
+        }
+    },
+    "003576_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/011851_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/008790_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/011851_90_180-008790_90_180.mp4",
+        "captions": "someone crouches, bending their knees and their hands meeting in front of them continuously.",
+        "captiont": "person squats and jumps out moving to the sides.",
+        "text1": "instead of squatting on the spot shifting to the right",
+        "texts": {
+            "stmc-leonardo": "make the second step a bigger one and keep the body facing forward",
+            "stmc_wo_ctr2_simclr": "take a slightly larger step and don't bend the back so much",
+            "stmc_wo_ctr2_st": "widen legs a bit more and don't look down while doing the squat",
+            "stmc_woctr2": "waddle like a duck"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.5913384556770325,
+                "BLEURT": 0.2833828330039978,
+                "CIDEr": 0.04744925880680293,
+                "BLEU@1": 0.1538461538343196,
+                "ROBERTA": 0.5206111073493958
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.5913929343223572,
+                "BLEURT": 0.2811383008956909,
+                "CIDEr": 0.023920783149573896,
+                "BLEU@1": 0.07692307691715985,
+                "ROBERTA": 0.5234047174453735
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.5737999081611633,
+                "BLEURT": 0.2815343737602234,
+                "CIDEr": 0.020858726918017025,
+                "BLEU@1": 0.07142857142346946,
+                "ROBERTA": 0.6038832068443298
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5830891132354736,
+                "BLEURT": 0.09743174910545349,
+                "CIDEr": 0.0,
+                "BLEU@1": 5.578254000921622e-17,
+                "ROBERTA": 0.3637091815471649
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "step to the opposite sides",
+                    "score": 0.7308545112609863
+                },
+                {
+                    "rank": 2,
+                    "text": "step to the right",
+                    "score": 0.6726595759391785
+                },
+                {
+                    "rank": 3,
+                    "text": "side shift to the left after the third step",
+                    "score": 0.6640560626983643
+                },
+                {
+                    "rank": 4,
+                    "text": "step to the right sooner",
+                    "score": 0.6597867012023926
+                },
+                {
+                    "rank": 5,
+                    "text": "don't sidestep",
+                    "score": 0.6101254820823669
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "lower your hips and lean forward a bit, look down",
+                    "score": 0.7680480480194092
+                },
+                {
+                    "rank": 2,
+                    "text": "stay in one place, don't step forward",
+                    "score": 0.7189396023750305
+                },
+                {
+                    "rank": 3,
+                    "text": "look a bit forward",
+                    "score": 0.715524435043335
+                },
+                {
+                    "rank": 4,
+                    "text": "raise arm earlier don't bend forward so much",
+                    "score": 0.7127066850662231
+                },
+                {
+                    "rank": 5,
+                    "text": "turn body slightly towards the centre, move hands gently",
+                    "score": 0.6713358163833618
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "squat first",
+                    "score": 0.8667237162590027
+                },
+                {
+                    "rank": 2,
+                    "text": "start the squat earlier",
+                    "score": 0.8271556496620178
+                },
+                {
+                    "rank": 3,
+                    "text": "do squats faster",
+                    "score": 0.7882463932037354
+                },
+                {
+                    "rank": 4,
+                    "text": "start squats sooner and do them faster",
+                    "score": 0.7526903748512268
+                },
+                {
+                    "rank": 5,
+                    "text": "jump high instead of crouching",
+                    "score": 0.6532303690910339
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "dont fully go back instead just take a peep at the back",
+                    "score": 0.5015279054641724
+                },
+                {
+                    "rank": 2,
+                    "text": "don't turn body but just raise both arms",
+                    "score": 0.4999403953552246
+                },
+                {
+                    "rank": 3,
+                    "text": "keep forearm lower, don't raise it high",
+                    "score": 0.4893326461315155
+                },
+                {
+                    "rank": 4,
+                    "text": "the so but less exaggerated on the arm flapping",
+                    "score": 0.4877775013446808
+                },
+                {
+                    "rank": 5,
+                    "text": "don't reach back with arms, start raising them slightly sooner",
+                    "score": 0.4675930142402649
+                }
+            ]
+        }
+    },
+    "003863_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/010871_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/002432_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/010871_0_120-002432_0_120.mp4",
+        "captions": "this person has his hands in front as if to direct a crowd.",
+        "captiont": "a person raises both hands out in front of them and then makes various motions.",
+        "text1": "don't move the upright hands left and right just keep them straight",
+        "texts": {
+            "stmc-leonardo": "keep left hand higher than right hand",
+            "stmc_wo_ctr2_simclr": "swirl arms in a bigger circle",
+            "stmc_wo_ctr2_st": "start the motion by having your arms lower, palms facing each other",
+            "stmc_woctr2": "keep the hands closer to the chest level while doing the rowing motion"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.5437411069869995,
+                "BLEURT": 0.3549410104751587,
+                "CIDEr": 0.19727606773035777,
+                "BLEU@1": 0.18187407666672895,
+                "ROBERTA": 0.7376289963722229
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.5843415260314941,
+                "BLEURT": 0.14410638809204102,
+                "CIDEr": 0.0,
+                "BLEU@1": 5.190053730179944e-17,
+                "ROBERTA": 0.5412384271621704
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.5680621266365051,
+                "BLEURT": 0.2530093193054199,
+                "CIDEr": 0.012188952752998198,
+                "BLEU@1": 0.07667036787299863,
+                "ROBERTA": 0.824019193649292
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5898714065551758,
+                "BLEURT": 0.34475529193878174,
+                "CIDEr": 0.22182473878599604,
+                "BLEU@1": 0.23076923073372793,
+                "ROBERTA": 0.7404374480247498
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "dont move the right hand and just move the left hand once at the start",
+                    "score": 0.5899062156677246
+                },
+                {
+                    "rank": 2,
+                    "text": "after the pause return the motion with the opposite arm circling forward",
+                    "score": 0.5657259821891785
+                },
+                {
+                    "rank": 3,
+                    "text": "don't move much the right hand instead keep in bend in elbows",
+                    "score": 0.5512769818305969
+                },
+                {
+                    "rank": 4,
+                    "text": "don't raise left arm as much",
+                    "score": 0.5342435240745544
+                },
+                {
+                    "rank": 5,
+                    "text": "lean further right",
+                    "score": 0.5237236618995667
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "straighten up, only do circular movements in wrists",
+                    "score": 0.7946195602416992
+                },
+                {
+                    "rank": 2,
+                    "text": "lower arms slower, then extend arms sideways instead of circle",
+                    "score": 0.745542049407959
+                },
+                {
+                    "rank": 3,
+                    "text": "instead of stretching the arms left and right only stretch it in right direction with both arms pointing in that direction",
+                    "score": 0.6195805072784424
+                },
+                {
+                    "rank": 4,
+                    "text": "accelerate the start of movement of both arms",
+                    "score": 0.6110500693321228
+                },
+                {
+                    "rank": 5,
+                    "text": "swap the in and out rhythm of the arms",
+                    "score": 0.6028399467468262
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "dont move and raise both hands and move them around",
+                    "score": 0.7150036692619324
+                },
+                {
+                    "rank": 2,
+                    "text": "lower down both the elbows and do the waving action",
+                    "score": 0.6946349143981934
+                },
+                {
+                    "rank": 3,
+                    "text": "move hands diagonally across chest instead of making a cross sign",
+                    "score": 0.6765526533126831
+                },
+                {
+                    "rank": 4,
+                    "text": "don't rotate arms up and down",
+                    "score": 0.649142324924469
+                },
+                {
+                    "rank": 5,
+                    "text": "move forearms sideways",
+                    "score": 0.6400254964828491
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "start with forearms already up, lower head",
+                    "score": 0.694597065448761
+                },
+                {
+                    "rank": 2,
+                    "text": "slightly cross hands at chest level",
+                    "score": 0.6757922768592834
+                },
+                {
+                    "rank": 3,
+                    "text": "Maintain the hands at chest level",
+                    "score": 0.6573182344436646
+                },
+                {
+                    "rank": 4,
+                    "text": "hold arms closer to body",
+                    "score": 0.634848952293396
+                },
+                {
+                    "rank": 5,
+                    "text": "separate both hands with the palm parallel to the ground , and do it with the elbows at a right angle",
+                    "score": 0.5893421769142151
+                }
+            ]
+        }
+    },
+    "003795_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/008275_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/001629_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/008275_90_180-001629_90_180.mp4",
+        "captions": "a person crawls forwards on their hands and knees, turns around, then stands up and faces left.",
+        "captiont": "someone crouches and crawls and goes around",
+        "text1": "crawl to the opposite side",
+        "texts": {
+            "stmc-leonardo": "turn more to the right and get up",
+            "stmc_wo_ctr2_simclr": "don't get up at the end",
+            "stmc_wo_ctr2_st": "turn more to the left and get up at the end",
+            "stmc_woctr2": "keep crawling forward instead of turning back"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.6664861440658569,
+                "BLEURT": 0.33324193954467773,
+                "CIDEr": 0.29370160457157674,
+                "BLEU@1": 0.2499999999687501,
+                "ROBERTA": 0.6649414300918579
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.6207299828529358,
+                "BLEURT": 0.16376546025276184,
+                "CIDEr": 0.040764947470119314,
+                "BLEU@1": 0.14285714283673484,
+                "ROBERTA": 0.4122200608253479
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.6370680928230286,
+                "BLEURT": 0.32317596673965454,
+                "CIDEr": 0.17442140181641208,
+                "BLEU@1": 0.18181818180165296,
+                "ROBERTA": 0.6478111147880554
+            },
+            "stmc_woctr2": {
+                "BERT": 0.6079078912734985,
+                "BLEURT": 0.3717576861381531,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.428571428367347e-16,
+                "ROBERTA": 0.6225176453590393
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "don't turn and don't start getting up",
+                    "score": 0.6348179578781128
+                },
+                {
+                    "rank": 2,
+                    "text": "get up at the end instead of just sitting",
+                    "score": 0.571914553642273
+                },
+                {
+                    "rank": 3,
+                    "text": "sit down in the end",
+                    "score": 0.5241654515266418
+                },
+                {
+                    "rank": 4,
+                    "text": "don't start with already in sitting position instead start with getting into the sitting position and sit completely before getting up",
+                    "score": 0.5224077701568604
+                },
+                {
+                    "rank": 5,
+                    "text": "sit down slower and don't get up",
+                    "score": 0.5160635113716125
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "don't get up at the end of the motion",
+                    "score": 0.8897706270217896
+                },
+                {
+                    "rank": 2,
+                    "text": "get up later",
+                    "score": 0.880730152130127
+                },
+                {
+                    "rank": 3,
+                    "text": "start from standing up do the motion to your right don't get up at the end",
+                    "score": 0.852423906326294
+                },
+                {
+                    "rank": 4,
+                    "text": "sit down on the knee sooner, get up in the end",
+                    "score": 0.8297172784805298
+                },
+                {
+                    "rank": 5,
+                    "text": "sit more evenly and use both hands to get up",
+                    "score": 0.8198890686035156
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "get up at the end instead of just sitting",
+                    "score": 0.5719015002250671
+                },
+                {
+                    "rank": 2,
+                    "text": "start sitting down a bit later",
+                    "score": 0.5560896992683411
+                },
+                {
+                    "rank": 3,
+                    "text": "turn around after the first step to the right",
+                    "score": 0.5535434484481812
+                },
+                {
+                    "rank": 4,
+                    "text": "delay turning left",
+                    "score": 0.5169150829315186
+                },
+                {
+                    "rank": 5,
+                    "text": "sit down slower and don't get up",
+                    "score": 0.5113582611083984
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "keep crawling forward instead of turning back",
+                    "score": 0.9999999403953552
+                },
+                {
+                    "rank": 2,
+                    "text": "instead of crawling out in the right direction straight",
+                    "score": 0.7276568412780762
+                },
+                {
+                    "rank": 3,
+                    "text": "don't change the direction of crawling crawl in the same direction and in the end try to get up",
+                    "score": 0.5673112273216248
+                },
+                {
+                    "rank": 4,
+                    "text": "crawl towards right hand side instead of ahead",
+                    "score": 0.5640238523483276
+                },
+                {
+                    "rank": 5,
+                    "text": "get down to the crawling without backstep and turn back around in the end.",
+                    "score": 0.5562811493873596
+                }
+            ]
+        }
+    },
+    "003842_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/002745_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/001629_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/002745_90_180-001629_90_180.mp4",
+        "captions": "a person kneels down and gets on all-fours, possibly looking for something on the ground.",
+        "captiont": "someone crouches and crawls and goes around",
+        "text1": "take turn right after moving forward once",
+        "texts": {
+            "stmc-leonardo": "keep crawling forward instead of turning back",
+            "stmc_wo_ctr2_simclr": "crawl a bit faster and don't get up at the end",
+            "stmc_wo_ctr2_st": "keep crawling forward instead of turning back",
+            "stmc_woctr2": "keep head higher and don't get up at the end"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.518563985824585,
+                "BLEURT": 0.5083127021789551,
+                "CIDEr": 0.22417761418656115,
+                "BLEU@1": 0.1428571428163267,
+                "ROBERTA": 0.4804486036300659
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.46218472719192505,
+                "BLEURT": 0.27214112877845764,
+                "CIDEr": 0.0,
+                "BLEU@1": 8.33333333263889e-17,
+                "ROBERTA": 0.20023249089717865
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.518563985824585,
+                "BLEURT": 0.5083125233650208,
+                "CIDEr": 0.22417761418656115,
+                "BLEU@1": 0.1428571428163267,
+                "ROBERTA": 0.4804486036300659
+            },
+            "stmc_woctr2": {
+                "BERT": 0.4505560100078583,
+                "BLEURT": 0.20569735765457153,
+                "CIDEr": 0.0,
+                "BLEU@1": 9.090909090082646e-17,
+                "ROBERTA": 0.17779548466205597
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "keep crawling forward instead of turning back",
+                    "score": 0.9999999403953552
+                },
+                {
+                    "rank": 2,
+                    "text": "instead of crawling out in the right direction straight",
+                    "score": 0.7276568412780762
+                },
+                {
+                    "rank": 3,
+                    "text": "don't change the direction of crawling crawl in the same direction and in the end try to get up",
+                    "score": 0.5673112273216248
+                },
+                {
+                    "rank": 4,
+                    "text": "crawl towards right hand side instead of ahead",
+                    "score": 0.5640238523483276
+                },
+                {
+                    "rank": 5,
+                    "text": "get down to the crawling without backstep and turn back around in the end.",
+                    "score": 0.5562811493873596
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "don't change the direction of crawling crawl in the same direction and in the end try to get up",
+                    "score": 0.8718116879463196
+                },
+                {
+                    "rank": 2,
+                    "text": "start by crawling get up instead of turning right",
+                    "score": 0.8145908117294312
+                },
+                {
+                    "rank": 3,
+                    "text": "crawl in the right direction instead of forward",
+                    "score": 0.794734537601471
+                },
+                {
+                    "rank": 4,
+                    "text": "get up at the end of the motion instead of continuing with crawling",
+                    "score": 0.7633050084114075
+                },
+                {
+                    "rank": 5,
+                    "text": "stop for a moment to make a upturn , not continuing to crawl",
+                    "score": 0.762188196182251
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "keep crawling forward instead of turning back",
+                    "score": 0.9999999403953552
+                },
+                {
+                    "rank": 2,
+                    "text": "instead of crawling out in the right direction straight",
+                    "score": 0.7276568412780762
+                },
+                {
+                    "rank": 3,
+                    "text": "don't change the direction of crawling crawl in the same direction and in the end try to get up",
+                    "score": 0.5673112273216248
+                },
+                {
+                    "rank": 4,
+                    "text": "crawl towards right hand side instead of ahead",
+                    "score": 0.5640238523483276
+                },
+                {
+                    "rank": 5,
+                    "text": "get down to the crawling without backstep and turn back around in the end.",
+                    "score": 0.5562811493873596
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "get up a bit slower",
+                    "score": 0.6904465556144714
+                },
+                {
+                    "rank": 2,
+                    "text": "dont fully go back instead just take a peep at the back",
+                    "score": 0.6259609460830688
+                },
+                {
+                    "rank": 3,
+                    "text": "keep your head down longer and don't make a step forward",
+                    "score": 0.5954446792602539
+                },
+                {
+                    "rank": 4,
+                    "text": "don't raise arm, bow slightly later",
+                    "score": 0.5532877445220947
+                },
+                {
+                    "rank": 5,
+                    "text": "don't raise arms at the end and tilt face leftward",
+                    "score": 0.5493443012237549
+                }
+            ]
+        }
+    },
+    "002084_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_000805_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_006274_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_000805_0_120-006274_0_120.mp4",
+        "captions": "a person walks in a clockwise circle.",
+        "captiont": "a person walks in a small clockwise circle twice.",
+        "text1": "turn on a more closed arc",
+        "texts": {
+            "stmc-leonardo": "walk without swaying",
+            "stmc_wo_ctr2_simclr": "walk with your hands at your side",
+            "stmc_wo_ctr2_st": "don't walk so far right",
+            "stmc_woctr2": "don't walk with the left leg in the air"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.5655840635299683,
+                "BLEURT": 0.0765259712934494,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.2262648030872984e-16,
+                "ROBERTA": 0.16404053568840027
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.5745419263839722,
+                "BLEURT": 0.12314512580633163,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.428571428367347e-16,
+                "ROBERTA": 0.1916608363389969
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.4694693088531494,
+                "BLEURT": 0.15335917472839355,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.666666666111111e-16,
+                "ROBERTA": 0.21195361018180847
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5390384197235107,
+                "BLEURT": 0.16487985849380493,
+                "CIDEr": 0.0,
+                "BLEU@1": 9.999999999e-17,
+                "ROBERTA": 0.1846461445093155
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "don't move hips",
+                    "score": 0.4539293050765991
+                },
+                {
+                    "rank": 2,
+                    "text": "keep hands fixed",
+                    "score": 0.43800199031829834
+                },
+                {
+                    "rank": 3,
+                    "text": "dont lift hands, dont sway head",
+                    "score": 0.4287918210029602
+                },
+                {
+                    "rank": 4,
+                    "text": "slightly lower arms",
+                    "score": 0.42545685172080994
+                },
+                {
+                    "rank": 5,
+                    "text": "do a similar limping motion on the opposite direction and move much faster",
+                    "score": 0.41848400235176086
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "walk slower and keep hands close to sides",
+                    "score": 0.5975141525268555
+                },
+                {
+                    "rank": 2,
+                    "text": "sit up with back straight in less of a crouched position",
+                    "score": 0.4883361756801605
+                },
+                {
+                    "rank": 3,
+                    "text": "keep hands fixed",
+                    "score": 0.484189510345459
+                },
+                {
+                    "rank": 4,
+                    "text": "keep your neck straight, head facing 20 degrees anticlockwise",
+                    "score": 0.46575015783309937
+                },
+                {
+                    "rank": 5,
+                    "text": "keep hands on the same level",
+                    "score": 0.46050354838371277
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "don't walk",
+                    "score": 0.5664311647415161
+                },
+                {
+                    "rank": 2,
+                    "text": "walk two steps ahead before doing the sidestep",
+                    "score": 0.5562975406646729
+                },
+                {
+                    "rank": 3,
+                    "text": "don't walk ahead",
+                    "score": 0.4394773840904236
+                },
+                {
+                    "rank": 4,
+                    "text": "walk a little less casually and more with purpose instead",
+                    "score": 0.4226604998111725
+                },
+                {
+                    "rank": 5,
+                    "text": "don't lean right so much, turn left in the end",
+                    "score": 0.4068315029144287
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "instead of throwing walk in a circular path to the left while wobbling",
+                    "score": 0.5367689728736877
+                },
+                {
+                    "rank": 2,
+                    "text": "don't walk",
+                    "score": 0.47244521975517273
+                },
+                {
+                    "rank": 3,
+                    "text": "don't lean right so much, turn left in the end",
+                    "score": 0.4598905146121979
+                },
+                {
+                    "rank": 4,
+                    "text": "do it slower and don't stretch leg",
+                    "score": 0.4304100275039673
+                },
+                {
+                    "rank": 5,
+                    "text": "dont bend on the left side and just bend slightly on the back with hands bent in elbows",
+                    "score": 0.41936492919921875
+                }
+            ]
+        }
+    },
+    "003497_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/011395_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/006464_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/011395_90_180-006464_90_180.mp4",
+        "captions": "a person sits down and crosses its legs, then gets back up.",
+        "captiont": "a figure backs up and sits down.",
+        "text1": "keep the legs straight instead of crossing the left leg on the right one",
+        "texts": {
+            "stmc-leonardo": "start by already sitting down and don't get up",
+            "stmc_wo_ctr2_simclr": "put the left foot forward instead of right",
+            "stmc_wo_ctr2_st": "start by putting the other leg in the air",
+            "stmc_woctr2": "keep the left leg on the ground instead of switching legs"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.4576603174209595,
+                "BLEURT": 0.19123749434947968,
+                "CIDEr": 0.0,
+                "BLEU@1": 6.703200459015756e-17,
+                "ROBERTA": 0.46994876861572266
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.6994491219520569,
+                "BLEURT": 0.4095942974090576,
+                "CIDEr": 0.35730577949515574,
+                "BLEU@1": 0.2952290953893271,
+                "ROBERTA": 0.8304044008255005
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.654302179813385,
+                "BLEURT": 0.3527904748916626,
+                "CIDEr": 0.2100764061610011,
+                "BLEU@1": 0.1912511402033108,
+                "ROBERTA": 0.7519979476928711
+            },
+            "stmc_woctr2": {
+                "BERT": 0.744291365146637,
+                "BLEURT": 0.47157055139541626,
+                "CIDEr": 2.6577946131343024,
+                "BLEU@1": 0.6228821344569184,
+                "ROBERTA": 0.8081825971603394
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "sit down earlier and stay instead of getting up",
+                    "score": 0.8327069878578186
+                },
+                {
+                    "rank": 2,
+                    "text": "take a smaller left step and sit leaning your back more",
+                    "score": 0.8061708211898804
+                },
+                {
+                    "rank": 3,
+                    "text": "one step forward and delay to sit down",
+                    "score": 0.7982326149940491
+                },
+                {
+                    "rank": 4,
+                    "text": "sit down slower and don't get up",
+                    "score": 0.7830514311790466
+                },
+                {
+                    "rank": 5,
+                    "text": "start sitting down a bit later",
+                    "score": 0.7778484225273132
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "do this motion only with right knee",
+                    "score": 0.5883044004440308
+                },
+                {
+                    "rank": 2,
+                    "text": "do the second kick with right leg in the same direction and a bit faster",
+                    "score": 0.5486655235290527
+                },
+                {
+                    "rank": 3,
+                    "text": "wait some more before moving the leg sideways",
+                    "score": 0.5423354506492615
+                },
+                {
+                    "rank": 4,
+                    "text": "dont lift right leg backwards and just stay on the same position",
+                    "score": 0.532481849193573
+                },
+                {
+                    "rank": 5,
+                    "text": "tap left and right again at the end",
+                    "score": 0.5277706384658813
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion",
+                    "score": 0.6657882332801819
+                },
+                {
+                    "rank": 2,
+                    "text": "dont lift right leg backwards and just stay on the same position",
+                    "score": 0.6530978679656982
+                },
+                {
+                    "rank": 3,
+                    "text": "put legs closer, stretch right leg out in the end",
+                    "score": 0.6443933248519897
+                },
+                {
+                    "rank": 4,
+                    "text": "get up later starting  with opposite leg",
+                    "score": 0.6357300281524658
+                },
+                {
+                    "rank": 5,
+                    "text": "lift your right leg",
+                    "score": 0.5950148105621338
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "wait some more before moving the leg sideways",
+                    "score": 0.6961020827293396
+                },
+                {
+                    "rank": 2,
+                    "text": "don't stand in the beginning",
+                    "score": 0.6418265104293823
+                },
+                {
+                    "rank": 3,
+                    "text": "stand still on the spot and slightly move hip to the side",
+                    "score": 0.6402247548103333
+                },
+                {
+                    "rank": 4,
+                    "text": "start moving a bit earlier",
+                    "score": 0.6092029809951782
+                },
+                {
+                    "rank": 5,
+                    "text": "moving start a little earlier",
+                    "score": 0.6019617319107056
+                }
+            ]
+        }
+    },
+    "001259_test": {
+        "motions": "https://download.is.tue.mpg.de/amass/motion-edit/source_motion/006404_0_90.mp4",
+        "motiont": "https://download.is.tue.mpg.de/amass/motion-edit/target_motion/000295_0_90.mp4",
+        "overlap": "https://download.is.tue.mpg.de/amass/motion-edit/source_target_motions/006404_0_90-000295_0_90.mp4",
+        "captions": "a figure shakes itself a little loose then does squats with arms out forward",
+        "captiont": "a person squats down and holds out their arms",
+        "text1": "less deep",
+        "texts": {
+            "stmc-leonardo": "don't squat down as low",
+            "stmc_wo_ctr2_simclr": "start by standing",
+            "stmc_wo_ctr2_st": "don't bend down fully and keep the left leg forward",
+            "stmc_woctr2": "bend more on both sides"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.4718596041202545,
+                "BLEURT": 0.15402162075042725,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.666666666388889e-16,
+                "ROBERTA": 0.25778821110725403
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.3513440787792206,
+                "BLEURT": 0.04181163012981415,
+                "CIDEr": 0.0,
+                "BLEU@1": 3.3333333322222225e-16,
+                "ROBERTA": 0.05763917416334152
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.4170428216457367,
+                "BLEURT": 0.1734682321548462,
+                "CIDEr": 0.0,
+                "BLEU@1": 9.090909090082646e-17,
+                "ROBERTA": 0.11297620087862015
+            },
+            "stmc_woctr2": {
+                "BERT": 0.41270458698272705,
+                "BLEURT": 0.15408535301685333,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.9999999996000001e-16,
+                "ROBERTA": 0.3202866315841675
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "squat first",
+                    "score": 0.8759148120880127
+                },
+                {
+                    "rank": 2,
+                    "text": "start squats sooner and do them faster",
+                    "score": 0.7937514185905457
+                },
+                {
+                    "rank": 3,
+                    "text": "do squats faster",
+                    "score": 0.7795006036758423
+                },
+                {
+                    "rank": 4,
+                    "text": "start the squat earlier",
+                    "score": 0.7770221829414368
+                },
+                {
+                    "rank": 5,
+                    "text": "begin the already squatting and shift the entire body slightly left",
+                    "score": 0.6039841771125793
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "delay your movement a little",
+                    "score": 0.8326659798622131
+                },
+                {
+                    "rank": 2,
+                    "text": "stand still",
+                    "score": 0.7947031855583191
+                },
+                {
+                    "rank": 3,
+                    "text": "don't stand in the beginning",
+                    "score": 0.7230348587036133
+                },
+                {
+                    "rank": 4,
+                    "text": "a little slower",
+                    "score": 0.7212918400764465
+                },
+                {
+                    "rank": 5,
+                    "text": "move a bit slower",
+                    "score": 0.6954100728034973
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion",
+                    "score": 0.6464065313339233
+                },
+                {
+                    "rank": 2,
+                    "text": "wait some more before moving the leg sideways",
+                    "score": 0.6432998180389404
+                },
+                {
+                    "rank": 3,
+                    "text": "lean on left leg more, step back a bit",
+                    "score": 0.6180621981620789
+                },
+                {
+                    "rank": 4,
+                    "text": "don't shift weight on feet or lean to right",
+                    "score": 0.6174391508102417
+                },
+                {
+                    "rank": 5,
+                    "text": "incline your body a little to the left",
+                    "score": 0.6016761660575867
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "lean right a bit more",
+                    "score": 0.6457589864730835
+                },
+                {
+                    "rank": 2,
+                    "text": "keep arms alongside body. wobble left to right quickly at the end",
+                    "score": 0.6313648819923401
+                },
+                {
+                    "rank": 3,
+                    "text": "limp more quickly",
+                    "score": 0.6067549586296082
+                },
+                {
+                    "rank": 4,
+                    "text": "turn body a little more to the left",
+                    "score": 0.6005477905273438
+                },
+                {
+                    "rank": 5,
+                    "text": "bend more in the back",
+                    "score": 0.5613425374031067
+                }
+            ]
+        }
+    },
+    "002279_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_005596_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_006118_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_005596_0_120-006118_0_120.mp4",
+        "captions": "a person stands with arms out partway to each side, lifts his right leg, swings it forward briefly, then sweeps it in a semicircle behind him before moving it forward and standing again; he then repeats the action.",
+        "captiont": "person is lifting his right knee.",
+        "text1": "move slower",
+        "texts": {
+            "stmc-leonardo": "do it with the opposite leg and face straight",
+            "stmc_wo_ctr2_simclr": "start with the opposite leg in the air",
+            "stmc_wo_ctr2_st": "start earlier kick with the opposite leg",
+            "stmc_woctr2": "do it with the opposite leg and don't rotate"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.5235675573348999,
+                "BLEURT": 0.09396074712276459,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.1111111109876545e-16,
+                "ROBERTA": 0.41957807540893555
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.4789802134037018,
+                "BLEURT": 0.10730119049549103,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.2499999998437502e-16,
+                "ROBERTA": 0.44660189747810364
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.4162530303001404,
+                "BLEURT": 0.10408556461334229,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.428571428367347e-16,
+                "ROBERTA": 0.42504578828811646
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5038455724716187,
+                "BLEURT": 0.13543736934661865,
+                "CIDEr": 0.0,
+                "BLEU@1": 9.999999999e-17,
+                "ROBERTA": 0.43463483452796936
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion",
+                    "score": 0.5828894376754761
+                },
+                {
+                    "rank": 2,
+                    "text": "move circularly the right leg and don't lift the right leg at all",
+                    "score": 0.5602537393569946
+                },
+                {
+                    "rank": 3,
+                    "text": "wait some more before moving the leg sideways",
+                    "score": 0.5551618933677673
+                },
+                {
+                    "rank": 4,
+                    "text": "do this motion only with right knee",
+                    "score": 0.5369082689285278
+                },
+                {
+                    "rank": 5,
+                    "text": "shift more weight to left leg, look up",
+                    "score": 0.5317943692207336
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "get up later starting  with opposite leg",
+                    "score": 0.572080135345459
+                },
+                {
+                    "rank": 2,
+                    "text": "do the second kick with right leg in the same direction and a bit faster",
+                    "score": 0.5406494736671448
+                },
+                {
+                    "rank": 3,
+                    "text": "move slower and kick in front instead of on the side",
+                    "score": 0.5210422873497009
+                },
+                {
+                    "rank": 4,
+                    "text": "kick on the left side",
+                    "score": 0.5016351342201233
+                },
+                {
+                    "rank": 5,
+                    "text": "lift your right leg",
+                    "score": 0.464246928691864
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "kick on the left side",
+                    "score": 0.8700526356697083
+                },
+                {
+                    "rank": 2,
+                    "text": "kick more towards the left",
+                    "score": 0.8172513246536255
+                },
+                {
+                    "rank": 3,
+                    "text": "kick towards the opposite side with the same leg twice",
+                    "score": 0.8132015466690063
+                },
+                {
+                    "rank": 4,
+                    "text": "move slower and kick in front instead of on the side",
+                    "score": 0.8095790147781372
+                },
+                {
+                    "rank": 5,
+                    "text": "do the second kick with right leg in the same direction and a bit faster",
+                    "score": 0.8003407716751099
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion",
+                    "score": 0.5805519819259644
+                },
+                {
+                    "rank": 2,
+                    "text": "move circularly the right leg and don't lift the right leg at all",
+                    "score": 0.5767301321029663
+                },
+                {
+                    "rank": 3,
+                    "text": "switch the position of the legs and do it slower",
+                    "score": 0.5334750413894653
+                },
+                {
+                    "rank": 4,
+                    "text": "keep doing upper body turns instead of tilt in the end",
+                    "score": 0.5269691944122314
+                },
+                {
+                    "rank": 5,
+                    "text": "don't rotate your upper body",
+                    "score": 0.49730029702186584
+                }
+            ]
+        }
+    },
+    "000883_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/source_motion_000426_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/target_motion_004883_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_1/source_target_motions_000426_0_120-004883_0_120.mp4",
+        "captions": "person gets on hands and knees, crawls forward, turns around, crawls back to where it started and stands up.",
+        "captiont": "a person bends down and crawls, turns and then gets up and walks back to where he started.",
+        "text1": "Turn at a 45 degree angle to the right keep head higher.",
+        "texts": {
+            "stmc-leonardo": "don't get up at the end",
+            "stmc_wo_ctr2_simclr": "keep crawling forward instead of turning back",
+            "stmc_wo_ctr2_st": "keep crawling with both hands and get up at the end",
+            "stmc_woctr2": "bend more in the back and touch the knees and elbows to the ground"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.558932900428772,
+                "BLEURT": 0.11028730869293213,
+                "CIDEr": 0.16128631503777438,
+                "BLEU@1": 0.13986904554773838,
+                "ROBERTA": 0.38688337802886963
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.5559275150299072,
+                "BLEURT": 0.20449931919574738,
+                "CIDEr": 0.07051269554861574,
+                "BLEU@1": 0.06993452277386923,
+                "ROBERTA": 0.4696647822856903
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.6037514805793762,
+                "BLEURT": 0.1928015947341919,
+                "CIDEr": 0.23954162685764155,
+                "BLEU@1": 0.24902746803170303,
+                "ROBERTA": 0.4221740663051605
+            },
+            "stmc_woctr2": {
+                "BERT": 0.6638554334640503,
+                "BLEURT": 0.26803866028785706,
+                "CIDEr": 0.08688001156336422,
+                "BLEU@1": 0.14285714284693884,
+                "ROBERTA": 0.5478187799453735
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "don't get up at the end of the motion",
+                    "score": 0.8897706270217896
+                },
+                {
+                    "rank": 2,
+                    "text": "get up later",
+                    "score": 0.880730152130127
+                },
+                {
+                    "rank": 3,
+                    "text": "start from standing up do the motion to your right don't get up at the end",
+                    "score": 0.852423906326294
+                },
+                {
+                    "rank": 4,
+                    "text": "sit down on the knee sooner, get up in the end",
+                    "score": 0.8297172784805298
+                },
+                {
+                    "rank": 5,
+                    "text": "sit more evenly and use both hands to get up",
+                    "score": 0.8198890686035156
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "keep crawling forward instead of turning back",
+                    "score": 0.9999999403953552
+                },
+                {
+                    "rank": 2,
+                    "text": "instead of crawling out in the right direction straight",
+                    "score": 0.7276568412780762
+                },
+                {
+                    "rank": 3,
+                    "text": "don't change the direction of crawling crawl in the same direction and in the end try to get up",
+                    "score": 0.5673112273216248
+                },
+                {
+                    "rank": 4,
+                    "text": "crawl towards right hand side instead of ahead",
+                    "score": 0.5640238523483276
+                },
+                {
+                    "rank": 5,
+                    "text": "get down to the crawling without backstep and turn back around in the end.",
+                    "score": 0.5562811493873596
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "start by crawling get up instead of turning right",
+                    "score": 0.8045789003372192
+                },
+                {
+                    "rank": 2,
+                    "text": "don't change the direction of crawling crawl in the same direction and in the end try to get up",
+                    "score": 0.7453931570053101
+                },
+                {
+                    "rank": 3,
+                    "text": "get up at the end of the motion instead of continuing with crawling",
+                    "score": 0.7388685941696167
+                },
+                {
+                    "rank": 4,
+                    "text": "crawl in the right direction instead of forward",
+                    "score": 0.7000169157981873
+                },
+                {
+                    "rank": 5,
+                    "text": "do breaststroke instead of crawl",
+                    "score": 0.6699219942092896
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "do squats faster",
+                    "score": 0.7200225591659546
+                },
+                {
+                    "rank": 2,
+                    "text": "start squats sooner and do them faster",
+                    "score": 0.6845775842666626
+                },
+                {
+                    "rank": 3,
+                    "text": "squat first",
+                    "score": 0.6348807215690613
+                },
+                {
+                    "rank": 4,
+                    "text": "start the squat earlier",
+                    "score": 0.6191291213035583
+                },
+                {
+                    "rank": 5,
+                    "text": "Begin standing upright and then bend knees",
+                    "score": 0.5383890271186829
+                }
+            ]
+        }
+    },
+    "000081_test": {
+        "motions": "https://download.is.tue.mpg.de/amass/motion-edit/source_motion/006232_0_120.mp4",
+        "motiont": "https://download.is.tue.mpg.de/amass/motion-edit/target_motion/000886_0_120.mp4",
+        "overlap": "https://download.is.tue.mpg.de/amass/motion-edit/source_target_motions/006232_0_120-000886_0_120.mp4",
+        "captions": "a person walks backward and crouches down to crouch walk.",
+        "captiont": "a person sits down in a chair and then gets back up.",
+        "text1": "sit a bit higher taking one less step",
+        "texts": {
+            "stmc-leonardo": "don't squat as low and look forward",
+            "stmc_wo_ctr2_simclr": "sit on the floor without bending",
+            "stmc_wo_ctr2_st": "don't squat as deep and don't look down",
+            "stmc_woctr2": "don't squat as low and don't lean your back"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.5603422522544861,
+                "BLEURT": 0.19170372188091278,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.2499999996875005e-16,
+                "ROBERTA": 0.5876868963241577
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.6142094731330872,
+                "BLEURT": 0.32844752073287964,
+                "CIDEr": 0.2859946917047015,
+                "BLEU@1": 0.1194218850558244,
+                "ROBERTA": 0.6086785793304443
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.5550044178962708,
+                "BLEURT": 0.18853236734867096,
+                "CIDEr": 0.0,
+                "BLEU@1": 9.999999999e-17,
+                "ROBERTA": 0.5985791683197021
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5316568613052368,
+                "BLEURT": 0.20768685638904572,
+                "CIDEr": 0.0,
+                "BLEU@1": 9.090909090082646e-17,
+                "ROBERTA": 0.5832169651985168
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "squat first",
+                    "score": 0.8210645914077759
+                },
+                {
+                    "rank": 2,
+                    "text": "start the squat earlier",
+                    "score": 0.7048711776733398
+                },
+                {
+                    "rank": 3,
+                    "text": "do squats faster",
+                    "score": 0.6616161465644836
+                },
+                {
+                    "rank": 4,
+                    "text": "sit lower",
+                    "score": 0.6615514755249023
+                },
+                {
+                    "rank": 5,
+                    "text": "sit lower",
+                    "score": 0.6615514755249023
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "sit down faster and do not cross legs before standing back up",
+                    "score": 0.7217416763305664
+                },
+                {
+                    "rank": 2,
+                    "text": "sit down in the end",
+                    "score": 0.5918107032775879
+                },
+                {
+                    "rank": 3,
+                    "text": "keep on sitting on the floor instead of getting up",
+                    "score": 0.5539402365684509
+                },
+                {
+                    "rank": 4,
+                    "text": "sit down slower and don't get up",
+                    "score": 0.5465232729911804
+                },
+                {
+                    "rank": 5,
+                    "text": "get into the squat position instead of laying the knees on the floor",
+                    "score": 0.5331421494483948
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "squat first",
+                    "score": 0.8058221936225891
+                },
+                {
+                    "rank": 2,
+                    "text": "begin the already squatting and shift the entire body slightly left",
+                    "score": 0.695285439491272
+                },
+                {
+                    "rank": 3,
+                    "text": "start the squat earlier",
+                    "score": 0.6723669767379761
+                },
+                {
+                    "rank": 4,
+                    "text": "squat lower and tilt core more forward",
+                    "score": 0.6669520139694214
+                },
+                {
+                    "rank": 5,
+                    "text": "don't sit down fully, stand on knees",
+                    "score": 0.6619163155555725
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "squat first",
+                    "score": 0.7495282292366028
+                },
+                {
+                    "rank": 2,
+                    "text": "don't bend arms in elbows",
+                    "score": 0.6761557459831238
+                },
+                {
+                    "rank": 3,
+                    "text": "start the squat earlier",
+                    "score": 0.672966480255127
+                },
+                {
+                    "rank": 4,
+                    "text": "don't crouch",
+                    "score": 0.6726033687591553
+                },
+                {
+                    "rank": 5,
+                    "text": "do squats faster",
+                    "score": 0.626401424407959
+                }
+            ]
+        }
+    },
+    "003737_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/007648_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/008393_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/007648_0_120-008393_0_120.mp4",
+        "captions": "a person sits down on the ground then stands back up",
+        "captiont": "person crosses legs and sits down on the floor, before getting back up.",
+        "text1": "move a bit slower",
+        "texts": {
+            "stmc-leonardo": "don't cross legs and don't look down",
+            "stmc_wo_ctr2_simclr": "cross legs while sitting and don't look down while sitting",
+            "stmc_wo_ctr2_st": "put butt on the spot first",
+            "stmc_woctr2": "don't get up at the end"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.48206648230552673,
+                "BLEURT": 0.16691462695598602,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.1111111109876545e-16,
+                "ROBERTA": 0.41977983713150024
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.44861117005348206,
+                "BLEURT": 0.18919995427131653,
+                "CIDEr": 0.0,
+                "BLEU@1": 9.090909090082646e-17,
+                "ROBERTA": 0.310684472322464
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.556814432144165,
+                "BLEURT": 0.08336308598518372,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.666666666388889e-16,
+                "ROBERTA": 0.3236389458179474
+            },
+            "stmc_woctr2": {
+                "BERT": 0.55543452501297,
+                "BLEURT": 0.15503646433353424,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.428571428367347e-16,
+                "ROBERTA": 0.40217289328575134
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "cross legs with the opposite leg in front",
+                    "score": 0.7777045965194702
+                },
+                {
+                    "rank": 2,
+                    "text": "dont cross the legs instead keep them straight",
+                    "score": 0.7772762775421143
+                },
+                {
+                    "rank": 3,
+                    "text": "cross your legs",
+                    "score": 0.7211166620254517
+                },
+                {
+                    "rank": 4,
+                    "text": "keep the legs straight instead of crossing the left leg on the right one",
+                    "score": 0.6750026941299438
+                },
+                {
+                    "rank": 5,
+                    "text": "do it slower and cross legs with the opposite leg in front",
+                    "score": 0.5886229872703552
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "keep the left leg in front instead of right in the sitting position and get up at the end",
+                    "score": 0.607000470161438
+                },
+                {
+                    "rank": 2,
+                    "text": "cross legs with the opposite leg in front",
+                    "score": 0.5414696335792542
+                },
+                {
+                    "rank": 3,
+                    "text": "don't get up with one leg. sit down a bit",
+                    "score": 0.5122696161270142
+                },
+                {
+                    "rank": 4,
+                    "text": "cross your legs",
+                    "score": 0.5033650994300842
+                },
+                {
+                    "rank": 5,
+                    "text": "start in a sitting position and turn around without throwing the ball",
+                    "score": 0.5003184676170349
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "start with forearms already up, lower head",
+                    "score": 0.6465353965759277
+                },
+                {
+                    "rank": 2,
+                    "text": "keep the hand below the elbow",
+                    "score": 0.6453413367271423
+                },
+                {
+                    "rank": 3,
+                    "text": "keep your hand below your shoulder",
+                    "score": 0.6165496110916138
+                },
+                {
+                    "rank": 4,
+                    "text": "get up a bit slower",
+                    "score": 0.5817673206329346
+                },
+                {
+                    "rank": 5,
+                    "text": "don't raise arm, bow slightly later",
+                    "score": 0.5610863566398621
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "don't get up at the end of the motion",
+                    "score": 0.8897706270217896
+                },
+                {
+                    "rank": 2,
+                    "text": "get up later",
+                    "score": 0.880730152130127
+                },
+                {
+                    "rank": 3,
+                    "text": "start from standing up do the motion to your right don't get up at the end",
+                    "score": 0.852423906326294
+                },
+                {
+                    "rank": 4,
+                    "text": "sit down on the knee sooner, get up in the end",
+                    "score": 0.8297172784805298
+                },
+                {
+                    "rank": 5,
+                    "text": "sit more evenly and use both hands to get up",
+                    "score": 0.8198890686035156
+                }
+            ]
+        }
+    },
+    "000052_test": {
+        "motions": "https://download.is.tue.mpg.de/amass/motion-edit/source_motion/012781_0_120.mp4",
+        "motiont": "https://download.is.tue.mpg.de/amass/motion-edit/target_motion/012962_0_120.mp4",
+        "overlap": "https://download.is.tue.mpg.de/amass/motion-edit/source_target_motions/012781_0_120-012962_0_120.mp4",
+        "captions": "the person walks in a circle counter clock wise.",
+        "captiont": "a person walking in an anti-clockwise circular pattern",
+        "text1": "MAKE A WIDER TURN",
+        "texts": {
+            "stmc-leonardo": "take a wider turn",
+            "stmc_wo_ctr2_simclr": "take a step up",
+            "stmc_wo_ctr2_st": "don't step forward after turning",
+            "stmc_woctr2": "take more steps ahead before turning"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.8230725526809692,
+                "BLEURT": 0.12124816328287125,
+                "CIDEr": 4.92676985783035,
+                "BLEU@1": 0.7499999996250004,
+                "ROBERTA": 0.7037568092346191
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.6507344245910645,
+                "BLEURT": 0.09914319217205048,
+                "CIDEr": 0.2283638052891141,
+                "BLEU@1": 0.24999999987500032,
+                "ROBERTA": 0.32971805334091187
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.518781304359436,
+                "BLEURT": 0.07617391645908356,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.666666666388889e-16,
+                "ROBERTA": 0.4637134075164795
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5294938683509827,
+                "BLEURT": 0.11758436262607574,
+                "CIDEr": 0.0,
+                "BLEU@1": 1.666666666388889e-16,
+                "ROBERTA": 0.4882071316242218
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "MAKE A WIDER TURN",
+                    "score": 0.9316997528076172
+                },
+                {
+                    "rank": 2,
+                    "text": "walk a few steps forward before stepping to the opposite side",
+                    "score": 0.6353011727333069
+                },
+                {
+                    "rank": 3,
+                    "text": "first turn right",
+                    "score": 0.5828184485435486
+                },
+                {
+                    "rank": 4,
+                    "text": "take turn right after moving forward once",
+                    "score": 0.5702917575836182
+                },
+                {
+                    "rank": 5,
+                    "text": "do a long sidestep to the left before you turn",
+                    "score": 0.5685844421386719
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "step up",
+                    "score": 0.8239958882331848
+                },
+                {
+                    "rank": 2,
+                    "text": "don't do the last step to the left",
+                    "score": 0.6755936741828918
+                },
+                {
+                    "rank": 3,
+                    "text": "just take a single step",
+                    "score": 0.6337262392044067
+                },
+                {
+                    "rank": 4,
+                    "text": "delay your movement a little",
+                    "score": 0.6092677712440491
+                },
+                {
+                    "rank": 5,
+                    "text": "do the same step start earlier",
+                    "score": 0.6008738875389099
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "take turn right after moving forward once",
+                    "score": 0.6225224137306213
+                },
+                {
+                    "rank": 2,
+                    "text": "take a sidestep on the opposite direction",
+                    "score": 0.6162071228027344
+                },
+                {
+                    "rank": 3,
+                    "text": "just take a single step",
+                    "score": 0.6031161546707153
+                },
+                {
+                    "rank": 4,
+                    "text": "move a bit slower",
+                    "score": 0.5816324353218079
+                },
+                {
+                    "rank": 5,
+                    "text": "move more slowly",
+                    "score": 0.5767775177955627
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "walk a few steps forward before stepping to the opposite side",
+                    "score": 0.5813882946968079
+                },
+                {
+                    "rank": 2,
+                    "text": "do it in a wider arc",
+                    "score": 0.5148346424102783
+                },
+                {
+                    "rank": 3,
+                    "text": "take shorter steps in the same direction",
+                    "score": 0.5001456141471863
+                },
+                {
+                    "rank": 4,
+                    "text": "MAKE A WIDER TURN",
+                    "score": 0.4909101724624634
+                },
+                {
+                    "rank": 5,
+                    "text": "before through the dart, turn around",
+                    "score": 0.4631119668483734
+                }
+            ]
+        }
+    },
+    "002818_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/009458_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/001395_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/009458_90_180-001395_90_180.mp4",
+        "captions": "this person is hoping around and kicking.",
+        "captiont": "someone tryiing to fight while moving his body",
+        "text1": "kick with the other leg towards the opposite side",
+        "texts": {
+            "stmc-leonardo": "start the motion with your opposite leg in the front and kick twice before turning around",
+            "stmc_wo_ctr2_simclr": "do the same kick but in the opposite direction and with the opposite leg",
+            "stmc_wo_ctr2_st": "kick sooner and with the opposite leg and face forward",
+            "stmc_woctr2": "kick from a left leg lunge"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.6548545956611633,
+                "BLEURT": 0.4920285940170288,
+                "CIDEr": 0.5161439673241479,
+                "BLEU@1": 0.3749999999765626,
+                "ROBERTA": 0.8122754096984863
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.6827728748321533,
+                "BLEURT": 0.4840518832206726,
+                "CIDEr": 0.9579556115260848,
+                "BLEU@1": 0.42857142854081637,
+                "ROBERTA": 0.8665228486061096
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.6945704817771912,
+                "BLEURT": 0.607090175151825,
+                "CIDEr": 1.596857068756372,
+                "BLEU@1": 0.4999999999500001,
+                "ROBERTA": 0.7560317516326904
+            },
+            "stmc_woctr2": {
+                "BERT": 0.670835554599762,
+                "BLEURT": 0.3770049810409546,
+                "CIDEr": 0.719308622973414,
+                "BLEU@1": 0.20217688650348561,
+                "ROBERTA": 0.6298116445541382
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "kick higher and turn towards your right as you are kicking",
+                    "score": 0.7885147333145142
+                },
+                {
+                    "rank": 2,
+                    "text": "kick with the other leg towards the opposite side",
+                    "score": 0.7196580171585083
+                },
+                {
+                    "rank": 3,
+                    "text": "move slower and kick in front instead of on the side",
+                    "score": 0.7158948183059692
+                },
+                {
+                    "rank": 4,
+                    "text": "kick more towards the left",
+                    "score": 0.6359632611274719
+                },
+                {
+                    "rank": 5,
+                    "text": "kick on the left side",
+                    "score": 0.5878660082817078
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "the first kick should happen slightly later and second kick lower",
+                    "score": 0.7650067210197449
+                },
+                {
+                    "rank": 2,
+                    "text": "do the second kick with right leg in the same direction and a bit faster",
+                    "score": 0.7636345624923706
+                },
+                {
+                    "rank": 3,
+                    "text": "kick towards the opposite side with the same leg twice",
+                    "score": 0.7576310038566589
+                },
+                {
+                    "rank": 4,
+                    "text": "move slower and kick in front instead of on the side",
+                    "score": 0.7503852844238281
+                },
+                {
+                    "rank": 5,
+                    "text": "kick higher and turn towards your right as you are kicking",
+                    "score": 0.7442265748977661
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "kick towards the opposite side with the same leg twice",
+                    "score": 0.8733178377151489
+                },
+                {
+                    "rank": 2,
+                    "text": "the first kick should happen slightly later and second kick lower",
+                    "score": 0.7779474258422852
+                },
+                {
+                    "rank": 3,
+                    "text": "kick with the other leg towards the opposite side",
+                    "score": 0.7704543471336365
+                },
+                {
+                    "rank": 4,
+                    "text": "kick higher and turn towards your right as you are kicking",
+                    "score": 0.7513887286186218
+                },
+                {
+                    "rank": 5,
+                    "text": "move slower and kick in front instead of on the side",
+                    "score": 0.7298071384429932
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "kick more towards the left",
+                    "score": 0.8560802340507507
+                },
+                {
+                    "rank": 2,
+                    "text": "kick on the left side",
+                    "score": 0.8491961359977722
+                },
+                {
+                    "rank": 3,
+                    "text": "kick with the left leg in the left direction",
+                    "score": 0.8184806108474731
+                },
+                {
+                    "rank": 4,
+                    "text": "don't turn body and front kick with the opposite leg and keep hands close to chest",
+                    "score": 0.7797122001647949
+                },
+                {
+                    "rank": 5,
+                    "text": "kick with the other leg towards the opposite side",
+                    "score": 0.5835173726081848
+                }
+            ]
+        }
+    },
+    "001468_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_motion_008103_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/target_motion_000769_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/videos_collection_3/source_target_motions_008103_0_120-000769_0_120.mp4",
+        "captions": "a person jumps sideways to the left with both feet.",
+        "captiont": "the person is jumping over to the side.",
+        "text1": "jump to the opposite side",
+        "texts": {
+            "stmc-leonardo": "jump on the right side",
+            "stmc_wo_ctr2_simclr": "take one jump to the left",
+            "stmc_wo_ctr2_st": "do the same but in the opposite side",
+            "stmc_woctr2": "jump in the right side not in the left side"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.7768199443817139,
+                "BLEURT": 0.6240610480308533,
+                "CIDEr": 1.5470768490018023,
+                "BLEU@1": 0.5999999997600003,
+                "ROBERTA": 0.8797586560249329
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.7389858961105347,
+                "BLEURT": 0.3772844672203064,
+                "CIDEr": 2.86908095215207,
+                "BLEU@1": 0.4999999999166668,
+                "ROBERTA": 0.8359249830245972
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.6846749186515808,
+                "BLEURT": 0.395859032869339,
+                "CIDEr": 1.9739841934125337,
+                "BLEU@1": 0.3749999999531251,
+                "ROBERTA": 0.6980690956115723
+            },
+            "stmc_woctr2": {
+                "BERT": 0.6732797622680664,
+                "BLEURT": 0.438201367855072,
+                "CIDEr": 0.6273901622023238,
+                "BLEU@1": 0.2999999999700001,
+                "ROBERTA": 0.7786571979522705
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "jump to the opposite side",
+                    "score": 0.9314611554145813
+                },
+                {
+                    "rank": 2,
+                    "text": "jump without moving to the side",
+                    "score": 0.8740573525428772
+                },
+                {
+                    "rank": 3,
+                    "text": "instead of jumping forward side jump to the right",
+                    "score": 0.8459458947181702
+                },
+                {
+                    "rank": 4,
+                    "text": "just jump front not in the right side",
+                    "score": 0.8378778100013733
+                },
+                {
+                    "rank": 5,
+                    "text": "jump front not in the right",
+                    "score": 0.7748433947563171
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "jump without moving to the side",
+                    "score": 0.869814932346344
+                },
+                {
+                    "rank": 2,
+                    "text": "instead of jumping forward side jump to the right",
+                    "score": 0.8576276898384094
+                },
+                {
+                    "rank": 3,
+                    "text": "jump to the opposite side",
+                    "score": 0.8141109943389893
+                },
+                {
+                    "rank": 4,
+                    "text": "just jump front not in the right side",
+                    "score": 0.7187013626098633
+                },
+                {
+                    "rank": 5,
+                    "text": "jump front not in the right",
+                    "score": 0.6784966588020325
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "take a smaller left step and sit leaning your back more",
+                    "score": 0.6251790523529053
+                },
+                {
+                    "rank": 2,
+                    "text": "the same exact movement but step back to the left instead",
+                    "score": 0.6206449270248413
+                },
+                {
+                    "rank": 3,
+                    "text": "slide in opposite direction",
+                    "score": 0.6155691146850586
+                },
+                {
+                    "rank": 4,
+                    "text": "start sitting down a bit later",
+                    "score": 0.5861464142799377
+                },
+                {
+                    "rank": 5,
+                    "text": "turn faster back ",
+                    "score": 0.5796120166778564
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "instead of jumping forward side jump to the right",
+                    "score": 0.9005847573280334
+                },
+                {
+                    "rank": 2,
+                    "text": "jump without moving to the side",
+                    "score": 0.8968603014945984
+                },
+                {
+                    "rank": 3,
+                    "text": "jump to the opposite side",
+                    "score": 0.8797051906585693
+                },
+                {
+                    "rank": 4,
+                    "text": "just jump front not in the right side",
+                    "score": 0.8415895104408264
+                },
+                {
+                    "rank": 5,
+                    "text": "jump front not in the right",
+                    "score": 0.7809968590736389
+                }
+            ]
+        }
+    },
+    "003829_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/011649_90_180.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/014207_90_180.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/011649_90_180-014207_90_180.mp4",
+        "captions": "a person gets on the ground and crawls on the floor then turns around continues to crawl. then gets back up in standing position.",
+        "captiont": "user slowly bends to ground an crawls on the floor in a circle",
+        "text1": "turn through the opposite side",
+        "texts": {
+            "stmc-leonardo": "keep crawling in the same direction instead of turning back",
+            "stmc_wo_ctr2_simclr": "crawl faster with head higher and bring it closer to the ground",
+            "stmc_wo_ctr2_st": "turn back a bit later and don't get up",
+            "stmc_woctr2": "take a smaller turn and don't get up at the end"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.5618211030960083,
+                "BLEURT": 0.4078357219696045,
+                "CIDEr": 0.014943242139756107,
+                "BLEU@1": 0.09999999999000012,
+                "ROBERTA": 0.43792667984962463
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.5347438454627991,
+                "BLEURT": 0.3123663663864136,
+                "CIDEr": 0.009451980394090682,
+                "BLEU@1": 0.08333333332638898,
+                "ROBERTA": 0.28866156935691833
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.545849084854126,
+                "BLEURT": 0.2543063759803772,
+                "CIDEr": 0.1963771797794234,
+                "BLEU@1": 0.09999999999000012,
+                "ROBERTA": 0.3314692974090576
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5846714377403259,
+                "BLEURT": 0.2555669844150543,
+                "CIDEr": 0.13282187024319705,
+                "BLEU@1": 0.16666666665277785,
+                "ROBERTA": 0.5428835153579712
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "keep crawling forward instead of turning back",
+                    "score": 0.7579857110977173
+                },
+                {
+                    "rank": 2,
+                    "text": "don't change the direction of crawling crawl in the same direction and in the end try to get up",
+                    "score": 0.7101461291313171
+                },
+                {
+                    "rank": 3,
+                    "text": "start by crawling get up instead of turning right",
+                    "score": 0.6866218447685242
+                },
+                {
+                    "rank": 4,
+                    "text": "get down to the crawling without backstep and turn back around in the end.",
+                    "score": 0.6762232780456543
+                },
+                {
+                    "rank": 5,
+                    "text": "crawl in the right direction instead of forward",
+                    "score": 0.6047951579093933
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "start by crawling get up instead of turning right",
+                    "score": 0.7457404732704163
+                },
+                {
+                    "rank": 2,
+                    "text": "get up at the end of the motion instead of continuing with crawling",
+                    "score": 0.7396163940429688
+                },
+                {
+                    "rank": 3,
+                    "text": "don't change the direction of crawling crawl in the same direction and in the end try to get up",
+                    "score": 0.7340930104255676
+                },
+                {
+                    "rank": 4,
+                    "text": "do breaststroke instead of crawl",
+                    "score": 0.7229755520820618
+                },
+                {
+                    "rank": 5,
+                    "text": "crawl in the right direction instead of forward",
+                    "score": 0.7209888100624084
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "start sitting down a bit later",
+                    "score": 0.7039520144462585
+                },
+                {
+                    "rank": 2,
+                    "text": "move slightly right, don't get up in the end",
+                    "score": 0.6952097415924072
+                },
+                {
+                    "rank": 3,
+                    "text": "get up a bit earlier",
+                    "score": 0.6610937118530273
+                },
+                {
+                    "rank": 4,
+                    "text": "don't turn and don't start getting up",
+                    "score": 0.6596190333366394
+                },
+                {
+                    "rank": 5,
+                    "text": "get up a bit later",
+                    "score": 0.6433855295181274
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "dont bend and turn back 180 degrees",
+                    "score": 0.6734632253646851
+                },
+                {
+                    "rank": 2,
+                    "text": "turn around after the first step to the right",
+                    "score": 0.6668726205825806
+                },
+                {
+                    "rank": 3,
+                    "text": "turn 90 degrees more",
+                    "score": 0.6525917053222656
+                },
+                {
+                    "rank": 4,
+                    "text": "Instead of making a full turn, turn to the right about 90 degrees.",
+                    "score": 0.6105908155441284
+                },
+                {
+                    "rank": 5,
+                    "text": "don't turn head so much, look mostly forward",
+                    "score": 0.5712391138076782
+                }
+            ]
+        }
+    },
+    "006474_test": {
+        "motions": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_source_motion/007681_0_120.mp4",
+        "motiont": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_target_motion/000894_0_120.mp4",
+        "overlap": "https://motion-editing.s3.eu-central-1.amazonaws.com/collection_wo_walks_runs/rendered_pairs/007681_0_120-000894_0_120.mp4",
+        "captions": "this person has arms raised then lowers them to his sides.",
+        "captiont": "a man crouches and doesn't move",
+        "text1": "initially hold arms slightly higher",
+        "texts": {
+            "stmc-leonardo": "lower arms sooner",
+            "stmc_wo_ctr2_simclr": "lower arms slightly slower",
+            "stmc_wo_ctr2_st": "lower arms sooner",
+            "stmc_woctr2": "lower arms slightly later"
+        },
+        "metrics": {
+            "stmc-leonardo": {
+                "BERT": 0.5055983662605286,
+                "BLEURT": 0.35488009452819824,
+                "CIDEr": 0.20838308419696344,
+                "BLEU@1": 0.17113903956343826,
+                "ROBERTA": 0.7835705280303955
+            },
+            "stmc_wo_ctr2_simclr": {
+                "BERT": 0.5973073244094849,
+                "BLEURT": 0.37821343541145325,
+                "CIDEr": 1.51577117249265,
+                "BLEU@1": 0.3894003913410025,
+                "ROBERTA": 0.7260231375694275
+            },
+            "stmc_wo_ctr2_st": {
+                "BERT": 0.5055984854698181,
+                "BLEURT": 0.3548799157142639,
+                "CIDEr": 0.20838308419696344,
+                "BLEU@1": 0.17113903956343826,
+                "ROBERTA": 0.7835705280303955
+            },
+            "stmc_woctr2": {
+                "BERT": 0.5912988185882568,
+                "BLEURT": 0.365068256855011,
+                "CIDEr": 1.5247991842420432,
+                "BLEU@1": 0.3894003913410025,
+                "ROBERTA": 0.856936514377594
+            }
+        },
+        "retrieval": {
+            "stmc-leonardo": [
+                {
+                    "rank": 1,
+                    "text": "lower arms sooner",
+                    "score": 1.0000004768371582
+                },
+                {
+                    "rank": 2,
+                    "text": "lower arms sooner",
+                    "score": 1.0000004768371582
+                },
+                {
+                    "rank": 3,
+                    "text": "lower arms later",
+                    "score": 0.7706205248832703
+                },
+                {
+                    "rank": 4,
+                    "text": "lower arms later",
+                    "score": 0.7706205248832703
+                },
+                {
+                    "rank": 5,
+                    "text": "after lifting the hands do a yawning action instead of just keeping them at the top",
+                    "score": 0.5614688396453857
+                }
+            ],
+            "stmc_wo_ctr2_simclr": [
+                {
+                    "rank": 1,
+                    "text": "slightly lower arms",
+                    "score": 0.9501979351043701
+                },
+                {
+                    "rank": 2,
+                    "text": "just delayed a bit",
+                    "score": 0.9004423022270203
+                },
+                {
+                    "rank": 3,
+                    "text": "shift  body forward and do not move arms",
+                    "score": 0.8674376606941223
+                },
+                {
+                    "rank": 4,
+                    "text": "stand still on the spot and slightly move hip to the side",
+                    "score": 0.8558899760246277
+                },
+                {
+                    "rank": 5,
+                    "text": "initially hold arms a bit lower",
+                    "score": 0.8316717147827148
+                }
+            ],
+            "stmc_wo_ctr2_st": [
+                {
+                    "rank": 1,
+                    "text": "lower arms sooner",
+                    "score": 1.0000004768371582
+                },
+                {
+                    "rank": 2,
+                    "text": "lower arms sooner",
+                    "score": 1.0000004768371582
+                },
+                {
+                    "rank": 3,
+                    "text": "lower arms later",
+                    "score": 0.7706205248832703
+                },
+                {
+                    "rank": 4,
+                    "text": "lower arms later",
+                    "score": 0.7706205248832703
+                },
+                {
+                    "rank": 5,
+                    "text": "after lifting the hands do a yawning action instead of just keeping them at the top",
+                    "score": 0.5614688396453857
+                }
+            ],
+            "stmc_woctr2": [
+                {
+                    "rank": 1,
+                    "text": "slightly lower arms",
+                    "score": 0.9570372700691223
+                },
+                {
+                    "rank": 2,
+                    "text": "just delayed a bit",
+                    "score": 0.8625001907348633
+                },
+                {
+                    "rank": 3,
+                    "text": "stand still on the spot and slightly move hip to the side",
+                    "score": 0.8341659903526306
+                },
+                {
+                    "rank": 4,
+                    "text": "initially hold arms a bit lower",
+                    "score": 0.8310650587081909
+                },
+                {
+                    "rank": 5,
+                    "text": "lower arms sooner at the beginning",
+                    "score": 0.8230113983154297
+                }
+            ]
+        }
+    },
+    "DATASET_METRICS": {
+        "_models": [
+            "stmc-leonardo",
+            "stmc_wo_ctr2_simclr",
+            "stmc_wo_ctr2_st",
+            "stmc_woctr2"
+        ],
+        "stmc-leonardo": {
+            "BERT": 0.5890485048294067,
+            "BLEURT": 0.30957383438871267,
+            "CIDEr": 0.3549087285048347,
+            "BLEU@1": 0.2013739802490123,
+            "ROBERTA": 0.5657819108807676,
+            "R@3": 0.045409674234945706,
+            "R@5": 0.060217176702862786,
+            "MedR": 1000
+        },
+        "stmc_wo_ctr2_simclr": {
+            "BERT": 0.5875452756881714,
+            "BLEURT": 0.2981956055110205,
+            "CIDEr": 0.3500552837923866,
+            "BLEU@1": 0.19798213002649598,
+            "ROBERTA": 0.5498320023397761,
+            "R@3": 0.04146100691016782,
+            "R@5": 0.049358341559723594,
+            "MedR": 1000
+        },
+        "stmc_wo_ctr2_st": {
+            "BERT": 0.5909376740455627,
+            "BLEURT": 0.3129698285301605,
+            "CIDEr": 0.3667209214406399,
+            "BLEU@1": 0.20158441280374675,
+            "ROBERTA": 0.5662108246413559,
+            "R@3": 0.045409674234945706,
+            "R@5": 0.0631786771964462,
+            "MedR": 1000
+        },
+        "stmc_woctr2": {
+            "BERT": 0.587757408618927,
+            "BLEURT": 0.304919774034534,
+            "CIDEr": 0.3600731346805797,
+            "BLEU@1": 0.19533495467607834,
+            "ROBERTA": 0.5646774652032485,
+            "R@3": 0.059230009871668314,
+            "R@5": 0.07206317867719644,
+            "MedR": 1000
+        }
+    }
+}
