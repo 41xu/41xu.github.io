@@ -229,9 +229,17 @@
   let MODELS = [];
 
   const SAMPLE_METRICS = ['BERT', 'CIDEr', 'BLEU@1', 'BLEURT', 'ROBERTA'];
-  const TABLE_METRICS  = ['BERT', 'CIDEr', 'BLEU@1', 'BLEURT', 'ROBERTA', 'R@3', 'R@5', 'MedR'];
+  const TABLE_METRICS  = [
+    'BERT', 'CIDEr', 'BLEU@1', 'BLEURT', 'ROBERTA',
+    'TMR_R@3', 'TMR_R@5', 'TMR_MedR',
+    'LLM_R@3', 'LLM_R@5', 'LLM_MedR',
+  ];
+  const TABLE_LABELS = {
+    'TMR_R@3': 'TMR R@3', 'TMR_R@5': 'TMR R@5', 'TMR_MedR': 'TMR MedR',
+    'LLM_R@3': 'LLM R@3', 'LLM_R@5': 'LLM R@5', 'LLM_MedR': 'LLM MedR',
+  };
   // metrics where LOWER is better (for best-highlight logic)
-  const LOWER_BETTER   = new Set(['MedR']);
+  const LOWER_BETTER = new Set(['TMR_MedR', 'LLM_MedR']);
 
   /* ─── Init ─── */
   fetch('data.json')
@@ -283,27 +291,32 @@
       metricsEl.className = 'metrics-row';
       metricsEl.id = `metrics_${model}`;
 
-      // Retrieval toggle
-      const toggle = document.createElement('div');
-      toggle.className = 'retrieval-toggle';
-      toggle.innerHTML = '<span class="toggle-arrow">&#9654;</span> Top-5 Retrieval';
+      // Helper: build a collapsible retrieval block
+      function makeRetrievalBlock(id, label) {
+        const toggle = document.createElement('div');
+        toggle.className = 'retrieval-toggle';
+        toggle.innerHTML = `<span class="toggle-arrow">&#9654;</span> ${label}`;
+        const list = document.createElement('ul');
+        list.className = 'retrieval-list';
+        list.id = id;
+        toggle.addEventListener('click', () => {
+          const open = list.style.display !== 'none';
+          list.style.display = open ? 'none' : 'block';
+          toggle.querySelector('.toggle-arrow').style.transform = open ? '' : 'rotate(90deg)';
+        });
+        return { toggle, list };
+      }
 
-      const retList = document.createElement('ul');
-      retList.className = 'retrieval-list';
-      retList.id = `ret_${model}`;
-
-      toggle.addEventListener('click', () => {
-        const open = retList.style.display !== 'none';
-        retList.style.display = open ? 'none' : 'block';
-        toggle.querySelector('.toggle-arrow').style.transform =
-          open ? '' : 'rotate(90deg)';
-      });
+      const tmr = makeRetrievalBlock(`ret_tmr_${model}`, 'TMR Top-5 Retrieval');
+      const llm = makeRetrievalBlock(`ret_llm_${model}`, 'LLM Top-5 Retrieval');
 
       card.appendChild(nameEl);
       card.appendChild(genEl);
       card.appendChild(metricsEl);
-      card.appendChild(toggle);
-      card.appendChild(retList);
+      card.appendChild(tmr.toggle);
+      card.appendChild(tmr.list);
+      card.appendChild(llm.toggle);
+      card.appendChild(llm.list);
       panel.appendChild(card);
     });
   }
@@ -386,37 +399,35 @@
         });
       }
 
-      // Retrieval list
-      const retEl = document.getElementById(`ret_${model}`);
-      if (retEl) {
-        retEl.innerHTML = '';
-        const top5 = d.retrieval?.[model] || [];
-        if (top5.length === 0) {
-          retEl.innerHTML = '<li style="color:#bbb;padding:6px 0;">No retrieval data</li>';
-        } else {
-          top5.forEach(item => {
-            const li = document.createElement('li');
-            li.className = 'retrieval-item';
-
-            const rank = document.createElement('span');
-            rank.className = 'r-rank';
-            rank.textContent = item.rank + '.';
-
-            const text = document.createElement('span');
-            text.className = 'r-text';
-            text.textContent = item.text;
-
-            const score = document.createElement('span');
-            score.className = 'r-score';
-            score.textContent = Number(item.score).toFixed(4);
-
-            li.appendChild(rank);
-            li.appendChild(text);
-            li.appendChild(score);
-            retEl.appendChild(li);
-          });
+      // Helper: fill a retrieval list element
+      function fillRetList(elId, top5) {
+        const el = document.getElementById(elId);
+        if (!el) return;
+        el.innerHTML = '';
+        if (!top5 || top5.length === 0) {
+          el.innerHTML = '<li style="color:#bbb;padding:6px 0;">No retrieval data</li>';
+          return;
         }
+        top5.forEach(item => {
+          const li = document.createElement('li');
+          li.className = 'retrieval-item';
+          const rank = document.createElement('span');
+          rank.className = 'r-rank';
+          rank.textContent = item.rank + '.';
+          const text = document.createElement('span');
+          text.className = 'r-text';
+          text.textContent = item.text;
+          const score = document.createElement('span');
+          score.className = 'r-score';
+          score.textContent = Number(item.score).toFixed(4);
+          li.appendChild(rank); li.appendChild(text); li.appendChild(score);
+          el.appendChild(li);
+        });
       }
+
+      const ret = d.retrieval?.[model] || {};
+      fillRetList(`ret_tmr_${model}`, ret.tmr);
+      fillRetList(`ret_llm_${model}`, ret.llm);
     });
   }
 
@@ -466,15 +477,14 @@
 
     // Body
     const tbody = document.createElement('tbody');
-    TABLE_METRICS.forEach((mk, idx) => {
-      // Visual separator before retrieval metrics
-      const needsSep = mk === 'R@3';
+    TABLE_METRICS.forEach(mk => {
+      const needsSep = mk === 'TMR_R@3' || mk === 'LLM_R@3';
 
       const row = document.createElement('tr');
       if (needsSep) row.className = 'section-sep';
 
       const labelCell = document.createElement('td');
-      labelCell.textContent = mk;
+      labelCell.textContent = TABLE_LABELS[mk] || mk;
       row.appendChild(labelCell);
 
       MODELS.forEach(m => {
@@ -485,13 +495,11 @@
           td.textContent = '—';
         } else {
           const numVal = Number(v);
-          if (mk === 'MedR') {
+          if (mk === 'TMR_MedR' || mk === 'LLM_MedR') {
             td.textContent = Number.isInteger(numVal) ? numVal.toString() : numVal.toFixed(1);
           } else {
-            // R@3, R@5, and other metrics all shown as ×100
             td.textContent = (numVal * 100).toFixed(2);
           }
-
           if (best[mk] !== undefined && Math.abs(numVal - best[mk]) < 1e-9) {
             td.classList.add('best-cell');
           }
@@ -509,7 +517,7 @@
 
     const note = document.createElement('div');
     note.className = 'unit-note';
-    note.textContent = 'Values ×100 except MedR (raw rank; lower is better). Best per row highlighted.';
+    note.textContent = 'Values ×100 except TMR/LLM MedR (raw rank; lower is better). Best per row highlighted.';
     section.appendChild(note);
   }
 </script>

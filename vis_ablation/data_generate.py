@@ -2,9 +2,10 @@
 Generates data.json for HTML visualization.
 
 Folder layout expected:
-  predict/{model}.json              -> list of {id, generated, ...}
-  metric/{model}-metrics-new.json   -> {average_metrics, per_sample_metrics}
-  retrieval/{model}-*.json          -> list of {id, gt, predicted, top3, top5}
+  predict/{model}.json                    -> list of {id, generated, ...}
+  metric/{model}-metrics-new.json         -> {average_metrics, per_sample_metrics}
+  retrieval/{model}-top*_retrievals.json  -> TMR retrieval (id, gt, predicted, top3, top5)
+  retrieval/{model}-llm-top*.json         -> LLM retrieval (same structure)
 
 Base files (root dir):
   amt_motionfix_latest.json   -> {id: {motion_a, motion_b, motion_overlaid, annotation}}
@@ -18,12 +19,14 @@ Output data.json structure:
       text1  (ground truth),
       texts: { "{model}": generated_text, ... },
       metrics: { "{model}": { BERT, CIDEr, BLEU@1, BLEURT, ROBERTA } },
-      retrieval: { "{model}": [ {rank, text, score}, ... ] }
+      retrieval: { "{model}": { "tmr": [...top5...], "llm": [...top5...] } }
     },
     ...
     "DATASET_METRICS": {
       "_models": [model, ...],
-      "{model}": { BERT, CIDEr, BLEU@1, BLEURT, ROBERTA, R@3, R@5, MedR }
+      "{model}": { BERT, CIDEr, BLEU@1, BLEURT, ROBERTA,
+                   TMR_R@3, TMR_R@5, TMR_MedR,
+                   LLM_R@3, LLM_R@5, LLM_MedR }
     }
   }
 
@@ -87,44 +90,44 @@ def load_metrics(model):
     return data.get("average_metrics", {}), data.get("per_sample_metrics", {})
 
 
-def load_retrieval(model):
-    """Load retrieval/{model}-*.json -> dict mapping id -> full retrieval item."""
-    matches = sorted(glob.glob(os.path.join(RETRIEVAL_DIR, f"{model}-*.json")))
-    if not matches:
-        print(f"Warning: no retrieval file found for model {model}")
-        return {}
-    data = load_json(matches[0])
-    if not isinstance(data, list):
-        return {}
-    return {item["id"]: item for item in data if "id" in item}
+def load_retrieval(model, kind="tmr"):
+    """Load retrieval file for a model.
 
+    kind='tmr' -> {model}-top*_retrievals.json (excludes llm files)
+    kind='llm' -> {model}-llm-top*.json
 
-def compute_retrieval_metrics(retrieval_by_id):
-    """Compute R@3, R@5, MedR from retrieval data (exact GT string match)."""
-    ranks = []
-    for item in retrieval_by_id.values():
-        gt = item.get("gt", "").strip().lower()
-        top5 = item.get("top5", [])
-        rank = None
-        for entry in top5:
-            if entry.get("text", "").strip().lower() == gt:
-                rank = entry["rank"]
-                break
-        ranks.append(rank if rank is not None else 1000)
-
-    if not ranks:
-        return {}
-
-    total = len(ranks)
-    r3 = sum(1 for r in ranks if r <= 3) / total
-    r5 = sum(1 for r in ranks if r <= 5) / total
-    sorted_r = sorted(ranks)
-    if total % 2 == 1:
-        medr = sorted_r[total // 2]
+    Returns (metrics_dict, retrieval_by_id) where:
+      metrics_dict: pre-computed {R@3, R@5, MedR} from metrics.normal.pred_text2gt_text
+      retrieval_by_id: dict mapping id -> item (with top5 list)
+    """
+    all_matches = sorted(glob.glob(os.path.join(RETRIEVAL_DIR, f"{model}-*.json")))
+    if kind == "tmr":
+        matches = [p for p in all_matches if "llm" not in os.path.basename(p)]
     else:
-        medr = (sorted_r[total // 2 - 1] + sorted_r[total // 2]) / 2
+        matches = [p for p in all_matches if "llm" in os.path.basename(p)]
 
-    return {"R@3": r3, "R@5": r5, "MedR": medr}
+    if not matches:
+        print(f"Warning: no {kind} retrieval file found for model {model}")
+        return {}, {}
+
+    data = load_json(matches[0])
+    if not isinstance(data, dict):
+        print(f"Warning: unexpected format in {matches[0]}")
+        return {}, {}
+
+    # Pre-computed metrics (pred_text -> gt_text direction)
+    raw_m = data.get("metrics", {}).get("normal", {}).get("pred_text2gt_text", {})
+    metrics_dict = {
+        "R@3":  raw_m.get("R03", 0) / 100,   # convert from % to fraction
+        "R@5":  raw_m.get("R05", 0) / 100,
+        "MedR": raw_m.get("MedR", 1000),
+    }
+
+    retrievals = data.get("retrievals", [])
+    if not isinstance(retrievals, list):
+        return metrics_dict, {}
+
+    return metrics_dict, {item["id"]: item for item in retrievals if "id" in item}
 
 
 def main():
@@ -153,7 +156,11 @@ def main():
     metric_avg, metric_per_sample = {}, {}
     for m in models:
         metric_avg[m], metric_per_sample[m] = load_metrics(m)
-    retrieval_data = {m: load_retrieval(m) for m in models}
+    retrieval_tmr_metrics, retrieval_tmr = {}, {}
+    retrieval_llm_metrics, retrieval_llm = {}, {}
+    for m in models:
+        retrieval_tmr_metrics[m], retrieval_tmr[m] = load_retrieval(m, kind="tmr")
+        retrieval_llm_metrics[m], retrieval_llm[m] = load_retrieval(m, kind="llm")
 
     # Determine test IDs
     test_ids = splits.get("test", [])
@@ -193,9 +200,13 @@ def main():
                 for m in models
             },
             "retrieval": {
-                m: retrieval_data[m].get(mid, {}).get("top5", [])
+                m: {
+                    "tmr": retrieval_tmr[m].get(mid, {}).get("top5", []),
+                    "llm": retrieval_llm[m].get(mid, {}).get("top5", []),
+                }
                 for m in models
             },
+
         }
 
         final_output[f"{mid}_test"] = entry
@@ -204,7 +215,14 @@ def main():
     dataset_metrics = {"_models": models}
     for m in models:
         dm = filter_metrics(metric_avg[m])
-        dm.update(compute_retrieval_metrics(retrieval_data[m]))
+        tmr_ret = retrieval_tmr_metrics[m]
+        dm["TMR_R@3"]  = tmr_ret.get("R@3",  0)
+        dm["TMR_R@5"]  = tmr_ret.get("R@5",  0)
+        dm["TMR_MedR"] = tmr_ret.get("MedR", 1000)
+        llm_ret = retrieval_llm_metrics[m]
+        dm["LLM_R@3"]  = llm_ret.get("R@3",  0)
+        dm["LLM_R@5"]  = llm_ret.get("R@5",  0)
+        dm["LLM_MedR"] = llm_ret.get("MedR", 1000)
         dataset_metrics[m] = dm
 
     final_output["DATASET_METRICS"] = dataset_metrics
