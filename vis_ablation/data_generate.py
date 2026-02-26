@@ -90,6 +90,19 @@ def load_metrics(model):
     return data.get("average_metrics", {}), data.get("per_sample_metrics", {})
 
 
+def load_gt_ranks(model):
+    """Load retrieval/{model}-gt-ranks.json -> dict mapping id -> {gt_rank, gt_score}.
+    Returns empty dict if file not found (not all models have this file)."""
+    path = os.path.join(RETRIEVAL_DIR, f"{model}-gt-ranks.json")
+    data = load_json(path)
+    if not isinstance(data, list):
+        return {}
+    return {
+        item["id"]: {"gt_rank": item.get("gt_rank"), "gt_score": item.get("gt_score")}
+        for item in data if "id" in item
+    }
+
+
 def load_retrieval(model, kind="tmr"):
     """Load retrieval file for a model.
 
@@ -102,7 +115,9 @@ def load_retrieval(model, kind="tmr"):
     """
     all_matches = sorted(glob.glob(os.path.join(RETRIEVAL_DIR, f"{model}-*.json")))
     if kind == "tmr":
-        matches = [p for p in all_matches if "llm" not in os.path.basename(p)]
+        matches = [p for p in all_matches
+                   if "llm" not in os.path.basename(p)
+                   and "gt-ranks" not in os.path.basename(p)]
     else:
         matches = [p for p in all_matches if "llm" in os.path.basename(p)]
 
@@ -158,9 +173,11 @@ def main():
         metric_avg[m], metric_per_sample[m] = load_metrics(m)
     retrieval_tmr_metrics, retrieval_tmr = {}, {}
     retrieval_llm_metrics, retrieval_llm = {}, {}
+    gt_ranks = {}
     for m in models:
         retrieval_tmr_metrics[m], retrieval_tmr[m] = load_retrieval(m, kind="tmr")
         retrieval_llm_metrics[m], retrieval_llm[m] = load_retrieval(m, kind="llm")
+        gt_ranks[m] = load_gt_ranks(m)
 
     # Determine test IDs
     test_ids = splits.get("test", [])
@@ -203,6 +220,7 @@ def main():
                 m: {
                     "tmr": retrieval_tmr[m].get(mid, {}).get("top5", []),
                     "llm": retrieval_llm[m].get(mid, {}).get("top5", []),
+                    **gt_ranks[m].get(mid, {}),  # gt_rank, gt_score if available
                 }
                 for m in models
             },
