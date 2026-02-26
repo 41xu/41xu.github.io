@@ -44,12 +44,18 @@ METRIC_DIR = "metric"
 RETRIEVAL_DIR = "retrieval"
 METRIC_SUFFIX = "-metrics-new.json"
 
+# Only include these models (in display order). Set to None to auto-discover all.
+TARGET_MODELS = ["stmc_wo_ctr2_simclr", "stmc_newst", "stmc-leonardo"]
+
 # Map raw metric keys to display names used in data.json
 METRIC_KEYS_MAP = {
     "BERTScore_F1": "BERT",
     "BLEURT": "BLEURT",
     "CIDEr": "CIDEr",
     "Bleu_1": "BLEU@1",
+    "Bleu_4": "BLEU@4",
+    "METEOR": "METEOR",
+    "ROUGE_L": "ROUGE-L",
     "CosSim": "ROBERTA",
 }
 
@@ -66,7 +72,9 @@ def filter_metrics(m_dict):
 
 
 def discover_models():
-    """Return sorted list of model names found in predict/."""
+    """Return list of model names: TARGET_MODELS if set, else all found in predict/."""
+    if TARGET_MODELS is not None:
+        return list(TARGET_MODELS)
     paths = sorted(glob.glob(os.path.join(PREDICT_DIR, "*.json")))
     return [os.path.splitext(os.path.basename(p))[0] for p in paths]
 
@@ -103,6 +111,19 @@ def load_gt_ranks(model):
     }
 
 
+def load_gt_llm_ranks(model):
+    """Load retrieval/{model}-gt-llm-ranks.json -> dict mapping id -> {gt_llm_rank, gt_llm_score}.
+    Returns empty dict if file not found."""
+    path = os.path.join(RETRIEVAL_DIR, f"{model}-gt-llm-ranks.json")
+    data = load_json(path)
+    if not isinstance(data, list):
+        return {}
+    return {
+        item["id"]: {"gt_llm_rank": item.get("gt_rank"), "gt_llm_score": item.get("gt_score")}
+        for item in data if "id" in item
+    }
+
+
 def load_retrieval(model, kind="tmr"):
     """Load retrieval file for a model.
 
@@ -119,7 +140,9 @@ def load_retrieval(model, kind="tmr"):
                    if "llm" not in os.path.basename(p)
                    and "gt-ranks" not in os.path.basename(p)]
     else:
-        matches = [p for p in all_matches if "llm" in os.path.basename(p)]
+        matches = [p for p in all_matches
+                   if "llm" in os.path.basename(p)
+                   and "gt-llm-ranks" not in os.path.basename(p)]
 
     if not matches:
         print(f"Warning: no {kind} retrieval file found for model {model}")
@@ -130,8 +153,8 @@ def load_retrieval(model, kind="tmr"):
         print(f"Warning: unexpected format in {matches[0]}")
         return {}, {}
 
-    # Pre-computed metrics (pred_text -> gt_text direction)
-    raw_m = data.get("metrics", {}).get("normal", {}).get("pred_text2gt_text", {})
+    # Pre-computed metrics (pred_text -> gt_text direction, batches_32 protocol)
+    raw_m = data.get("metrics", {}).get("batches_32", {}).get("pred_text2gt_text", {})
     metrics_dict = {
         "R@3":  raw_m.get("R03", 0) / 100,   # convert from % to fraction
         "R@5":  raw_m.get("R05", 0) / 100,
@@ -174,10 +197,12 @@ def main():
     retrieval_tmr_metrics, retrieval_tmr = {}, {}
     retrieval_llm_metrics, retrieval_llm = {}, {}
     gt_ranks = {}
+    gt_llm_ranks = {}
     for m in models:
         retrieval_tmr_metrics[m], retrieval_tmr[m] = load_retrieval(m, kind="tmr")
         retrieval_llm_metrics[m], retrieval_llm[m] = load_retrieval(m, kind="llm")
         gt_ranks[m] = load_gt_ranks(m)
+        gt_llm_ranks[m] = load_gt_llm_ranks(m)
 
     # Determine test IDs
     test_ids = splits.get("test", [])
@@ -220,7 +245,8 @@ def main():
                 m: {
                     "tmr": retrieval_tmr[m].get(mid, {}).get("top5", []),
                     "llm": retrieval_llm[m].get(mid, {}).get("top5", []),
-                    **gt_ranks[m].get(mid, {}),  # gt_rank, gt_score if available
+                    **gt_ranks[m].get(mid, {}),      # gt_rank, gt_score if available
+                    **gt_llm_ranks[m].get(mid, {}),  # gt_llm_rank, gt_llm_score if available
                 }
                 for m in models
             },

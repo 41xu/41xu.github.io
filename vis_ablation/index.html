@@ -251,9 +251,9 @@
   let DATASET_METRICS = {};
   let MODELS = [];
 
-  const SAMPLE_METRICS = ['BERT', 'CIDEr', 'BLEU@1', 'BLEURT', 'ROBERTA'];
+  const SAMPLE_METRICS = ['BERT', 'CIDEr', 'BLEU@1', 'BLEU@4', 'METEOR', 'ROUGE-L', 'BLEURT', 'ROBERTA'];
   const TABLE_METRICS  = [
-    'BERT', 'CIDEr', 'BLEU@1', 'BLEURT', 'ROBERTA',
+    'BERT', 'CIDEr', 'BLEU@1', 'BLEU@4', 'METEOR', 'ROUGE-L', 'BLEURT', 'ROBERTA',
     'TMR_R@3', 'TMR_R@5', 'TMR_MedR',
     'LLM_R@3', 'LLM_R@5', 'LLM_MedR',
   ];
@@ -339,6 +339,12 @@
       gtBar.id = `gt_rank_${model}`;
       gtBar.style.display = 'none';
 
+      // GT LLM rank bar (shown below LLM list, hidden when no data)
+      const gtLlmBar = document.createElement('div');
+      gtLlmBar.className = 'gt-rank-bar';
+      gtLlmBar.id = `gt_llm_rank_${model}`;
+      gtLlmBar.style.display = 'none';
+
       card.appendChild(nameEl);
       card.appendChild(genEl);
       card.appendChild(metricsEl);
@@ -347,6 +353,7 @@
       card.appendChild(gtBar);
       card.appendChild(llm.toggle);
       card.appendChild(llm.list);
+      card.appendChild(gtLlmBar);
       panel.appendChild(card);
     });
   }
@@ -459,7 +466,7 @@
       fillRetList(`ret_tmr_${model}`, ret.tmr);
       fillRetList(`ret_llm_${model}`, ret.llm);
 
-      // GT rank bar
+      // GT rank bar (TMR)
       const gtBarEl = document.getElementById(`gt_rank_${model}`);
       if (gtBarEl) {
         if (ret.gt_rank !== undefined && ret.gt_rank !== null) {
@@ -473,6 +480,23 @@
             </span>`;
         } else {
           gtBarEl.style.display = 'none';
+        }
+      }
+
+      // GT LLM rank bar
+      const gtLlmBarEl = document.getElementById(`gt_llm_rank_${model}`);
+      if (gtLlmBarEl) {
+        if (ret.gt_llm_rank !== undefined && ret.gt_llm_rank !== null) {
+          gtLlmBarEl.style.display = 'flex';
+          gtLlmBarEl.innerHTML = `
+            <span style="color:#6676aa;font-weight:bold;">GT position in LLM retrieval:</span>
+            <span class="gt-rank-badge">
+              <span class="gr-label">Rank</span>
+              <span class="gr-val">#${ret.gt_llm_rank}</span>
+              <span class="gr-score">(score: ${Number(ret.gt_llm_score).toFixed(4)})</span>
+            </span>`;
+        } else {
+          gtLlmBarEl.style.display = 'none';
         }
       }
     });
@@ -564,7 +588,7 @@
 
     const note = document.createElement('div');
     note.className = 'unit-note';
-    note.textContent = 'Values ×100 except TMR/LLM MedR (raw rank; lower is better). Best per row highlighted.';
+    note.textContent = 'NLP metrics ×100 except TMR/LLM MedR (raw rank; lower is better). Best per row highlighted.';
     section.appendChild(note);
   }
 </script>
