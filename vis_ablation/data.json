@@ -97,7 +97,9 @@
                         "text": "instead wave with raised forearms",
                         "score": 0.8121731281280518
                     }
-                ]
+                ],
+                "gt_rank": 650,
+                "gt_score": 0.0406
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -153,7 +155,9 @@
                         "text": "do it slowly and don't move the lower arm",
                         "score": 0.8546911478042603
                     }
-                ]
+                ],
+                "gt_rank": 734,
+                "gt_score": -0.0279
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -209,7 +213,9 @@
                         "text": "extend the left arm more",
                         "score": 0.8648525476455688
                     }
-                ]
+                ],
+                "gt_rank": 469,
+                "gt_score": 0.0591
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -265,7 +271,9 @@
                         "text": "just move the left hand in a rotating fashion on a horizontal plane",
                         "score": 0.8488153219223022
                     }
-                ]
+                ],
+                "gt_rank": 665,
+                "gt_score": -0.0057
             }
         }
     },
@@ -367,7 +375,9 @@
                         "text": "move circularly the right leg and don't lift the right leg at all",
                         "score": 0.7329643368721008
                     }
-                ]
+                ],
+                "gt_rank": 145,
+                "gt_score": 0.3037
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -423,7 +433,9 @@
                         "text": "dont lift right leg backwards and just stay on the same position",
                         "score": 0.7524996995925903
                     }
-                ]
+                ],
+                "gt_rank": 3,
+                "gt_score": 0.6374
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -479,7 +491,9 @@
                         "text": "don't get up right knee at the level of left knees hands on the knees",
                         "score": 0.7203317880630493
                     }
-                ]
+                ],
+                "gt_rank": 1,
+                "gt_score": 0.82
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -535,7 +549,9 @@
                         "text": "turn around after the first step to the right",
                         "score": 0.7260351181030273
                     }
-                ]
+                ],
+                "gt_rank": 789,
+                "gt_score": -0.0552
             }
         }
     },
@@ -637,7 +653,9 @@
                         "text": "keeping hands fixed tilt head left then right then return to center and rotate neck anticlockwise",
                         "score": 0.8115261793136597
                     }
-                ]
+                ],
+                "gt_rank": 11,
+                "gt_score": 0.4009
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -693,7 +711,9 @@
                         "text": "dont move the right hand and just move the left hand once at the start",
                         "score": 0.6404179334640503
                     }
-                ]
+                ],
+                "gt_rank": 76,
+                "gt_score": 0.3213
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -749,7 +769,9 @@
                         "text": "keep looking straight ahead. jitter the hand more on both sides of the face",
                         "score": 0.8062475919723511
                     }
-                ]
+                ],
+                "gt_rank": 90,
+                "gt_score": 0.3585
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -805,7 +827,9 @@
                         "text": "don't tilt head just sway body from right to left",
                         "score": 0.7819921970367432
                     }
-                ]
+                ],
+                "gt_rank": 77,
+                "gt_score": 0.5465
             }
         }
     },
@@ -907,7 +931,9 @@
                         "text": "don't tilt the head sideways instead look down and then look towards the left side",
                         "score": 0.7992883324623108
                     }
-                ]
+                ],
+                "gt_rank": 1,
+                "gt_score": 0.6884
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -963,7 +989,9 @@
                         "text": "don't tilt the head sideways instead look down and then look towards the left side",
                         "score": 0.7518354654312134
                     }
-                ]
+                ],
+                "gt_rank": 15,
+                "gt_score": 0.5294
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -1019,7 +1047,9 @@
                         "text": "do a back head tilt instead of side head turn",
                         "score": 0.781220555305481
                     }
-                ]
+                ],
+                "gt_rank": 1,
+                "gt_score": 0.6815
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -1075,7 +1105,9 @@
                         "text": "start by tilting head to the right and then rotate neck anticlockwise once",
                         "score": 0.8196790218353271
                     }
-                ]
+                ],
+                "gt_rank": 95,
+                "gt_score": 0.4552
             }
         }
     },
@@ -1177,7 +1209,9 @@
                         "text": "turn around after the first step to the right",
                         "score": 0.7683309316635132
                     }
-                ]
+                ],
+                "gt_rank": 9,
+                "gt_score": 0.5025
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -1233,7 +1267,9 @@
                         "text": "walk two steps ahead before doing the sidestep",
                         "score": 0.7713989019393921
                     }
-                ]
+                ],
+                "gt_rank": 525,
+                "gt_score": 0.0209
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -1289,7 +1325,9 @@
                         "text": "turn to the left slightly later",
                         "score": 0.7622926235198975
                     }
-                ]
+                ],
+                "gt_rank": 26,
+                "gt_score": 0.3199
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -1345,7 +1383,9 @@
                         "text": "walk a few steps forward before stepping to the opposite side",
                         "score": 0.7791329622268677
                     }
-                ]
+                ],
+                "gt_rank": 16,
+                "gt_score": 0.5864
             }
         }
     },
@@ -1447,7 +1487,9 @@
                         "text": "walk a few steps forward before stepping to the opposite side",
                         "score": 0.7791329622268677
                     }
-                ]
+                ],
+                "gt_rank": 105,
+                "gt_score": 0.2879
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -1503,7 +1545,9 @@
                         "text": "turn your head instead of your arms",
                         "score": 0.7743368148803711
                     }
-                ]
+                ],
+                "gt_rank": 13,
+                "gt_score": 0.3853
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -1559,7 +1603,9 @@
                         "text": "turn your head instead of your arms",
                         "score": 0.7743747234344482
                     }
-                ]
+                ],
+                "gt_rank": 13,
+                "gt_score": 0.3853
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -1615,7 +1661,9 @@
                         "text": "straighten arms sooner when up",
                         "score": 0.8227337598800659
                     }
-                ]
+                ],
+                "gt_rank": 873,
+                "gt_score": -0.0773
             }
         }
     },
@@ -1717,7 +1765,9 @@
                         "text": "keep arms down instead of raising them",
                         "score": 0.7911622524261475
                     }
-                ]
+                ],
+                "gt_rank": 74,
+                "gt_score": 0.1317
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -1773,7 +1823,9 @@
                         "text": "take a sidestep on the opposite direction",
                         "score": 0.7217938303947449
                     }
-                ]
+                ],
+                "gt_rank": 15,
+                "gt_score": 0.5138
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -1829,7 +1881,9 @@
                         "text": "keep your legs still and rotate your arms instead of extending them on top of your head.",
                         "score": 0.7733328342437744
                     }
-                ]
+                ],
+                "gt_rank": 286,
+                "gt_score": 0.1328
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -1885,7 +1939,9 @@
                         "text": "move arms back and forth and side to side more",
                         "score": 0.7887928485870361
                     }
-                ]
+                ],
+                "gt_rank": 270,
+                "gt_score": 0.0673
             }
         }
     },
@@ -1987,7 +2043,9 @@
                         "text": "keep hands crossed at waist height and just make clapping motion",
                         "score": 0.8358985185623169
                     }
-                ]
+                ],
+                "gt_rank": 158,
+                "gt_score": 0.2001
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -2043,7 +2101,9 @@
                         "text": "move hands away from each other twice with right hand higher",
                         "score": 0.7504819631576538
                     }
-                ]
+                ],
+                "gt_rank": 728,
+                "gt_score": -0.0805
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -2099,7 +2159,9 @@
                         "text": "strech arms back and then clap in the front",
                         "score": 0.8496584892272949
                     }
-                ]
+                ],
+                "gt_rank": 322,
+                "gt_score": 0.1154
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -2155,7 +2217,9 @@
                         "text": "bring arms down a bit later",
                         "score": 0.6571835875511169
                     }
-                ]
+                ],
+                "gt_rank": 730,
+                "gt_score": 0.0209
             }
         }
     },
@@ -2257,7 +2321,9 @@
                         "text": "keep the left hand inside the right arm all the time instead of moving it from outside to inside",
                         "score": 0.7489516735076904
                     }
-                ]
+                ],
+                "gt_rank": 126,
+                "gt_score": 0.1772
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -2313,7 +2379,9 @@
                         "text": "take a step to the left instead of backwards",
                         "score": 0.7218540906906128
                     }
-                ]
+                ],
+                "gt_rank": 403,
+                "gt_score": 0.0564
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -2369,7 +2437,9 @@
                         "text": "leave left arm down raise right arm more",
                         "score": 0.8418227434158325
                     }
-                ]
+                ],
+                "gt_rank": 105,
+                "gt_score": 0.1633
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -2425,7 +2495,9 @@
                         "text": "move the opposite arm",
                         "score": 0.7873911261558533
                     }
-                ]
+                ],
+                "gt_rank": 865,
+                "gt_score": -0.0631
             }
         }
     },
@@ -2527,7 +2599,9 @@
                         "text": "don't get up with one leg. sit down a bit",
                         "score": 0.7422671318054199
                     }
-                ]
+                ],
+                "gt_rank": 6,
+                "gt_score": 0.7043
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -2583,7 +2657,9 @@
                         "text": "dont lift right leg backwards and just stay on the same position",
                         "score": 0.786379873752594
                     }
-                ]
+                ],
+                "gt_rank": 1,
+                "gt_score": 0.9618
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -2639,7 +2715,9 @@
                         "text": "do it with the other leg  and place left hand forward when standing",
                         "score": 0.7833150625228882
                     }
-                ]
+                ],
+                "gt_rank": 6,
+                "gt_score": 0.7104
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -2695,7 +2773,9 @@
                         "text": "put legs closer, stretch right leg out in the end",
                         "score": 0.7882537245750427
                     }
-                ]
+                ],
+                "gt_rank": 1,
+                "gt_score": 0.6936
             }
         }
     },
@@ -2797,7 +2877,9 @@
                         "text": "turn faster",
                         "score": 0.6692086458206177
                     }
-                ]
+                ],
+                "gt_rank": 689,
+                "gt_score": -0.0038
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -2853,7 +2935,9 @@
                         "text": "bend over more, lower hand a bit more, do the motion in one spot",
                         "score": 0.7927025556564331
                     }
-                ]
+                ],
+                "gt_rank": 185,
+                "gt_score": 0.1907
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -2909,7 +2993,9 @@
                         "text": "don't turn left. do a step to the right at the end",
                         "score": 0.811597466468811
                     }
-                ]
+                ],
+                "gt_rank": 503,
+                "gt_score": 0.032
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -2965,7 +3051,9 @@
                         "text": "start with right arm extended. keep hands slightly lower during the \"no\" movement",
                         "score": 0.6890910863876343
                     }
-                ]
+                ],
+                "gt_rank": 467,
+                "gt_score": 0.0418
             }
         }
     },
@@ -3067,7 +3155,9 @@
                         "text": "after the first two steps turn 45 degrees to the left",
                         "score": 0.6975220441818237
                     }
-                ]
+                ],
+                "gt_rank": 226,
+                "gt_score": 0.0959
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -3123,7 +3213,9 @@
                         "text": "bend more in the back",
                         "score": 0.7642397284507751
                     }
-                ]
+                ],
+                "gt_rank": 205,
+                "gt_score": 0.2788
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -3179,7 +3271,9 @@
                         "text": "stay a bit longer in the sitting position and keep the hands on the knees while sitting down",
                         "score": 0.7541189789772034
                     }
-                ]
+                ],
+                "gt_rank": 9,
+                "gt_score": 0.5442
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -3235,7 +3329,9 @@
                         "text": "do a similar limping motion on the opposite direction and move much faster",
                         "score": 0.5766236186027527
                     }
-                ]
+                ],
+                "gt_rank": 539,
+                "gt_score": 0.0342
             }
         }
     },
@@ -3337,7 +3433,9 @@
                         "text": "keep the left hand inside the right arm all the time instead of moving it from outside to inside",
                         "score": 0.7511352300643921
                     }
-                ]
+                ],
+                "gt_rank": 358,
+                "gt_score": 0.1487
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -3393,7 +3491,9 @@
                         "text": "raise arms to the sides instead of towards the center",
                         "score": 0.7321833968162537
                     }
-                ]
+                ],
+                "gt_rank": 132,
+                "gt_score": 0.178
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -3449,7 +3549,9 @@
                         "text": "start with arms up and then lower them",
                         "score": 0.8454330563545227
                     }
-                ]
+                ],
+                "gt_rank": 249,
+                "gt_score": 0.1616
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -3505,7 +3607,9 @@
                         "text": "keep the right elbow a bit lower and move the right hand slowly up and down",
                         "score": 0.7399622797966003
                     }
-                ]
+                ],
+                "gt_rank": 808,
+                "gt_score": -0.0239
             }
         }
     },
@@ -3607,7 +3711,9 @@
                         "text": "stand up a bit faster",
                         "score": 0.7306020259857178
                     }
-                ]
+                ],
+                "gt_rank": 628,
+                "gt_score": -0.0
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -3663,7 +3769,9 @@
                         "text": "get up in the end",
                         "score": 0.6550279855728149
                     }
-                ]
+                ],
+                "gt_rank": 894,
+                "gt_score": -0.1174
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -3719,7 +3827,9 @@
                         "text": "turn around after the first step to the right",
                         "score": 0.7722054123878479
                     }
-                ]
+                ],
+                "gt_rank": 756,
+                "gt_score": -0.0118
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -3775,7 +3885,9 @@
                         "text": "crawl towards right hand side instead of ahead",
                         "score": 0.6782543659210205
                     }
-                ]
+                ],
+                "gt_rank": 22,
+                "gt_score": 0.2673
             }
         }
     },
@@ -3877,7 +3989,9 @@
                         "text": "crawl towards right hand side instead of ahead",
                         "score": 0.6782543659210205
                     }
-                ]
+                ],
+                "gt_rank": 630,
+                "gt_score": -0.0581
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -3933,7 +4047,9 @@
                         "text": "keep your arms behind you and keep looking down almost until the end",
                         "score": 0.6898229718208313
                     }
-                ]
+                ],
+                "gt_rank": 258,
+                "gt_score": 0.0658
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -3989,7 +4105,9 @@
                         "text": "crawl towards right hand side instead of ahead",
                         "score": 0.6781096458435059
                     }
-                ]
+                ],
+                "gt_rank": 630,
+                "gt_score": -0.0581
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -4045,7 +4163,9 @@
                         "text": "don't lose balance, stay planted. tilt head lower looking down",
                         "score": 0.7214822173118591
                     }
-                ]
+                ],
+                "gt_rank": 255,
+                "gt_score": 0.2016
             }
         }
     },
@@ -4147,7 +4267,9 @@
                         "text": "don't shift weight on feet or lean to right",
                         "score": 0.6583729386329651
                     }
-                ]
+                ],
+                "gt_rank": 848,
+                "gt_score": -0.0977
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -4203,7 +4325,9 @@
                         "text": "keep your hand below your shoulder",
                         "score": 0.7116149067878723
                     }
-                ]
+                ],
+                "gt_rank": 42,
+                "gt_score": 0.319
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -4259,7 +4383,9 @@
                         "text": "step to the right sooner",
                         "score": 0.6528456211090088
                     }
-                ]
+                ],
+                "gt_rank": 89,
+                "gt_score": 0.1659
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -4315,7 +4441,9 @@
                         "text": "sit straight, don't cross legs",
                         "score": 0.7181041240692139
                     }
-                ]
+                ],
+                "gt_rank": 571,
+                "gt_score": -0.0148
             }
         }
     },
@@ -4417,7 +4545,9 @@
                         "text": "sit in a chair, not on the floor",
                         "score": 0.716281533241272
                     }
-                ]
+                ],
+                "gt_rank": 779,
+                "gt_score": -0.0323
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -4473,7 +4603,9 @@
                         "text": "use the opposite leg",
                         "score": 0.8059378266334534
                     }
-                ]
+                ],
+                "gt_rank": 35,
+                "gt_score": 0.3769
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -4529,7 +4661,9 @@
                         "text": "kick with the other leg towards the opposite side",
                         "score": 0.7762925624847412
                     }
-                ]
+                ],
+                "gt_rank": 28,
+                "gt_score": 0.3721
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -4585,7 +4719,9 @@
                         "text": "keep the left leg in front instead of right in the sitting position and get up at the end",
                         "score": 0.7720243334770203
                     }
-                ]
+                ],
+                "gt_rank": 351,
+                "gt_score": 0.1849
             }
         }
     },
@@ -4687,7 +4823,9 @@
                         "text": "dont just squat but jump forward as well",
                         "score": 0.7605070471763611
                     }
-                ]
+                ],
+                "gt_rank": 391,
+                "gt_score": 0.0658
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -4743,7 +4881,9 @@
                         "text": "get up later starting  with opposite leg",
                         "score": 0.695557713508606
                     }
-                ]
+                ],
+                "gt_rank": 290,
+                "gt_score": 0.224
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -4799,7 +4939,9 @@
                         "text": "move circularly the right leg and don't lift the right leg at all",
                         "score": 0.8287252187728882
                     }
-                ]
+                ],
+                "gt_rank": 388,
+                "gt_score": 0.1438
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -4855,7 +4997,9 @@
                         "text": "make your motions deeper and a little faster . at the end bend to the other side",
                         "score": 0.7631949782371521
                     }
-                ]
+                ],
+                "gt_rank": 369,
+                "gt_score": 0.1656
             }
         }
     },
@@ -4957,7 +5101,9 @@
                         "text": "put legs closer, stretch right leg out in the end",
                         "score": 0.8170943260192871
                     }
-                ]
+                ],
+                "gt_rank": 206,
+                "gt_score": 0.2203
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -5013,7 +5159,9 @@
                         "text": "begin the motion by getting up from the squat",
                         "score": 0.7846056222915649
                     }
-                ]
+                ],
+                "gt_rank": 130,
+                "gt_score": 0.2049
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -5069,7 +5217,9 @@
                         "text": "move slower and kick in front instead of on the side",
                         "score": 0.7673211097717285
                     }
-                ]
+                ],
+                "gt_rank": 299,
+                "gt_score": 0.0524
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -5125,7 +5275,9 @@
                         "text": "move circularly the right leg and don't lift the right leg at all",
                         "score": 0.8276739716529846
                     }
-                ]
+                ],
+                "gt_rank": 512,
+                "gt_score": 0.0482
             }
         }
     },
@@ -5227,7 +5379,9 @@
                         "text": "get up in the end",
                         "score": 0.6550279855728149
                     }
-                ]
+                ],
+                "gt_rank": 823,
+                "gt_score": -0.0715
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -5283,7 +5437,9 @@
                         "text": "crawl towards right hand side instead of ahead",
                         "score": 0.6782543659210205
                     }
-                ]
+                ],
+                "gt_rank": 178,
+                "gt_score": 0.0954
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -5339,7 +5495,9 @@
                         "text": "crawl to the opposite side",
                         "score": 0.7332900762557983
                     }
-                ]
+                ],
+                "gt_rank": 162,
+                "gt_score": 0.1063
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -5395,7 +5553,9 @@
                         "text": "stand on the other leg on the floor. don't raise your arms too high",
                         "score": 0.8064723014831543
                     }
-                ]
+                ],
+                "gt_rank": 945,
+                "gt_score": -0.1458
             }
         }
     },
@@ -5497,7 +5657,9 @@
                         "text": "shift more weight to left leg, look up",
                         "score": 0.7525471448898315
                     }
-                ]
+                ],
+                "gt_rank": 395,
+                "gt_score": 0.079
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -5553,7 +5715,9 @@
                         "text": "sit slightly upright and raise once the right leg while sitting",
                         "score": 0.6948700547218323
                     }
-                ]
+                ],
+                "gt_rank": 560,
+                "gt_score": 0.0222
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -5609,7 +5773,9 @@
                         "text": "shift more weight to left leg, look up",
                         "score": 0.7234227657318115
                     }
-                ]
+                ],
+                "gt_rank": 304,
+                "gt_score": 0.1023
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -5665,7 +5831,9 @@
                         "text": "don't just squat instead try to sit down and get up a bit faster",
                         "score": 0.7840967774391174
                     }
-                ]
+                ],
+                "gt_rank": 312,
+                "gt_score": 0.1269
             }
         }
     },
@@ -5767,7 +5935,9 @@
                         "text": "don't sit down fully, stand on knees",
                         "score": 0.6919053196907043
                     }
-                ]
+                ],
+                "gt_rank": 217,
+                "gt_score": 0.1906
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -5823,7 +5993,9 @@
                         "text": "straighten up and rest hands on thighs. don't get up",
                         "score": 0.7764787077903748
                     }
-                ]
+                ],
+                "gt_rank": 510,
+                "gt_score": 0.0274
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -5879,7 +6051,9 @@
                         "text": "first sit on the left knee, then get down on both",
                         "score": 0.4901953935623169
                     }
-                ]
+                ],
+                "gt_rank": 354,
+                "gt_score": 0.18
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -5935,7 +6109,9 @@
                         "text": "get up in the end",
                         "score": 0.6550279855728149
                     }
-                ]
+                ],
+                "gt_rank": 370,
+                "gt_score": 0.1033
             }
         }
     },
@@ -6037,7 +6213,9 @@
                         "text": "start turning left sooner",
                         "score": 0.7111294269561768
                     }
-                ]
+                ],
+                "gt_rank": 1,
+                "gt_score": 0.9317
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -6093,7 +6271,9 @@
                         "text": "take one more step backwards",
                         "score": 0.6273400187492371
                     }
-                ]
+                ],
+                "gt_rank": 509,
+                "gt_score": 0.0766
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -6149,7 +6329,9 @@
                         "text": "take a sidestep on the opposite direction",
                         "score": 0.6615980863571167
                     }
-                ]
+                ],
+                "gt_rank": 10,
+                "gt_score": 0.5157
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -6205,7 +6387,9 @@
                         "text": "turn faster",
                         "score": 0.7720019221305847
                     }
-                ]
+                ],
+                "gt_rank": 4,
+                "gt_score": 0.4909
             }
         }
     },
@@ -6307,7 +6491,9 @@
                         "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion",
                         "score": 0.8223592638969421
                     }
-                ]
+                ],
+                "gt_rank": 2,
+                "gt_score": 0.7197
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -6363,7 +6549,9 @@
                         "text": "kick higher and turn towards your right as you are kicking",
                         "score": 0.839320957660675
                     }
-                ]
+                ],
+                "gt_rank": 6,
+                "gt_score": 0.6642
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -6419,7 +6607,9 @@
                         "text": "kick with the other leg towards the opposite side",
                         "score": 0.7560282945632935
                     }
-                ]
+                ],
+                "gt_rank": 3,
+                "gt_score": 0.7705
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -6475,7 +6665,9 @@
                         "text": "do the second kick with right leg in the same direction and a bit faster",
                         "score": 0.5875754356384277
                     }
-                ]
+                ],
+                "gt_rank": 5,
+                "gt_score": 0.5835
             }
         }
     },
@@ -6577,7 +6769,9 @@
                         "text": "dont just look towards left direction jump and get into that position",
                         "score": 0.773635983467102
                     }
-                ]
+                ],
+                "gt_rank": 1,
+                "gt_score": 0.9315
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -6633,7 +6827,9 @@
                         "text": "take a jump at the end",
                         "score": 0.7312002182006836
                     }
-                ]
+                ],
+                "gt_rank": 3,
+                "gt_score": 0.8141
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -6689,7 +6885,9 @@
                         "text": "jump to the opposite side",
                         "score": 0.6981173753738403
                     }
-                ]
+                ],
+                "gt_rank": 836,
+                "gt_score": -0.0616
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -6745,7 +6943,9 @@
                         "text": "jump without moving to the side",
                         "score": 0.7713070511817932
                     }
-                ]
+                ],
+                "gt_rank": 3,
+                "gt_score": 0.8797
             }
         }
     },
@@ -6847,7 +7047,9 @@
                         "text": "get up at the end of the motion instead of continuing with crawling",
                         "score": 0.7531548738479614
                     }
-                ]
+                ],
+                "gt_rank": 54,
+                "gt_score": 0.1986
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -6903,7 +7105,9 @@
                         "text": "start with the right knee first while crawling instead of left",
                         "score": 0.684363603591919
                     }
-                ]
+                ],
+                "gt_rank": 288,
+                "gt_score": 0.0468
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -6959,7 +7163,9 @@
                         "text": "stand up a little earlier",
                         "score": 0.6144775748252869
                     }
-                ]
+                ],
+                "gt_rank": 258,
+                "gt_score": 0.233
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -7015,7 +7221,9 @@
                         "text": "make an early move to turn to the right",
                         "score": 0.7326396703720093
                     }
-                ]
+                ],
+                "gt_rank": 360,
+                "gt_score": 0.1463
             }
         }
     },
@@ -7117,7 +7325,9 @@
                         "text": "change arms positions sooner",
                         "score": 0.8613377809524536
                     }
-                ]
+                ],
+                "gt_rank": 22,
+                "gt_score": 0.4909
             },
             "stmc_wo_ctr2_simclr": {
                 "tmr": [
@@ -7173,7 +7383,9 @@
                         "text": "lower arms sooner, raise them again slightly later",
                         "score": 0.7287532687187195
                     }
-                ]
+                ],
+                "gt_rank": 100,
+                "gt_score": 0.4679
             },
             "stmc_wo_ctr2_st": {
                 "tmr": [
@@ -7229,7 +7441,9 @@
                         "text": "change arms positions sooner",
                         "score": 0.8612126708030701
                     }
-                ]
+                ],
+                "gt_rank": 22,
+                "gt_score": 0.4909
             },
             "stmc_woctr2": {
                 "tmr": [
@@ -7285,7 +7499,9 @@
                         "text": "initially hold arms slightly higher",
                         "score": 0.8566114902496338
                     }
-                ]
+                ],
+                "gt_rank": 81,
+                "gt_score": 0.4969
             }
         }
     },

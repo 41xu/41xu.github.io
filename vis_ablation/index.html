@@ -138,6 +138,29 @@
   .r-text { color: #333; flex: 1; line-height: 1.4; }
   .r-score { font-family: monospace; color: #888; flex-shrink: 0; font-size: 0.92em; }
 
+  /* ── GT Rank badge ── */
+  .gt-rank-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0 8px;
+    font-size: 0.87em;
+    color: #555;
+  }
+  .gt-rank-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #eef3ff;
+    border: 1px solid #c3d4f7;
+    border-radius: 5px;
+    padding: 2px 9px;
+    font-size: 1em;
+  }
+  .gt-rank-badge .gr-label { color: #6676aa; font-weight: bold; }
+  .gt-rank-badge .gr-val   { font-family: monospace; color: #1a1a6e; font-weight: bold; }
+  .gt-rank-badge .gr-score { color: #888; margin-left: 4px; }
+
   /* ── Dataset metrics table ── */
   #datasetSection {
     margin-top: 30px;
@@ -310,11 +333,18 @@
       const tmr = makeRetrievalBlock(`ret_tmr_${model}`, 'TMR Top-5 Retrieval');
       const llm = makeRetrievalBlock(`ret_llm_${model}`, 'LLM Top-5 Retrieval');
 
+      // GT rank bar (shown below TMR list, hidden when no data)
+      const gtBar = document.createElement('div');
+      gtBar.className = 'gt-rank-bar';
+      gtBar.id = `gt_rank_${model}`;
+      gtBar.style.display = 'none';
+
       card.appendChild(nameEl);
       card.appendChild(genEl);
       card.appendChild(metricsEl);
       card.appendChild(tmr.toggle);
       card.appendChild(tmr.list);
+      card.appendChild(gtBar);
       card.appendChild(llm.toggle);
       card.appendChild(llm.list);
       panel.appendChild(card);
@@ -428,6 +458,23 @@
       const ret = d.retrieval?.[model] || {};
       fillRetList(`ret_tmr_${model}`, ret.tmr);
       fillRetList(`ret_llm_${model}`, ret.llm);
+
+      // GT rank bar
+      const gtBarEl = document.getElementById(`gt_rank_${model}`);
+      if (gtBarEl) {
+        if (ret.gt_rank !== undefined && ret.gt_rank !== null) {
+          gtBarEl.style.display = 'flex';
+          gtBarEl.innerHTML = `
+            <span style="color:#6676aa;font-weight:bold;">GT position in TMR retrieval:</span>
+            <span class="gt-rank-badge">
+              <span class="gr-label">Rank</span>
+              <span class="gr-val">#${ret.gt_rank}</span>
+              <span class="gr-score">(score: ${Number(ret.gt_score).toFixed(4)})</span>
+            </span>`;
+        } else {
+          gtBarEl.style.display = 'none';
+        }
+      }
     });
   }
 
