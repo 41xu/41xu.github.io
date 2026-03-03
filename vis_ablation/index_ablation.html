@@ -265,7 +265,7 @@
   const LOWER_BETTER = new Set(['TMR_MedR', 'LLM_MedR']);
 
   /* ─── Init ─── */
-  fetch('data_new.json')
+  fetch('data.json')
     .then(r => r.json())
     .then(json => {
       DATASET_METRICS = json['DATASET_METRICS'] || {};
