@@ -1,0 +1,387 @@
+[
+    {
+        "predicted_bp": [
+            "left arm",
+            "right arm"
+        ],
+        "predicted_bp_probs": [
+            0.9998383522033691,
+            0.9999932050704956,
+            6.060299710952677e-06,
+            2.3992145088413963e-06,
+            0.04442514479160309
+        ],
+        "id": "002930",
+        "generated": "don't move head and keep arms still"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            8.862348295224365e-06,
+            1.4283202290243935e-05,
+            0.9999755620956421,
+            0.9999734163284302,
+            0.9998704195022583
+        ],
+        "id": "002649",
+        "generated": "take one step backwards and then one to your right"
+    },
+    {
+        "predicted_bp": [
+            "left arm",
+            "right arm",
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            0.8401235342025757,
+            0.8927859663963318,
+            0.9999815225601196,
+            0.9999291896820068,
+            0.9990622401237488
+        ],
+        "id": "002072",
+        "generated": "take a wide left turn"
+    },
+    {
+        "predicted_bp": [
+            "left arm",
+            "right arm"
+        ],
+        "predicted_bp_probs": [
+            0.9997128844261169,
+            0.999997615814209,
+            1.207766581501346e-05,
+            1.1479687600512989e-05,
+            0.0006720088422298431
+        ],
+        "id": "004538",
+        "generated": "keep left hand lower and right hand higher"
+    },
+    {
+        "predicted_bp": [
+            "right leg"
+        ],
+        "predicted_bp_probs": [
+            4.764219556818716e-05,
+            0.00027620475157164037,
+            0.17047762870788574,
+            0.9924065470695496,
+            0.0111260786652565
+        ],
+        "id": "001431",
+        "generated": "lift your right leg higher"
+    },
+    {
+        "predicted_bp": [
+            "left arm"
+        ],
+        "predicted_bp_probs": [
+            0.9996044039726257,
+            0.010011225938796997,
+            0.0030988468788564205,
+            0.00010877672320930287,
+            0.17718064785003662
+        ],
+        "id": "001434",
+        "generated": "move the left hand faster and raise it higher"
+    },
+    {
+        "predicted_bp": [
+            "left arm"
+        ],
+        "predicted_bp_probs": [
+            0.9999721050262451,
+            0.0017393287271261215,
+            0.0019140135264024138,
+            0.0002525088784750551,
+            0.0359254889190197
+        ],
+        "id": "005324",
+        "generated": "raise the left hand higher and wave it horizontally"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            1.519059242127696e-05,
+            2.337918704142794e-05,
+            0.9999747276306152,
+            0.9998546838760376,
+            0.9999885559082031
+        ],
+        "id": "003201",
+        "generated": "extend the legs a bit more and keep the body facing center"
+    },
+    {
+        "predicted_bp": [
+            "left arm",
+            "right arm"
+        ],
+        "predicted_bp_probs": [
+            0.9988701939582825,
+            0.9999101161956787,
+            7.768339128233492e-05,
+            6.520321767311543e-05,
+            0.0004961740341968834
+        ],
+        "id": "002680",
+        "generated": "wave slower and wider"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            9.58428718149662e-05,
+            2.0758093342010397e-06,
+            0.9996432065963745,
+            0.8174707889556885,
+            0.999922513961792
+        ],
+        "id": "004954",
+        "generated": "don't bow, step left instead of forward"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            0.007918955758213997,
+            0.11610298603773117,
+            0.9902950525283813,
+            0.9924072623252869,
+            0.940116286277771
+        ],
+        "id": "000336",
+        "generated": "kick with the opposite leg"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            2.0891329768346623e-05,
+            1.0821760042745154e-05,
+            0.9999959468841553,
+            0.999962568283081,
+            0.9997888207435608
+        ],
+        "id": "001259",
+        "generated": "do the squat a little lower"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            1.2606104064616375e-05,
+            1.3406223843048792e-05,
+            0.9999951124191284,
+            0.9999115467071533,
+            0.9999529123306274
+        ],
+        "id": "004922",
+        "generated": "don't bend down so much and don't step back"
+    },
+    {
+        "predicted_bp": [
+            "left arm",
+            "right arm"
+        ],
+        "predicted_bp_probs": [
+            0.9995993971824646,
+            0.9999918937683105,
+            1.317429996561259e-05,
+            4.145669208810432e-06,
+            0.00031927632517181337
+        ],
+        "id": "005797",
+        "generated": "keep the hands on the lap and dont move them"
+    },
+    {
+        "predicted_bp": [
+            "left arm",
+            "right arm"
+        ],
+        "predicted_bp_probs": [
+            0.999936580657959,
+            0.9999951124191284,
+            1.7197786291944794e-05,
+            1.7081729311030358e-06,
+            0.004004670772701502
+        ],
+        "id": "004166",
+        "generated": "keep both hands together"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg"
+        ],
+        "predicted_bp_probs": [
+            5.5392760259564966e-05,
+            0.00016652252816129476,
+            0.9999929666519165,
+            0.9999581575393677,
+            0.006515442859381437
+        ],
+        "id": "002652",
+        "generated": "don't move your feet"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg"
+        ],
+        "predicted_bp_probs": [
+            3.5746335925068706e-05,
+            0.00015514100959990174,
+            0.9999324083328247,
+            0.9999673366546631,
+            0.014935499057173729
+        ],
+        "id": "003834",
+        "generated": "put the left leg forward instead of the right one"
+    },
+    {
+        "predicted_bp": [
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            0.00038575733196921647,
+            7.512746378779411e-05,
+            0.00030537659768015146,
+            4.0436050767311826e-05,
+            0.9999986886978149
+        ],
+        "id": "005074",
+        "generated": "bow forward slightly later"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            4.593048652168363e-05,
+            4.931935109198093e-06,
+            0.9999885559082031,
+            0.9999692440032959,
+            0.9997453093528748
+        ],
+        "id": "001966",
+        "generated": "take a sidestep to the left"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            4.568807707983069e-05,
+            4.974684998160228e-06,
+            0.9999620914459229,
+            0.9999434947967529,
+            0.9998936653137207
+        ],
+        "id": "001976",
+        "generated": "side shift to the left"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            6.861398287583143e-05,
+            6.808299076510593e-05,
+            0.9999537467956543,
+            0.9999406337738037,
+            0.9999433755874634
+        ],
+        "id": "002632",
+        "generated": "don't shift weight on the spot"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg"
+        ],
+        "predicted_bp_probs": [
+            0.009349585510790348,
+            0.015995286405086517,
+            0.9999948740005493,
+            0.9999970197677612,
+            0.30559003353118896
+        ],
+        "id": "001964",
+        "generated": "walk 3 steps ahead and 2 backwards"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            4.735511993203545e-06,
+            3.117133246632875e-06,
+            0.9999607801437378,
+            0.9999604225158691,
+            0.9999947547912598
+        ],
+        "id": "004920",
+        "generated": "don't spread your legs as much. make a wide circular motion with your upper body as if you're looking around"
+    },
+    {
+        "predicted_bp": [
+            "left leg",
+            "right leg",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            0.00039797037607058883,
+            0.0005126931355334818,
+            0.9999810457229614,
+            0.9999599456787109,
+            0.9999951124191284
+        ],
+        "id": "000052",
+        "generated": "make a wider turn"
+    },
+    {
+        "predicted_bp": [
+            "right arm",
+            "torso"
+        ],
+        "predicted_bp_probs": [
+            0.00015648170665372163,
+            0.91935795545578,
+            0.00011319357145112008,
+            0.0003458127030171454,
+            0.9999853372573853
+        ],
+        "id": "000376",
+        "generated": "reach down further right"
+    }
+]

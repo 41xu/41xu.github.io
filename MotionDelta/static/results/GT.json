@@ -1,0 +1,177 @@
+[
+    {
+        "id": "002930",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/002930_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/002930_t.npy",
+        "gt": "don't just move head from left to right rotate it clockwise and keep hands on the side",
+        "body_parts": "right arm, left arm"
+    },
+    {
+        "id": "002649",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/002649_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/002649_t.npy",
+        "gt": "turn around after the first step to the right",
+        "body_parts": "torso, left leg, right leg"
+    },
+    {
+        "id": "002072",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/002072_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/002072_t.npy",
+        "gt": "turn on a more open arc",
+        "body_parts": "left leg, right arm, torso, right leg, left arm"
+    },
+    {
+        "id": "004538",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/004538_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/004538_t.npy",
+        "gt": "not clapping just right hand to face",
+        "body_parts": "right arm, left arm"
+    },
+    {
+        "id": "001431",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/001431_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/001431_t.npy",
+        "gt": "lift your right leg",
+        "body_parts": "right leg"
+    },
+    {
+        "id": "001434",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/001434_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/001434_t.npy",
+        "gt": "do it little faster",
+        "body_parts": "left arm"
+    },
+    {
+        "id": "005324",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/005324_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/005324_t.npy",
+        "gt": "just move the left hand in a rotating fashion on a horizontal plane",
+        "body_parts": "left arm"
+    },
+    {
+        "id": "003201",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/003201_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/003201_t.npy",
+        "gt": "stretch more the right and left legs instead keep them crisscrosses and lay sidewards at the start",
+        "body_parts": "torso, left leg, right leg"
+    },
+    {
+        "id": "002680",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/002680_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/002680_t.npy",
+        "gt": "delay wave slightly and move arm much slower",
+        "body_parts": "right arm, left arm"
+    },
+    {
+        "id": "004954",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/004954_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/004954_t.npy",
+        "gt": "don't bow and step left",
+        "body_parts": "torso, left leg"
+    },
+    {
+        "id": "000336",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/000336_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/000336_t.npy",
+        "gt": "Flip sides, i.e. start with your right arm and left leg, facing opposite",
+        "body_parts": "left leg, right arm, torso, right leg, left arm"
+    },
+    {
+        "id": "001259",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/001259_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/001259_t.npy",
+        "gt": "less deep",
+        "body_parts": "torso, left leg, right leg"
+    },
+    {
+        "id": "004922",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/004922_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/004922_t.npy",
+        "gt": "dont bend and turn back 180 degrees",
+        "body_parts": "torso, left leg, right leg"
+    },
+    {
+        "id": "005797",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/005797_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/005797_t.npy",
+        "gt": "dont clap with both the hands instead keep the hands on the lap",
+        "body_parts": "right arm, left arm"
+    },
+    {
+        "id": "004166",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/004166_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/004166_t.npy",
+        "gt": "keep your hands together during the whole motion",
+        "body_parts": "right arm, left arm"
+    },
+    {
+        "id": "002652",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/002652_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/002652_t.npy",
+        "gt": "don't walk",
+        "body_parts": "left leg, right leg"
+    },
+    {
+        "id": "003834",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/003834_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/003834_t.npy",
+        "gt": "cross legs with the opposite leg in front",
+        "body_parts": "left leg, right leg"
+    },
+    {
+        "id": "005074",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/005074_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/005074_t.npy",
+        "gt": "bow slightly later",
+        "body_parts": "torso"
+    },
+    {
+        "id": "001966",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/001966_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/001966_t.npy",
+        "gt": "wait a little more and do the sidestep to the opposite side",
+        "body_parts": "torso, left leg, right leg"
+    },
+    {
+        "id": "001976",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/001976_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/001976_t.npy",
+        "gt": "take a sidestep on the opposite direction",
+        "body_parts": "torso, left leg, right leg"
+    },
+    {
+        "id": "002632",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/002632_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/002632_t.npy",
+        "gt": "don't shift weight on feet or lean to right",
+        "body_parts": "torso, left leg, right leg"
+    },
+    {
+        "id": "001964",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/001964_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/001964_t.npy",
+        "gt": "walk two small steps ahead and one backwards",
+        "body_parts": "left leg, right leg"
+    },
+    {
+        "id": "004920",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/004920_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/004920_t.npy",
+        "gt": "spread legs less, look around and rapidly look behind you at the end",
+        "body_parts": "torso, left leg, right leg"
+    },
+    {
+        "id": "000052",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/000052_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/000052_t.npy",
+        "gt": "MAKE A WIDER TURN",
+        "body_parts": "torso, left leg, right leg"
+    },
+    {
+        "id": "000376",
+        "motion_s": "/home/sxu/datasets/motionfix/joints/000376_s.npy",
+        "motion_t": "/home/sxu/datasets/motionfix/joints/000376_t.npy",
+        "gt": "reach more to the right with the same hand",
+        "body_parts": "torso, right arm"
+    }
+]

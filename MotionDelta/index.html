@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="referrer" content="no-referrer">
+  <title>3D Human Motion Differencing</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml, <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22> <text y=%22.9em%22 font-size=%2290%22>👯‍♂️</text></svg>">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <style>
+    .caption-block {
+      margin-top: 10px;
+      padding: 10px 14px;
+      background: #fafafa;
+      border-radius: 8px;
+      border: 1px solid #e4e4e4;
+      font-size: 0.86em;
+    }
+    .caption-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+    .caption-row:last-of-type { margin-bottom: 0; }
+    .model-label {
+      font-weight: bold;
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 140px;
+    }
+    .label-llama       { color: #000000; }
+    .label-qwen        { color: #000000; }
+    .label-internvl    { color: #000000; }
+    .label-demo        { color: #000000; }
+    .label-motiondelta { color: #ff8801; }
+    .label-gt          { color: #16a34a; }
+    .caption-text { margin: 0; color: #333; flex: 1; }
+
+    /* Retrieval section */
+    .retrieval-section {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #ddd;
+    }
+    .retrieval-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      font-size: 0.87em;
+      font-weight: bold;
+      color: #555;
+      user-select: none;
+      padding: 3px 0;
+    }
+    .retrieval-toggle:hover { color: #111; }
+    .toggle-arrow {
+      font-size: 0.75em;
+      transition: transform 0.15s;
+      display: inline-block;
+    }
+    .retrieval-list {
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+      display: none;
+    }
+    .retrieval-item {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 5px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.9em;
+    }
+    .retrieval-item:last-child { border-bottom: none; }
+    .r-rank { font-weight: bold; color: #aaa; min-width: 18px; flex-shrink: 0; }
+    .r-text { color: #333; flex: 1; line-height: 1.4; }
+    .r-score { font-family: monospace; color: #888; flex-shrink: 0; font-size: 0.92em; }
+
+    .gt-rank-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 0.87em;
+      color: #555;
+    }
+    .gt-rank-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #eef3ff;
+      border: 1px solid #c3d4f7;
+      border-radius: 5px;
+      padding: 2px 9px;
+      font-size: 1em;
+    }
+    .gr-label { color: #6676aa; font-weight: bold; }
+    .gr-val   { font-family: monospace; color: #1a1a6e; font-weight: bold; }
+    .gr-score { color: #888; margin-left: 4px; }
+
+    /* Fix carousel arrow positioning - align with video area */
+    .slider-navigation-previous,
+    .slider-navigation-next {
+      top: 120px !important;
+      margin-top: 0 !important;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">3D Human Motion Differencing</h1>
+            <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://xusy2333.com/">Shiyao Xu</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://benedettaliberatori.github.io/">Benedetta Liberatori</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://atnikos.github.io/">Nikos Athanasiou</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://gulvarol.github.io/">Gül Varol</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://paolorota.eu/">Paolo Rota</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Trento</span>
+            <span class="author-block"><sup>2</sup>LIGM, Ecole des Ponts, IP Paris, Univ Gustave Eiffel, CNRS</span>
+            <span class="author-block"><sup>3</sup>Max Planck Institute for Intelligent Systems</span>
+          </div>        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <center><h2 class="title is-2">Qualitative results on <b>MotionFix</b> dataset</h2></center>
+  <div class="hero-body">
+    <p class="has-text-centered"><b>
+      In this gallery, we show samples from the MotionFix dataset. For each sample, our goal is to describe the
+      <b>difference</b> between the <span style="color:red;">source</span> and
+      <span style="color:green;">target</span> motions.
+      The bottom displays the captions generated by
+      <span style="color:#9c9a9a">Llama-diff</span>,
+      <span style="color:#9c9a9a">Qwen3-VL-8B</span>,
+      <span style="color:#9c9a9a">InternVL-3.5-8B</span>,
+      <span style="color:#9c9a9a">DEMO</span>,
+      our <span style="color:#ff8801">MotionDelta</span>, and
+      <span style="color:#16a34a">GT</span>.
+    </b></p>
+    <div class="container">
+      <div id="gallery-carousel" class="carousel results-carousel"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+var ALL_DATA = {"000052": {"Llama-diff": "Walk in a clockwise circular pattern.", "Qwen3-VL-8B": "walk away from the camera", "InternVL-3.5-8B": "Rotate the body to face away and walk backward in a straight line.", "DEMO": "turn earlier", "MotionDelta": "make a wider turn", "GT": "MAKE A WIDER TURN", "body_parts": "torso, left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "000052", "text": "MAKE A WIDER TURN", "score": 0.6301}], "gt_rank": 1, "gt_score": 0.6301}}, "000336": {"Llama-diff": "touch your right knee with your left elbow and then your left knee with your right elbow, repeating this action twice, and then do 2 squats while your arms are extended.", "Qwen3-VL-8B": "Perform the same motion but with the opposite foot leading.", "InternVL-3.5-8B": "bend the knees and lower the body into a squat position, then stand up straight", "DEMO": "kick with the opposite leg", "MotionDelta": "kick with the opposite leg", "GT": "Flip sides, i.e. start with your right arm and left leg, facing opposite", "body_parts": "left leg, right arm, torso, right leg, left arm", "_retrieval": {"top5": [{"rank": 1, "id": "000336", "text": "Flip sides, i.e. start with your right arm and left leg, facing opposite", "score": 0.6575}], "gt_rank": 1, "gt_score": 0.6575}}, "000376": {"Llama-diff": "'do it with the right hand'", "Qwen3-VL-8B": "Stand up straight and raise your arms slightly above your shoulders.", "InternVL-3.5-8B": "Stand up straight and shift weight evenly between both feet.", "DEMO": "move slower", "MotionDelta": "reach down further right", "GT": "reach more to the right with the same hand", "body_parts": "torso, right arm", "_retrieval": {"top5": [{"rank": 1, "id": "000376", "text": "reach more to the right with the same hand", "score": 0.6076}, {"rank": 2, "id": "006247", "text": "hold right arm higher", "score": 0.5435}, {"rank": 3, "id": "001440", "text": "raise your left hand faster", "score": 0.4952}, {"rank": 4, "id": "007409", "text": "move your left hand closer to the right one", "score": 0.4598}, {"rank": 5, "id": "006636", "text": "extend the left arm more", "score": 0.412}], "gt_rank": 1, "gt_score": 0.6076}}, "001259": {"Llama-diff": "do squats with arms held out in front of you.", "Qwen3-VL-8B": "mimic the green figure's motion pattern", "InternVL-3.5-8B": "Move arms to chest and squat down, then stand up and extend arms forward.", "DEMO": "do a smaller jumping motion", "MotionDelta": "do the squat a little lower", "GT": "less deep", "body_parts": "torso, left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "001259", "text": "less deep", "score": 0.2543}], "gt_rank": 1, "gt_score": 0.2543}}, "001431": {"Llama-diff": "stomp with your right foot.", "Qwen3-VL-8B": "Change the head orientation from looking down to looking forward.", "InternVL-3.5-8B": "Move the right leg backward and bend the left arm.", "DEMO": "don't lift your left leg and don't step to the side", "MotionDelta": "lift your right leg higher", "GT": "lift your right leg", "body_parts": "right leg", "_retrieval": {"top5": [{"rank": 1, "id": "001431", "text": "lift your right leg", "score": 0.8931}], "gt_rank": 1, "gt_score": 0.8931}}, "001434": {"Llama-diff": "raise your right arm.", "Qwen3-VL-8B": "mimic the motion but with the right hand instead of the left", "InternVL-3.5-8B": "Move the right arm from the side to a bent position in front of the body, then extend it outward while shifting weight to the left leg, and finally return to the initial position.", "DEMO": "start moving a little later", "MotionDelta": "move the left hand faster and raise it higher", "GT": "do it little faster", "body_parts": "left arm", "_retrieval": {"top5": [{"rank": 1, "id": "001589", "text": "do it little slower", "score": 0.4283}, {"rank": 2, "id": "001572", "text": "do it little slower", "score": 0.4283}, {"rank": 3, "id": "001562", "text": "do it little slower", "score": 0.4283}, {"rank": 4, "id": "003450", "text": "do it faster", "score": 0.4283}, {"rank": 5, "id": "006677", "text": "do it faster", "score": 0.4282}], "gt_rank": 15, "gt_score": 0.4283}}, "001964": {"Llama-diff": "Move with the same side steps but without sliding your feet across the ground.", "Qwen3-VL-8B": "walk forward", "InternVL-3.5-8B": "Start walking forward.", "DEMO": "walk two steps ahead before swinging", "MotionDelta": "walk 3 steps ahead and 2 backwards", "GT": "walk two small steps ahead and one backwards", "body_parts": "left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "001964", "text": "walk two small steps ahead and one backwards", "score": 0.9236}], "gt_rank": 1, "gt_score": 0.9236}}, "001966": {"Llama-diff": "Push with both hands on the ground to help you stand up.", "Qwen3-VL-8B": "move the arms slightly outward and downward", "InternVL-3.5-8B": "spread legs apart and then bring them back together", "DEMO": "take a wider sidestep to the right", "MotionDelta": "take a sidestep to the left", "GT": "wait a little more and do the sidestep to the opposite side", "body_parts": "torso, left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "001976", "text": "take a sidestep on the opposite direction", "score": 0.864}, {"rank": 2, "id": "001966", "text": "wait a little more and do the sidestep to the opposite side", "score": 0.7531}], "gt_rank": 2, "gt_score": 0.864}}, "001976": {"Llama-diff": "move to the left more gradually.", "Qwen3-VL-8B": "Change the walking motion to a slower pace.", "InternVL-3.5-8B": "Move the arms outward and bend the knees slightly.", "DEMO": "move to the right faster.", "MotionDelta": "side shift to the left", "GT": "take a sidestep on the opposite direction", "body_parts": "torso, left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "001976", "text": "take a sidestep on the opposite direction", "score": 0.5304}, {"rank": 2, "id": "002008", "text": "walk a few steps forward before stepping to the opposite side", "score": 0.5109}, {"rank": 3, "id": "001966", "text": "wait a little more and do the sidestep to the opposite side", "score": 0.4716}, {"rank": 4, "id": "001949", "text": "walk two steps ahead before doing the sidestep", "score": 0.3946}], "gt_rank": 1, "gt_score": 0.5304}}, "002072": {"Llama-diff": "walk in a clockwise direction.", "Qwen3-VL-8B": "walk in a straight line", "InternVL-3.5-8B": "Start walking forward, then turn around and walk back to the starting position.", "DEMO": "turn in a tighter arc", "MotionDelta": "take a wide left turn", "GT": "turn on a more open arc", "body_parts": "left leg, right arm, torso, right leg, left arm", "_retrieval": {"top5": [{"rank": 1, "id": "002083", "text": "turn on a slightly more open arc", "score": 0.4408}, {"rank": 2, "id": "002182", "text": "turn on a more open arc", "score": 0.4397}, {"rank": 3, "id": "002072", "text": "turn on a more open arc", "score": 0.4397}, {"rank": 4, "id": "002074", "text": "turn on a more open arc", "score": 0.4397}, {"rank": 5, "id": "002084", "text": "turn on a more closed arc", "score": 0.3557}], "gt_rank": 2, "gt_score": 0.4408}}, "002632": {"Llama-diff": "'move your body from side to side with a small amplitude and then jerk your head or upper body.'", "Qwen3-VL-8B": "Perform a small, slow circular motion with the arms while keeping the legs stationary.", "InternVL-3.5-8B": "Move the left leg backward and slightly bend the right leg.", "DEMO": "keep the body straight and rotate the head counterclockwise", "MotionDelta": "don't shift weight on the spot", "GT": "don't shift weight on feet or lean to right", "body_parts": "torso, left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "002681", "text": "don't shift weight on feet", "score": 0.7949}, {"rank": 2, "id": "002632", "text": "don't shift weight on feet or lean to right", "score": 0.7505}], "gt_rank": 2, "gt_score": 0.7949}}, "002649": {"Llama-diff": "Match the energy and rhythm of your dance moves with the other person.", "Qwen3-VL-8B": "Rotate your upper body more significantly to the left while stepping forward with your right foot.", "InternVL-3.5-8B": "Rotate the body to face away while maintaining the arm movements.", "DEMO": "don't step down", "MotionDelta": "take one step backwards and then one to your right", "GT": "turn around after the first step to the right", "body_parts": "torso, left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "002649", "text": "turn around after the first step to the right", "score": 0.8035}, {"rank": 2, "id": "001424", "text": "take a step to the left instead of backwards", "score": 0.7808}, {"rank": 3, "id": "006229", "text": "don't do steps forward, instead to the right", "score": 0.7183}, {"rank": 4, "id": "002183", "text": "after the first two steps turn 45 degrees to the left", "score": 0.6876}, {"rank": 5, "id": "006189", "text": "step to the right sooner", "score": 0.6804}], "gt_rank": 1, "gt_score": 0.8035}}, "002652": {"Llama-diff": "Hold your partner more firmly and confidently.", "Qwen3-VL-8B": "mirror the movement", "InternVL-3.5-8B": "Move the arms from the sides to a bent position in front of the body while shifting weight onto one leg.", "DEMO": "start moving a little earlier", "MotionDelta": "don't move your feet", "GT": "don't walk", "body_parts": "left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "002652", "text": "don't walk", "score": 0.6853}], "gt_rank": 1, "gt_score": 0.6853}}, "002680": {"Llama-diff": "Wave the right hand first, then the left hand, and end with a small wave of both hands together.", "Qwen3-VL-8B": "Extend the waving hand outward more fully and slightly lower the head.", "InternVL-3.5-8B": "Move the right arm from a waving position to a saluting position, then return to the waving position.", "DEMO": "don't swing arm so much", "MotionDelta": "wave slower and wider", "GT": "delay wave slightly and move arm much slower", "body_parts": "right arm, left arm", "_retrieval": {"top5": [{"rank": 1, "id": "002680", "text": "delay wave slightly and move arm much slower", "score": 0.5768}], "gt_rank": 1, "gt_score": 0.5768}}, "002930": {"Llama-diff": "move your head in a circle motion as you lower your arms.", "Qwen3-VL-8B": "lower arms slightly and relax posture", "InternVL-3.5-8B": "Move the arms from the sides to a slightly bent position at the front.", "DEMO": "turn right sooner", "MotionDelta": "don't move head and keep arms still", "GT": "don't just move head from left to right rotate it clockwise and keep hands on the side", "body_parts": "right arm, left arm", "_retrieval": {"top5": [{"rank": 1, "id": "004845", "text": "keep right arm down and just turn around with head", "score": 0.757}, {"rank": 2, "id": "002930", "text": "don't just move head from left to right rotate it clockwise and keep hands on the side", "score": 0.7201}, {"rank": 3, "id": "003344", "text": "shake the head while doing the action and don't tilt the head on the left side", "score": 0.7095}, {"rank": 4, "id": "003001", "text": "keeping hands fixed tilt head left then right then return to center and rotate neck anticlockwise", "score": 0.6945}, {"rank": 5, "id": "004100", "text": "do this kind of motion only with your head and neck", "score": 0.6678}], "gt_rank": 2, "gt_score": 0.757}}, "003201": {"Llama-diff": "Sit down cross-legged on the ground.", "Qwen3-VL-8B": "move forward and upward", "InternVL-3.5-8B": "Stand up from the floor.", "DEMO": "start getting up a bit later", "MotionDelta": "extend the legs a bit more and keep the body facing center", "GT": "stretch more the right and left legs instead keep them crisscrosses and lay sidewards at the start", "body_parts": "torso, left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "003497", "text": "keep the legs straight instead of crossing the left leg on the right one", "score": 0.8093}, {"rank": 2, "id": "003463", "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion", "score": 0.7797}, {"rank": 3, "id": "003348", "text": "keep the left leg in front instead of right in the sitting position and get up at the end", "score": 0.7685}, {"rank": 4, "id": "003201", "text": "stretch more the right and left legs instead keep them crisscrosses and lay sidewards at the start", "score": 0.7459}, {"rank": 5, "id": "004008", "text": "do it faster and keep legs closer", "score": 0.716}], "gt_rank": 4, "gt_score": 0.8093}}, "003834": {"Llama-diff": "Sit down, sit cross-legged on the ground, then stand up in the same position as when you initially sat down.", "Qwen3-VL-8B": "transition from sitting to crawling by placing hands and knees on the ground", "InternVL-3.5-8B": "Stand up from the squatting position.", "DEMO": "move faster", "MotionDelta": "put the left leg forward instead of the right one", "GT": "cross legs with the opposite leg in front", "body_parts": "left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "003834", "text": "cross legs with the opposite leg in front", "score": 0.7402}], "gt_rank": 1, "gt_score": 0.7402}}, "004166": {"Llama-diff": "Move your hands closer to your face.", "Qwen3-VL-8B": "Bring hands together in front of the face.", "InternVL-3.5-8B": "Move the hands from the chin to a prayer position in front of the face.", "DEMO": "raise right hand to the left shoulder level as if saluting instead of keeping it at the same level", "MotionDelta": "keep both hands together", "GT": "keep your hands together during the whole motion", "body_parts": "right arm, left arm", "_retrieval": {"top5": [{"rank": 1, "id": "004988", "text": "keep both the hands still", "score": 0.9126}, {"rank": 2, "id": "007460", "text": "keep both palms down at the same level", "score": 0.8396}, {"rank": 3, "id": "006225", "text": "keep both hands lower and bend slightly left", "score": 0.8364}, {"rank": 4, "id": "003863", "text": "don't move the upright hands left and right just keep them straight", "score": 0.7575}, {"rank": 5, "id": "004166", "text": "keep your hands together during the whole motion", "score": 0.751}], "gt_rank": 5, "gt_score": 0.9126}}, "004538": {"Llama-diff": "Hold your arms at your sides and then lift them up to your face, with your palms facing your cheeks and your fingers spread apart.", "Qwen3-VL-8B": "Bring hands together in front of the chest and move them upward in a clapping motion.", "InternVL-3.5-8B": "Bring hands together in front of the chest and move them up and down.", "DEMO": "look more up and spread legs a bit wider", "MotionDelta": "keep left hand lower and right hand higher", "GT": "not clapping just right hand to face", "body_parts": "right arm, left arm", "_retrieval": {"top5": [{"rank": 1, "id": "004538", "text": "not clapping just right hand to face", "score": 0.3805}], "gt_rank": 1, "gt_score": 0.3805}}, "004920": {"Llama-diff": "Turn your entire body in a counterclockwise direction and face forward.", "Qwen3-VL-8B": "mimic the green figure's movement pattern", "InternVL-3.5-8B": "Move the arms from the sides to a bent position in front of the body while shifting weight onto one leg.", "DEMO": "start jumping earlier", "MotionDelta": "don't spread your legs as much. make a wide circular motion with your upper body as if you're looking around", "GT": "spread legs less, look around and rapidly look behind you at the end", "body_parts": "torso, left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "004920", "text": "spread legs less, look around and rapidly look behind you at the end", "score": 0.8252}], "gt_rank": 1, "gt_score": 0.8252}}, "004922": {"Llama-diff": "'stand up and raise your arms after bending over and hitting something on the ground'", "Qwen3-VL-8B": "Turn around to face away from the camera.", "InternVL-3.5-8B": "Stand up straight and extend both arms slightly away from the body.", "DEMO": "take a step further back when turning", "MotionDelta": "don't bend down so much and don't step back", "GT": "dont bend and turn back 180 degrees", "body_parts": "torso, left leg, right leg", "_retrieval": {"top5": [{"rank": 1, "id": "004922", "text": "dont bend and turn back 180 degrees", "score": 0.6663}], "gt_rank": 1, "gt_score": 0.6663}}, "004954": {"Llama-diff": "do it with both feet.", "Qwen3-VL-8B": "Stand up straight.", "InternVL-3.5-8B": "Stand up straight and adjust the arms to a relaxed position by the sides.", "DEMO": "step left earlier", "MotionDelta": "don't bow, step left instead of forward", "GT": "don't bow and step left", "body_parts": "torso, left leg", "_retrieval": {"top5": [{"rank": 1, "id": "004954", "text": "don't bow and step left", "score": 0.9058}], "gt_rank": 1, "gt_score": 0.9058}}, "005074": {"Llama-diff": "Move your arms up to elbow height, then lower them down to hip height, and finally raise them back up to elbow height.", "Qwen3-VL-8B": "mimic the motion but with arms extended outward instead of inward", "InternVL-3.5-8B": "bend forward and then stand up", "DEMO": "start with your arms higher", "MotionDelta": "bow forward slightly later", "GT": "bow slightly later", "body_parts": "torso", "_retrieval": {"top5": [{"rank": 1, "id": "005074", "text": "bow slightly later", "score": 0.9279}], "gt_rank": 1, "gt_score": 0.9279}}, "005324": {"Llama-diff": "To achieve the standard actions, the person should wave to the other person with their right hand instead of their left hand.", "Qwen3-VL-8B": "raise right hand to make peace sign", "InternVL-3.5-8B": "Move the left arm from the side to cover the face, then lower it back to the side.", "DEMO": "don't move your legs, start with the opposite arm up and bring it down", "MotionDelta": "raise the left hand higher and wave it horizontally", "GT": "just move the left hand in a rotating fashion on a horizontal plane", "body_parts": "left arm", "_retrieval": {"top5": [{"rank": 1, "id": "005596", "text": "to the same pose with left hand as with the right one. shake your head left right chaotically", "score": 0.8261}, {"rank": 2, "id": "005324", "text": "just move the left hand in a rotating fashion on a horizontal plane", "score": 0.7825}, {"rank": 3, "id": "007096", "text": "use opposite hand to do the motion", "score": 0.7593}, {"rank": 4, "id": "001627", "text": "do it with your left hand and rotate the hand two times", "score": 0.7549}, {"rank": 5, "id": "004742", "text": "only move the hand forward, back and to you right", "score": 0.7359}], "gt_rank": 2, "gt_score": 0.8261}}, "005797": {"Llama-diff": "clap with both hands.", "Qwen3-VL-8B": "shift weight to right leg and lean slightly to the right", "InternVL-3.5-8B": "Change the hand position from clasped in front to resting on the thighs.", "DEMO": "don't move your feet, keep hands on thighs", "MotionDelta": "keep the hands on the lap and dont move them", "GT": "dont clap with both the hands instead keep the hands on the lap", "body_parts": "right arm, left arm", "_retrieval": {"top5": [{"rank": 1, "id": "005797", "text": "dont clap with both the hands instead keep the hands on the lap", "score": 0.6226}, {"rank": 2, "id": "005152", "text": "keep arms apart at shoulder width, don't clap", "score": 0.6068}, {"rank": 3, "id": "004486", "text": "keep hands crossed at waist height and just make clapping motion", "score": 0.5844}, {"rank": 4, "id": "005455", "text": "move the arms to get into the clapping position and clap slowly", "score": 0.5385}, {"rank": 5, "id": "003079", "text": "clap the hands a bit faster and clap a bit higher near the chest", "score": 0.5351}], "gt_rank": 1, "gt_score": 0.6226}}};
+
+var METHOD_DISPLAY = [
+  { key: 'Llama-diff',      label: 'Llama-diff',      css: 'label-llama' },
+  { key: 'Qwen3-VL-8B',     label: 'Qwen3-VL-8B',     css: 'label-qwen' },
+  { key: 'InternVL-3.5-8B', label: 'InternVL-3.5-8B', css: 'label-internvl' },
+  { key: 'DEMO',            label: 'DEMO',            css: 'label-demo' },
+  { key: 'MotionDelta',     label: 'MotionDelta',     css: 'label-motiondelta' },
+  { key: 'GT',              label: 'GT',              css: 'label-gt' },
+];
+
+var sampleIds = Object.keys(ALL_DATA).sort();
+// ─── SET YOUR VIDEO IDS HERE ───
+// Only samples with a matching .mp4 in static/video/ will be shown.
+// To update: run `ls static/video/ | sed 's/.mp4//'` and paste below.
+// If VALID_IDS is empty, ALL samples are shown (useful for full deployment).
+// TODO 
+
+var VALID_IDS = ["000052", "000336", "000376", "001259", "001431", "001434", "001964", "001966", "001976", "002072", "002632", "002649", "002652", "002680", "002930", "003201", "003834", "004166", "004538", "004920", "004922", "004954", "005074", "005324", "005797"];
+
+// ────────────────────────────────
+if (VALID_IDS.length > 0) {
+  var validSet = {};
+  VALID_IDS.forEach(function(id) { validSet[id] = true; });
+  sampleIds = sampleIds.filter(function(id) { return validSet[id]; });
+}
+var carousel = document.getElementById('gallery-carousel');
+
+sampleIds.forEach(function(id) {
+  var slide = document.createElement('div');
+  slide.className = 'column is-centered has-text-left';
+
+  var d = ALL_DATA[id];
+
+  // Build caption rows
+  var captionRows = METHOD_DISPLAY.map(function(m) {
+    var text = d[m.key] || '<em>N/A</em>';
+    return '<div class="caption-row">' +
+      '<span class="model-label ' + m.css + '">' + m.label + ':</span>' +
+      '<p class="caption-text">' + text + '</p>' +
+    '</div>';
+  }).join('\n');
+
+  // Build retrieval section for MotionDelta (if data exists)
+  var retrievalHtml = '';
+  var ret = d._retrieval;
+  if (ret && ret.top5 && ret.top5.length > 0) {
+    var listId = 'ret_' + id;
+    var items = ret.top5.map(function(r) {
+      return '<li class="retrieval-item">' +
+        '<span class="r-rank">' + r.rank + '.</span>' +
+        '<span class="r-text">' + r.text + '</span>' +
+        '<span class="r-score">' + r.score.toFixed(4) + '</span>' +
+      '</li>';
+    }).join('');
+
+    var gtRankHtml = '';
+    if (ret.gt_rank != null) {
+      gtRankHtml = '<div class="gt-rank-bar">' +
+        '<span style="color:#6676aa;font-weight:bold;">GT position in retrieval:</span>' +
+        '<span class="gt-rank-badge">' +
+          '<span class="gr-label">Rank</span>' +
+          '<span class="gr-val">#' + ret.gt_rank + '</span>' +
+          '<span class="gr-score">(score: ' + Number(ret.gt_score).toFixed(4) + ')</span>' +
+        '</span>' +
+      '</div>';
+    }
+
+    retrievalHtml = '<div class="retrieval-section">' +
+      '<div class="retrieval-toggle" onclick="(function(e){' +
+        'var list=document.getElementById(\'' + listId + '\');' +
+        'var open=list.style.display!==\'none\';' +
+        'list.style.display=open?\'none\':\'block\';' +
+        'e.currentTarget.querySelector(\'.toggle-arrow\').style.transform=open?\'\':\'rotate(90deg)\';' +
+      '})(event)">' +
+        '<span class="toggle-arrow">&#9654;</span> LLM Top-5 Retrieval (MotionDelta), &tau; = 0.9' +
+      '</div>' +
+      '<ul class="retrieval-list" id="' + listId + '">' + items + '</ul>' +
+      gtRankHtml +
+    '</div>';
+  }
+
+  slide.innerHTML =
+    '<video poster="" autoplay controls muted loop playsinline height="100%">' +
+      '<source src="./static/video/' + id + '.mp4" type="video/mp4">' +
+    '</video>' +
+    '<div class="caption-block">' +
+      captionRows +
+      retrievalHtml +
+    '</div>';
+
+  slide.style.display = '';
+  slide.dataset.sampleId = id;
+  carousel.appendChild(slide);
+});
+
+bulmaCarousel.attach('#gallery-carousel', {
+  slidesToShow: Math.min(3, sampleIds.length),
+  slidesToScroll: 1,
+  breakpoints: []
+});
+</script>
+
+</body>
+</html>

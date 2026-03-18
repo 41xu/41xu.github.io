@@ -1,0 +1,1056 @@
+{
+    "metrics": {
+        "normal": {
+            "pred_text2gt_text": {
+                "R01": 1.97,
+                "R03": 4.74,
+                "R05": 6.91,
+                "R10": 11.94,
+                "R20": 17.57,
+                "MedR": 152.0
+            },
+            "gt_text2pred_text": {
+                "R01": 2.07,
+                "R03": 5.33,
+                "R05": 7.5,
+                "R10": 12.93,
+                "R20": 19.35,
+                "MedR": 161.0
+            }
+        },
+        "threshold_0.9": {
+            "pred_text2gt_text": {
+                "R01": 7.9,
+                "R03": 12.83,
+                "R05": 16.88,
+                "R10": 23.99,
+                "R20": 32.48,
+                "MedR": 72.0
+            },
+            "gt_text2pred_text": {
+                "R01": 5.53,
+                "R03": 13.82,
+                "R05": 22.11,
+                "R10": 32.68,
+                "R20": 43.44,
+                "MedR": 29.0
+            }
+        },
+        "nsim_0.9": {
+            "pred_text2gt_text": {
+                "R01": 2.22,
+                "R03": 5.22,
+                "R05": 8.0,
+                "R10": 12.44,
+                "R20": 18.89,
+                "MedR": 125.0
+            },
+            "gt_text2pred_text": {
+                "R01": 2.22,
+                "R03": 6.0,
+                "R05": 8.33,
+                "R10": 14.33,
+                "R20": 20.78,
+                "MedR": 142.5
+            }
+        },
+        "batches_32": {
+            "pred_text2gt_text": {
+                "R01": 20.56,
+                "R03": 38.51,
+                "R05": 49.4,
+                "R10": 65.12,
+                "R20": 82.96,
+                "MedR": 6.17
+            },
+            "gt_text2pred_text": {
+                "R01": 21.37,
+                "R03": 36.59,
+                "R05": 48.19,
+                "R10": 66.43,
+                "R20": 88.41,
+                "MedR": 6.02
+            }
+        }
+    },
+    "retrievals": [
+        {
+            "id": "002930",
+            "predicted": "don't move head and keep arms still",
+            "gt": "don't just move head from left to right rotate it clockwise and keep hands on the side",
+            "gt_rank": 2,
+            "gt_score": 0.757,
+            "gt_diag_score": 0.7201,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "004845",
+                    "text": "keep right arm down and just turn around with head",
+                    "score": 0.757
+                },
+                {
+                    "rank": 2,
+                    "id": "002930",
+                    "text": "don't just move head from left to right rotate it clockwise and keep hands on the side",
+                    "score": 0.7201
+                },
+                {
+                    "rank": 3,
+                    "id": "003344",
+                    "text": "shake the head while doing the action and don't tilt the head on the left side",
+                    "score": 0.7095
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "004845",
+                    "text": "keep right arm down and just turn around with head",
+                    "score": 0.757
+                },
+                {
+                    "rank": 2,
+                    "id": "002930",
+                    "text": "don't just move head from left to right rotate it clockwise and keep hands on the side",
+                    "score": 0.7201
+                },
+                {
+                    "rank": 3,
+                    "id": "003344",
+                    "text": "shake the head while doing the action and don't tilt the head on the left side",
+                    "score": 0.7095
+                },
+                {
+                    "rank": 4,
+                    "id": "003001",
+                    "text": "keeping hands fixed tilt head left then right then return to center and rotate neck anticlockwise",
+                    "score": 0.6945
+                },
+                {
+                    "rank": 5,
+                    "id": "004100",
+                    "text": "do this kind of motion only with your head and neck",
+                    "score": 0.6678
+                }
+            ]
+        },
+        {
+            "id": "002649",
+            "predicted": "take one step backwards and then one to your right",
+            "gt": "turn around after the first step to the right",
+            "gt_rank": 1,
+            "gt_score": 0.8035,
+            "gt_diag_score": 0.8035,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "002649",
+                    "text": "turn around after the first step to the right",
+                    "score": 0.8035
+                },
+                {
+                    "rank": 2,
+                    "id": "001424",
+                    "text": "take a step to the left instead of backwards",
+                    "score": 0.7808
+                },
+                {
+                    "rank": 3,
+                    "id": "006229",
+                    "text": "don't do steps forward, instead to the right",
+                    "score": 0.7183
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "002649",
+                    "text": "turn around after the first step to the right",
+                    "score": 0.8035
+                },
+                {
+                    "rank": 2,
+                    "id": "001424",
+                    "text": "take a step to the left instead of backwards",
+                    "score": 0.7808
+                },
+                {
+                    "rank": 3,
+                    "id": "006229",
+                    "text": "don't do steps forward, instead to the right",
+                    "score": 0.7183
+                },
+                {
+                    "rank": 4,
+                    "id": "002183",
+                    "text": "after the first two steps turn 45 degrees to the left",
+                    "score": 0.6876
+                },
+                {
+                    "rank": 5,
+                    "id": "006189",
+                    "text": "step to the right sooner",
+                    "score": 0.6804
+                }
+            ]
+        },
+        {
+            "id": "002072",
+            "predicted": "take a wide left turn",
+            "gt": "turn on a more open arc",
+            "gt_rank": 2,
+            "gt_score": 0.4408,
+            "gt_diag_score": 0.4397,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "002083",
+                    "text": "turn on a slightly more open arc",
+                    "score": 0.4408
+                },
+                {
+                    "rank": 2,
+                    "id": "002182",
+                    "text": "turn on a more open arc",
+                    "score": 0.4397
+                },
+                {
+                    "rank": 3,
+                    "id": "002072",
+                    "text": "turn on a more open arc",
+                    "score": 0.4397
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "002083",
+                    "text": "turn on a slightly more open arc",
+                    "score": 0.4408
+                },
+                {
+                    "rank": 2,
+                    "id": "002182",
+                    "text": "turn on a more open arc",
+                    "score": 0.4397
+                },
+                {
+                    "rank": 3,
+                    "id": "002072",
+                    "text": "turn on a more open arc",
+                    "score": 0.4397
+                },
+                {
+                    "rank": 4,
+                    "id": "002074",
+                    "text": "turn on a more open arc",
+                    "score": 0.4397
+                },
+                {
+                    "rank": 5,
+                    "id": "002084",
+                    "text": "turn on a more closed arc",
+                    "score": 0.3557
+                }
+            ]
+        },
+        {
+            "id": "004538",
+            "predicted": "keep left hand lower and right hand higher",
+            "gt": "not clapping just right hand to face",
+            "gt_rank": 1,
+            "gt_score": 0.3805,
+            "gt_diag_score": 0.3805,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "004538",
+                    "text": "not clapping just right hand to face",
+                    "score": 0.3805
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "004538",
+                    "text": "not clapping just right hand to face",
+                    "score": 0.3805
+                }
+            ]
+        },
+        {
+            "id": "001431",
+            "predicted": "lift your right leg higher",
+            "gt": "lift your right leg",
+            "gt_rank": 1,
+            "gt_score": 0.8931,
+            "gt_diag_score": 0.8931,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "001431",
+                    "text": "lift your right leg",
+                    "score": 0.8931
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "001431",
+                    "text": "lift your right leg",
+                    "score": 0.8931
+                }
+            ]
+        },
+        {
+            "id": "001434",
+            "predicted": "move the left hand faster and raise it higher",
+            "gt": "do it little faster",
+            "gt_rank": 15,
+            "gt_score": 0.4283,
+            "gt_diag_score": 0.4038,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "001589",
+                    "text": "do it little slower",
+                    "score": 0.4283
+                },
+                {
+                    "rank": 2,
+                    "id": "001572",
+                    "text": "do it little slower",
+                    "score": 0.4283
+                },
+                {
+                    "rank": 3,
+                    "id": "001562",
+                    "text": "do it little slower",
+                    "score": 0.4283
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "001589",
+                    "text": "do it little slower",
+                    "score": 0.4283
+                },
+                {
+                    "rank": 2,
+                    "id": "001572",
+                    "text": "do it little slower",
+                    "score": 0.4283
+                },
+                {
+                    "rank": 3,
+                    "id": "001562",
+                    "text": "do it little slower",
+                    "score": 0.4283
+                },
+                {
+                    "rank": 4,
+                    "id": "003450",
+                    "text": "do it faster",
+                    "score": 0.4283
+                },
+                {
+                    "rank": 5,
+                    "id": "006677",
+                    "text": "do it faster",
+                    "score": 0.4282
+                }
+            ]
+        },
+        {
+            "id": "005324",
+            "predicted": "raise the left hand higher and wave it horizontally",
+            "gt": "just move the left hand in a rotating fashion on a horizontal plane",
+            "gt_rank": 2,
+            "gt_score": 0.8261,
+            "gt_diag_score": 0.7825,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "005596",
+                    "text": "to the same pose with left hand as with the right one. shake your head left right chaotically",
+                    "score": 0.8261
+                },
+                {
+                    "rank": 2,
+                    "id": "005324",
+                    "text": "just move the left hand in a rotating fashion on a horizontal plane",
+                    "score": 0.7825
+                },
+                {
+                    "rank": 3,
+                    "id": "007096",
+                    "text": "use opposite hand to do the motion",
+                    "score": 0.7593
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "005596",
+                    "text": "to the same pose with left hand as with the right one. shake your head left right chaotically",
+                    "score": 0.8261
+                },
+                {
+                    "rank": 2,
+                    "id": "005324",
+                    "text": "just move the left hand in a rotating fashion on a horizontal plane",
+                    "score": 0.7825
+                },
+                {
+                    "rank": 3,
+                    "id": "007096",
+                    "text": "use opposite hand to do the motion",
+                    "score": 0.7593
+                },
+                {
+                    "rank": 4,
+                    "id": "001627",
+                    "text": "do it with your left hand and rotate the hand two times",
+                    "score": 0.7549
+                },
+                {
+                    "rank": 5,
+                    "id": "004742",
+                    "text": "only move the hand forward, back and to you right",
+                    "score": 0.7359
+                }
+            ]
+        },
+        {
+            "id": "003201",
+            "predicted": "extend the legs a bit more and keep the body facing center",
+            "gt": "stretch more the right and left legs instead keep them crisscrosses and lay sidewards at the start",
+            "gt_rank": 4,
+            "gt_score": 0.8093,
+            "gt_diag_score": 0.7459,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "003497",
+                    "text": "keep the legs straight instead of crossing the left leg on the right one",
+                    "score": 0.8093
+                },
+                {
+                    "rank": 2,
+                    "id": "003463",
+                    "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion",
+                    "score": 0.7797
+                },
+                {
+                    "rank": 3,
+                    "id": "003348",
+                    "text": "keep the left leg in front instead of right in the sitting position and get up at the end",
+                    "score": 0.7685
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "003497",
+                    "text": "keep the legs straight instead of crossing the left leg on the right one",
+                    "score": 0.8093
+                },
+                {
+                    "rank": 2,
+                    "id": "003463",
+                    "text": "keep the right leg in the front instead of the left and don't get up at the end of the motion",
+                    "score": 0.7797
+                },
+                {
+                    "rank": 3,
+                    "id": "003348",
+                    "text": "keep the left leg in front instead of right in the sitting position and get up at the end",
+                    "score": 0.7685
+                },
+                {
+                    "rank": 4,
+                    "id": "003201",
+                    "text": "stretch more the right and left legs instead keep them crisscrosses and lay sidewards at the start",
+                    "score": 0.7459
+                },
+                {
+                    "rank": 5,
+                    "id": "004008",
+                    "text": "do it faster and keep legs closer",
+                    "score": 0.716
+                }
+            ]
+        },
+        {
+            "id": "002680",
+            "predicted": "wave slower and wider",
+            "gt": "delay wave slightly and move arm much slower",
+            "gt_rank": 1,
+            "gt_score": 0.5768,
+            "gt_diag_score": 0.5768,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "002680",
+                    "text": "delay wave slightly and move arm much slower",
+                    "score": 0.5768
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "002680",
+                    "text": "delay wave slightly and move arm much slower",
+                    "score": 0.5768
+                }
+            ]
+        },
+        {
+            "id": "004954",
+            "predicted": "don't bow, step left instead of forward",
+            "gt": "don't bow and step left",
+            "gt_rank": 1,
+            "gt_score": 0.9058,
+            "gt_diag_score": 0.9058,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "004954",
+                    "text": "don't bow and step left",
+                    "score": 0.9058
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "004954",
+                    "text": "don't bow and step left",
+                    "score": 0.9058
+                }
+            ]
+        },
+        {
+            "id": "000336",
+            "predicted": "kick with the opposite leg",
+            "gt": "Flip sides, i.e. start with your right arm and left leg, facing opposite",
+            "gt_rank": 1,
+            "gt_score": 0.6575,
+            "gt_diag_score": 0.6575,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "000336",
+                    "text": "Flip sides, i.e. start with your right arm and left leg, facing opposite",
+                    "score": 0.6575
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "000336",
+                    "text": "Flip sides, i.e. start with your right arm and left leg, facing opposite",
+                    "score": 0.6575
+                }
+            ]
+        },
+        {
+            "id": "001259",
+            "predicted": "do the squat a little lower",
+            "gt": "less deep",
+            "gt_rank": 1,
+            "gt_score": 0.2543,
+            "gt_diag_score": 0.2543,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "001259",
+                    "text": "less deep",
+                    "score": 0.2543
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "001259",
+                    "text": "less deep",
+                    "score": 0.2543
+                }
+            ]
+        },
+        {
+            "id": "004922",
+            "predicted": "don't bend down so much and don't step back",
+            "gt": "dont bend and turn back 180 degrees",
+            "gt_rank": 1,
+            "gt_score": 0.6663,
+            "gt_diag_score": 0.6663,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "004922",
+                    "text": "dont bend and turn back 180 degrees",
+                    "score": 0.6663
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "004922",
+                    "text": "dont bend and turn back 180 degrees",
+                    "score": 0.6663
+                }
+            ]
+        },
+        {
+            "id": "005797",
+            "predicted": "keep the hands on the lap and dont move them",
+            "gt": "dont clap with both the hands instead keep the hands on the lap",
+            "gt_rank": 1,
+            "gt_score": 0.6226,
+            "gt_diag_score": 0.6226,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "005797",
+                    "text": "dont clap with both the hands instead keep the hands on the lap",
+                    "score": 0.6226
+                },
+                {
+                    "rank": 2,
+                    "id": "005152",
+                    "text": "keep arms apart at shoulder width, don't clap",
+                    "score": 0.6068
+                },
+                {
+                    "rank": 3,
+                    "id": "004486",
+                    "text": "keep hands crossed at waist height and just make clapping motion",
+                    "score": 0.5844
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "005797",
+                    "text": "dont clap with both the hands instead keep the hands on the lap",
+                    "score": 0.6226
+                },
+                {
+                    "rank": 2,
+                    "id": "005152",
+                    "text": "keep arms apart at shoulder width, don't clap",
+                    "score": 0.6068
+                },
+                {
+                    "rank": 3,
+                    "id": "004486",
+                    "text": "keep hands crossed at waist height and just make clapping motion",
+                    "score": 0.5844
+                },
+                {
+                    "rank": 4,
+                    "id": "005455",
+                    "text": "move the arms to get into the clapping position and clap slowly",
+                    "score": 0.5385
+                },
+                {
+                    "rank": 5,
+                    "id": "003079",
+                    "text": "clap the hands a bit faster and clap a bit higher near the chest",
+                    "score": 0.5351
+                }
+            ]
+        },
+        {
+            "id": "004166",
+            "predicted": "keep both hands together",
+            "gt": "keep your hands together during the whole motion",
+            "gt_rank": 5,
+            "gt_score": 0.9126,
+            "gt_diag_score": 0.751,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "004988",
+                    "text": "keep both the hands still",
+                    "score": 0.9126
+                },
+                {
+                    "rank": 2,
+                    "id": "007460",
+                    "text": "keep both palms down at the same level",
+                    "score": 0.8396
+                },
+                {
+                    "rank": 3,
+                    "id": "006225",
+                    "text": "keep both hands lower and bend slightly left",
+                    "score": 0.8364
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "004988",
+                    "text": "keep both the hands still",
+                    "score": 0.9126
+                },
+                {
+                    "rank": 2,
+                    "id": "007460",
+                    "text": "keep both palms down at the same level",
+                    "score": 0.8396
+                },
+                {
+                    "rank": 3,
+                    "id": "006225",
+                    "text": "keep both hands lower and bend slightly left",
+                    "score": 0.8364
+                },
+                {
+                    "rank": 4,
+                    "id": "003863",
+                    "text": "don't move the upright hands left and right just keep them straight",
+                    "score": 0.7575
+                },
+                {
+                    "rank": 5,
+                    "id": "004166",
+                    "text": "keep your hands together during the whole motion",
+                    "score": 0.751
+                }
+            ]
+        },
+        {
+            "id": "002652",
+            "predicted": "don't move your feet",
+            "gt": "don't walk",
+            "gt_rank": 1,
+            "gt_score": 0.6853,
+            "gt_diag_score": 0.6853,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "002652",
+                    "text": "don't walk",
+                    "score": 0.6853
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "002652",
+                    "text": "don't walk",
+                    "score": 0.6853
+                }
+            ]
+        },
+        {
+            "id": "003834",
+            "predicted": "put the left leg forward instead of the right one",
+            "gt": "cross legs with the opposite leg in front",
+            "gt_rank": 1,
+            "gt_score": 0.7402,
+            "gt_diag_score": 0.7402,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "003834",
+                    "text": "cross legs with the opposite leg in front",
+                    "score": 0.7402
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "003834",
+                    "text": "cross legs with the opposite leg in front",
+                    "score": 0.7402
+                }
+            ]
+        },
+        {
+            "id": "005074",
+            "predicted": "bow forward slightly later",
+            "gt": "bow slightly later",
+            "gt_rank": 1,
+            "gt_score": 0.9279,
+            "gt_diag_score": 0.9279,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "005074",
+                    "text": "bow slightly later",
+                    "score": 0.9279
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "005074",
+                    "text": "bow slightly later",
+                    "score": 0.9279
+                }
+            ]
+        },
+        {
+            "id": "001966",
+            "predicted": "take a sidestep to the left",
+            "gt": "wait a little more and do the sidestep to the opposite side",
+            "gt_rank": 2,
+            "gt_score": 0.864,
+            "gt_diag_score": 0.7531,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "001976",
+                    "text": "take a sidestep on the opposite direction",
+                    "score": 0.864
+                },
+                {
+                    "rank": 2,
+                    "id": "001966",
+                    "text": "wait a little more and do the sidestep to the opposite side",
+                    "score": 0.7531
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "001976",
+                    "text": "take a sidestep on the opposite direction",
+                    "score": 0.864
+                },
+                {
+                    "rank": 2,
+                    "id": "001966",
+                    "text": "wait a little more and do the sidestep to the opposite side",
+                    "score": 0.7531
+                }
+            ]
+        },
+        {
+            "id": "001976",
+            "predicted": "side shift to the left",
+            "gt": "take a sidestep on the opposite direction",
+            "gt_rank": 1,
+            "gt_score": 0.5304,
+            "gt_diag_score": 0.5304,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "001976",
+                    "text": "take a sidestep on the opposite direction",
+                    "score": 0.5304
+                },
+                {
+                    "rank": 2,
+                    "id": "002008",
+                    "text": "walk a few steps forward before stepping to the opposite side",
+                    "score": 0.5109
+                },
+                {
+                    "rank": 3,
+                    "id": "001966",
+                    "text": "wait a little more and do the sidestep to the opposite side",
+                    "score": 0.4716
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "001976",
+                    "text": "take a sidestep on the opposite direction",
+                    "score": 0.5304
+                },
+                {
+                    "rank": 2,
+                    "id": "002008",
+                    "text": "walk a few steps forward before stepping to the opposite side",
+                    "score": 0.5109
+                },
+                {
+                    "rank": 3,
+                    "id": "001966",
+                    "text": "wait a little more and do the sidestep to the opposite side",
+                    "score": 0.4716
+                },
+                {
+                    "rank": 4,
+                    "id": "001949",
+                    "text": "walk two steps ahead before doing the sidestep",
+                    "score": 0.3946
+                }
+            ]
+        },
+        {
+            "id": "002632",
+            "predicted": "don't shift weight on the spot",
+            "gt": "don't shift weight on feet or lean to right",
+            "gt_rank": 2,
+            "gt_score": 0.7949,
+            "gt_diag_score": 0.7505,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "002681",
+                    "text": "don't shift weight on feet",
+                    "score": 0.7949
+                },
+                {
+                    "rank": 2,
+                    "id": "002632",
+                    "text": "don't shift weight on feet or lean to right",
+                    "score": 0.7505
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "002681",
+                    "text": "don't shift weight on feet",
+                    "score": 0.7949
+                },
+                {
+                    "rank": 2,
+                    "id": "002632",
+                    "text": "don't shift weight on feet or lean to right",
+                    "score": 0.7505
+                }
+            ]
+        },
+        {
+            "id": "001964",
+            "predicted": "walk 3 steps ahead and 2 backwards",
+            "gt": "walk two small steps ahead and one backwards",
+            "gt_rank": 1,
+            "gt_score": 0.9236,
+            "gt_diag_score": 0.9236,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "001964",
+                    "text": "walk two small steps ahead and one backwards",
+                    "score": 0.9236
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "001964",
+                    "text": "walk two small steps ahead and one backwards",
+                    "score": 0.9236
+                }
+            ]
+        },
+        {
+            "id": "004920",
+            "predicted": "don't spread your legs as much. make a wide circular motion with your upper body as if you're looking around",
+            "gt": "spread legs less, look around and rapidly look behind you at the end",
+            "gt_rank": 1,
+            "gt_score": 0.8252,
+            "gt_diag_score": 0.8252,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "004920",
+                    "text": "spread legs less, look around and rapidly look behind you at the end",
+                    "score": 0.8252
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "004920",
+                    "text": "spread legs less, look around and rapidly look behind you at the end",
+                    "score": 0.8252
+                }
+            ]
+        },
+        {
+            "id": "000052",
+            "predicted": "make a wider turn",
+            "gt": "MAKE A WIDER TURN",
+            "gt_rank": 1,
+            "gt_score": 0.6301,
+            "gt_diag_score": 0.6301,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "000052",
+                    "text": "MAKE A WIDER TURN",
+                    "score": 0.6301
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "000052",
+                    "text": "MAKE A WIDER TURN",
+                    "score": 0.6301
+                }
+            ]
+        },
+        {
+            "id": "000376",
+            "predicted": "reach down further right",
+            "gt": "reach more to the right with the same hand",
+            "gt_rank": 1,
+            "gt_score": 0.6076,
+            "gt_diag_score": 0.6076,
+            "top3": [
+                {
+                    "rank": 1,
+                    "id": "000376",
+                    "text": "reach more to the right with the same hand",
+                    "score": 0.6076
+                },
+                {
+                    "rank": 2,
+                    "id": "006247",
+                    "text": "hold right arm higher",
+                    "score": 0.5435
+                },
+                {
+                    "rank": 3,
+                    "id": "001440",
+                    "text": "raise your left hand faster",
+                    "score": 0.4952
+                }
+            ],
+            "top5": [
+                {
+                    "rank": 1,
+                    "id": "000376",
+                    "text": "reach more to the right with the same hand",
+                    "score": 0.6076
+                },
+                {
+                    "rank": 2,
+                    "id": "006247",
+                    "text": "hold right arm higher",
+                    "score": 0.5435
+                },
+                {
+                    "rank": 3,
+                    "id": "001440",
+                    "text": "raise your left hand faster",
+                    "score": 0.4952
+                },
+                {
+                    "rank": 4,
+                    "id": "007409",
+                    "text": "move your left hand closer to the right one",
+                    "score": 0.4598
+                },
+                {
+                    "rank": 5,
+                    "id": "006636",
+                    "text": "extend the left arm more",
+                    "score": 0.412
+                }
+            ]
+        }
+    ]
+}
