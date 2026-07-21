@@ -106,7 +106,10 @@ function passFilter(c){
   const f=document.getElementById('filter').value;
   const q=document.getElementById('search').value.trim().toLowerCase();
   let ok=true;
-  if(f==='valid')            ok = VALID_GT.includes(c.category);
+  if(f==='g_random')         ok = c.group==='random';
+  else if(f==='g_worst')     ok = c.group==='worst';
+  else if(f==='g_best')      ok = c.group==='best';
+  else if(f==='valid')       ok = VALID_GT.includes(c.category);
   else if(f==='model_err')   ok = c.category==='recognition_error';
   else if(f==='gt_problems') ok = GT_PROBLEM.includes(c.category);
   else if(f==='problems')    ok = c.category!=='ok';
@@ -202,21 +205,27 @@ fetch('data.json').then(r=>r.json()).then(d=>{
   const cnt=ks=>ks.reduce((s,k)=>s+(counts[k]||0),0);
   const fsel=document.getElementById('filter');
   const validN=cnt(VALID_GT), gtN=cnt(GT_PROBLEM), modelN=counts['recognition_error']||0;
-  const presets=[
+  const gcount={}; d.forEach(c=>gcount[c.group]=(gcount[c.group]||0)+1);
+  const worstN=gcount['worst']||0, bestN=gcount['best']||0, randomN=gcount['random']||0;
+  const presets=[];
+  if(randomN) presets.push(['g_random', `🎲 Random sample (${randomN})`]);
+  if(worstN) presets.push(['g_worst', `🔻 Worst cases — diverse (${worstN})`]);
+  if(bestN)  presets.push(['g_best',  `🏆 Best zero-shot (${bestN})`]);
+  presets.push(
     ['valid',       `✅ Usable GT — worst first (${validN})`],
     ['model_err',   `🔴 Genuine model errors (${modelN})`],
     ['gt_problems', `⚠️ GT annotation problems (${gtN})`],
     ['problems',    `All problems (${d.length-(counts['ok']||0)})`],
     ['all',         `All (${d.length})`],
-  ];
+  );
   const singles=[];
   ['recognition_error','mislabel_model_right','mislabel_review','corrupted','refusal','uncaptionable','ok']
     .forEach(k=>{ if(counts[k]) singles.push([k,`${CAT[k].label} (${counts[k]})`]); });
   fsel.innerHTML =
     `<optgroup label="Views">`+presets.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')+`</optgroup>`+
     `<optgroup label="Single category">`+singles.map(([v,l])=>`<option value="${v}">${l}</option>`).join('')+`</optgroup>`;
-  // pick a sensible default: prefer usable-GT view, else the only group present
-  fsel.value = validN? 'valid' : (modelN? 'model_err' : 'all');
+  // default: random sample if present, else worst, else usable-GT view
+  fsel.value = randomN? 'g_random' : (worstN? 'g_worst' : (validN? 'valid' : (modelN? 'model_err' : 'all')));
   rebuild();
 }).catch(e=>{
   document.getElementById('detail').innerHTML =
